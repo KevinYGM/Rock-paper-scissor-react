@@ -34,8 +34,7 @@
 }
 
 .footer .social-media-container .social-media:active{
-  color: black;
-  background-image: var(--button-color-hover);
+  background-image: var(--button-color-active);
   transform: scale(1.2);
 }
 

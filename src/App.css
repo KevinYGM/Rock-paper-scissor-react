@@ -1,24 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One:ital@1&family=Mukta:wght@300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
 
 :root{
   --main-color: rgb(2 2 26);
   --second-color: rgb(53 53 109);
-  --button-color: linear-gradient(to right, rgb(155, 140, 197), rgb(182, 159, 247) );
+  --button-color2: linear-gradient(to right, rgb(155, 140, 197), rgb(182, 159, 247) );
   --button-color-active: linear-gradient(to right, #88d63b, #d4f324); 
-  --button-color-hover: linear-gradient(to right, rgb(165, 13, 34), rgb(207, 112, 22));
+  --button-color: linear-gradient(to right, rgb(165, 13, 34), rgb(207, 112, 22));
   --victory-color: linear-gradient(to right, rgb(13, 165, 33), rgb(20, 100, 20));
   --loses-color: linear-gradient(to right, rgb(194, 21, 35), rgb(71, 13, 13));
+  --button-select-character: linear-gradient(to right, rgb(21, 76, 194), rgb(18, 24, 85));
 }
 
 h1{
-  font-size: 80%;
+  font-size: 110%;
   font-family: 'Mukta', sans-serif;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 
 .mixt-zone{
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .brand{

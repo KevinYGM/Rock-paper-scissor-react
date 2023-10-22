@@ -1,14 +1,73 @@
 .select-character{
-  background: rgba(243, 243, 243, 0.137);
-  align-self: center;
+  background-image: var(--button-color);
+  background-image: var(--button-select-character);
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   width: 95%;
   height: 39%;
   margin-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  font-size: 6vw;
+  padding: 0.5vw;
+}
+
+.select-character span:nth-child(1){
+  font-weight: 300;
+}
+
+.select-character .character-img-container{
+  background: rgba(243, 243, 243, 0.137);
 }
 
 .select-character img{
   height: 100%;
   width: 100%;
+}
+
+.select-character .character-name{
+  display: flex;
+  justify-content: center;
+  font-family: 'Yellowtail', cursive;
+}
+
+.select-character .character-name:active{
+  color: black;
+}
+
+.select-character .character-footer{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  
+  
+}
+
+.select-character .character-footer button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2vw;
+  border: none;
+  font-size: 5vw;
+  background-image: var(--button-select-character);
+  width: 80%;
+  cursor: pointer;
+}
+
+.select-character .character-footer button:active{
+  background-image: var(--button-color-active);
+  color: black;
+}
+
+.select-character .character-footer button:first-child,
+.select-character .character-footer button:last-child{
+  width: 10%;
+  font-size: 4.3vw;
+  font-weight: bold;
+  background-color: black;
 }

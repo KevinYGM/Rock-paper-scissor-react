@@ -31,7 +31,7 @@
 }
 
 .start-game .btn-start-game:hover{
-  background-image: var(--button-color-hover);
+  background-image: var(--loses-color);
 }
 
 .start-game .btn-start-game:active{

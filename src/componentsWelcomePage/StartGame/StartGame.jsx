@@ -5,7 +5,7 @@ export const StartGame = () => {
   return (
     <div className="start-game">
       <div className="btn-container">
-        <button className="btn-start-game">Start Game</button>
+        <button className="btn-start-game">⚔️ Start Game</button>
       </div>
       <div className="record-vs-pc">
         <div className="victorys record"><span>🏆 Victorys: </span><strong>0</strong></div>
