@@ -1,0 +1,38 @@
+.title{
+  width: 95%;
+  height: 24%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10vw;
+  overflow: hidden;
+}
+
+.title div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  padding: 3%;
+  
+  overflow: hidden;
+}
+
+.title h1{
+  width: 50%;
+}
+
+.title img{
+  width: 65%;
+  animation: rotation-infinity 5s linear infinite;
+}
+
+@keyframes rotation-infinity {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,126 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
-
 @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One:ital@1&family=Mukta:wght@300;700&display=swap');
 
 :root{
   --main-color: rgb(2 2 26);
   --second-color: rgb(53 53 109);
-  --button-color: linear-gradient(to right, rgb(107, 55, 250), rgb(182, 159, 247) );
+  --button-color: linear-gradient(to right, rgb(155, 140, 197), rgb(182, 159, 247) );
   --button-color-active: linear-gradient(to right, #88d63b, #d4f324); 
   --button-color-hover: linear-gradient(to right, rgb(165, 13, 34), rgb(207, 112, 22));
+  --victory-color: linear-gradient(to right, rgb(13, 165, 33), rgb(20, 100, 20));
+  --loses-color: linear-gradient(to right, rgb(194, 21, 35), rgb(71, 13, 13));
 }
 
 h1{
-  font-size: 9vw;
+  font-size: 80%;
   font-family: 'Mukta', sans-serif;
 }
 
-.header{
-  background: var(--main-color);
-  width: 100%;
-  height: 4%;
+.mixt-zone{
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 5vw;
-  font-size: 5vw;
+  flex-direction: column;
 }
-
-.title{
-  width: 95%;
-  height: 24%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 10vw;
-}
-
-.title div{
-  width: 50%;
-  height: 80%;
-}
-
-.title h1{
-  width: 50%;
-}
-
-.title img{
-  width: 100%;
-  height: 100%;
-  animation: rotation-infinity 5s linear infinite;
-}
-
-@keyframes rotation-infinity {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-.select-character{
-  background: white;
-  align-self: center;
-  opacity: 0.07;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  width: 95%;
-  height: 39%;
-}
-
-.start-game{
-  width: 100%;
-  height: 19%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.start-game .btn-start-game{
-  width: 50vw;
-  height: 14vw;
-  background-image: var(--button-color);
-  border: none;
-  border-radius: 7px;
-  font-weight: bold;
-  font-size: 6vw;
-  cursor: pointer;
-}
-
-.start-game .btn-start-game:hover{
-  background-image: var(--button-color-hover);
-}
-
-.start-game .btn-start-game:active{
-  background-image: var(--button-color-active);
-  box-shadow: 0px 0px 2px 1px #88d63b;
-  color: black;
-}
-
-.start-game .btn-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 51.5vw;
-  height: 16.5vw;
-  border-radius: 9px;
-  background: rgba(243, 243, 243, 0.137);
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
-  
-  
-}
-
-.footer{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: transparent;
-  padding: 5vw;
-  width: 100%;
-  height: 9%;
-}
-
 
 .brand{
   display: inline-flex;
@@ -134,35 +33,4 @@ h1{
 
 .brand:hover{
   transform: rotate3d(0, 1, 0, 360deg) scale(1.1);
-}
-
-.footer .social-media-container{
-  display: flex;
-  gap: 1.5vw;
-}
-
-.footer .social-media-container .social-media{
-  background: rgba(243, 243, 243, 0.137);
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
-  width: 6vw;
-  height: 6vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  font-size: 3.8vw;
-  transition: all 100ms ease-in-out;
-}
-
-.footer .social-media-container .social-media:hover{
-  background-image: var(--button-color);
-  transform: scale(1.2);
-}
-
-.footer .social-media-container .social-media:active{
-  color: black;
-  background-image: var(--button-color-hover);
-  transform: scale(1.2);
-  
 }

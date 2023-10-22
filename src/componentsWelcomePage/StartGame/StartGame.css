@@ -1,0 +1,79 @@
+/*-------------------Area Button start-game-------------------------*/
+.start-game{
+  width: 100%;
+  height: 19%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2vw;
+}
+
+.start-game .btn-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 51.5vw;
+  height: 16.5vw;
+  border-radius: 9px;
+  background: rgba(243, 243, 243, 0.137);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.start-game .btn-start-game{
+  width: 50vw;
+  height: 14vw;
+  background-image: var(--button-color);
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 6vw;
+  cursor: pointer;
+}
+
+.start-game .btn-start-game:hover{
+  background-image: var(--button-color-hover);
+}
+
+.start-game .btn-start-game:active{
+  background-image: var(--button-color-active);
+  box-shadow: 0px 0px 2px 1px #88d63b;
+  color: black;
+}
+
+/*-------------------Area Record vs Pc-------------------------*/
+
+.record-vs-pc{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vw;
+  width: 30vw;
+}
+
+.record{
+  padding: 1vw;
+  font-size: 4vw;
+  border-radius: 5px 5px 20px 5px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid white;
+  cursor: pointer;
+  transition: all 650ms ease-in-out;
+}
+
+.record:hover{
+  transform: scale(1.1);
+}
+
+.record strong{
+  font-size: 5vw;
+}
+
+.victorys{
+  background: var(--victory-color);
+}
+
+.loses{
+  background: var(--loses-color);
+}
