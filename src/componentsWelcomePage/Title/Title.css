@@ -1,26 +1,25 @@
 .title{
-  width: 95%;
-  height: 24%;
+  width: 90%;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 10vw;
   overflow: hidden;
+  padding: 1vw;
 }
 
 .title div{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 40%;
   height: 100%;
   padding: 3%;
-  
   overflow: hidden;
 }
 
 .title h1{
-  width: 50%;
+  width: 60%;
 }
 
 .title img{
@@ -35,4 +34,23 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+@media (min-width: 700px) {
+  .title{
+    grid-template-columns: 2 / 3;
+    grid-template-rows: 1 / 2;
+    height: 100%;
+    width: 100%;
+  }
+
+  .title div{
+    width: 50%;
+    max-width: 23rem;
+  }
+
+  .title img{
+    width: 100%;
+  }
+
 }

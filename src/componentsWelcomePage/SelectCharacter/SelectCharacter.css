@@ -1,73 +1,199 @@
 .select-character{
-  background-image: var(--button-color);
-  background-image: var(--button-select-character);
+  background-image: var(--select-character);
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
-  width: 95%;
-  height: 39%;
+  width: 90%;
+  height: 50%;
   margin-bottom: 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-  font-size: 6vw;
+  font-size: max(1.5rem, min(6vw, 3.5rem));
   padding: 0.5vw;
+
 }
 
 .select-character span:nth-child(1){
   font-weight: 300;
 }
 
+/*---------card turn effect-----------*/
+
 .select-character .character-img-container{
+  width:97%;
+  height: 40rem;
   background: rgba(243, 243, 243, 0.137);
+  perspective: 1000px;
+  position: relative;
+  overflow: hidden;
 }
 
-.select-character img{
+.character-img-container .front-image, 
+.character-img-container .back-image{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out; /* Añadimos la propiedad "opacity" a la transición */
+  opacity: 1;
+}
+
+.character-img-container .front-image{
+  background-color: blue;
+  background-image: url(../../images/blue-background.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+  border: 0.4vw solid rgb(0, 195, 255);
+
+  transform: rotateY(0deg);
+  opacity: 1;
+}
+
+.character-img-container .back-image{
+  transform: rotateY(180deg);
+  opacity: 0;
+  
+  background-image: url(../../images/reverse-card-purple.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.back-image .inside-back-card{
+  position:relative;
+  width: 100%;
+  height: 100%;
+}
+
+.inside-back-card .title-back-card{
+  position: absolute;
+  top: 29%;
+  transform: translateY(-50%);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  
+}
+
+.inside-back-card .title-back-card .text-of-type{
+  font-family: 'Yellowtail', cursive;
+  color: var(--color-font-main);
+  font-size: max(2rem, min(7vw, 3.5rem));
+}
+
+.inside-back-card .title-back-card .img-element-hand{
+  width: 13%;
+}
+
+
+
+.back-image .img-element{
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 25%;
+  min-width: 8rem;
+  height: 25%;
+  border: 0.4vw groove var(--color-font-main);
+  background-image: linear-gradient(to right, rgb(48, 13, 105), rgb(255, 0, 242));
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+
+
+.back-image .text-description{
+  position: absolute;
+  text-align: center;
+  top: 82%;
+  transform: translateY(-50%);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: max(1.5rem, min(1.8vw, 2rem));
+  width: 70%;
+  color: var(--color-font-main);
+}
+
+.character-img-container:hover .front-image {
+  transform: rotateY(-180deg);
+  opacity: 0;
+  
+}
+
+.character-img-container:hover .back-image {
+  transform: rotateY(0deg);
+  opacity: 1;
+}
+
+
+
+
+/*---------End card turn effect-----------*/
+
+
+.select-character .character-img-container img{
   height: 100%;
   width: 100%;
 }
 
-.select-character .character-name{
-  display: flex;
-  justify-content: center;
-  font-family: 'Yellowtail', cursive;
-}
-
-.select-character .character-name:active{
-  color: black;
-}
-
+/*---------Character-footer----------------*/
 .select-character .character-footer{
   display: flex;
   width: 100%;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 0;
-  
-  
 }
+
+.select-character .character-name{
+  text-align: center;
+  font-family: 'Yellowtail', cursive;
+}
+
+/*------button of character-footer----------*/
 
 .select-character .character-footer button{
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2vw;
+  background-color: transparent;
   border: none;
-  font-size: 5vw;
-  background-image: var(--button-select-character);
-  width: 80%;
   cursor: pointer;
+  font-size: max(1.5rem, min(6vw, 4rem));
+  font-weight: bold;
+  color: white;
+}
+
+.select-character .character-footer button:hover{
+  color: yellow;
 }
 
 .select-character .character-footer button:active{
-  background-image: var(--button-color-active);
-  color: black;
+  color: orange;
 }
 
-.select-character .character-footer button:first-child,
-.select-character .character-footer button:last-child{
-  width: 10%;
-  font-size: 4.3vw;
-  font-weight: bold;
-  background-color: black;
+@media (min-width: 700px) {
+   .select-character{
+    grid-column: 1 / 2;
+    grid-row: 1 / 5;
+    align-self: center;
+    height: 92%;
+  }
+
+   .select-character .character-img-container{
+    height: 100%;
+   }
+
+}
+
+@media (min-width: 700px) and (max-width: 800px){
+  
+  .select-character{
+    font-size: max(1.5rem, min(4vw, 3.5rem));
+  }
 }

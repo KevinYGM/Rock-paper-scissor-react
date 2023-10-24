@@ -4,9 +4,13 @@
   justify-content: space-between;
   align-items: center;
   background: transparent;
-  padding: 5vw;
+  padding: max(0.5rem, min(3vw, 3rem));
   width: 100%;
-  height: 9%;
+  height: 8%;
+}
+
+.footer .credits{
+  display: none;
 }
 
 .footer .social-media-container{
@@ -15,16 +19,18 @@
 }
 
 .footer .social-media-container .social-media{
-  background: rgba(243, 243, 243, 0.137);
+  background-image: var(--select-character);
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
   border-radius: 50%;
-  width: 6vw;
-  height: 6vw;
+  width: 4vw;
+  max-width: 5rem;
+  height: 4vw;
+  max-height: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  font-size: 3.8vw;
+  font-size: max(1rem, min(2.5vw, 3rem));
   transition: all 100ms ease-in-out;
 }
 
@@ -36,9 +42,16 @@
 .footer .social-media-container .social-media:active{
   background-image: var(--button-color-active);
   transform: scale(1.2);
+  color: black;
 }
 
 /*The Brand section is located in the "app.css" file because it is a shared section between the header and the footer.*/
 
 
-/*@media (min-width: 800px) {}*/
+@media (min-width: 700px) {
+  .footer .credits{
+    display: flex;
+    color: rgb(108, 86, 143);
+    font-size: max(1rem, min(1.8vw, 3rem));
+  }
+}

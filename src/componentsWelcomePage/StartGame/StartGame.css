@@ -1,33 +1,26 @@
 /*-------------------Area Button start-game-------------------------*/
 .start-game{
-  width: 100%;
-  height: 19%;
+  width: 95%;
+  height: 25%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   gap: 2vw;
-}
-
-.start-game .btn-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 51.5vw;
-  height: 16.5vw;
-  border-radius: 9px;
-  background: rgba(243, 243, 243, 0.137);
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
-}
+ }
 
 .start-game .btn-start-game{
-  width: 50vw;
+  width: 45vw;
+  max-width: 70rem;
   height: 14vw;
+  max-height: 13rem;
   background-image: var(--button-color);
-  border: none;
-  border-radius: 7px;
+  border-radius: 2vw;
   font-weight: bold;
-  font-size: 6vw;
+  font-size: max(1.5rem, min(6vw, 6rem));
+  color: white;
   cursor: pointer;
+  border: 5px solid rgba(243, 243, 243, 0.137);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .start-game .btn-start-game:hover{
@@ -44,14 +37,14 @@
 
 .record-vs-pc{
   display: flex;
-  flex-direction: column;
   gap: 1.5vw;
-  width: 30vw;
+  width: 50vw;
 }
 
 .record{
   padding: 1vw;
   font-size: 4vw;
+  font-size: max(1rem, min(4vw, 3rem));
   border-radius: 5px 5px 20px 5px;
   font-weight: bold;
   display: flex;
@@ -60,6 +53,29 @@
   border: 1px solid white;
   cursor: pointer;
   transition: all 650ms ease-in-out;
+}
+
+.record-statement{
+  display:flex;
+  width: 100%;
+  max-width: 70rem;
+  height: 14vw;
+  max-height: 13rem;
+  gap: 1vw;
+  background-image: var(--section-record);
+  border-radius: 1vw;
+  font-size: max(1.5rem, min(6vw, 6rem));
+  padding: 1.1vw;
+  color: white;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  border: 5px solid rgba(243, 243, 243, 0.137);
+  
+}
+
+.record-statement .recordG{
+  text-align: center;
+  color: black;
+  font-size: 5vw;
 }
 
 .record:hover{
@@ -72,8 +88,70 @@
 
 .victorys{
   background: var(--victory-color);
+  width: 48%;
 }
 
 .loses{
   background: var(--loses-color);
+  width: 48%;
+}
+
+@media (min-width: 700px) {
+ 
+  .start-game{
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  grid-column: 2 / 3;
+  grid-row: 2 / 5;
+  height: 60%;
+  width: 100%;
+  align-self: flex-start;
+  }
+
+  .start-game .btn-start-game{
+    width: 100%;
+  }
+  
+  .record-vs-pc{
+    justify-content: center;
+  }
+  
+  .record-statement{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    height: auto;
+    max-height: 20vw;
+    padding: 0.5vw 0;
+  }
+
+  .recordG{
+    grid-column: span 2;
+    grid-row: 1 / 2;
+  }
+
+  .record{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    padding: 0;
+  }
+
+  .record span{
+    grid-column: 1 / 2;
+    font-size: 5vw;
+  }
+  
+  .record strong{
+    grid-column: 2 / 3;
+    font-size: 7vw;
+  }
+
+  .victorys{
+    width: 100%;
+  }
+  
+  .loses{
+    width: 100%;
+  }
 }

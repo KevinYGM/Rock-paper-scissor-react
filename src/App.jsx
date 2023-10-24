@@ -10,8 +10,8 @@ function App() {
   return (
     <>
       <HeaderComponent />
-      <Title />
-      <div className="mixt-zone">
+      <div className="main-zone">
+        <Title />
         <SelectCharacter />
         <StartGame />
       </div>
