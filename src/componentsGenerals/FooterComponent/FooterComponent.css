@@ -51,7 +51,12 @@
 @media (min-width: 700px) {
   .footer .credits{
     display: flex;
-    color: rgb(108, 86, 143);
+    color: rgb(117, 103, 139);
     font-size: max(1rem, min(1.8vw, 3rem));
+  }
+
+  .footer .credits:hover{
+    cursor: pointer;
+    color: yellow;
   }
 }

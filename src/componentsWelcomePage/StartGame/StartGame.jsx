@@ -1,18 +1,26 @@
 import React from 'react'
 import './StartGame.css';
+import sword from '../../images/sword.png'
 
 export const StartGame = () => {
   return (
     <div className="start-game">
-      <button className="btn-start-game">⚔️ Start Game</button>
+      <button className="btn-start-game">
+        <div className="sword-container">
+          <img src={sword} alt="sword" className="sword sword1" />
+          <img src={sword} alt="sword 2" className="sword sword2"/>
+        </div>
+        <span>Start Game</span>
+      </button>
       
       <div className="record-vs-pc">
         <div className='record-statement'>
           <span className='recordG'>Global Record</span>
-          <div className="victorys record"><span>🏆</span><strong>0</strong></div>
-          <div className="loses record"><span>☠️</span><strong>0</strong></div>
+          <div className="victorys record"><span className='victorys-span'>🏆</span><strong className='victorys-strong'>0</strong></div>
+          <div className="loses record"><strong className='loses-strong'>0</strong><span className='loses-span'>☠️</span></div>
         </div>
       </div>
+
     </div>
   )
 }

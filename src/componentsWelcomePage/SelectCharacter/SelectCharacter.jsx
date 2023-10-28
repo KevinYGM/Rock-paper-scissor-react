@@ -1,46 +1,58 @@
-import React from 'react'
 import './SelectCharacter.css';
-import melissaPaper from '../../images/character-blue-paper.png';
-import backPaper from '../../images/paper.png';
-import backPaperHand from '../../images/paper-hand.png';
+import React, { useState } from 'react';
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle  } from "react-icons/io"
 
-export const SelectCharacter = () => {
+
+export const SelectCharacter = ({ characters }) => {
+
+  const [index, setIndex] = useState(0); // Estado para rastrear el índice del personaje actual
+  
+  const changeCharacter = (address) => {
+    if (address === 'forward') {
+      setIndex((prevIndex) => (prevIndex + 1) % characters.length); // Avanzar al siguiente personaje, volviendo al primero al llegar al final
+    } else if (address === 'back') {
+      setIndex((prevIndex) => (prevIndex - 1 + characters.length) % characters.length); // Retroceder al personaje anterior, volviendo al último al llegar al primero
+    }
+  };
+
   return (
     <div className='select-character'>
       <span>Select Your Character: </span>
-
+{/*--------------------------section Image Character---------------------------------- */}
       <div className='character-img-container'>
+
         <div className="front-image">
-          <img src={melissaPaper} alt="character of paper" />
+          <img src={characters[index].photo} alt="characters[index].name" />
         </div>
+    {/*-----------------------section Back image------------------- */}
         <div className="back-image">
           <div className="inside-back-card">
-
             <div className='title-back-card'>
-              
-              <div className="img-element-hand">
-                <img src={backPaperHand} alt="back paper hand" /> 
-              </div>
-              <span className='text-of-type'>Paper</span>
+              <span className='text-of-type'>{characters[index].type}</span>
             </div>
 
             <div className="img-element">
-              <img src={backPaper} alt="back paper" /> 
+              <img src={characters[index].imageType} alt="characters[index].type" /> 
             </div>
            
             <p className="text-description">
-            "Melissa is a Paper type character, every time she wins a round with Paper, you will earn double points."
+              {characters[index].description}
             </p>
-            
           </div>
         </div>
       </div>
-      
+
+{/*--------------------------section footer Character---------------------------------- */}  
       <div className='character-footer'>
-        <button><IoIosArrowDropleftCircle /></button>
-        <span className='character-name'>Melissa Paper</span>
-        <button><IoIosArrowDroprightCircle /></button>
+        <button 
+              onClick={() => changeCharacter('forward')}
+        ><IoIosArrowDropleftCircle /></button>
+
+        <span className='character-name'>{characters[index].name + " " + characters[index].iconType}</span>
+
+        <button
+                onClick={() => changeCharacter('back')}>
+        <IoIosArrowDroprightCircle /></button>
       </div>
      </div>
   )

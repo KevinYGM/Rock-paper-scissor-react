@@ -1,4 +1,4 @@
-/*-------------------Area Button start-game-------------------------*/
+/*-------------------General Section-------------------------*/
 .start-game{
   width: 95%;
   height: 25%;
@@ -8,30 +8,76 @@
   gap: 2vw;
  }
 
+ /*-------------------Section: Button Start-Game----------------*/
+
 .start-game .btn-start-game{
   width: 45vw;
   max-width: 70rem;
   height: 14vw;
   max-height: 13rem;
+  display: flex;
+  justify-content: center;
+  gap: 5vw;
+  align-items: center;
   background-image: var(--button-color);
   border-radius: 2vw;
   font-weight: bold;
   font-size: max(1.5rem, min(6vw, 6rem));
   color: white;
   cursor: pointer;
-  border: 5px solid rgba(243, 243, 243, 0.137);
+  border: 0.2vw solid white;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  transition: all 100ms ease-in-out;
 }
 
 .start-game .btn-start-game:hover{
   background-image: var(--loses-color);
+  transform: scale(1.1);
 }
 
 .start-game .btn-start-game:active{
   background-image: var(--button-color-active);
   box-shadow: 0px 0px 2px 1px #88d63b;
   color: black;
+  transform: scale(1.2);
 }
+
+
+
+/*----------Sword styles of Button Start Game-----*/
+
+.sword-container {
+  position: relative;
+  width: 20%;
+}
+
+.sword-container .sword {
+  position: absolute;
+  width: 80%;
+  /*height: 80%;*/
+  top: 50%;
+  transform: translateY(-50%) rotate(-42deg);
+  transition: all 0.5s ease-in-out;
+}
+
+.sword-container .sword1 {
+  left: 40%;
+  
+}
+
+.sword-container .sword2 {
+  left: 70%;
+}
+
+.btn-start-game:hover .sword1 {
+  transform: translateY(-57%) translateX(0%) rotate(10deg) scale(1.5);
+}
+
+.btn-start-game:hover .sword2 {
+  transform: translateY(-50%) translateX(-20%) rotate(-95deg) scale(1.5);
+}
+
+
 
 /*-------------------Area Record vs Pc-------------------------*/
 
@@ -41,22 +87,10 @@
   width: 50vw;
 }
 
-.record{
-  padding: 1vw;
-  font-size: 4vw;
-  font-size: max(1rem, min(4vw, 3rem));
-  border-radius: 5px 5px 20px 5px;
-  font-weight: bold;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border: 1px solid white;
-  cursor: pointer;
-  transition: all 650ms ease-in-out;
-}
-
-.record-statement{
+ .record-vs-pc .record-statement{
   display:flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   max-width: 70rem;
   height: 14vw;
@@ -65,11 +99,15 @@
   background-image: var(--section-record);
   border-radius: 1vw;
   font-size: max(1.5rem, min(6vw, 6rem));
-  padding: 1.1vw;
   color: white;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
-  border: 5px solid rgba(243, 243, 243, 0.137);
-  
+  overflow: hidden;
+  border: 0.2vw solid white;
+}
+
+.record-vs-pc .record-statement:hover{
+  transform: scale(1.1);
+  transition: all 100ms ease-in-out;
 }
 
 .record-statement .recordG{
@@ -78,23 +116,71 @@
   font-size: 5vw;
 }
 
-.record:hover{
-  transform: scale(1.1);
+.record-statement .record{
+  padding: 1vw;
+  font-size: 4vw;
+  font-size: max(1rem, min(7vw, 5rem));
+  font-weight: bold;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  cursor: pointer;
+  transition: all 650ms ease-in-out;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 50%;
+
 }
 
-.record strong{
+/* .record-statement .record:hover{
+  transform: scale(1.1);
+} */
+
+.record-statement .record strong{
   font-size: 5vw;
 }
 
-.victorys{
+.record-statement .victorys{
   background: var(--victory-color);
-  width: 48%;
+  
 }
 
-.loses{
+.record-statement .loses{
   background: var(--loses-color);
-  width: 48%;
+  /*width: 48%;*/
 }
+
+.record-statement .victorys:hover{
+  background: var(--section-record);
+  color: black;
+}
+
+.record-statement .loses:hover{
+  background: var(--section-loses-hover);
+}
+
+.victorys .victorys-span,
+.loses .loses-span{
+  transition: all 650ms ease-in-out;
+}
+
+.record-statement .victorys:hover .victorys-span,
+.record-statement .loses:hover .loses-span {
+  transform: scale(1.2);
+}
+
+.victorys .victorys-strong,
+.loses .loses-strong{
+  transition: all 650ms ease-in-out;
+}
+
+.record-statement .victorys:hover .victorys-strong,
+.record-statement .loses:hover .loses-strong {
+  transform: scale(1.2);
+}
+
+
+/*-------------------Media queries-------------------------*/
 
 @media (min-width: 700px) {
  
@@ -105,53 +191,70 @@
   grid-column: 2 / 3;
   grid-row: 2 / 5;
   height: 60%;
-  width: 100%;
+  width: 80%;
   align-self: flex-start;
   }
 
   .start-game .btn-start-game{
     width: 100%;
+    border-radius: 1vw;
+    padding: 0.5vw;
   }
   
+
+
   .record-vs-pc{
     justify-content: center;
   }
   
-  .record-statement{
+  .record-vs-pc .record-statement{
     display:grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto 1fr;
     height: auto;
     max-height: 20vw;
-    padding: 0.5vw 0;
+    width: 80%;
   }
 
-  .recordG{
+  .record-statement .recordG{
     grid-column: span 2;
     grid-row: 1 / 2;
   }
 
-  .record{
+  .record-statement .record{
+    grid-row: 2 / 3;
+    transition: all 650ms ease-in-out;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    width: 86%;
     padding: 0;
   }
 
-  .record span{
-    grid-column: 1 / 2;
+  .record-statement .record span{
+    grid-column: span 2;
     font-size: 5vw;
   }
-  
-  .record strong{
-    grid-column: 2 / 3;
+
+  .record-statement .record strong{
+    grid-column: span 1;
     font-size: 7vw;
   }
 
-  .victorys{
+  .record-statement .record:hover{
     width: 100%;
   }
-  
-  .loses{
-    width: 100%;
+
+ .record-statement .loses{
+    justify-self: flex-end;
   }
+
+  .record-statement .loses span{
+    justify-self: flex-end;
+  }
+
+  .record-statement .loses strong{
+    justify-self: flex-end;
+  }
+
 }

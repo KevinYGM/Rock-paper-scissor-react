@@ -14,7 +14,9 @@ export const FooterComponent = () => {
         <div className='social-media'><FaLinkedinIn /> </div>
         <div className='social-media'> <AiFillYoutube /> </div>
       </div>
+
       <span className='credits'>Programmed and designed by Kevin González Montenegro in 2023</span>
+      
       <span className='brand'>KYGM APP</span>
      </footer>
   )

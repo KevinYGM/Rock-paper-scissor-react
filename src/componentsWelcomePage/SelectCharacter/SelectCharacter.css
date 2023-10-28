@@ -1,3 +1,5 @@
+/*-----------------------Global Section------------------- */
+
 .select-character{
   background-image: var(--select-character);
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
@@ -11,14 +13,14 @@
   overflow: hidden;
   font-size: max(1.5rem, min(6vw, 3.5rem));
   padding: 0.5vw;
-
 }
 
+/*-----------------------Section: Select Character------------------- */
 .select-character span:nth-child(1){
   font-weight: 300;
 }
 
-/*---------card turn effect-----------*/
+/*----------------------------card turn effect---------------------------*/
 
 .select-character .character-img-container{
   width:97%;
@@ -29,18 +31,22 @@
   overflow: hidden;
 }
 
+.select-character .character-img-container img{
+  height: 100%;
+  width: 100%;
+}
+
 .character-img-container .front-image, 
 .character-img-container .back-image{
   width: 100%;
   height: 100%;
   position: absolute;
   backface-visibility: hidden;
-  transition: transform 1s ease-in-out, opacity 1s ease-in-out; /* Añadimos la propiedad "opacity" a la transición */
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
   opacity: 1;
 }
-
+/*----------------------------Section: front Image---------------------------*/
 .character-img-container .front-image{
-  background-color: blue;
   background-image: url(../../images/blue-background.jpg);
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -51,13 +57,15 @@
   opacity: 1;
 }
 
+/*----------------------------Section: Back Image---------------------------*/
+
 .character-img-container .back-image{
-  transform: rotateY(180deg);
-  opacity: 0;
-  
   background-image: url(../../images/reverse-card-purple.jpg);
   background-size: 100% 100%;
   background-repeat: no-repeat;
+
+  transform: rotateY(180deg);
+  opacity: 0;
 }
 
 .back-image .inside-back-card{
@@ -66,9 +74,10 @@
   height: 100%;
 }
 
+          /*----------------Section: Back Image: title------------------*/
 .inside-back-card .title-back-card{
   position: absolute;
-  top: 29%;
+  top: 28%;
   transform: translateY(-50%);
   left: 50%;
   transform: translateX(-50%);
@@ -76,7 +85,6 @@
   align-items: flex-end;
   justify-content: center;
   width: 100%;
-  
 }
 
 .inside-back-card .title-back-card .text-of-type{
@@ -85,11 +93,7 @@
   font-size: max(2rem, min(7vw, 3.5rem));
 }
 
-.inside-back-card .title-back-card .img-element-hand{
-  width: 13%;
-}
-
-
+          /*----------------Section: Back Image: Image Element------------------*/
 
 .back-image .img-element{
   position: absolute;
@@ -100,12 +104,12 @@
   min-width: 8rem;
   height: 25%;
   border: 0.4vw groove var(--color-font-main);
-  background-image: linear-gradient(to right, rgb(48, 13, 105), rgb(255, 0, 242));
+  background-image: var(--color-element-rps);
   border-radius: 50%;
   overflow: hidden;
 }
 
-
+          /*----------------Section: Back Image: Text Description------------------*/
 
 .back-image .text-description{
   position: absolute;
@@ -119,6 +123,7 @@
   color: var(--color-font-main);
 }
 
+/*----------------Transition Efect of the Section: Character-img-container------------------*/
 .character-img-container:hover .front-image {
   transform: rotateY(-180deg);
   opacity: 0;
@@ -130,18 +135,7 @@
   opacity: 1;
 }
 
-
-
-
-/*---------End card turn effect-----------*/
-
-
-.select-character .character-img-container img{
-  height: 100%;
-  width: 100%;
-}
-
-/*---------Character-footer----------------*/
+/*-----------------------Character-footer-------------------------------------*/
 .select-character .character-footer{
   display: flex;
   width: 100%;
@@ -153,9 +147,14 @@
 .select-character .character-name{
   text-align: center;
   font-family: 'Yellowtail', cursive;
+  transition: all 300ms ease-in-out;
 }
 
-/*------button of character-footer----------*/
+.select-character .character-name:hover{
+  color: yellow;
+  transform: scale(1.2);
+}
+                      /*------button of character-footer----------*/
 
 .select-character .character-footer button{
   display: flex;
@@ -167,17 +166,24 @@
   font-size: max(1.5rem, min(6vw, 4rem));
   font-weight: bold;
   color: white;
+  transition: all 100ms ease-in-out;
 }
 
 .select-character .character-footer button:hover{
   color: yellow;
+  transform: scale(1.2);
 }
 
 .select-character .character-footer button:active{
   color: orange;
+  transform: scale(1.6);
 }
 
-@media (min-width: 700px) {
+
+
+/*-----------------------Media queries-------------------------------------*/
+
+@media (min-width: 699px) {
    .select-character{
     grid-column: 1 / 2;
     grid-row: 1 / 5;
@@ -188,12 +194,11 @@
    .select-character .character-img-container{
     height: 100%;
    }
-
 }
 
-@media (min-width: 700px) and (max-width: 800px){
+@media (min-width: 700px) and (max-width: 950px){
   
   .select-character{
-    font-size: max(1.5rem, min(4vw, 3.5rem));
+    font-size: max(1.5rem, min(3vw, 3.5rem));
   }
 }
