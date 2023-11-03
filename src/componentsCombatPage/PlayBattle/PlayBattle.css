@@ -1,0 +1,84 @@
+.play-battle-container{
+  grid-area: playBattle;
+  display: grid;
+  grid-template-areas:
+          "characterPlayer playPlayer playCom characterCom"
+          "interactive interactive interactive interactive";
+  grid-template-rows: auto auto;
+  width: 95%;
+
+}
+
+
+.play-battle-container .character{
+  height: auto;
+  display: grid;
+  place-items: center;
+  
+  
+}
+
+.play-battle-container .character img{
+  width: 60%;
+  border: 0.4vw groove yellow;
+  border-radius: 1vw;
+  box-shadow: 0 0 20px rgba(255, 255, 0, 0.5);
+}
+
+.play-battle-container .character-player{
+  grid-area: characterPlayer;
+}
+
+.play-battle-container .character-com{
+  grid-area: characterCom;
+}
+
+
+
+
+
+.play-battle-container .play{
+  display: inline-flex;
+  font-size: max(5rem, min(6vw, 10rem));
+  place-self: center;
+}
+
+.play-battle-container .play-player{
+  background-color: green;
+  
+  grid-area: playPlayer; 
+  transform: rotate(-90deg) rotateX(180deg);
+ }
+
+.play-battle-container .play-com{
+  background-color: red;
+  grid-area: playCom;
+  transform: rotate(-90deg);
+}
+
+.play-battle-container .interactive-section{
+  position: relative;
+  grid-area: interactive;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  width: 85%;
+  border-radius: 20px;
+  padding: 1vw;
+  color: black;
+  -webkit-text-stroke: 0.05vw rgb(173, 2, 240);
+  font-size: max(1rem, min(3vw, 10rem));
+}
+
+.play-battle-container .interactive-section img{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.play-battle-container .interactive-section span{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

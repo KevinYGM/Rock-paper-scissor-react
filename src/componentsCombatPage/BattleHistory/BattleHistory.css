@@ -1,0 +1,35 @@
+.battle-history {
+  position: absolute;
+  top: 18%; /* Ajusta la posición según tus necesidades */
+  left: 0;
+  display: flex;
+  width: 200px; /* Ancho de la pestaña */
+  height: 300px;
+  transition: all 300ms ease-in-out;
+   z-index: 999;
+}
+
+.battle-history .content {
+  background-image: var(--background-history);
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.visible {
+  transform: translateX(-180px);
+}
+
+.battle-history .tab {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-image: var(--victory-color);
+  color: #fff;
+  cursor: pointer;
+  font-size: 2rem;
+  border-radius: 0 10px 10px 0;
+}
+
+.battle-history .visible-tab {
+  padding: 5px;
+}

@@ -1,0 +1,5 @@
+.rotar-pantalla {
+  transform: rotate(90deg);
+  width: 100vh;
+  height: 100vw;
+}

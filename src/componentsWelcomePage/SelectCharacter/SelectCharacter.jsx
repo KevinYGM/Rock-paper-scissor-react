@@ -5,13 +5,13 @@ import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle  } from "react-icon
 
 export const SelectCharacter = ({ characters }) => {
 
-  const [index, setIndex] = useState(0); // Estado para rastrear el índice del personaje actual
+  const [index, setIndex] = useState(0);
   
   const changeCharacter = (address) => {
     if (address === 'forward') {
-      setIndex((prevIndex) => (prevIndex + 1) % characters.length); // Avanzar al siguiente personaje, volviendo al primero al llegar al final
+      setIndex((prevIndex) => (prevIndex + 1) % characters.length);
     } else if (address === 'back') {
-      setIndex((prevIndex) => (prevIndex - 1 + characters.length) % characters.length); // Retroceder al personaje anterior, volviendo al último al llegar al primero
+      setIndex((prevIndex) => (prevIndex - 1 + characters.length) % characters.length);
     }
   };
 
