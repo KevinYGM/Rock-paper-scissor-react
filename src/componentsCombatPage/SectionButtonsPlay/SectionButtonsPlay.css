@@ -1,43 +1,48 @@
-:root{
-  --x: 45deg;
-}
+
+/*---------------General Configurations----------------------------------------*/
 
 .buttons-play-container{
   grid-area: play;
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
+  width: 95%;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  align-items: center;
   justify-content: center;
   gap: 2vw;
+  padding: 0 1vw;
 }
 
 
-
-
-
-
+/*---------------BUTTON General Configurations----------------------------------------*/
 
 .buttons-play-container button{
   background: transparent;
   cursor: pointer;
   box-shadow: 2px 2px 5px black;
   transition: all 300ms ease-in-out;
-  font-size: 4vw;
 
   position: relative;
-  width: 150px;
-  height: 55px;
-  border-radius: 5px;
+  width: 25%;
+  height: 5vw;
+  border-radius: 1.7vw;
+  cursor: pointer;
 }
+
+.buttons-play-container button:active{
+  transform: scale(1.3);
+}
+
+.buttons-play-container button:hover{
+  transform: scale(1.1);
+}
+
+/*---------------BUTTON I General Configurations----------------------------------------*/
 
 .buttons-play-container button i{
   position: absolute;
   inset: -2px;
   display: block;
-  border-radius: 5px;
-}
-
-.buttons-play-container button i{
+  border-radius: 1.7vw;
   background: linear-gradient(var(--x), #00ccff, #0e1538, #0e1538, #d400d4);
 }
 
@@ -45,8 +50,15 @@
   filter: blur(10px);
 }
 
+.buttons-play-container button:active i{
+  background: linear-gradient(var(--x), #fbff00, #e65614, #e65614, #d4000b);
+}
+
+
+/*---------------BUTTON SPAN General Configurations----------------------------------------*/
+
 .buttons-play-container button span{
-  font-size: 2vw;
+  font-size: 4vw;
   position: absolute;
   top: 0;
   left: 0;
@@ -59,7 +71,7 @@
   letter-spacing: 3px;
   background: rgba(14,21,56,0.50);
   overflow: hidden;
-  border-radius: 5px;
+  border-radius: 1.7vw;
 }
 
 .buttons-play-container button span::before{
@@ -73,27 +85,59 @@
   transform: skew(25deg);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-.button-play div img,
-.button-play-special div img{
-  width: 50%;
+.buttons-play-container button span:active{
+  background: var(--color-summary);
 }
 
+
+/*----------------------------------Specific Section Configurations------------------------------------*/
+
+/*-----------------Section Buttons-play-------------------*/
+
+.buttons-play-container .section-buttons-play{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/*-----------------Section Buttons-play-special and Surrender-------------------*/
+
+.buttons-play-container .button-play-special,
 .buttons-play-container .surrender{
-  font-size: max(1.5rem, min(1.5vw, 4rem));
+  justify-self: center;
+  width: 90%;
+  height: 7vw;
 }
 
-.buttons-play-container .surrender a{
-  color: red;
+.buttons-play-container .button-play-special span,
+.buttons-play-container .surrender span{
+  display: grid;
+  place-items: center;
+}
+
+.buttons-play-container .button-play-special img
+{
+  width: 35%;
+  animation: rotation-infinity 5s linear infinite;
+}
+
+.buttons-play-container .surrender img{
+  width: 50%;
+  animation: moverImagen 4s linear infinite;
+}
+
+
+
+/*-------------Animation: Buttons---------------*/
+
+@keyframes moverImagen {
+  0% {
+    transform: skew(0deg) scale(1);
+  }
+  50% {
+    transform: skew(7deg) scale(1.1);
+  }
+
+  100% {
+    transform: skew(0deg) scale(1);
+  }
 }

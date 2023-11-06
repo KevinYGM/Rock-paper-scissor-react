@@ -46,12 +46,10 @@
 }
 /*----------------------------Section: front Image---------------------------*/
 .character-img-container .front-image{
-  background-image: url(../../images/blue-background.jpg);
+  background-image: url(../../images/blue-background.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
-
-  border: 0.4vw solid rgb(0, 195, 255);
-
+  border: 0.4vw solid rgb(132, 0, 255);
   transform: rotateY(0deg);
   opacity: 1;
 }
@@ -62,7 +60,6 @@
   background-image: url(../../images/reverse-card-purple.jpg);
   background-size: 100% 100%;
   background-repeat: no-repeat;
-
   transform: rotateY(180deg);
   opacity: 0;
 }

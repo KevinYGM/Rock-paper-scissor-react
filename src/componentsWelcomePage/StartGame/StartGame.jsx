@@ -7,6 +7,7 @@ export const StartGame = () => {
   return (
     <div className="start-game">
       
+      {/* Start Game Button */}
       <Link className="link-btn-start-game" to='/combat'>
         <button className="btn-start-game">
           <div className="sword-container">
@@ -18,6 +19,7 @@ export const StartGame = () => {
       </Link>
       
       
+      {/*   Record Area */}
       <div className="record-vs-pc">
         <div className='record-statement'>
           <span className='recordG'>Global Record</span>

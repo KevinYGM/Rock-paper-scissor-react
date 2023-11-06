@@ -1,3 +1,4 @@
+/*------------General----------------------------*/
 
 .footer{
   grid-area: footer;
@@ -6,15 +7,17 @@
   justify-content: space-between;
   align-items: center;
   background: transparent;
-  /*padding: max(0.5rem, min(3vw, 3rem));*/
   padding: 0.5vw 1vw;
   width: 100%;
   height: auto;
 }
 
+/*------------Credits----------------------------*/
 .footer .credits{
   display: none;
 }
+
+/*------------Social Media----------------------------*/
 
 .footer .social-media-container{
   display: flex;
@@ -50,7 +53,7 @@
 
 /*The Brand section is located in the "app.css" file because it is a shared section between the header and the footer.*/
 
-
+/*------------Media Queries----------------------------*/
 @media (min-width: 700px) {
   .footer .credits{
     display: flex;

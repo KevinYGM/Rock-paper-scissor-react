@@ -8,12 +8,15 @@ export const SelectCharacter = ({ characters }) => {
   const [index, setIndex] = useState(0);
   
   const changeCharacter = (address) => {
+    // Function that allows you to change characters by pressing the arrow buttons.
     if (address === 'forward') {
       setIndex((prevIndex) => (prevIndex + 1) % characters.length);
     } else if (address === 'back') {
       setIndex((prevIndex) => (prevIndex - 1 + characters.length) % characters.length);
     }
   };
+
+
 
   return (
     <div className='select-character'>
@@ -22,7 +25,7 @@ export const SelectCharacter = ({ characters }) => {
       <div className='character-img-container'>
 
         <div className="front-image">
-          <img src={characters[index].photo} alt="characters[index].name" />
+          <img src={characters[index].photo} alt={characters[index].name} />
         </div>
     {/*-----------------------section Back image------------------- */}
         <div className="back-image">
@@ -32,7 +35,7 @@ export const SelectCharacter = ({ characters }) => {
             </div>
 
             <div className="img-element">
-              <img src={characters[index].imageType} alt="characters[index].type" /> 
+              <img src={characters[index].imageType} alt={characters[index].type} /> 
             </div>
            
             <p className="text-description">

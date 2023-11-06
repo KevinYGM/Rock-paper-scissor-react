@@ -11,6 +11,7 @@ export const ComponentWelcome = () => {
 
         <SelectCharacter
               characters = { characters } />
+              
         <StartGame />
     </div>
   )

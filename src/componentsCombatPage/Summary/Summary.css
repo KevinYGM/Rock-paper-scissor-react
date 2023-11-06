@@ -17,7 +17,7 @@
   box-shadow: 0 0 7px rgba(255, 255, 0, 0.5);
 }
           
-           /*-----------------summary-character-----------------*/
+/*-----------------summary-character-----------------*/
 
 .summary .summary-character{
   position: absolute;
@@ -28,13 +28,6 @@
   width: 30%;
 }
 
-.summary .summary_character-player{
-  left: -1%;
-}
-
-.summary .summary_character-com{
-  left: 71%;
-}
 
 .summary .img-character{
   display: grid;
@@ -56,7 +49,21 @@
   text-align: center;
 }
 
-          /*-----------------summary-separation-----------------*/
+/*------------Character-Player and Character-Com-----------------*/
+
+
+.summary .summary_character-player{
+  left: -1%;
+}
+
+.summary .summary_character-com{
+  left: 71%;
+}
+
+
+
+
+/*-----------------summary-separation-----------------*/
 
 .summary .summary_separation{
   position: absolute;
@@ -73,7 +80,9 @@
   width: 100%;
 }
 
-           /*-----------------summary-points-----------------*/
+
+
+/*-----------------summary-points-----------------*/
 
 .summary .points{
   position: absolute;
@@ -84,25 +93,13 @@
   transition: all 300ms ease-in-out;
 }
 
+.points .container-point{
+  position: relative;
+}
+
 .summary .points img{
   height: 60%;
   width: 60%;
-}
-
-
-
-.summary .summary_points-com{
-  left: 35%;
-  right: 0;
-}
-
-.summary .summary_points-player{
-  left: 0;
-  right: 24%;
-}
-
-.points .container-point{
-  position: relative;
 }
 
 .points .container-point span{
@@ -116,5 +113,21 @@
   -webkit-text-stroke: 0.1vw rgb(240, 204, 2);
   font-weight: bold;
 }
+
+/*------------Points-Player and Points-Com-----------------*/
+
+.summary .summary_points-player{
+  left: 0;
+  right: 24%;
+}
+
+.summary .summary_points-com{
+  left: 35%;
+  right: 0;
+}
+
+
+
+
 
 

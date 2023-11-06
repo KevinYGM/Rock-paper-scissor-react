@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import './ComponentCombat.css';
 import { Summary } from './Summary/Summary';
 import { BattleHistory } from './BattleHistory/BattleHistory';
 import { PlayBattle } from './PlayBattle/PlayBattle';
@@ -8,37 +7,42 @@ import { SectionButtonsPlay } from './SectionButtonsPlay/SectionButtonsPlay';
 
 
 export const ComponentCombat = () => {
-  const [referenceHeight, setReferenceHeight] = useState(null);
 
-  const [anchoPantalla, setAnchoPantalla] = useState(window.innerWidth);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setAnchoPantalla(window.innerWidth);
-    };
+/*----------------INICIO DE CODIGO A EVALUAR--------------*/
 
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
+const [referenceHeight, setReferenceHeight] = useState(null);
 
   useEffect(() => {
-    if (anchoPantalla < 700) {
-      document.body.classList.add('rotar-pantalla');
+  const handleResize = () => {
+    setWidthScreen(window.innerWidth);
+  };
+
+  window.addEventListener('resize', handleResize);
+
+  return () => {
+    window.removeEventListener('resize', handleResize);
+  };
+}, []);
+
+/*----------------FIN DE CODIGO A EVALUAR--------------*/
+
+const [widthScreen, setWidthScreen] = useState(window.innerWidth);
+
+  useEffect(() => {
+    // function to activate screen rotation
+    if (widthScreen < 700) {
+      document.body.classList.add('rotate-screen');
     } else {
-      document.body.classList.remove('rotar-pantalla');
+      document.body.classList.remove('rotate-screen');
     }
-  }, [anchoPantalla]);
+  }, [widthScreen]);
 
 
 return (
-    <>
       <div className='combat-page'>
         
-        <Summary />
+        <Summary characters= { characters } />
         <BattleHistory referenceHeight={referenceHeight} />
 
         <PlayBattle characters= { characters } 
@@ -46,7 +50,5 @@ return (
 
         <SectionButtonsPlay characters= { characters }/>
       </div>
-      
-    </>
-  )
-}
+    )
+  }

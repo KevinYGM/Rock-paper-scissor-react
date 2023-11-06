@@ -1,26 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One:ital@1&family=Mukta:wght@300;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
 
-:root{
-  --main-color: rgb(2 2 26);
-  --second-color: rgb(53 53 109);
-  --color-element-rps: linear-gradient(to right, rgb(48, 13, 105), rgb(255, 0, 242));
-  --color-font-main: rgb(211, 208, 185);
-  --button-color2: linear-gradient(to right, rgb(155, 140, 197), rgb(182, 159, 247) );
-  --button-color-active: linear-gradient(to right, #88d63b, #d4f324); 
-  --button-color: linear-gradient(to right, rgb(165, 13, 34), rgb(207, 112, 22));
-  --background-summary: linear-gradient(to bottom, rgb(165, 13, 34), rgb(207, 112, 22), yellow, rgb(207, 112, 22), rgb(165, 13, 34));
-  --victory-color: linear-gradient(to right, rgb(13, 165, 33), rgb(20, 100, 20));
-  --loses-color: linear-gradient(to right, rgb(194, 21, 35), rgb(71, 13, 13));
-  --section-loses-hover: linear-gradient(to right, rgb(10, 4, 4), rgb(48, 45, 45));
-  --button-select-character: linear-gradient(to right, rgb(21, 76, 194), rgb(18, 24, 85));
-  --select-character: linear-gradient(to right, rgb(44, 14, 44), rgb(73, 30, 141));
-  --section-record: linear-gradient(to right, yellow, rgb(165, 139, 21));
-  --background-history: linear-gradient(to right, rgb(50, 196, 135), rgb(34, 153, 143));
-}
-
+/*---------------Generals Elements----------------------------------------*/
 h1{
   font-size: max(4rem, min(8vw, 8rem));
   font-family: 'Yanone Kaffeesatz', sans-serif;
@@ -29,6 +8,16 @@ h1{
 a{
   text-decoration: none;
 }
+
+/*---------------Effects----------------------------------------*/
+
+.rotate-screen {
+  transform: rotate(90deg);
+  width: 100vh;
+  height: 100vw;
+}
+
+/*---------------Main Pages----------------------------------------*/
 
 .welcome-page{
   grid-area: main;
@@ -49,6 +38,7 @@ a{
           "summary summary summary"
           "playBattle playBattle playBattle"
           "play play play";
+  grid-template-rows: auto 1fr auto;
   gap: 1vw;
   padding: max(1rem, min(0.8vw, 3rem));
   justify-items: center;
@@ -56,7 +46,7 @@ a{
   height: 100%;
 }
 
-
+/*---------------Brand----------------------------------------*/
 
 .brand{
   display: inline-flex;
@@ -72,6 +62,9 @@ a{
   transform: rotate3d(0, 1, 0, 360deg) scale(1.1);
 }
 
+
+/*-------Media queries-----------------------------*/
+
 @media (min-width: 700px) {
   .welcome-page{
     width: 95%;
@@ -85,7 +78,6 @@ a{
 
 @media (min-width: 750px) {
   .brand{
-    
     font-size: max(1.5rem, min(1.5vw, 4rem));
   }
 }

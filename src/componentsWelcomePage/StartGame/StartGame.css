@@ -63,7 +63,6 @@
 .sword-container .sword {
   position: absolute;
   width: 80%;
-  /*height: 80%;*/
   top: 50%;
   transform: translateY(-50%) rotate(-42deg);
   transition: all 0.5s ease-in-out;
@@ -141,10 +140,6 @@
 
 }
 
-/* .record-statement .record:hover{
-  transform: scale(1.1);
-} */
-
 .record-statement .record strong{
   font-size: 5vw;
 }
@@ -156,7 +151,6 @@
 
 .record-statement .loses{
   background: var(--loses-color);
-  /*width: 48%;*/
 }
 
 .record-statement .victorys:hover{
@@ -193,6 +187,7 @@
 
 @media (min-width: 700px) {
  
+  /*---Start Game---*/
   .start-game{
   grid-column: 2 / 3;
   grid-row: 2 / 5;
@@ -219,7 +214,7 @@
   }
   
 
-
+/*---Record Area---*/
   .record-vs-pc{
     justify-content: center;
   }

@@ -33,3 +33,15 @@
 .battle-history .visible-tab {
   padding: 5px;
 }
+
+
+
+/* .play-battle-container .play-player{ 
+  grid-area: playPlayer; 
+  transform: rotate(-90deg) rotateX(180deg);
+ }
+
+.play-battle-container .play-com{
+  grid-area: playCom;
+  transform: rotate(-90deg);
+} */

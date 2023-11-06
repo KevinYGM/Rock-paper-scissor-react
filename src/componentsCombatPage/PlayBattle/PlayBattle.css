@@ -1,60 +1,96 @@
+/*-------General Configurations-----------*/
+
+
 .play-battle-container{
   grid-area: playBattle;
   display: grid;
   grid-template-areas:
-          "characterPlayer playPlayer playCom characterCom"
-          "interactive interactive interactive interactive";
-  grid-template-rows: auto auto;
+          "characterPlayer playPlayer interactiveUp playCom characterCom"
+          "interactive interactive interactive interactive interactive";
+  grid-template-rows: auto 8vw;
+  grid-template-columns: auto auto auto auto auto;
+  gap: 0.5vw;
   width: 95%;
 
 }
 
+/*-------------Area Character Configurations-------------*/
 
 .play-battle-container .character{
+  position: relative;
   height: auto;
   display: grid;
   place-items: center;
-  
-  
+  align-items: flex-end;
 }
 
 .play-battle-container .character img{
-  width: 60%;
+  width: 80%;
+  height: 85%;
   border: 0.4vw groove yellow;
   border-radius: 1vw;
   box-shadow: 0 0 20px rgba(255, 255, 0, 0.5);
+  background: rgba(14,21,56,0.50);
+  background: linear-gradient(var(--x), #00ccff, #0e1538, #0e1538, #d400d4);
 }
+
+
+/*----Area Character-Player and Character-Com Configurations----*/
 
 .play-battle-container .character-player{
   grid-area: characterPlayer;
-}
+  justify-items: flex-end;
+ }
 
 .play-battle-container .character-com{
   grid-area: characterCom;
+  justify-items: flex-start;
 }
 
 
 
-
+/*-------------Area Play Configurations-------------*/
 
 .play-battle-container .play{
-  display: inline-flex;
+  z-index: 1;
+  justify-self: center;
+  align-self: flex-end;
+  display: flex;
   font-size: max(5rem, min(6vw, 10rem));
-  place-self: center;
+  width: 12vw;
+  height: 85%;
 }
+
+.play-battle-container .play img{
+  border: 0.4vw groove rgb(247, 0, 255);
+  border-radius: 1vw;
+  box-shadow: 0 0 20px rgba(153, 0, 255, 0.5);
+  width: 100%;
+  height: 100%;
+}
+
+/*-----Area Play-Player and Play-Com Configurations--------*/
 
 .play-battle-container .play-player{
-  background-color: green;
-  
-  grid-area: playPlayer; 
-  transform: rotate(-90deg) rotateX(180deg);
- }
+  justify-content: flex-start;
+}
 
 .play-battle-container .play-com{
-  background-color: red;
-  grid-area: playCom;
-  transform: rotate(-90deg);
+  justify-content: flex-end;
 }
+
+
+
+/*-------------Area Interactive-UP Configurations-------------*/
+
+.play-battle-container .interactive-up{
+  grid-area: interactiveUp;
+  width: 7vw;
+}
+
+
+
+/*-------------Area Interactive-Section Configurations-------------*/
 
 .play-battle-container .interactive-section{
   position: relative;
@@ -82,3 +118,5 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+
