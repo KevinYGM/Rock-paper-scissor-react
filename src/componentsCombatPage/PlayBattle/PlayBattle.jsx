@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState} from 'react';
 import './PlayBattle.css';
 import frame from '../../images/frame-vector.png';
 import scissorPlayer from '../../images/scissor-play-player.png';
@@ -8,22 +8,13 @@ import scissorCom from '../../images/scissor-play-com.png';
 import paperCom from '../../images/paper-play-com.png';
 import rockCom from '../../images/rock-play-com.png';
 
-export const PlayBattle = ({characters, setReferenceHeight}) => {
-  const referenceElement = useRef();
+export const PlayBattle = ({ characters }) => {
   const [images, setImages] = useState([rockPlayer, paperPlayer, scissorPlayer]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imagesCom, setImagesCom] = useState([scissorCom, rockCom, paperCom]);
 
 
-  useEffect(() =>{
-    if (referenceElement.current){
-      setReferenceHeight(referenceElement.current.clientHeight)
-    }
-  }, [setReferenceHeight]);
-
-
-
-  useEffect(()=> {
+useEffect(()=> {
     //function for mousemove animation in character images.
     const characters = document.querySelectorAll('.character');
     
@@ -53,8 +44,7 @@ export const PlayBattle = ({characters, setReferenceHeight}) => {
 
 
   return (
-    <div  className='play-battle-container'
-          ref={referenceElement}>
+    <div  className='play-battle-container'>
        {/*--------------Character Player--------------*/}
       <div className="character-player character">
         <img src={characters[0].photo} alt={characters[0].name} />
@@ -66,7 +56,10 @@ export const PlayBattle = ({characters, setReferenceHeight}) => {
         <img src={images[currentImageIndex]} alt="" />
       </div>
 
-      <div className="interactive-up"></div>
+      <div className="interactive-up">
+        <span>Round</span>
+        <span>10</span>
+      </div>
 
       <div className="play-com play">
         <img src={imagesCom[currentImageIndex]} alt="" />

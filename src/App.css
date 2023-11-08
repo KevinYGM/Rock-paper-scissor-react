@@ -1,8 +1,7 @@
 
 /*---------------Generals Elements----------------------------------------*/
 h1{
-  font-size: max(4rem, min(8vw, 8rem));
-  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-size: max(3rem, min(7vw, 8rem));
 }
 
 a{
@@ -38,7 +37,7 @@ a{
           "summary summary summary"
           "playBattle playBattle playBattle"
           "play play play";
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto auto auto;
   gap: 1vw;
   padding: max(1rem, min(0.8vw, 3rem));
   justify-items: center;
@@ -71,7 +70,7 @@ a{
     height: 95%;
     display:grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: auto auto;
     place-items: center;
   }
 }

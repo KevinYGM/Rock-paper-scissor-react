@@ -12,6 +12,7 @@
  /*-------------------Section: Button Start-Game----------------*/
 
 .start-game .btn-start-game{
+  border: none;
   width: 45vw;
   max-width: 70rem;
   height: 14vw;
@@ -20,20 +21,21 @@
   justify-content: center;
   gap: 5vw;
   align-items: center;
-  background-image: var(--button-color);
+  background-image: var(--background-summary);
   border-radius: 2vw;
   font-weight: bold;
   font-size: max(1.5rem, min(6vw, 6rem));
-  color: white;
+  color: rgb(10, 6, 6);
   cursor: pointer;
-  border: 0.2vw solid white;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  -webkit-text-stroke: 0.05vw rgb(240, 204, 2);
+  box-shadow: 0 0 7px rgba(255, 255, 0, 0.5);
   transition: all 100ms ease-in-out;
 }
 
 .start-game .btn-start-game:hover{
-  background-image: var(--loses-color);
+  background-image: var(--background-startGame-hover);
   transform: scale(1.1);
+  color: white;
 }
 
 .start-game .btn-start-game:active{
@@ -70,7 +72,6 @@
 
 .sword-container .sword1 {
   left: 40%;
-  
 }
 
 .sword-container .sword2 {
@@ -104,23 +105,23 @@
   height: 14vw;
   max-height: 13rem;
   gap: 1vw;
-  background-image: var(--section-record);
+  background-image: linear-gradient(var(--x), #00ccff, #0e1538, #0e1538, #d400d4);
   border-radius: 1vw;
   font-size: max(1.5rem, min(6vw, 6rem));
   color: white;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 4px 0 10px rgba(255, 0, 242, 0.5);
   overflow: hidden;
-  border: 0.2vw solid white;
+  transition: all 0.5s ease-in-out;
 }
 
 .record-vs-pc .record-statement:hover{
   transform: scale(1.1);
-  transition: all 100ms ease-in-out;
+  transition: all 300ms ease-in-out;
 }
 
 .record-statement .recordG{
   text-align: center;
-  color: black;
+  color: rgb(255, 244, 244);
   font-size: 5vw;
 }
 
@@ -133,8 +134,7 @@
   justify-content: space-around;
   align-items: center;
   cursor: pointer;
-  transition: all 650ms ease-in-out;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 1px -11px 24px rgba(0, 0, 0, 0.5);
   height: 100%;
   width: 50%;
 
@@ -144,22 +144,12 @@
   font-size: 5vw;
 }
 
-.record-statement .victorys{
-  background: var(--victory-color);
-  
-}
-
-.record-statement .loses{
-  background: var(--loses-color);
-}
-
 .record-statement .victorys:hover{
-  background: var(--section-record);
-  color: black;
+  background: var(--victory-color-hover);
 }
 
 .record-statement .loses:hover{
-  background: var(--section-loses-hover);
+  background: var(--loses-color-hover);
 }
 
 .victorys .victorys-span,
@@ -174,7 +164,7 @@
 
 .victorys .victorys-strong,
 .loses .loses-strong{
-  transition: all 650ms ease-in-out;
+  transition: all 800ms ease-in-out;
 }
 
 .record-statement .victorys:hover .victorys-strong,
@@ -217,8 +207,10 @@
 /*---Record Area---*/
   .record-vs-pc{
     justify-content: center;
+    
   }
-  
+
+
   .record-vs-pc .record-statement{
     display:grid;
     grid-template-columns: 1fr 1fr;

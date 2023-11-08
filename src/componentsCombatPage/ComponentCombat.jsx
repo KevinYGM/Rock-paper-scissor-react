@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { Summary } from './Summary/Summary';
 import { BattleHistory } from './BattleHistory/BattleHistory';
 import { PlayBattle } from './PlayBattle/PlayBattle';
@@ -9,25 +9,7 @@ import { SectionButtonsPlay } from './SectionButtonsPlay/SectionButtonsPlay';
 export const ComponentCombat = () => {
 
 
-/*----------------INICIO DE CODIGO A EVALUAR--------------*/
-
-const [referenceHeight, setReferenceHeight] = useState(null);
-
-  useEffect(() => {
-  const handleResize = () => {
-    setWidthScreen(window.innerWidth);
-  };
-
-  window.addEventListener('resize', handleResize);
-
-  return () => {
-    window.removeEventListener('resize', handleResize);
-  };
-}, []);
-
-/*----------------FIN DE CODIGO A EVALUAR--------------*/
-
-const [widthScreen, setWidthScreen] = useState(window.innerWidth);
+  const [widthScreen, setWidthScreen] = useState(window.innerWidth);
 
   useEffect(() => {
     // function to activate screen rotation
@@ -43,10 +25,9 @@ return (
       <div className='combat-page'>
         
         <Summary characters= { characters } />
-        <BattleHistory referenceHeight={referenceHeight} />
+        <BattleHistory characters= { characters } />
 
-        <PlayBattle characters= { characters } 
-                    setReferenceHeight={setReferenceHeight}/>
+        <PlayBattle characters= { characters } />
 
         <SectionButtonsPlay characters= { characters }/>
       </div>

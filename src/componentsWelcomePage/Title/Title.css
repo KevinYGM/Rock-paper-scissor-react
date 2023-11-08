@@ -6,10 +6,18 @@
   align-items: center;
   overflow: hidden;
   padding: 1vw;
+  transition: all 0.5s ease-in-out;
+}
+
+.title:hover{
+  transform: scale(1.1);
 }
 
 .title h1{
   width: 60%;
+  -webkit-text-stroke: 0.1vw rgb(127, 33, 190);
+  color: white;
+  font-family: 'Chakra Petch', sans-serif;
 }
 
 .title div{

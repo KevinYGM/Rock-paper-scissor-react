@@ -10,6 +10,7 @@
   padding: 0.5vw 1vw;
   width: 100%;
   height: auto;
+  margin-top: 0.5vw;
 }
 
 /*------------Credits----------------------------*/
@@ -28,15 +29,15 @@
   background-image: var(--select-character);
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
   border-radius: 50%;
-  width: 4vw;
+  width: 2.5vw;
   max-width: 5rem;
-  height: 4vw;
+  height: 2.5vw;
   max-height: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  font-size: max(1rem, min(2.5vw, 3rem));
+  font-size: max (1rem, min(2.3vw, 3rem));
   transition: all 100ms ease-in-out;
 }
 

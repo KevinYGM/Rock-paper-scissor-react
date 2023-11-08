@@ -5,7 +5,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One:ital@1&family=Mukta:wght@300;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600&display=swap');
 
 
 /*----------Variables Root--------------------------------*/
@@ -18,14 +20,14 @@
   --button-color-active: linear-gradient(to right, #88d63b, #d4f324); 
   --button-color: linear-gradient(to right, rgb(165, 13, 34), rgb(207, 112, 22));
   --background-summary: linear-gradient(to bottom, rgb(165, 13, 34), rgb(207, 112, 22), yellow, rgb(207, 112, 22), rgb(165, 13, 34));
-  --victory-color: linear-gradient(to right, rgb(13, 165, 33), rgb(20, 100, 20));
-  --loses-color: linear-gradient(to right, rgb(194, 21, 35), rgb(71, 13, 13));
-  --section-loses-hover: linear-gradient(to right, rgb(10, 4, 4), rgb(48, 45, 45));
+  --victory-color-hover: linear-gradient(to right, rgba(46, 235, 93, 0.438), rgba(57, 139, 57, 0.438));
+  --loses-color-hover: linear-gradient(to right, rgba(255, 16, 16, 0.63), rgba(121, 2, 2, 0.596));
   --select-character: linear-gradient(to right, rgb(44, 14, 44), rgb(73, 30, 141));
   --section-record: linear-gradient(to right, yellow, rgb(165, 139, 21));
   --background-history: linear-gradient(to right, rgb(50, 196, 135), rgb(34, 153, 143));
   --color-element-rps: radial-gradient(circle, rgb(245, 30, 180) 20% , rgb(104, 8, 160) 70%);
   --color-summary: linear-gradient(45deg, rgb(165, 13, 34), rgb(207, 112, 22), yellow, rgb(207, 112, 22), rgb(165, 13, 34));
+  --background-startGame-hover: linear-gradient(to bottom, yellow, rgb(207, 112, 22), rgb(165, 13, 34), rgb(207, 112, 22),yellow);
   
   /*-------Effects----------------*/
   --x: 45deg;
@@ -67,5 +69,16 @@ body{
           "main main main"
           "footer footer footer";
   grid-template-rows: auto 1fr auto;
-  place-items: center;
   }
+
+/*---------------------styles scrollBar Google Chrome--------------*/
+::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+  background-color: var(--main-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: var(--background-summary);
+  border-radius: 50%;
+}

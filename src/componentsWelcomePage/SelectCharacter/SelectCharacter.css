@@ -209,8 +209,8 @@
 @media (min-width: 700px) and (max-width: 950px){
   
   .select-character{
-    align-self: flex-end;
-    height: 85%;
+    align-self: center;
+    height: 90%;
     font-size: max(1.5rem, min(3vw, 3.5rem));
   }
 }

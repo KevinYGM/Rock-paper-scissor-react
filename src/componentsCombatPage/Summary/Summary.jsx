@@ -2,7 +2,7 @@ import React from 'react'
 import './Summary.css';
 import vs from '../../images/vs.png'; 
 import markRed from '../../images/redMarker.png'; 
-import markGreen from '../../images/greenMarker.png'; 
+import markBlue from '../../images/blueMarker.png'; 
 
 export const Summary = ({ characters }) => {
   return (
@@ -19,7 +19,7 @@ export const Summary = ({ characters }) => {
       {/* Section Points Player */}
       <div className="summary_points-player points">
         <div className="container-point">
-          <img src={markGreen} alt="Mark Player" />
+          <img src={markBlue} alt="Mark Player" />
           <span>5</span>
         </div>
       </div>
@@ -33,7 +33,7 @@ export const Summary = ({ characters }) => {
       <div className="summary_points-com points">
         <div className="container-point">
           <img src={markRed} alt="Mark Com" />
-          <span>2</span>
+          <span>3</span>
         </div>
       </div>
 

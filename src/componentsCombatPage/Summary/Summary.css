@@ -49,7 +49,7 @@
   text-align: center;
 }
 
-/*------------Character-Player and Character-Com-----------------*/
+/*------------Character-Player and Character-om-----------------*/
 
 
 .summary .summary_character-player{
@@ -86,9 +86,9 @@
 
 .summary .points{
   position: absolute;
-  top: 50%;
+  top: 0%;
   transform: translate(0, -50%); 
-  width: 13vw;
+  width: 8.5vw;
   margin: auto;
   transition: all 300ms ease-in-out;
 }
@@ -98,18 +98,19 @@
 }
 
 .summary .points img{
-  height: 60%;
-  width: 60%;
+  height: 100%;
+  width: 100%;
 }
 
 .points .container-point span{
+  font-family: 'Chakra Petch', sans-serif;
   position: absolute;
-  top: 21%;
-  left: 25%;
+  top: 32%;
+  left: 33%;
   right: 0;
   margin: auto;
   color: white;
-  font-size: max(1rem, min(4vw, 10rem));
+  font-size: max(1rem, min(4.5vw, 10rem));
   -webkit-text-stroke: 0.1vw rgb(240, 204, 2);
   font-weight: bold;
 }
@@ -118,11 +119,11 @@
 
 .summary .summary_points-player{
   left: 0;
-  right: 24%;
+  right: 25%;
 }
 
 .summary .summary_points-com{
-  left: 35%;
+  left: 25%;
   right: 0;
 }
 

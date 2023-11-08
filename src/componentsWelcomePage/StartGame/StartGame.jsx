@@ -1,9 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './StartGame.css';
 import {Link} from 'react-router-dom';
 import sword from '../../images/sword.png'
 
 export const StartGame = () => {
+
+  useEffect(()=> {
+    //function for mousemove animation in character images.
+    const records = document.querySelectorAll('.record-statement');
+    
+    records.forEach((record) => {
+      record.addEventListener('mousemove', e => {
+        let rect = e.target.getBoundingClientRect();
+        let x = e.clientX * 3 - rect.left;
+        record.style.setProperty('--x', x + 'deg');
+      });
+    });
+    
+    }, []);
+
+
   return (
     <div className="start-game">
       
