@@ -1,0 +1,25 @@
+
+/*-------------------Modal-Button Conguration------------------------*/
+.configuration .btn-configuration{
+  cursor: pointer;
+  animation: rotation-infinity-inverse 5s linear infinite;
+  transition: all 2s ease-in-out;
+  transform: scale(1);
+}
+
+.configuration .btn-configuration-active{
+  animation: rotation-scale-infinity-inverse 5s linear infinite;
+}
+
+.configuration .modal-configuration {
+  right: 15%;
+  
+}
+
+.modal-configuration .title-configuration{
+  background: radial-gradient(circle, rgba(19, 9, 44, 0.842), rgba(38, 11, 102, 0.897), rgba(65, 19, 173, 0.842), rgba(38, 11, 102, 0.829), rgba(19, 9, 44, 0.856));
+}
+
+.modal-configuration .title-configuration span{
+  animation: rotation-infinity-inverse 5s linear infinite;
+}

@@ -1,0 +1,149 @@
+/*-----------------------Global Section------------------- */
+
+.header{
+  grid-area: header;
+  align-self: flex-start;
+  background: var(--main-color);
+  background: rgb(16, 6, 29);
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: max(1.2rem, min(1vw, 5rem));
+  padding: 1vw 2vw;
+  position: relative; 
+}
+
+/*-----------------------Section Emojis RPS------------------- */
+
+.emoji {
+  cursor: pointer;
+}
+
+.emoji::before {
+  content: attr(data-emoji);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) scale(1);
+  opacity: 1;
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.emoji-rock::before {
+  left: 70%;
+}
+
+.emoji-paper::before {
+  left: 75%;
+}
+
+.emoji-scissor::before {
+  left: 80%;
+}
+
+.emoji:hover::before {
+  content: attr(data-emoji-hover);
+  opacity: 1; 
+  top: 50%;
+  transform: translateY(-50%) scale(1.3);
+}
+
+
+/*---------------Section Configuration and Instructions----------- */
+
+.configuration{
+  display: flex;
+  position: relative;
+  gap: 1.5vw;
+}
+
+.configuration .modal-IC{
+  z-index: 2;
+  position: absolute;
+  top: 130%;
+  background-image: linear-gradient(to bottom, rgba(165, 13, 33, 0.671), rgba(207, 111, 22, 0.671), rgba(255, 255, 0, 0.678), rgb(207, 112, 22, 0.671), rgba(165, 13, 33, 0.671));
+  width: 25vw;
+  height: 65vh;
+  border-radius: 0.7vw 0vw 0.7vw 0.7vw;
+  box-shadow: -12px 8px 19px black;
+  overflow: scroll;
+}
+
+.modal-IC .modal-IC_title{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  gap: 1vw;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: max(1rem, min(1.2vw, 3rem));
+  text-transform: uppercase;
+  width: 100%;
+  padding: 0.3vw 0;
+  box-shadow: -2px 5px 9px #2d1a01;
+}
+
+.modal-IC .modal-IC_content{
+  color: rgba(19, 9, 44, 0.842);
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/*---------------------Animation Icons------------------------*/
+@keyframes rotation-infinity-inverse {
+  0% {
+    transform: rotate(360deg) scale(1.5);
+  }
+  100% {
+    transform: rotate(0deg) scale(1.5);
+  }
+}
+
+
+@keyframes rotation-scale-infinity-inverse {
+  0% {
+    transform: rotate(360deg) scale(2);
+  }
+  100% {
+    transform: rotate(0deg) scale(2);
+  }
+}
+
+@keyframes pulse-infinity {
+  0% {
+    transform: scale(1.8);
+  }
+
+  50%{
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: scale(1.8);
+  }
+}
+
+
+/*-----------------Media-queries-----------------------*/
+
+@media (min-width: 750px) {
+  .header{
+    font-size: max(1.5rem, min(1.5vw, 4rem));
+  }
+
+  .emoji-rock::before {
+    left: 70%;
+  }
+  
+  .emoji-paper::before {
+    left: 72%;
+  }
+  
+  .emoji-scissor::before {
+    left: 74%;
+  }
+}

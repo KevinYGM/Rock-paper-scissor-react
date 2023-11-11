@@ -1,0 +1,134 @@
+/*--------------------section: summary----------------------*/
+
+.summary{
+  justify-self: center;
+  position: relative;
+  grid-area: summary;
+  background-image: var(--background-summary);
+  width: 90%;
+  height: 4vw;
+  min-height: 2rem;
+  max-height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+  -webkit-text-stroke: 0.05vw rgb(240, 204, 2);
+  box-shadow: 0 0 7px rgba(255, 255, 0, 0.5);
+}
+          
+/*-----------------summary-character-----------------*/
+
+.summary .summary-character{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 1vw;
+  width: 30%;
+}
+
+
+.summary .img-character{
+  display: grid;
+  place-items: center;
+  width: 30%;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 2px 2px 5px black;
+}
+
+.summary .img-character img{
+  height: 100%;
+  width: 100%;
+}
+
+.summary .name-character{
+  width: 70%;
+  font-size: max(1rem, min(2.5vw, 10rem));
+  text-align: center;
+}
+
+/*------------Character-Player and Character-om-----------------*/
+
+
+.summary .summary_character-player{
+  left: -1%;
+}
+
+.summary .summary_character-com{
+  left: 71%;
+}
+
+
+
+
+/*-----------------summary-separation-----------------*/
+
+.summary .summary_separation{
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%); 
+  left: 0;
+  right: 0;
+  width: 13vw;
+  margin: auto;
+}
+
+.summary .summary_separation img{
+  height: 100%;
+  width: 100%;
+}
+
+
+
+/*-----------------summary-points-----------------*/
+
+.summary .points{
+  position: absolute;
+  top: 15%;
+  transform: translate(0, -50%); 
+  width: 8.5vw;
+  margin: auto;
+  transition: all 300ms ease-in-out;
+}
+
+.points .container-point{
+  position: relative;
+}
+
+.summary .points img{
+  height: 90%;
+  width: 90%;
+}
+
+.points .container-point span{
+  font-family: 'Chakra Petch', sans-serif;
+  position: absolute;
+  top: 17%;
+  left: 29%;
+  right: 0;
+  margin: auto;
+  color: white;
+  font-size: max(1rem, min(4.5vw, 10rem));
+  -webkit-text-stroke: 0.1vw rgb(240, 204, 2);
+  font-weight: bold;
+}
+
+/*------------Points-Player and Points-Com-----------------*/
+
+.summary .summary_points-player{
+  left: 0;
+  right: 25%;
+}
+
+.summary .summary_points-com{
+  left: 25%;
+  right: 0;
+}
+
+
+
+
+
+

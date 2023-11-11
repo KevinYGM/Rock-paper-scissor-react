@@ -1,0 +1,97 @@
+/*-------------General Styles--------------*/
+
+
+.surrender .modal-surrender{
+  z-index: 2;
+  position: absolute;
+  top: -170%;
+  left: 55%;
+  width: 25vw;
+  height: 15vw;
+  color: white;
+  background-image: linear-gradient(to bottom, rgba(165, 13, 33, 0.671), rgba(207, 111, 22, 0.671), rgba(255, 255, 0, 0.678), rgb(207, 112, 22, 0.671), rgba(165, 13, 33, 0.671));
+  border-radius: 0.5vw;
+  box-shadow: 8px -2px 19px black;
+  overflow: hidden;
+}
+
+/*-------------Title Styles--------------*/
+.modal-surrender .title-surrender{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  gap: 1vw;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: max(1rem, min(1.2vw, 3rem));
+  text-transform: uppercase;
+  width: 100%;
+  padding: 0.3vw 0;
+  box-shadow: -2px 5px 9px #2d1a01;
+  background: radial-gradient(circle, rgba(19, 9, 44, 0.842), rgba(38, 11, 102, 0.897), rgba(65, 19, 173, 0.842), rgba(38, 11, 102, 0.829), rgba(19, 9, 44, 0.856));
+}
+
+.modal-surrender .title-surrender strong{
+  animation: moveFlag 3s linear infinite;
+}
+
+/*-------------Content Styles--------------*/
+
+.modal-surrender .content-surrender{
+  font-size: max(1rem, min(2vw, 3rem));
+  color: rgba(19, 9, 44, 0.842);
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.content-surrender .container-buttons-surrender{
+  width: 100%;
+  height: 25%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: space-evenly;
+}
+
+.container-buttons-surrender .surrender-button{
+  width: 40%;
+  height: 100%;
+  border: none;
+  color: white;
+  font-size: max(1rem, min(2.5vw, 4rem));
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  transition: all 0.1s ease-in-out;
+  
+}
+
+.container-buttons-surrender .surrender-button:active{
+  background: linear-gradient(rgba(69, 70, 4, 0.842), rgba(151, 161, 14, 0.897), rgba(221, 218, 19, 0.842), rgba(151, 161, 14, 0.897), rgba(69, 70, 4, 0.842));
+  color:black;
+}
+
+.container-buttons-surrender .surrender-yes{
+  background: linear-gradient(rgba(70, 4, 4, 0.842), rgba(161, 14, 14, 0.897), rgba(221, 19, 19, 0.842), rgba(161, 14, 14, 0.897), rgba(70, 4, 4, 0.842));
+}
+
+.container-buttons-surrender .surrender-no{
+  background: linear-gradient(rgba(5, 3, 41, 0.842), rgba(13, 8, 104, 0.842), rgba(49, 19, 221, 0.842), rgba(13, 8, 104, 0.842), rgba(5, 3, 41, 0.842));
+}
+
+
+/*-------------Animation: Buttons---------------*/
+
+@keyframes moveFlag {
+  0% {
+    transform: rotate(0deg) scale(1.8);
+  }
+  50% {
+    transform: rotate(18deg) scale(1.8);
+  }
+
+  100% {
+    transform: rotate(0deg) scale(1.8);
+  }
+}

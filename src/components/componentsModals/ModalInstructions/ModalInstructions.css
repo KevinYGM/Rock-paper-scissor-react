@@ -1,0 +1,20 @@
+/*-------------------Modal-Button Instructions------------------------*/
+.configuration .btn-instructions{
+  transform:scale(1.5);
+  cursor: pointer;
+  animation: pulse-infinity 2s linear infinite;
+  transition: all 2s ease-in-out;
+}
+
+.configuration .modal-instructions {
+  right: 85%;
+}
+
+.modal-instructions .title-instructions{
+  background: radial-gradient(circle, rgba(11, 5, 26, 0.815),rgba(25, 7, 66, 0.815), rgba(35, 10, 94, 0.829), rgba(25, 7, 66, 0.856), rgba(11, 5, 26, 0.849));
+}
+
+.modal-instructions .title-instructions span{
+  animation: pulse-infinity 2s linear infinite;
+  transition: all 2s ease-in-out;
+}

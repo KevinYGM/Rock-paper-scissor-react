@@ -1,0 +1,18 @@
+.modal-final{
+ 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  background-color: red;
+  color: white;
+  
+  width: 40vw;
+  height: 40vw;
+  font-size: 2vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}

@@ -1,10 +1,10 @@
 import './App.css';
 import React from 'react';
 import {Routes, Route, BrowserRouter} from 'react-router-dom';
-import { HeaderComponent } from './componentsGenerals/HeaderComponent/HeaderComponent';
-import { FooterComponent } from './componentsGenerals/FooterComponent/FooterComponent';
-import { ComponentWelcome } from './componentsWelcomePage/ComponentWelcome';
-import { ComponentCombat } from './componentsCombatPage/ComponentCombat';
+import { HeaderComponent } from './components/componentsGenerals/HeaderComponent/HeaderComponent';
+import { FooterComponent } from './components/componentsGenerals/FooterComponent/FooterComponent';
+import { ComponentWelcome } from './components/componentsWelcomePage/ComponentWelcome';
+import { ComponentCombat } from './components/componentsCombatPage/ComponentCombat';
 
 
 

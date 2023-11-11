@@ -1,0 +1,151 @@
+
+/*---------------General Configurations----------------------------------------*/
+
+.buttons-play-container{
+  grid-area: play;
+  width: 95%;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: 2vw;
+  padding: 0 1vw;
+}
+
+
+/*---------------BUTTON General Configurations----------------------------------------*/
+
+.buttons-play-container button,
+.buttons-play-container a{
+  background: transparent;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px black;
+  transition: all 300ms ease-in-out;
+
+  position: relative;
+  width: 25%;
+  height: 5vw;
+  border-radius: 1.7vw;
+  cursor: pointer;
+}
+
+.buttons-play-container button:active,
+.buttons-play-container a:active{
+  transform: scale(1.3);
+}
+
+.buttons-play-container button:hover,
+.buttons-play-container a:hover{
+  transform: scale(1.1);
+}
+
+/*---------------BUTTON I General Configurations----------------------------------------*/
+
+.buttons-play-container button i{
+  position: absolute;
+  inset: -2px;
+  display: block;
+  border-radius: 1.7vw;
+  background: linear-gradient(var(--x), #00ccff, #0e1538, #0e1538, #d400d4);
+}
+
+.buttons-play-container button i:nth-child(2){
+  filter: blur(10px);
+}
+
+.buttons-play-container button:active i{
+  background: linear-gradient(var(--x), #fbff00, #e65614, #e65614, #d4000b);
+}
+
+
+/*---------------BUTTON SPAN General Configurations----------------------------------------*/
+
+.buttons-play-container button span{
+  font-size: 4vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  letter-spacing: 3px;
+  background: rgba(14,21,56,0.50);
+  overflow: hidden;
+  border-radius: 1.7vw;
+}
+
+.buttons-play-container button span::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255, 0.075);
+  transform: skew(25deg);
+}
+
+.buttons-play-container button span:active{
+  background: var(--color-summary);
+}
+
+
+/*----------------------------------Specific Section Configurations------------------------------------*/
+
+/*-----------------Section Buttons-play-------------------*/
+
+.buttons-play-container .section-buttons-play{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/*-----------------Section Buttons-play-special and Surrender-------------------*/
+
+.buttons-play-container .button-play-special,
+.buttons-play-container .surrender{
+  justify-self: center;
+  width: 90%;
+  height: 7vw;
+}
+
+.buttons-play-container .button-play-special span,
+.buttons-play-container .surrender span{
+  display: grid;
+  place-items: center;
+}
+
+.buttons-play-container .button-play-special img
+{
+  width: 35%;
+  animation: rotation-infinity 5s linear infinite;
+}
+
+.buttons-play-container .surrender img{
+  width: 50%;
+  animation: moverImagen 4s linear infinite;
+}
+
+.buttons-play-container .surrender{
+  position: relative;
+  z-index: 2;
+}
+
+/*-------------Animation: Buttons---------------*/
+
+@keyframes moverImagen {
+  0% {
+    transform: skew(0deg) scale(1);
+  }
+  50% {
+    transform: skew(7deg) scale(1.1);
+  }
+
+  100% {
+    transform: skew(0deg) scale(1);
+  }
+}
+
+
