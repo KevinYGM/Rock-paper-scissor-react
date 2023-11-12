@@ -37,7 +37,7 @@ import backScissor from '../images/interfaz-images/scissor.png';
 
 export const characters = [
   {
-    name: "William Rock",
+    name: "Williams Rock",
     type: "Rock",
     photo: williamsRock,
     facePhoto: williamsRockFace,

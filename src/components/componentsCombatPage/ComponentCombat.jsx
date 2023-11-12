@@ -42,6 +42,7 @@ return (
         <ModalFinalGame 
                 openModalFinal = { openModalFinal }
                 setOpenModalFinal = { setOpenModalFinal }
+                characters= { characters }
                 />
       </div>
     )

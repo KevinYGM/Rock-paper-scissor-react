@@ -21,7 +21,7 @@ export const Summary = ({ characters }) => {
       <div className="summary_points-player points">
         <div className="container-point">
           <img src={markBlue} alt="Mark Player" />
-          <span>5</span>
+          <span>3</span>
         </div>
       </div>
 
@@ -34,7 +34,7 @@ export const Summary = ({ characters }) => {
       <div className="summary_points-com points">
         <div className="container-point">
           <img src={markRed} alt="Mark Com" />
-          <span>3</span>
+          <span>4</span>
         </div>
       </div>
 
