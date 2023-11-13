@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Rock-paper-scissor-react/static/css/main.cd2d00ed.css",
-    "main.js": "/Rock-paper-scissor-react/static/js/main.092c573c.js",
+    "main.css": "/Rock-paper-scissor-react/static/css/main.22e00782.css",
+    "main.js": "/Rock-paper-scissor-react/static/js/main.84cc63bb.js",
     "static/media/Williams-Rock-Face.png": "/Rock-paper-scissor-react/static/media/Williams-Rock-Face.e7b7be23d28b22dcbb91.png",
     "static/media/Melissa-Paper-Face.png": "/Rock-paper-scissor-react/static/media/Melissa-Paper-Face.a9c6dc6133ce09e129d4.png",
     "static/media/Scarlett-Rock-Face.png": "/Rock-paper-scissor-react/static/media/Scarlett-Rock-Face.cbc7c7f90633bad247fa.png",
@@ -11,13 +11,13 @@
     "static/media/purple-background.png": "/Rock-paper-scissor-react/static/media/purple-background.49985d8457121d3cee58.png",
     "static/media/Melissa-Paper-Winner.png": "/Rock-paper-scissor-react/static/media/Melissa-Paper-Winner.32047009466a1e7bb93a.png",
     "static/media/Williams-Rock-Winner.png": "/Rock-paper-scissor-react/static/media/Williams-Rock-Winner.304c6f899616b390d7c1.png",
-    "static/media/blueMarker.png": "/Rock-paper-scissor-react/static/media/blueMarker.26192214b754741092ce.png",
+    "static/media/blueMarker.png": "/Rock-paper-scissor-react/static/media/blueMarker.5a4c73be5cb69493a762.png",
     "static/media/Scarlett-Rock-Winner.png": "/Rock-paper-scissor-react/static/media/Scarlett-Rock-Winner.fdedc308d85e1d6c49e0.png",
     "static/media/Matthew-Paper-Winner.png": "/Rock-paper-scissor-react/static/media/Matthew-Paper-Winner.e8f878bd0ba91443bcd5.png",
     "static/media/Alisson-Scissor-Winner.png": "/Rock-paper-scissor-react/static/media/Alisson-Scissor-Winner.cc61476bd7efb24b97be.png",
     "static/media/James-Scissor-Winner.png": "/Rock-paper-scissor-react/static/media/James-Scissor-Winner.45cbc5497757a54839fc.png",
     "static/media/all-hands.png": "/Rock-paper-scissor-react/static/media/all-hands.6cb435e4dd711849ec5b.png",
-    "static/media/redMarker.png": "/Rock-paper-scissor-react/static/media/redMarker.cc8e9186b4267bb0167b.png",
+    "static/media/redMarker.png": "/Rock-paper-scissor-react/static/media/redMarker.5d6e92c008e9210a8c66.png",
     "static/media/rock-play-com.png": "/Rock-paper-scissor-react/static/media/rock-play-com.02082b02d8fa53b0e9fe.png",
     "static/media/rock-play-player.png": "/Rock-paper-scissor-react/static/media/rock-play-player.dec17474d217b84a851b.png",
     "static/media/paper-play-player.png": "/Rock-paper-scissor-react/static/media/paper-play-player.8b88326031c59b846c53.png",
@@ -41,11 +41,11 @@
     "static/media/icon-tie.png": "/Rock-paper-scissor-react/static/media/icon-tie.3fcc705e44bbaaa38451.png",
     "static/media/sword.png": "/Rock-paper-scissor-react/static/media/sword.88487858b78601add83e.png",
     "index.html": "/Rock-paper-scissor-react/index.html",
-    "main.cd2d00ed.css.map": "/Rock-paper-scissor-react/static/css/main.cd2d00ed.css.map",
-    "main.092c573c.js.map": "/Rock-paper-scissor-react/static/js/main.092c573c.js.map"
+    "main.22e00782.css.map": "/Rock-paper-scissor-react/static/css/main.22e00782.css.map",
+    "main.84cc63bb.js.map": "/Rock-paper-scissor-react/static/js/main.84cc63bb.js.map"
   },
   "entrypoints": [
-    "static/css/main.cd2d00ed.css",
-    "static/js/main.092c573c.js"
+    "static/css/main.22e00782.css",
+    "static/js/main.84cc63bb.js"
   ]
 }
