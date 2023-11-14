@@ -1,5 +1,7 @@
 /*-------------------General Section-------------------------*/
 .start-game{
+  align-self: center;
+  justify-self: center;
   width: 95%;
   height: auto;
   display: flex;
@@ -7,6 +9,7 @@
   align-items: center;
   gap: 2vw;
   margin-top: 1.5vw;
+  margin-bottom: 1vw;
  }
 
  /*-------------------Section: Button Start-Game----------------*/
@@ -179,21 +182,28 @@
  
   /*---Start Game---*/
   .start-game{
-  grid-column: 2 / 3;
-  grid-row: 2 / 5;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  height: 60%;
-  width: 80%;
-  align-self: flex-start;
+  grid-area:startGame;
+  display: grid;
+  grid-template-areas:
+          "btnStartGame"
+          "record";
+  grid-template-rows: 40% 55%;
+  place-content: center;
+  place-items: center;
+  gap: 2vw;
+  margin-top: 0vw;
+  margin-bottom: 0.5vw;
+  height: 95%;
+  width: 95%;
   }
 
   .start-game .link-btn-start-game{
-    display: inline-block;
+    grid-area: btnStartGame;
+    display: flex;
     padding: 0;
     margin: 0;
     width: 100%;
+    justify-content: center;
   }
 
   .start-game .btn-start-game{
@@ -205,9 +215,10 @@
   
 
 /*---Record Area---*/
-  .record-vs-pc{
-    justify-content: center;
-    
+  .start-game .record-vs-pc{
+    grid-area: record;
+    place-content: center;
+    place-items: center;
   }
 
 
@@ -261,4 +272,27 @@
     justify-self: flex-end;
   }
 
+}
+
+
+/*-------------MEDIA QUERIES----------------*/
+
+@media (min-width: 700px) and (max-width: 950px){
+  .start-game .record-vs-pc{
+    height: 80%;
+    align-self: flex-start;
+  }
+
+  .record-vs-pc .record-statement{
+    max-height: 40vw;
+    height: 100%;
+  }
+
+  .record-statement .record span{
+    font-size: 8vw;
+  }
+
+  .record-statement .record strong{
+    font-size: 10vw;
+  }
 }

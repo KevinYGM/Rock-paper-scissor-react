@@ -8,15 +8,19 @@ a{
   text-decoration: none;
 }
 
-/*---------------Effects----------------------------------------*/
-
-.rotate-screen {
-  transform: rotate(90deg);
-  width: 100vh;
-  height: 100vw;
-}
 
 /*---------------Main Pages----------------------------------------*/
+.container-welcome{
+  min-height: 100vh;
+  min-width: 100vw;
+  display: grid;
+  place-items: center;
+  grid-template-areas:
+          "header header header"
+          "main main main"
+          "footer footer footer";
+  grid-template-rows: auto 1fr auto;
+}
 
 .welcome-page{
   grid-area: main;
@@ -29,6 +33,18 @@ a{
   height: 100%;
 }
 
+
+.container-combat{
+  min-height: 100vmin;
+  min-width: 100vmax;
+  display: grid;
+  grid-template-areas:
+          "header header header"
+          "main main main"
+          "footer footer footer";
+  grid-template-rows: auto 1fr auto;
+}
+
 .combat-page{
   grid-area: main;
   position: relative;
@@ -38,12 +54,12 @@ a{
           "playBattle playBattle playBattle"
           "play play play";
   grid-template-rows: auto auto auto;
-  gap: 1vw;
-  padding: max(1rem, min(0.8vw, 3rem));
+  gap: 1vmax;
+  padding: max(1rem, min(0.8vmax, 3rem));
   justify-items: center;
   width: 100%;
   height: 100%;
-}
+ }
 
 /*---------------Brand----------------------------------------*/
 
@@ -51,7 +67,7 @@ a{
   display: inline-flex;
   position: relative;
   font-family: 'Orbitron', sans-serif;
-  font-size: max(1.2rem, min(1vw, 5rem));
+  font-size: max(1.2rem, min(1vmax, 5rem));
   transition: all 1000ms ease-in-out;
   cursor: pointer;
   user-select: none;
@@ -61,6 +77,12 @@ a{
   transform: rotate3d(0, 1, 0, 360deg) scale(1.1);
 }
 
+/*---------------special class---------------------*/
+
+.horizontal-layout{
+  transform: rotate(90deg);
+  transform-origin: center center;
+}
 
 /*-------Media queries-----------------------------*/
 
@@ -69,14 +91,17 @@ a{
     width: 95%;
     height: 95%;
     display:grid;
+    grid-template-areas:
+          "selectCharacter title"
+          "selectCharacter startGame";
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-rows: 1fr 1fr;
     place-items: center;
   }
 }
 
 @media (min-width: 750px) {
   .brand{
-    font-size: max(1.5rem, min(1.5vw, 4rem));
+    font-size: max(1.5rem, min(1.5vmax, 4rem));
   }
 }

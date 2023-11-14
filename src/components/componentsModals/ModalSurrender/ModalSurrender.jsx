@@ -5,7 +5,7 @@ import './ModalSurrender.css';
 
 export const ModalSurrender = ({ 
   openModalSurrender, 
-  setOpenModalSurrender,  
+  setOpenModalSurrender, 
   setOpenModalFinal }) => {
 
   return (
@@ -21,9 +21,9 @@ export const ModalSurrender = ({
               <div className="container-buttons-surrender">
                 <Link className="surrender-yes surrender-button"
                       onClick={()=> {
-                        setOpenModalFinal(true);
-                        setOpenModalSurrender(false)}}>
-                  Yes
+                            setOpenModalFinal(true);
+                            setOpenModalSurrender(false)}}>
+                        Yes
                 </Link>
                 <Link className="surrender-no surrender-button"
                         onClick={()=> {setOpenModalSurrender(false)}}>

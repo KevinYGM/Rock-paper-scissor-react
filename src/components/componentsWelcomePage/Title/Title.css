@@ -55,8 +55,7 @@
 
 @media (min-width: 700px) {
   .title{
-    grid-template-columns: 2 / 3;
-    grid-template-rows: 1 / 2;
+    grid-area: title;
     height: 100%;
     width: 100%;
   }
@@ -70,4 +69,18 @@
     width: 100%;
   }
 
+}
+
+@media (min-width: 700px) and (max-width: 950px){
+  .title{
+    flex-direction: column;
+  }
+
+  .title h1{
+    width: 90%;
+  }
+
+  .title div{
+    width: 100%;
+  }
 }

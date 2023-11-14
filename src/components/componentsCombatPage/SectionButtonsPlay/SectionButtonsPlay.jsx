@@ -31,13 +31,15 @@ return (
       <i></i>
       <i></i>
       <span>
-        <span onClick={()=> {setOpenModalSurrender(true)}}>
+        <span onClick={()=> {
+          !openModalFinal ? setOpenModalSurrender(true) : setOpenModalSurrender(false);
+          }}>
           <img src={surrender} alt={"Surrender"}/>
         </span>
       </span>
       <ModalSurrender
               openModalSurrender = { openModalSurrender }
-              setOpenModalSurrender = { setOpenModalSurrender } 
+              setOpenModalSurrender = { setOpenModalSurrender }
               setOpenModalFinal = { setOpenModalFinal } 
               />
       </button>

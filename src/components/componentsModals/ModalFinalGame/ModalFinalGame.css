@@ -3,17 +3,16 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 5;
-  background-image: linear-gradient(to bottom, rgba(165, 13, 33, 0.671), rgba(207, 111, 22, 0.671), rgba(255, 255, 0, 0.678), rgb(207, 112, 22, 0.671), rgba(165, 13, 33, 0.671));
+  z-index: 2;
   background-image: radial-gradient(circle, rgba(19, 9, 44, 0.842), rgba(38, 11, 102, 0.897), rgba(65, 19, 173, 0.842), rgba(38, 11, 102, 0.829), rgba(19, 9, 44, 0.856));;
-  border-radius: 0.7vw;
+  border-radius: 0.7vmax;
   box-shadow: -12px 8px 19px black;
-  width: 25vw;
   color: white;
-  width: 40vw;
-  height: 40vw;
-  padding: 0.7vw;
-  font-size: max(1.5rem, min(1.7vw, 5rem));
+  width: 45vmax;
+  height: 45vmax;
+  padding: 0.7vmax;
+  padding-bottom: 2vmax;
+  font-size: max(1.5rem, min(1.7vmax, 5rem));
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -41,9 +40,9 @@
   display: flex;
   justify-content: center;
   width: 25%;
-  padding: 0.5vw 0.5vw;
+  padding: 0.5vmax 0.5vmax;
   background-image: var(--background-startGame-hover);
-  border-radius: 0.5vw;
+  border-radius: 0.5vmax;
   color: white;
   transition: all 0.3s ease-in-out;
 }

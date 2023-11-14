@@ -5,29 +5,39 @@ import { PlayBattle } from './PlayBattle/PlayBattle';
 import { characters } from '../../data/charactersData';
 import { SectionButtonsPlay } from './SectionButtonsPlay/SectionButtonsPlay';
 import { ModalFinalGame } from '../componentsModals/ModalFinalGame/ModalFinalGame';
+import { HeaderComponent } from '../componentsGenerals/HeaderComponent/HeaderComponent';
+import { FooterComponent } from '../componentsGenerals/FooterComponent/FooterComponent';
 
 
 export const ComponentCombat = () => {
-
-
-  const [widthScreen, setWidthScreen] = useState(window.innerWidth);
-
-  useEffect(() => {
-    // function to activate screen rotation
-    if (widthScreen < 700) {
-      document.body.classList.add('rotate-screen');
-    } else {
-      document.body.classList.remove('rotate-screen');
-    }
-  }, [widthScreen]);
-
-
+  
   const [openModalFinal, setOpenModalFinal] = useState(false);
+  
+  const [isHorizontal, setIsHorizontal] = useState(false);
+  
+    useEffect(() => {
+      const handleOrientationChange = () => {
+        const { innerWidth, innerHeight } = window;
+        const isLandscape = innerWidth > innerHeight || innerHeight - innerWidth < 100;
+        setIsHorizontal(isLandscape);
+      };
+  
+      // Agrega un listener para el cambio de orientación
+      window.addEventListener('orientationchange', handleOrientationChange);
+  
+      // Llama a la función al cargar la página para establecer la orientación inicial
+      handleOrientationChange();
+  
+      // Limpia el listener cuando el componente se desmonta
+      return () => {
+        window.removeEventListener('orientationchange', handleOrientationChange);
+      };
+    }, []);
 
 
-
-
-return (
+    return (
+    <div className={isHorizontal ? 'container-combat' : 'container-combat horizontal-layout'}>
+      <HeaderComponent />
       <div className='combat-page'>
         
         <Summary characters= { characters } />
@@ -37,6 +47,7 @@ return (
 
         <SectionButtonsPlay 
                 characters= { characters }
+                openModalFinal= { openModalFinal }
                 setOpenModalFinal = { setOpenModalFinal }/>
 
         <ModalFinalGame 
@@ -45,5 +56,7 @@ return (
                 characters= { characters }
                 />
       </div>
+      <FooterComponent />
+    </div>
     )
   }

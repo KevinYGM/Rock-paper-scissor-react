@@ -7,11 +7,10 @@
   grid-template-areas:
           "characterPlayer playPlayer interactiveUp playCom characterCom"
           "interactive interactive interactive interactive interactive";
-  grid-template-rows: auto 8vw;
+  grid-template-rows: auto 8vmax;
   grid-template-columns: auto auto auto auto auto;
-  gap: 0.5vw;
-  width: 95%;
-
+  gap: 0.7vmax;
+  width: 100%;
 }
 
 /*-------------Area Character Configurations-------------*/
@@ -27,8 +26,8 @@
 .play-battle-container .character img{
   width: 75%;
   height: 95%;
-  border: 0.4vw groove yellow;
-  border-radius: 1vw;
+  border: 0.5vmax groove yellow;
+  border-radius: 1vmax;
   box-shadow: 0 0 20px rgba(255, 255, 0, 0.5);
   background: rgba(14,21,56,0.50);
   background: linear-gradient(var(--x), #00ccff, #0e1538, #0e1538, #d400d4);
@@ -56,14 +55,13 @@
   justify-self: center;
   align-self: center;
   display: flex;
-  font-size: max(5rem, min(6vw, 10rem));
-  width: 14vw;
+  width: 15vmax;
   height: 95%;
 }
 
 .play-battle-container .play img{
-  border: 0.4vw groove rgb(247, 0, 255);
-  border-radius: 1vw;
+  border: 0.4vmax groove rgb(247, 0, 255);
+  border-radius: 1vmax;
   box-shadow: 0 0 20px rgba(153, 0, 255, 0.5);
   width: 100%;
   height: 100%;
@@ -85,7 +83,8 @@
 
 .play-battle-container .interactive-up{
   grid-area: interactiveUp;
-  width: 7vw;
+  justify-self: center;
+  width: 7vmax;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -94,12 +93,12 @@
 
 .play-battle-container .interactive-up span:nth-child(1){
   text-align: center;
-  font-size: max(1.5rem, min(3vw, 4rem));
+  font-size: max(1.5rem, min(3vmax, 4rem));
 }
 
 .play-battle-container .interactive-up span:nth-child(2){
   font-family: 'Chakra Petch', sans-serif;
-  font-size: max(3rem, min(7vw, 8rem));
+  font-size: max(3rem, min(7vmax, 8rem));
   transition: all 0.5s ease-in-out;
 }
 
@@ -117,12 +116,12 @@
   justify-self: center;
   display: flex;
   align-items: center;
-  width: 85%;
-  border-radius: 20px;
-  padding: 1vw;
+  justify-content: center;
+  width: 90%;
+  padding: 1vmax;
   color: black;
-  -webkit-text-stroke: 0.05vw rgb(173, 2, 240);
-  font-size: max(1rem, min(3vw, 10rem));
+  font-size: max(1rem, min(3vmax, 10rem));
+  -webkit-text-stroke: 0.1vw rgb(127, 33, 190);
 }
 
 .play-battle-container .interactive-section img{

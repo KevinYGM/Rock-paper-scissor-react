@@ -62,14 +62,10 @@ body{
 #root{
   min-height: 100vh;
   min-width: 100vw;
-  
-  display: grid;
-  grid-template-areas:
-          "header header header"
-          "main main main"
-          "footer footer footer";
-  grid-template-rows: auto 1fr auto;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 /*---------------------styles scrollBar Google Chrome--------------*/
 ::-webkit-scrollbar {

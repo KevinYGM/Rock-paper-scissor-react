@@ -8,8 +8,9 @@
   grid-template-columns: 1fr 3fr 1fr;
   align-items: center;
   justify-content: center;
-  gap: 2vw;
-  padding: 0 1vw;
+  gap: 2vmax;
+  padding: 0 1vmax;
+  margin-bottom: 0.5vmax;
 }
 
 
@@ -24,8 +25,8 @@
 
   position: relative;
   width: 25%;
-  height: 5vw;
-  border-radius: 1.7vw;
+  height: 5vmax;
+  border-radius: 1.7vmax;
   cursor: pointer;
 }
 
@@ -45,7 +46,7 @@
   position: absolute;
   inset: -2px;
   display: block;
-  border-radius: 1.7vw;
+  border-radius: 1.7vmax;
   background: linear-gradient(var(--x), #00ccff, #0e1538, #0e1538, #d400d4);
 }
 
@@ -61,7 +62,7 @@
 /*---------------BUTTON SPAN General Configurations----------------------------------------*/
 
 .buttons-play-container button span{
-  font-size: 4vw;
+  font-size: 4vmax;
   position: absolute;
   top: 0;
   left: 0;
@@ -74,7 +75,7 @@
   letter-spacing: 3px;
   background: rgba(14,21,56,0.50);
   overflow: hidden;
-  border-radius: 1.7vw;
+  border-radius: 1.7vmax;
 }
 
 .buttons-play-container button span::before{
@@ -108,7 +109,7 @@
 .buttons-play-container .surrender{
   justify-self: center;
   width: 90%;
-  height: 7vw;
+  height: 7vmax;
 }
 
 .buttons-play-container .button-play-special span,

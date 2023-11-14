@@ -4,10 +4,10 @@
   position: absolute;
   top: 13%;
   left: 0;
-  width: 40vw;
-  height: 72vh;
+  width: 32vmax;
+  height: 72vmin;
   transition: all 300ms ease-in-out;
-   z-index: 5;
+   z-index: 3;
    display: flex;
 }
 
@@ -20,7 +20,7 @@
   background: radial-gradient(circle, rgb(165, 13, 34), rgb(207, 112, 22), yellow, rgb(207, 112, 22), rgb(165, 13, 34));
   color: var(--main-color);
   cursor: pointer;
-  font-size: max(1rem, min(1.2vw, 1.5rem));
+  font-size: max(1rem, min(1.2vmax, 1.5rem));
   border-radius: 0 10px 10px 0;
   width: 5%;
   box-shadow: 0 0 7px rgba(255, 255, 0, 0.5);
@@ -39,7 +39,7 @@
 }
 
 .history_tab .visible-tab{
-  font-size: max(1rem, min(3vw, 3rem));
+  font-size: max(1rem, min(2.5vmax, 3rem));
   font-weight: bold;
   color: white;
 }
@@ -48,7 +48,7 @@
 .battle-history .history_content {
   position: relative;
   background-image: linear-gradient(to bottom, rgba(165, 13, 33, 0.671), rgba(207, 111, 22, 0.671), rgba(255, 255, 0, 0.678), rgb(207, 112, 22, 0.671), rgba(165, 13, 33, 0.671));
-  padding: 1vw;
+  padding: 1vmax;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   width: 95%;
   box-shadow: 0 0 7px rgba(255, 255, 0, 0.5);
@@ -63,7 +63,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 1vw;
+  gap: 1vmax;
 }
 
 /*------------------History-item Style---------------------------*/
@@ -75,7 +75,7 @@
   align-items: center;
   background: radial-gradient(circle at 95% -4%, var(--second-color) 0%, var(--main-color) 15%, transparent 33%), radial-gradient(circle at 97% 65%, var(--second-color) 10%, var(--main-color) 25%, transparent 16%), radial-gradient(circle at 5% 40%, var(--second-color) 2%, var(--main-color) 20%, transparent 80%), radial-gradient(circle at 5% 99%, var(--second-color) 2%, var(--main-color) 20%, transparent 7%);
   box-shadow: 0 0 7px rgba(2, 2, 1, 0.5);
-  border-radius: 1vw;
+  border-radius: 1vmax;
 }
 
 .history_container-items .history_item img{
@@ -109,7 +109,7 @@
 }
 
 .history_item .play{
-  font-size: 2.5vw;
+  font-size: 2.2vmax;
 }
 
 .history_item .play-player{ 
@@ -126,12 +126,12 @@
 .history_item .rounds{
   grid-area: rounds;
   justify-self: center;
-  font-size: 1.5vw;
+  font-size: 1.5vmax;
 }
 
 
 /*-----------------------Special Class------------------*/
 
 .visible {
-  transform: translateX(-38vw);
+  transform: translateX(-95%);
 }

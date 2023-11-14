@@ -75,3 +75,9 @@
     font-size: max(1.5rem, min(1.5vw, 4rem));
   }
 }
+
+@media (max-width: 700px) {
+  .footer{
+    display: none;
+  }
+}
