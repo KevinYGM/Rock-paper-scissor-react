@@ -4,7 +4,7 @@ import './StartGame.css';
 import {Link} from 'react-router-dom';
 import sword from '../../../images/interfaz-images/sword.png';
 
-export const StartGame = () => {
+export const StartGame = ({characterPlayer, characters}) => {
 
   useEffect(()=> {
     //function for mousemove animation in character images.
@@ -25,7 +25,8 @@ export const StartGame = () => {
     <div className="start-game">
       
       {/* Start Game Button */}
-      <Link className="link-btn-start-game" to='/combat'>
+      <Link className="link-btn-start-game" to='/combat'
+            onClick={()=>{console.log(characters[characterPlayer].name)}}>
         <button className="btn-start-game">
           <div className="sword-container">
             <img src={sword} alt="sword" className="sword sword1" />

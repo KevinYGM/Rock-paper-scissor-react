@@ -6,7 +6,10 @@ import { characters } from '../../data/charactersData';
 import { HeaderComponent } from '../componentsGenerals/HeaderComponent/HeaderComponent';
 import { FooterComponent } from '../componentsGenerals/FooterComponent/FooterComponent';
 
-export const ComponentWelcome = () => {
+export const ComponentWelcome = 
+({characterPlayer, 
+  setCharacterPlayer}) => {
+
   return (
     <div className='container-welcome'>
       <HeaderComponent />
@@ -14,9 +17,13 @@ export const ComponentWelcome = () => {
           <Title />
 
           <SelectCharacter
-                characters = { characters } />
+                characters = { characters }
+                characterPlayer = { characterPlayer }
+                setCharacterPlayer = { setCharacterPlayer } />
                 
-          <StartGame />
+          <StartGame
+                characters = { characters }
+                characterPlayer = { characterPlayer } />
       </div>
       <FooterComponent />
     </div>

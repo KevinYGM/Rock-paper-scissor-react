@@ -9,7 +9,8 @@ import { HeaderComponent } from '../componentsGenerals/HeaderComponent/HeaderCom
 import { FooterComponent } from '../componentsGenerals/FooterComponent/FooterComponent';
 
 
-export const ComponentCombat = () => {
+export const ComponentCombat = 
+      (characterPlayer) => {
   
   const [openModalFinal, setOpenModalFinal] = useState(false);
   
@@ -40,10 +41,17 @@ export const ComponentCombat = () => {
       <HeaderComponent />
       <div className='combat-page'>
         
-        <Summary characters= { characters } />
-        <BattleHistory characters= { characters } />
+        <Summary  characters= { characters }
+                  characterPlayer = { characterPlayer }
+                  />
 
-        <PlayBattle characters= { characters } />
+        <BattleHistory  characters= { characters } 
+                        characterPlayer = { characterPlayer }
+                    />
+
+        <PlayBattle   characters= { characters } 
+                      characterPlayer = { characterPlayer }
+                    />
 
         <SectionButtonsPlay 
                 characters= { characters }

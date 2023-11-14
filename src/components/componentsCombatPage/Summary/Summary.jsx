@@ -5,16 +5,16 @@ import vs from '../../../images/interfaz-images/vs.png';
 import markRed from '../../../images/interfaz-images/redMarker.png'; 
 import markBlue from '../../../images/interfaz-images/blueMarker.png'; 
 
-export const Summary = ({ characters }) => {
+export const Summary = ({ characters, characterPlayer }) => {
   return (
     <div className="summary">
 
       {/* Section Character Player */}
       <div className="summary_character-player summary-character">
         <div className="img-character-player img-character">
-          <img src={characters[0].facePhoto} alt={characters[0].name} />
+          <img src={characters[characterPlayer.characterPlayer].facePhoto} alt={characters[characterPlayer.characterPlayer].name} />
         </div>
-        <span className="name-character-player name-character">{characters[0].name}</span>
+        <span className="name-character-player name-character">{characters[characterPlayer.characterPlayer].name}</span>
       </div>
 
       {/* Section Points Player */}

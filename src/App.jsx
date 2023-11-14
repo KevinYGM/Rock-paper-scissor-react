@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useState } from 'react';
 import {Routes, Route, BrowserRouter} from 'react-router-dom';
 import { ComponentWelcome } from './components/componentsWelcomePage/ComponentWelcome';
 import { ComponentCombat } from './components/componentsCombatPage/ComponentCombat';
@@ -8,16 +8,26 @@ import { ComponentCombat } from './components/componentsCombatPage/ComponentComb
 
 function App() {
 
+  const [characterPlayer, setCharacterPlayer] = useState(0);
 
 
-
-  // basename="/Rock-paper-scissor-react" (para despliegue en gh-pages)
- return (
-    <BrowserRouter>
+  return (
+    <BrowserRouter basename="/Rock-paper-scissor-react">
       <Routes>
-        <Route path='/' element={<ComponentWelcome />} />
-        <Route path='/combat' element={<ComponentCombat />} />
-        <Route path='/welcome' element={<ComponentWelcome />} />
+        <Route  path='/' 
+                element={<ComponentWelcome
+                                  characterPlayer = { characterPlayer }
+                                  setCharacterPlayer = { setCharacterPlayer } />} />
+
+        <Route  path='/combat' 
+                element={<ComponentCombat
+                                  characterPlayer = { characterPlayer }/>}
+                                   />
+
+        <Route  path='/welcome' 
+                element={<ComponentWelcome
+                                  characterPlayer = { characterPlayer }
+                                  setCharacterPlayer = { setCharacterPlayer }/>} />
       </Routes>
     </BrowserRouter>
   )

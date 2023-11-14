@@ -3,16 +3,20 @@ import React, { useState } from 'react';
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle  } from "react-icons/io"
 
 
-export const SelectCharacter = ({ characters }) => {
+export const SelectCharacter = 
+({ characters,
+  characterPlayer,
+  setCharacterPlayer 
+}) => {
 
-  const [index, setIndex] = useState(0);
+  
   
   const changeCharacter = (address) => {
     // Function that allows you to change characters by pressing the arrow buttons.
     if (address === 'back') {
-      setIndex((prevIndex) => (prevIndex + 1) % characters.length);
+      setCharacterPlayer((prevCharacter) => (prevCharacter + 1) % characters.length);
     } else if (address === 'forward') {
-      setIndex((prevIndex) => (prevIndex - 1 + characters.length) % characters.length);
+      setCharacterPlayer((prevCharacter) => (prevCharacter - 1 + characters.length) % characters.length);
     }
   };
 
@@ -25,21 +29,21 @@ export const SelectCharacter = ({ characters }) => {
       <div className='character-img-container'>
 
         <div className="front-image">
-          <img src={characters[index].photo} alt={characters[index].name} />
+          <img src={characters[characterPlayer].photo} alt={characters[characterPlayer].name} />
         </div>
     {/*-----------------------section Back image------------------- */}
         <div className="back-image">
           <div className="inside-back-card">
             <div className='title-back-card'>
-              <span className='text-of-type'>{characters[index].type}</span>
+              <span className='text-of-type'>{characters[characterPlayer].type}</span>
             </div>
 
             <div className="img-element">
-              <img src={characters[index].imageType} alt={characters[index].type} /> 
+              <img src={characters[characterPlayer].imageType} alt={characters[characterPlayer].type} /> 
             </div>
            
             <p className="text-description">
-              {characters[index].description}
+              {characters[characterPlayer].description}
             </p>
           </div>
         </div>
@@ -51,7 +55,7 @@ export const SelectCharacter = ({ characters }) => {
               onClick={() => changeCharacter('forward')}
         ><IoIosArrowDropleftCircle /></button>
 
-        <span className='character-name'>{characters[index].name + " " + characters[index].iconType}</span>
+        <span className='character-name'>{characters[characterPlayer].name + " " + characters[characterPlayer].iconType}</span>
 
         <button
                 onClick={() => changeCharacter('back')}>

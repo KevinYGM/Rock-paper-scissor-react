@@ -8,7 +8,11 @@ import scissorCom from '../../../images/interfaz-images/scissor-play-com.png';
 import paperCom from '../../../images/interfaz-images/paper-play-com.png';
 import rockCom from '../../../images/interfaz-images/rock-play-com.png';
 
-export const PlayBattle = ({ characters }) => {
+export const PlayBattle = 
+({ characters, 
+  characterPlayer
+}) => {
+
   const [images, setImages] = useState([rockPlayer, paperPlayer, scissorPlayer]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imagesCom, setImagesCom] = useState([scissorCom, rockCom, paperCom]);
@@ -28,7 +32,7 @@ useEffect(()=> {
     
     }, []);
 
-
+    
     useEffect(() => {
       // function that controls the animations of the "Play" sections
     const animationInterval = setInterval(() => {
@@ -47,7 +51,7 @@ useEffect(()=> {
     <div  className='play-battle-container'>
        {/*--------------Character Player--------------*/}
       <div className="character-player character">
-        <img src={characters[0].photo} alt={characters[0].name} />
+        <img src={characters[characterPlayer.characterPlayer].photo} alt={characterPlayer.characterPlayer.name} />
       </div> 
       
 
