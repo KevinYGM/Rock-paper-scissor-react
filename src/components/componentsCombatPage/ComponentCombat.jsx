@@ -10,7 +10,9 @@ import { FooterComponent } from '../componentsGenerals/FooterComponent/FooterCom
 
 
 export const ComponentCombat = 
-      (characterPlayer) => {
+({characterPlayer, 
+  characterCom
+}) => {
   
   const [openModalFinal, setOpenModalFinal] = useState(false);
   
@@ -36,6 +38,13 @@ export const ComponentCombat =
     }, []);
 
 
+    useEffect(() => {
+      console.log(characterCom);
+    }, [characterCom]);
+
+   
+
+
     return (
     <div className={isHorizontal ? 'container-combat' : 'container-combat horizontal-layout'}>
       <HeaderComponent />
@@ -43,14 +52,17 @@ export const ComponentCombat =
         
         <Summary  characters= { characters }
                   characterPlayer = { characterPlayer }
+                  characterCom = { characterCom }
                   />
 
         <BattleHistory  characters= { characters } 
                         characterPlayer = { characterPlayer }
+                        characterCom = { characterCom }
                     />
 
         <PlayBattle   characters= { characters } 
                       characterPlayer = { characterPlayer }
+                      characterCom = { characterCom }
                     />
 
         <SectionButtonsPlay 

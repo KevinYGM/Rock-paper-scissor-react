@@ -5,16 +5,19 @@ import vs from '../../../images/interfaz-images/vs.png';
 import markRed from '../../../images/interfaz-images/redMarker.png'; 
 import markBlue from '../../../images/interfaz-images/blueMarker.png'; 
 
-export const Summary = ({ characters, characterPlayer }) => {
+export const Summary = ({ 
+  characters, 
+  characterPlayer,
+  characterCom }) => {
   return (
     <div className="summary">
 
       {/* Section Character Player */}
       <div className="summary_character-player summary-character">
         <div className="img-character-player img-character">
-          <img src={characters[characterPlayer.characterPlayer].facePhoto} alt={characters[characterPlayer.characterPlayer].name} />
+          <img src={characters[characterPlayer].facePhoto} alt={characters[characterPlayer].name} />
         </div>
-        <span className="name-character-player name-character">{characters[characterPlayer.characterPlayer].name}</span>
+        <span className="name-character-player name-character">{characters[characterPlayer].name}</span>
       </div>
 
       {/* Section Points Player */}
@@ -40,9 +43,9 @@ export const Summary = ({ characters, characterPlayer }) => {
 
       {/* Section Character Com */}
       <div className="summary_character-com summary-character">
-        <span className="name-character-com name-character">{characters[1].name}</span>
+        <span className="name-character-com name-character">{characterCom.name}</span>
         <div className="img-character-com img-character">
-          <img src={characters[1].facePhoto} alt={characters[1].name} />
+          <img src={characterCom.facePhoto} alt={characterCom.name} />
         </div>
        </div>
 

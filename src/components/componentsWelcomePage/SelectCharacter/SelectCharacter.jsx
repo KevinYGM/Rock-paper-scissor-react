@@ -1,25 +1,25 @@
 import './SelectCharacter.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle  } from "react-icons/io"
 
 
 export const SelectCharacter = 
-({ characters,
-  characterPlayer,
-  setCharacterPlayer 
+({  characters,
+    characterPlayer,
+    setCharacterPlayer,
+    characterCom,
+    setCharacterCom
 }) => {
 
-  
   
   const changeCharacter = (address) => {
     // Function that allows you to change characters by pressing the arrow buttons.
     if (address === 'back') {
       setCharacterPlayer((prevCharacter) => (prevCharacter + 1) % characters.length);
-    } else if (address === 'forward') {
+    }else if (address === 'forward') {
       setCharacterPlayer((prevCharacter) => (prevCharacter - 1 + characters.length) % characters.length);
     }
-  };
-
+  }
 
 
   return (
@@ -63,4 +63,4 @@ export const SelectCharacter =
       </div>
      </div>
   )
-}
+  }

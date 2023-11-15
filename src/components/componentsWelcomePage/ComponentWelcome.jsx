@@ -8,7 +8,10 @@ import { FooterComponent } from '../componentsGenerals/FooterComponent/FooterCom
 
 export const ComponentWelcome = 
 ({characterPlayer, 
-  setCharacterPlayer}) => {
+  setCharacterPlayer,
+  characterCom, 
+  setCharacterCom
+}) => {
 
   return (
     <div className='container-welcome'>
@@ -19,11 +22,15 @@ export const ComponentWelcome =
           <SelectCharacter
                 characters = { characters }
                 characterPlayer = { characterPlayer }
-                setCharacterPlayer = { setCharacterPlayer } />
+                setCharacterPlayer = { setCharacterPlayer }
+                setCharacterCom = { setCharacterCom }
+                characterCom = { characterCom } />
                 
           <StartGame
                 characters = { characters }
-                characterPlayer = { characterPlayer } />
+                characterPlayer = { characterPlayer }
+                setCharacterCom = { setCharacterCom }
+                characterCom = { characterCom } />
       </div>
       <FooterComponent />
     </div>

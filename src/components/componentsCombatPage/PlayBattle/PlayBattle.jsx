@@ -9,8 +9,9 @@ import paperCom from '../../../images/interfaz-images/paper-play-com.png';
 import rockCom from '../../../images/interfaz-images/rock-play-com.png';
 
 export const PlayBattle = 
-({ characters, 
-  characterPlayer
+({  characters, 
+    characterPlayer,
+    characterCom
 }) => {
 
   const [images, setImages] = useState([rockPlayer, paperPlayer, scissorPlayer]);
@@ -51,7 +52,7 @@ useEffect(()=> {
     <div  className='play-battle-container'>
        {/*--------------Character Player--------------*/}
       <div className="character-player character">
-        <img src={characters[characterPlayer.characterPlayer].photo} alt={characterPlayer.characterPlayer.name} />
+        <img src={characters[characterPlayer].photo} alt={characters[characterPlayer].name} />
       </div> 
       
 
@@ -72,7 +73,7 @@ useEffect(()=> {
 
      {/*--------------Character Com--------------*/} 
       <div className="character-com character">
-        <img src={characters[1].photo} alt={characters[1].name} />
+        <img src={characterCom.photo} alt={characters[1].name} />
       </div>
       <div className="interactive-section">
         <div className="frame-container">
