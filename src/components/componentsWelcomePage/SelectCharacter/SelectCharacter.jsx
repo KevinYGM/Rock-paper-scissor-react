@@ -6,9 +6,7 @@ import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle  } from "react-icon
 export const SelectCharacter = 
 ({  characters,
     characterPlayer,
-    setCharacterPlayer,
-    characterCom,
-    setCharacterCom
+    setCharacterPlayer
 }) => {
 
   

@@ -23,8 +23,7 @@ export const ComponentWelcome =
                 characters = { characters }
                 characterPlayer = { characterPlayer }
                 setCharacterPlayer = { setCharacterPlayer }
-                setCharacterCom = { setCharacterCom }
-                characterCom = { characterCom } />
+                 />
                 
           <StartGame
                 characters = { characters }
