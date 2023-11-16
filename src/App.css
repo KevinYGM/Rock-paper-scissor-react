@@ -23,6 +23,7 @@ a{
 }
 
 .welcome-page{
+  position: relative;
   grid-area: main;
   display: flex;
   flex-direction: column;

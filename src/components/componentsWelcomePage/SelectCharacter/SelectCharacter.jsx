@@ -5,19 +5,27 @@ import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle  } from "react-icon
 
 export const SelectCharacter = 
 ({  characters,
-    characterPlayer,
-    setCharacterPlayer
+    setCharacterPlayer,
+    openModalCharacter
 }) => {
 
+  /*----------state components-----------------------------*/
+  const [indexCharacter, setIndexCharacter] = useState(0);
+  
   
   const changeCharacter = (address) => {
     // Function that allows you to change characters by pressing the arrow buttons.
     if (address === 'back') {
-      setCharacterPlayer((prevCharacter) => (prevCharacter + 1) % characters.length);
+      setIndexCharacter((prevCharacter) => (prevCharacter + 1) % characters.length);
     }else if (address === 'forward') {
-      setCharacterPlayer((prevCharacter) => (prevCharacter - 1 + characters.length) % characters.length);
+      setIndexCharacter((prevCharacter) => (prevCharacter - 1 + characters.length) % characters.length);
+      
     }
   }
+
+  useEffect(() => {
+    setCharacterPlayer(characters[indexCharacter])
+  }, [indexCharacter, characters, setCharacterPlayer]);
 
 
   return (
@@ -27,21 +35,21 @@ export const SelectCharacter =
       <div className='character-img-container'>
 
         <div className="front-image">
-          <img src={characters[characterPlayer].photo} alt={characters[characterPlayer].name} />
+          <img src={characters[indexCharacter].photo} alt={characters[indexCharacter].name} />
         </div>
     {/*-----------------------section Back image------------------- */}
         <div className="back-image">
           <div className="inside-back-card">
             <div className='title-back-card'>
-              <span className='text-of-type'>{characters[characterPlayer].type}</span>
+              <span className='text-of-type'>{characters[indexCharacter].type}</span>
             </div>
 
             <div className="img-element">
-              <img src={characters[characterPlayer].imageType} alt={characters[characterPlayer].type} /> 
+              <img src={characters[indexCharacter].imageType} alt={characters[indexCharacter].type} /> 
             </div>
            
             <p className="text-description">
-              {characters[characterPlayer].description}
+              {characters[indexCharacter].description}
             </p>
           </div>
         </div>
@@ -49,14 +57,13 @@ export const SelectCharacter =
 
 {/*--------------------------section footer Character---------------------------------- */}  
       <div className='character-footer'>
-        <button 
-              onClick={() => changeCharacter('forward')}
+        <button onClick={!openModalCharacter ? () => changeCharacter('forward') : undefined}
+          
         ><IoIosArrowDropleftCircle /></button>
 
-        <span className='character-name'>{characters[characterPlayer].name + " " + characters[characterPlayer].iconType}</span>
+        <span className='character-name'>{characters[indexCharacter].name + " " + characters[indexCharacter].iconType}</span>
 
-        <button
-                onClick={() => changeCharacter('back')}>
+        <button onClick={!openModalCharacter ? () => changeCharacter('back') : undefined}>
         <IoIosArrowDroprightCircle /></button>
       </div>
      </div>

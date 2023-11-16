@@ -2,47 +2,39 @@ import React, { useEffect, useState } from 'react';
 import { Summary } from './Summary/Summary';
 import { BattleHistory } from './BattleHistory/BattleHistory';
 import { PlayBattle } from './PlayBattle/PlayBattle';
-import { characters } from '../../data/charactersData';
 import { SectionButtonsPlay } from './SectionButtonsPlay/SectionButtonsPlay';
 import { ModalFinalGame } from '../componentsModals/ModalFinalGame/ModalFinalGame';
 import { HeaderComponent } from '../componentsGenerals/HeaderComponent/HeaderComponent';
 import { FooterComponent } from '../componentsGenerals/FooterComponent/FooterComponent';
-
 
 export const ComponentCombat = 
 ({characterPlayer, 
   characterCom
 }) => {
   
+  /*---------------------states Components-------------------------*/
   const [openModalFinal, setOpenModalFinal] = useState(false);
   
   const [isHorizontal, setIsHorizontal] = useState(false);
   
+    
+  
     useEffect(() => {
+      /* function to change the rotation of the component.*/
       const handleOrientationChange = () => {
         const { innerWidth, innerHeight } = window;
         const isLandscape = innerWidth > innerHeight || innerHeight - innerWidth < 100;
         setIsHorizontal(isLandscape);
       };
   
-      // Agrega un listener para el cambio de orientación
       window.addEventListener('orientationchange', handleOrientationChange);
-  
-      // Llama a la función al cargar la página para establecer la orientación inicial
+      
       handleOrientationChange();
   
-      // Limpia el listener cuando el componente se desmonta
       return () => {
         window.removeEventListener('orientationchange', handleOrientationChange);
       };
     }, []);
-
-
-    useEffect(() => {
-      console.log(characterCom);
-    }, [characterCom]);
-
-   
 
 
     return (
@@ -50,30 +42,30 @@ export const ComponentCombat =
       <HeaderComponent />
       <div className='combat-page'>
         
-        <Summary  characters= { characters }
-                  characterPlayer = { characterPlayer }
-                  characterCom = { characterCom }
-                  />
+        <Summary  
+                characterPlayer = { characterPlayer }
+                characterCom = { characterCom }
+                />
 
-        <BattleHistory  characters= { characters } 
-                        characterPlayer = { characterPlayer }
-                        characterCom = { characterCom }
-                    />
+        <BattleHistory  
+                characterPlayer = { characterPlayer }
+                characterCom = { characterCom }
+                />
 
-        <PlayBattle   characters= { characters } 
-                      characterPlayer = { characterPlayer }
-                      characterCom = { characterCom }
-                    />
+        <PlayBattle   
+                characterPlayer = { characterPlayer }
+                characterCom = { characterCom }
+                />
 
         <SectionButtonsPlay 
-                characters= { characters }
                 openModalFinal= { openModalFinal }
                 setOpenModalFinal = { setOpenModalFinal }/>
 
         <ModalFinalGame 
                 openModalFinal = { openModalFinal }
                 setOpenModalFinal = { setOpenModalFinal }
-                characters= { characters }
+                characterPlayer = { characterPlayer }
+                characterCom = { characterCom }
                 />
       </div>
       <FooterComponent />

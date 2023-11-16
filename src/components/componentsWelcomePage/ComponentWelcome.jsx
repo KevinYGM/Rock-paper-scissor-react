@@ -1,17 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Title } from './Title/Title';
 import { SelectCharacter } from './SelectCharacter/SelectCharacter';
 import { StartGame } from './StartGame/StartGame';
 import { characters } from '../../data/charactersData';
 import { HeaderComponent } from '../componentsGenerals/HeaderComponent/HeaderComponent';
 import { FooterComponent } from '../componentsGenerals/FooterComponent/FooterComponent';
+import { ModalSelectCharacter } from '../componentsModals/ModalSelectCharacter/ModalSelectCharacter';
 
 export const ComponentWelcome = 
 ({characterPlayer, 
   setCharacterPlayer,
-  characterCom, 
   setCharacterCom
 }) => {
+
+  /*------------------state components-------------------------*/
+  const [openModalCharacter, setOpenModalCharacter] = useState(false);
 
   return (
     <div className='container-welcome'>
@@ -21,15 +24,22 @@ export const ComponentWelcome =
 
           <SelectCharacter
                 characters = { characters }
-                characterPlayer = { characterPlayer }
                 setCharacterPlayer = { setCharacterPlayer }
-                 />
+                openModalCharacter = { openModalCharacter } 
+                />
                 
-          <StartGame
+          <StartGame 
+                setOpenModalCharacter = { setOpenModalCharacter } 
+                openModalCharacter = { openModalCharacter }  
+                />
+          
+          <ModalSelectCharacter 
                 characters = { characters }
                 characterPlayer = { characterPlayer }
                 setCharacterCom = { setCharacterCom }
-                characterCom = { characterCom } />
+                openModalCharacter = { openModalCharacter } 
+                setOpenModalCharacter = { setOpenModalCharacter } 
+                />
       </div>
       <FooterComponent />
     </div>

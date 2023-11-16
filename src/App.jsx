@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {Routes, Route, BrowserRouter} from 'react-router-dom';
 import { ComponentWelcome } from './components/componentsWelcomePage/ComponentWelcome';
 import { ComponentCombat } from './components/componentsCombatPage/ComponentCombat';
@@ -8,8 +8,13 @@ import { ComponentCombat } from './components/componentsCombatPage/ComponentComb
 
 function App() {
 
-  const [characterPlayer, setCharacterPlayer] = useState(0);
-  const [characterCom, setCharacterCom] = useState(0);
+  // useEffect(() => {
+  //   console.log(characterCom);
+  // }, [characterCom]);
+
+/*--------------------states generals--------------------------- */
+  const [characterPlayer, setCharacterPlayer] = useState(null);
+  const [characterCom, setCharacterCom] = useState(null);
 
   
   return (
@@ -19,7 +24,6 @@ function App() {
                 element={<ComponentWelcome
                                   characterPlayer = { characterPlayer }
                                   setCharacterPlayer = { setCharacterPlayer }
-                                  characterCom = { characterCom }
                                   setCharacterCom = { setCharacterCom } />} 
                                   />
 
@@ -33,7 +37,6 @@ function App() {
                 element={<ComponentWelcome
                                   characterPlayer = { characterPlayer }
                                   setCharacterPlayer = { setCharacterPlayer }
-                                  characterCom = { characterCom }
                                   setCharacterCom = { setCharacterCom } />} 
                                   />
       </Routes>

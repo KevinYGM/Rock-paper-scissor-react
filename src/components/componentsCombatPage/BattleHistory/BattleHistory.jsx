@@ -36,7 +36,7 @@ export const BattleHistory =
 
             {/*---------------- Section: Character Player -----------------*/}
             <div className="character-player character">
-              <img src={characters[characterPlayer].facePhoto} alt="" />
+              <img src={characterPlayer.facePhoto} alt="" />
             </div>
 
             {/*------- Section: Container-Center (Play and Rounds) ---------*/}
@@ -76,7 +76,7 @@ export const BattleHistory =
 
             {/*---------------- Section: Character Player -----------------*/}
             <div className="character-player character">
-              <img src={characters[characterPlayer].facePhoto} alt="" />
+              <img src={characterPlayer.facePhoto} alt="" />
             </div>
 
             {/*------- Section: Container-Center (Play and Rounds) ---------*/}
@@ -117,7 +117,7 @@ export const BattleHistory =
 
             {/*---------------- Section: Character Player -----------------*/}
             <div className="character-player character">
-              <img src={characters[characterPlayer].facePhoto} alt="" />
+              <img src={characterPlayer.facePhoto} alt="" />
             </div>
 
             {/*------- Section: Container-Center (Play and Rounds) ---------*/}
@@ -157,7 +157,7 @@ export const BattleHistory =
 
             {/*---------------- Section: Character Player -----------------*/}
             <div className="character-player character">
-              <img src={characters[characterPlayer].facePhoto} alt="" />
+              <img src={characterPlayer.facePhoto} alt="" />
             </div>
 
             {/*------- Section: Container-Center (Play and Rounds) ---------*/}
@@ -197,7 +197,7 @@ export const BattleHistory =
 
             {/*---------------- Section: Character Player -----------------*/}
             <div className="character-player character">
-              <img src={characters[characterPlayer].facePhoto} alt="" />
+              <img src={characterPlayer.facePhoto} alt="" />
             </div>
 
             {/*------- Section: Container-Center (Play and Rounds) ---------*/}
@@ -237,7 +237,7 @@ export const BattleHistory =
 
             {/*---------------- Section: Character Player -----------------*/}
             <div className="character-player character">
-              <img src={characters[characterPlayer].facePhoto} alt="" />
+              <img src={characterPlayer.facePhoto} alt="" />
             </div>
 
             {/*------- Section: Container-Center (Play and Rounds) ---------*/}
@@ -277,7 +277,7 @@ export const BattleHistory =
 
             {/*---------------- Section: Character Player -----------------*/}
             <div className="character-player character">
-              <img src={characters[characterPlayer].facePhoto} alt="" />
+              <img src={characterPlayer.facePhoto} alt="" />
             </div>
 
             {/*------- Section: Container-Center (Play and Rounds) ---------*/}

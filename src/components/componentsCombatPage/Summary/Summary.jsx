@@ -15,9 +15,9 @@ export const Summary = ({
       {/* Section Character Player */}
       <div className="summary_character-player summary-character">
         <div className="img-character-player img-character">
-          <img src={characters[characterPlayer].facePhoto} alt={characters[characterPlayer].name} />
+          <img src={characterPlayer.facePhoto} alt={characterPlayer.name} />
         </div>
-        <span className="name-character-player name-character">{characters[characterPlayer].name}</span>
+        <span className="name-character-player name-character">{characterPlayer.name}</span>
       </div>
 
       {/* Section Points Player */}

@@ -6,10 +6,14 @@ import { ModalSurrender } from '../../componentsModals/ModalSurrender/ModalSurre
 
 
 
-export const SectionButtonsPlay = ({ openModalFinal, setOpenModalFinal }) => {
-
+export const SectionButtonsPlay = 
+({ openModalFinal, 
+    setOpenModalFinal 
+  }) => {
+/*------------states Component----------------------------- */
   const [ openModalSurrender, setOpenModalSurrender ] = useState (false);
 
+  
 useEffect(()=> {
 // Function for the MouseMove effect of the buttons
   const buttons = document.querySelectorAll('.surrender, .button-play, .button-play-special');
