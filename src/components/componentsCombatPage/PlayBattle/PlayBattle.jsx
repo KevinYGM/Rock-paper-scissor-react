@@ -1,22 +1,19 @@
 import React, { useEffect, useState} from 'react';
 import './PlayBattle.css';
 import frame from '../../../images/interfaz-images/frame-vector.png';
-import scissorPlayer from '../../../images/interfaz-images/scissor-play-player.png';
-import paperPlayer from '../../../images/interfaz-images/paper-play-player.png';
-import rockPlayer from '../../../images/interfaz-images/rock-play-player.png';
-import scissorCom from '../../../images/interfaz-images/scissor-play-com.png';
-import paperCom from '../../../images/interfaz-images/paper-play-com.png';
-import rockCom from '../../../images/interfaz-images/rock-play-com.png';
+
 
 export const PlayBattle = 
 ({  characterPlayer,
-    characterCom
+    characterCom,
+    imagesPlayPlayer,
+    setImagesPlayPlayer,
+    imagesPlayCom,
+    setImagesPlayCom,
 }) => {
 
-  const [images, setImages] = useState([rockPlayer, paperPlayer, scissorPlayer]);
+  
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [imagesCom, setImagesCom] = useState([scissorCom, rockCom, paperCom]);
-
 
 useEffect(()=> {
     //function for mousemove animation in character images.
@@ -36,13 +33,13 @@ useEffect(()=> {
     useEffect(() => {
       // function that controls the animations of the "Play" sections
     const animationInterval = setInterval(() => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imagesPlayPlayer.length);
       }, 200);
   
       return () => {
         clearInterval(animationInterval);
       };
-    }, [images, imagesCom]);
+    }, [imagesPlayPlayer, imagesPlayCom]);
 
 
 
@@ -57,7 +54,7 @@ useEffect(()=> {
 
       {/*--------------Play Zone--------------*/} 
       <div className="play-player play">
-        <img src={images[currentImageIndex]} alt="" />
+        <img src={imagesPlayPlayer[currentImageIndex]} alt="" />
       </div>
 
       <div className="interactive-up">
@@ -66,7 +63,7 @@ useEffect(()=> {
       </div>
 
       <div className="play-com play">
-        <img src={imagesCom[currentImageIndex]} alt="" />
+        <img src={imagesPlayCom[currentImageIndex]} alt="" />
       </div>
       
 

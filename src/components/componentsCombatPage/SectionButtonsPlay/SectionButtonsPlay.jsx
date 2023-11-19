@@ -4,14 +4,29 @@ import allHands from '../../../images/interfaz-images/all-hands.png';
 import surrender from '../../../images/interfaz-images/surrender.png';
 import { ModalSurrender } from '../../componentsModals/ModalSurrender/ModalSurrender';
 
+/*-----------------------Images Play-----------------------------------*/
+import scissorPlayer from '../../../images/interfaz-images/scissor-play-player.png';
+import paperPlayer from '../../../images/interfaz-images/paper-play-player.png';
+import rockPlayer from '../../../images/interfaz-images/rock-play-player.png';
+import scissorCom from '../../../images/interfaz-images/scissor-play-com.png';
+import paperCom from '../../../images/interfaz-images/paper-play-com.png';
+import rockCom from '../../../images/interfaz-images/rock-play-com.png';
+
+
 
 
 export const SectionButtonsPlay = 
-({ openModalFinal, 
-    setOpenModalFinal 
-  }) => {
+({  openModalFinal, 
+    setOpenModalFinal,
+    setImagesPlayPlayer,
+    setImagesPlayCom, 
+}) => {
+
+
 /*------------states Component----------------------------- */
   const [ openModalSurrender, setOpenModalSurrender ] = useState (false);
+
+  const [selectPlay, setSelectPlay] = useState(false);
 
   
 useEffect(()=> {
@@ -26,6 +41,24 @@ useEffect(()=> {
     });
   });
 }, []);
+
+
+const activePlay = (playPlayer) => {
+  setImagesPlayPlayer([playPlayer, playPlayer, playPlayer]);
+
+  const timeOutId = setTimeout(() => {
+    setSelectPlay(true);
+  }, 3000);
+
+  return () => clearTimeout(timeOutId);
+};
+
+useEffect(() => {
+  if(selectPlay){
+    setImagesPlayPlayer([rockPlayer, paperPlayer, scissorPlayer]);
+    setSelectPlay(false);
+  }
+}, [selectPlay]);
 
 
 return (
@@ -53,19 +86,25 @@ return (
       <button className='button-play'>
         <i></i>
         <i></i>
-        <span>✊🏼</span>
+        <span
+        onClick={() => activePlay(rockPlayer)}
+        >✊🏼</span>
         
       </button>
       <button className='button-play'>
         <i></i>
         <i></i>
-        <span>✋🏼</span>
+        <span
+       onClick={() => activePlay(paperPlayer)}
+        >✋🏼</span>
         
       </button>
       <button className='button-play'>
         <i></i>
         <i></i>
-        <span>✌🏼</span>
+        <span
+        onClick={() => activePlay(scissorPlayer)}
+        >✌🏼</span>
       </button>
     </div>
 
