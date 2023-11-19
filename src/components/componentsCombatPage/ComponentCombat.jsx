@@ -9,14 +9,6 @@ import { FooterComponent } from '../componentsGenerals/FooterComponent/FooterCom
 
 import { playsDataPlayer, playsDataCom  } from '../../data/playData';
 
-import scissorPlayer from '../../images/interfaz-images/scissor-play-player.png';
-import paperPlayer from '../../images/interfaz-images/paper-play-player.png';
-import rockPlayer from '../../images/interfaz-images/rock-play-player.png';
-import scissorCom from '../../images/interfaz-images/scissor-play-com.png';
-import paperCom from '../../images/interfaz-images/paper-play-com.png';
-import rockCom from '../../images/interfaz-images/rock-play-com.png';
-
-
 export const ComponentCombat = 
 ({characterPlayer, 
   characterCom
@@ -27,9 +19,9 @@ export const ComponentCombat =
   
   const [isHorizontal, setIsHorizontal] = useState(false);
 
-  const [imagesPlayPlayer, setImagesPlayPlayer] = useState([rockPlayer, paperPlayer, scissorPlayer]);
+  const [imagesPlayPlayer, setImagesPlayPlayer] = useState(playsDataPlayer.map(play => play.photo));
 
-  const [imagesPlayCom, setImagesPlayCom] = useState([paperCom, scissorCom, rockCom]);
+  const [imagesPlayCom, setImagesPlayCom] = useState(playsDataCom.map(play => play.photo));
 
   
   
@@ -80,6 +72,8 @@ export const ComponentCombat =
                 setOpenModalFinal = { setOpenModalFinal }
                 setImagesPlayPlayer = {setImagesPlayPlayer}
                 setImagesPlayCom = {setImagesPlayCom}
+                playsDataPlayer = {playsDataPlayer} 
+                playsDataCom = { playsDataCom }
                 />
 
         <ModalFinalGame 

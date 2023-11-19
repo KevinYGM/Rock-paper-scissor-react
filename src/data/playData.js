@@ -30,6 +30,12 @@ export const playsDataPlayer = [
 
 export const playsDataCom = [
   {
+    name: "Scissor Com",
+    photo: scissorCom,
+    icon: "✌🏼"
+  },
+  
+  {
     name: "Rock Com",
     photo: rockCom,
     icon: "✊🏼"
@@ -39,11 +45,5 @@ export const playsDataCom = [
     name: "Paper Com",
     photo: paperCom,
     icon: "✋🏼"
-  },
-
-  {
-    name: "Scissor Com",
-    photo: scissorCom,
-    icon: "✌🏼"
   }
 ];

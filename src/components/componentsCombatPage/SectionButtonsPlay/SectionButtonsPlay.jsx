@@ -4,22 +4,14 @@ import allHands from '../../../images/interfaz-images/all-hands.png';
 import surrender from '../../../images/interfaz-images/surrender.png';
 import { ModalSurrender } from '../../componentsModals/ModalSurrender/ModalSurrender';
 
-/*-----------------------Images Play-----------------------------------*/
-import scissorPlayer from '../../../images/interfaz-images/scissor-play-player.png';
-import paperPlayer from '../../../images/interfaz-images/paper-play-player.png';
-import rockPlayer from '../../../images/interfaz-images/rock-play-player.png';
-import scissorCom from '../../../images/interfaz-images/scissor-play-com.png';
-import paperCom from '../../../images/interfaz-images/paper-play-com.png';
-import rockCom from '../../../images/interfaz-images/rock-play-com.png';
-
-
-
 
 export const SectionButtonsPlay = 
 ({  openModalFinal, 
     setOpenModalFinal,
     setImagesPlayPlayer,
     setImagesPlayCom, 
+    playsDataPlayer,
+    playsDataCom
 }) => {
 
 
@@ -43,8 +35,10 @@ useEffect(()=> {
 }, []);
 
 
-const activePlay = (playPlayer) => {
-  setImagesPlayPlayer([playPlayer, playPlayer, playPlayer]);
+const activePlay = (playPlayer = getRandomIndex()) => {
+  const playCom = getRandomIndex();
+    setImagesPlayPlayer([playsDataPlayer[playPlayer].photo, playsDataPlayer[playPlayer].photo, playsDataPlayer[playPlayer].photo]);
+    setImagesPlayCom([playsDataCom[playCom].photo, playsDataCom[playCom].photo, playsDataCom[playCom].photo]);
 
   const timeOutId = setTimeout(() => {
     setSelectPlay(true);
@@ -53,12 +47,21 @@ const activePlay = (playPlayer) => {
   return () => clearTimeout(timeOutId);
 };
 
+
 useEffect(() => {
   if(selectPlay){
-    setImagesPlayPlayer([rockPlayer, paperPlayer, scissorPlayer]);
     setSelectPlay(false);
+    setImagesPlayPlayer(playsDataPlayer.map(play => play.photo));
+    setImagesPlayCom(playsDataCom.map(play => play.photo));
+    
   }
-}, [selectPlay]);
+}, [selectPlay, playsDataPlayer, setImagesPlayPlayer, playsDataCom,setImagesPlayCom]);
+
+
+const getRandomIndex = () => {
+  return Math.floor(Math.random() * playsDataPlayer.length);
+};
+
 
 
 return (
@@ -87,7 +90,7 @@ return (
         <i></i>
         <i></i>
         <span
-        onClick={() => activePlay(rockPlayer)}
+        onClick={() => activePlay(0)}
         >✊🏼</span>
         
       </button>
@@ -95,7 +98,7 @@ return (
         <i></i>
         <i></i>
         <span
-       onClick={() => activePlay(paperPlayer)}
+       onClick={() => activePlay(1)}
         >✋🏼</span>
         
       </button>
@@ -103,7 +106,7 @@ return (
         <i></i>
         <i></i>
         <span
-        onClick={() => activePlay(scissorPlayer)}
+        onClick={() => activePlay(2)}
         >✌🏼</span>
       </button>
     </div>
@@ -113,7 +116,8 @@ return (
     <button className='button-play-special'>
       <i></i>
       <i></i>
-      <span>
+      <span
+      onClick={() => activePlay()}>
         <img src={allHands} alt={"Aleatory"}/>
       </span>
     </button>
