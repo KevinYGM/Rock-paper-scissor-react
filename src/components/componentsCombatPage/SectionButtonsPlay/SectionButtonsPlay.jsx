@@ -11,7 +11,9 @@ export const SectionButtonsPlay =
     setImagesPlayPlayer,
     setImagesPlayCom, 
     playsDataPlayer,
-    playsDataCom
+    playsDataCom,
+    setGeneralPlayPlayer,
+    setGeneralPlayCom
 }) => {
 
 
@@ -39,6 +41,8 @@ const activePlay = (playPlayer = getRandomIndex()) => {
   const playCom = getRandomIndex();
     setImagesPlayPlayer([playsDataPlayer[playPlayer].photo, playsDataPlayer[playPlayer].photo, playsDataPlayer[playPlayer].photo]);
     setImagesPlayCom([playsDataCom[playCom].photo, playsDataCom[playCom].photo, playsDataCom[playCom].photo]);
+    setGeneralPlayCom(playsDataCom[playCom].icon);
+    setGeneralPlayPlayer(playsDataPlayer[playPlayer].icon);
 
   const timeOutId = setTimeout(() => {
     setSelectPlay(true);

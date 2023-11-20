@@ -11,8 +11,10 @@ import iconTie from '../../../images/interfaz-images/icon-tie.png';
 export const BattleHistory = 
 ({  characters, 
     characterPlayer,
-    characterCom 
-  }) => {
+    characterCom, 
+    generalPlayPlayer,
+    generalPlayCom  
+}) => {
 
   const [visible, setVisible] = useState(true); //state to control the effect of moving from the section
 

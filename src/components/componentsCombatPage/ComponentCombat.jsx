@@ -23,6 +23,14 @@ export const ComponentCombat =
 
   const [imagesPlayCom, setImagesPlayCom] = useState(playsDataCom.map(play => play.photo));
 
+  const [generalPlayPlayer, setGeneralPlayPlayer] = useState(undefined);
+
+  const [generalPlayCom, setGeneralPlayCom] = useState(undefined);
+
+  const [playerMark, setPlayerMark] = useState(0);
+
+  const [comMark, setComMark] = useState(0);
+
   
   
     useEffect(() => {
@@ -51,12 +59,17 @@ export const ComponentCombat =
         <Summary  
                 characterPlayer = { characterPlayer }
                 characterCom = { characterCom }
+                playerMark = {playerMark}
+                comMark = {comMark}
                 />
 
         <BattleHistory  
                 characterPlayer = { characterPlayer }
                 characterCom = { characterCom }
+                generalPlayPlayer = { generalPlayPlayer }
+                generalPlayCom = { generalPlayCom}
                 />
+                
 
         <PlayBattle   
                 characterPlayer = { characterPlayer }
@@ -65,6 +78,10 @@ export const ComponentCombat =
                 setImagesPlayPlayer = {setImagesPlayPlayer}
                 imagesPlayCom = { imagesPlayCom }
                 setImagesPlayCom = { setImagesPlayCom }
+                generalPlayPlayer = { generalPlayPlayer }
+                generalPlayCom = { generalPlayCom }
+                setPlayerMark = { setPlayerMark }
+                setComMark = { setComMark }
                 />
 
         <SectionButtonsPlay 
@@ -74,6 +91,8 @@ export const ComponentCombat =
                 setImagesPlayCom = {setImagesPlayCom}
                 playsDataPlayer = {playsDataPlayer} 
                 playsDataCom = { playsDataCom }
+                setGeneralPlayPlayer = {setGeneralPlayPlayer}
+                setGeneralPlayCom = {setGeneralPlayCom}
                 />
 
         <ModalFinalGame 

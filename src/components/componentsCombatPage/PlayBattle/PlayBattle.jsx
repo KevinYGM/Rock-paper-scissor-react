@@ -10,7 +10,11 @@ export const PlayBattle =
     setImagesPlayPlayer,
     imagesPlayCom,
     setImagesPlayCom,
-}) => {
+    generalPlayPlayer,
+    generalPlayCom,
+    setPlayerMark,
+    setComMark
+  }) => {
 
   
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -41,10 +45,68 @@ useEffect(()=> {
       };
     }, [imagesPlayPlayer, imagesPlayCom]);
 
+  //   useEffect(() => {
+  //   console.log(characterPlayer.iconType);
+  // }, []);
 
 
 
-  return (
+  /*---------------Logica para Dinamismo del Juego: Batalla-----------*/
+useEffect(()=>{
+
+    if(generalPlayPlayer === "✋🏼" && generalPlayCom === "✌🏼" ){
+      if(characterCom.iconType === generalPlayCom){
+        setComMark((prevMark) => (prevMark + 2));
+      }else{
+        setComMark((prevMark) => (prevMark + 1));
+      }
+    }
+
+    if(generalPlayPlayer === "✊🏼" && generalPlayCom === "✋🏼" ){
+      if(characterCom.iconType === generalPlayCom){
+        setComMark((prevMark) => (prevMark + 2));
+      }else{
+        setComMark((prevMark) => (prevMark + 1));
+      }
+    }
+
+    if(generalPlayPlayer === "✌🏼" && generalPlayCom === "✊🏼" ){
+      if(characterCom.iconType === generalPlayCom){
+        setComMark((prevMark) => (prevMark + 2));
+      }else{
+        setComMark((prevMark) => (prevMark + 1));
+      }
+    }
+
+    if(generalPlayPlayer === "✊🏼" && generalPlayCom === "✌🏼" ){
+      if(characterPlayer.iconType === generalPlayPlayer){
+        setPlayerMark((prevMark) => (prevMark + 2));
+      }else{
+        setPlayerMark((prevMark) => (prevMark + 1));
+      }
+    }
+
+    if(generalPlayPlayer === "✋🏼" && generalPlayCom === "✊🏼" ){
+      if(characterPlayer.iconType === generalPlayPlayer){
+        setPlayerMark((prevMark) => (prevMark + 2));
+      }else{
+        setPlayerMark((prevMark) => (prevMark + 1));
+      }
+    }
+    
+    if(generalPlayPlayer === "✌🏼" && generalPlayCom === "✋🏼" ){
+      if(characterPlayer.iconType === generalPlayPlayer){
+        setPlayerMark((prevMark) => (prevMark + 2));
+      }else{
+        setPlayerMark((prevMark) => (prevMark + 1));
+      }
+    }
+
+  },[setComMark, setPlayerMark, generalPlayPlayer, generalPlayCom, characterPlayer.iconType, characterCom.iconType]);
+
+
+
+return (
     <div  className='play-battle-container'>
        {/*--------------Character Player--------------*/}
       <div className="character-player character">

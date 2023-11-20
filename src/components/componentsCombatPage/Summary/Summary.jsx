@@ -5,10 +5,13 @@ import vs from '../../../images/interfaz-images/vs.png';
 import markRed from '../../../images/interfaz-images/redMarker.png'; 
 import markBlue from '../../../images/interfaz-images/blueMarker.png'; 
 
-export const Summary = ({ 
-  characters, 
+export const Summary = 
+({ 
   characterPlayer,
-  characterCom }) => {
+  characterCom,
+  playerMark,
+  comMark 
+}) => {
   return (
     <div className="summary">
 
@@ -24,7 +27,7 @@ export const Summary = ({
       <div className="summary_points-player points">
         <div className="container-point">
           <img src={markBlue} alt="Mark Player" />
-          <span>3</span>
+          <span>{ playerMark }</span>
         </div>
       </div>
 
@@ -37,7 +40,7 @@ export const Summary = ({
       <div className="summary_points-com points">
         <div className="container-point">
           <img src={markRed} alt="Mark Com" />
-          <span>4</span>
+          <span>{ comMark }</span>
         </div>
       </div>
 
