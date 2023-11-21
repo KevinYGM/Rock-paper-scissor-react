@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Rock-paper-scissor-react/static/css/main.59e71cca.css",
-    "main.js": "/Rock-paper-scissor-react/static/js/main.2643cdae.js",
+    "main.css": "/Rock-paper-scissor-react/static/css/main.fd10e348.css",
+    "main.js": "/Rock-paper-scissor-react/static/js/main.27a6de87.js",
     "static/media/Williams-Rock-Face.png": "/Rock-paper-scissor-react/static/media/Williams-Rock-Face.e7b7be23d28b22dcbb91.png",
     "static/media/Melissa-Paper-Face.png": "/Rock-paper-scissor-react/static/media/Melissa-Paper-Face.a9c6dc6133ce09e129d4.png",
     "static/media/Scarlett-Rock-Face.png": "/Rock-paper-scissor-react/static/media/Scarlett-Rock-Face.cbc7c7f90633bad247fa.png",
@@ -23,11 +23,14 @@
     "static/media/paper-play-player.png": "/Rock-paper-scissor-react/static/media/paper-play-player.8b88326031c59b846c53.png",
     "static/media/paper-play-com.png": "/Rock-paper-scissor-react/static/media/paper-play-com.43bed08adaca2e1a722e.png",
     "static/media/vs.png": "/Rock-paper-scissor-react/static/media/vs.6021a226d2839514e44d.png",
+    "static/media/card-player.png": "/Rock-paper-scissor-react/static/media/card-player.e678112dc0697deda206.png",
+    "static/media/card-computer.png": "/Rock-paper-scissor-react/static/media/card-computer.055a9467cc55686bde3b.png",
     "static/media/Melissa-Paper.png": "/Rock-paper-scissor-react/static/media/Melissa-Paper.6858633f84806a6c3c45.png",
     "static/media/Williams-Rock.png": "/Rock-paper-scissor-react/static/media/Williams-Rock.67593a1c882eb0b987b0.png",
     "static/media/scissor-play-com.png": "/Rock-paper-scissor-react/static/media/scissor-play-com.751d972d8e4155cc27a5.png",
     "static/media/scissor-play-player.png": "/Rock-paper-scissor-react/static/media/scissor-play-player.f7a21c9d66b2ba734f5c.png",
     "static/media/Matthew-Paper.png": "/Rock-paper-scissor-react/static/media/Matthew-Paper.a6a85392b0656ac0e2ef.png",
+    "static/media/trebol.png": "/Rock-paper-scissor-react/static/media/trebol.5e4a3d3fced92f1d8149.png",
     "static/media/Alisson-Scissor.png": "/Rock-paper-scissor-react/static/media/Alisson-Scissor.531f511a39620c1c96b0.png",
     "static/media/Scarlett-Rock.png": "/Rock-paper-scissor-react/static/media/Scarlett-Rock.5d2103c19d4de6d4c00f.png",
     "static/media/surrender.png": "/Rock-paper-scissor-react/static/media/surrender.6211efa60c3ab86e88ff.png",
@@ -41,11 +44,11 @@
     "static/media/icon-tie.png": "/Rock-paper-scissor-react/static/media/icon-tie.3fcc705e44bbaaa38451.png",
     "static/media/sword.png": "/Rock-paper-scissor-react/static/media/sword.88487858b78601add83e.png",
     "index.html": "/Rock-paper-scissor-react/index.html",
-    "main.59e71cca.css.map": "/Rock-paper-scissor-react/static/css/main.59e71cca.css.map",
-    "main.2643cdae.js.map": "/Rock-paper-scissor-react/static/js/main.2643cdae.js.map"
+    "main.fd10e348.css.map": "/Rock-paper-scissor-react/static/css/main.fd10e348.css.map",
+    "main.27a6de87.js.map": "/Rock-paper-scissor-react/static/js/main.27a6de87.js.map"
   },
   "entrypoints": [
-    "static/css/main.59e71cca.css",
-    "static/js/main.2643cdae.js"
+    "static/css/main.fd10e348.css",
+    "static/js/main.27a6de87.js"
   ]
 }
