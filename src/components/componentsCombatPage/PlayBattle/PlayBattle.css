@@ -119,22 +119,94 @@
   justify-content: center;
   width: 90%;
   padding: 1vmax;
-  color: black;
-  font-size: max(1rem, min(3vmax, 10rem));
-  -webkit-text-stroke: 0.1vw rgb(127, 33, 190);
+  color:rgb(8, 4, 3);
+  font-size: max(1rem, min(1.4vmax, 10rem));
+  -webkit-text-stroke: 0.1vw rgb(233, 98, 20);
 }
 
-.play-battle-container .interactive-section img{
+
+.interactive-section .text-interactive p{
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Russo One', sans-serif;
+}
+
+.interactive-section .frame-container img{
   width: 100%;
   height: 100%;
   display: block;
 }
 
-.play-battle-container .interactive-section span{
+.frame-info .img-result-frame{
+  width: 2.2vmax;
+  height: 2.2vmax;
+  background-image: linear-gradient(rgba(2, 2, 12, 0.74), rgba(7, 7, 58, 0.733));
+  background: linear-gradient(to bottom, rgb(165, 13, 34), rgb(207, 112, 22), yellow, rgb(207, 112, 22), rgb(165, 13, 34));
+  background: linear-gradient(to bottom, rgb(34, 5, 80), rgb(118, 36, 250), rgb(71, 13, 165), rgb(71, 13, 165), rgb(34, 5, 80),rgb(34, 5, 80));
+  border-radius: 0.5rem;
+  /* border: 0.1vmax solid rgb(19, 16, 10); */
+  padding: 0.2vmax;
+  box-shadow: 0 0 7px rgba(2, 2, 1, 0.5);
+  animation: pulse-infinity-soft 2500ms linear infinite;
+}
+
+.interactive-section .frame-info img{
+  width: 100%;
+  height: 100%;
+}
+
+.interactive-section .frame-info{
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  justify-content: space-between;
+  justify-items: center;
+  align-items: center;
+  width: 50vmax;
+  gap: 1vmax;
 }
+
+.interactive-section .frame-info span{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.interactive-section .frame-info .pcom{
+  font-family: 'Russo One', sans-serif;
+  display: inline;
+  color: rgb(109, 16, 39);
+  -webkit-text-stroke: 0.1vw rgb(201, 11, 11);
+}
+
+.interactive-section .frame-info .pplayer{
+  font-family: 'Russo One', sans-serif;
+  display: inline;
+  color: rgb(16, 109, 24);
+  -webkit-text-stroke: 0.1vw rgb(52, 201, 11);
+}
+
+
+/*--------------Animations---------------------*/
+
+@keyframes pulse-infinity-soft {
+  0% {
+    transform: scale(1.7);
+  }
+
+  50%{
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: scale(1.7);
+  }
+}
+
 
 

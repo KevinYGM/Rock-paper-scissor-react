@@ -38,6 +38,7 @@ import backScissor from '../images/interfaz-images/scissor.png';
 export const characters = [
   {
     name: "Williams Rock",
+    shortName: "Williams",
     type: "Rock",
     photo: williamsRock,
     facePhoto: williamsRockFace,
@@ -49,6 +50,7 @@ export const characters = [
 
   {
     name: "Melissa Paper",
+    shortName: "Melissa",
     type: "Paper",
     photo: melissaPaper,
     facePhoto: melissaPaperFace,
@@ -60,6 +62,7 @@ export const characters = [
 
   {
     name: "James Scissor",
+    shortName: "James",
     type: "Scissor",
     photo: jamesScissor,
     facePhoto: jamesScissorFace,
@@ -71,6 +74,7 @@ export const characters = [
 
   {
     name: "Scarlett Rock",
+    shortName: "Scarlett",
     type: "Rock",
     photo: scarlettRock,
     facePhoto: scarlettRockFace,
@@ -82,6 +86,7 @@ export const characters = [
 
   {
     name: "Matthew Paper",
+    shortName: "Matthew",
     type: "Paper",
     photo: matthewPaper,
     facePhoto: matthewPaperFace,
@@ -93,6 +98,7 @@ export const characters = [
 
   {
     name: "Alisson Scissor",
+    shortName: "Alisson",
     type: "Scissor",
     photo: alissonScissor,
     facePhoto: alissonScissorFace,

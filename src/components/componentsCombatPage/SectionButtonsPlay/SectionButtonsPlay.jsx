@@ -13,7 +13,13 @@ export const SectionButtonsPlay =
     playsDataPlayer,
     playsDataCom,
     setGeneralPlayPlayer,
-    setGeneralPlayCom
+    setGeneralPlayCom,
+    setControlRoundsState,
+    setInteractiveTexts,
+    setControlRoundsPrev,
+    controlRoundsPrev,
+    setResultState,
+    setResultComState
 }) => {
 
 
@@ -36,19 +42,29 @@ useEffect(()=> {
   });
 }, []);
 
-
 const activePlay = (playPlayer = getRandomIndex()) => {
   const playCom = getRandomIndex();
     setImagesPlayPlayer([playsDataPlayer[playPlayer].photo, playsDataPlayer[playPlayer].photo, playsDataPlayer[playPlayer].photo]);
     setImagesPlayCom([playsDataCom[playCom].photo, playsDataCom[playCom].photo, playsDataCom[playCom].photo]);
-    setGeneralPlayCom(playsDataCom[playCom].icon);
-    setGeneralPlayPlayer(playsDataPlayer[playPlayer].icon);
-
-  const timeOutId = setTimeout(() => {
+    
+    const firstTimeoutId = setTimeout(() => {
+      setGeneralPlayCom(playsDataCom[playCom].icon);
+      setGeneralPlayPlayer(playsDataPlayer[playPlayer].icon);
+      setControlRoundsPrev((prevRounds) => prevRounds + 1);
+    }, 1500);
+    
+    const secondTimeoutId = setTimeout(() => {
     setSelectPlay(true);
-  }, 3000);
+    setControlRoundsState(controlRoundsPrev);
+    setResultComState(allHands);
+    setResultState(allHands);
+    setInteractiveTexts(`<p>Waiting for your next move...</p>`);
+    }, 4500);
 
-  return () => clearTimeout(timeOutId);
+  return () => {
+    clearTimeout(firstTimeoutId);
+    clearTimeout(secondTimeoutId);
+  };
 };
 
 
