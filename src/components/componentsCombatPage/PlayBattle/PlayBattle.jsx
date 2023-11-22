@@ -14,7 +14,9 @@ export const PlayBattle =
     imagesPlayCom,
     generalPlayPlayer,
     generalPlayCom,
+    playerMark,
     setPlayerMark,
+    comMark,
     setComMark,
     controlRoundsState,
     interactiveTexts,
@@ -23,7 +25,9 @@ export const PlayBattle =
     resultState,
     setResultState,
     resultComState,
-    setResultComState
+    setResultComState,
+    stateCombat,
+    setStateCombat
   }) => {
 
   
@@ -55,13 +59,8 @@ useEffect(()=> {
       };
     }, [imagesPlayPlayer, imagesPlayCom]);
 
-  //   useEffect(() => {
-  //   console.log(characterPlayer.iconType);
-  // }, []);
-
-
-
-  /*---------------Logica para Dinamismo del Juego: Batalla-----------*/
+  
+    /*---------------Logica para Dinamismo del Juego: Batalla-----------*/
 useEffect(()=>{
 
     if(generalPlayPlayer === "✋🏼" && generalPlayCom === "✌🏼" ){
@@ -167,10 +166,31 @@ useEffect(()=>{
       setResultComState(tie);
       setInteractiveTexts(`<p>The scissors try to cut themselves without success, It's a Tie!!</p>`);
     }
+  },[ controlRoundsPrev,
+      setComMark,
+      setPlayerMark, 
+      generalPlayPlayer, 
+      generalPlayCom, 
+      characterPlayer.iconType, 
+      characterCom.iconType, 
+      setInteractiveTexts, 
+      setResultState, 
+      setResultComState, 
+      characterCom.shortName, 
+      characterPlayer.shortName]);
 
-  },[controlRoundsPrev, setComMark, setPlayerMark, generalPlayPlayer, generalPlayCom, characterPlayer.iconType, characterCom.iconType, setInteractiveTexts, setResultState, setResultComState, characterCom.shortName, characterPlayer.shortName]);
+useEffect(()=>{
+  
+ (comMark >= 5 || playerMark >= 5 || controlRoundsState >= 15) 
+ && (comMark !== playerMark) 
+ && (setStateCombat(false));
+
+},[setStateCombat, comMark, playerMark, controlRoundsState]);
 
 
+// useEffect(()=>{
+//   stateCombat ?  console.log(stateCombat, "Ha Iniciado la partida") : console.log(stateCombat, "Ha finalizado la partida");
+// },[stateCombat])
 
 return (
     <div  className='play-battle-container'>

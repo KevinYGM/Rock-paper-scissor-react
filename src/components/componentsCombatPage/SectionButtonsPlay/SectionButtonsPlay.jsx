@@ -51,7 +51,7 @@ const activePlay = (playPlayer = getRandomIndex()) => {
       setGeneralPlayCom(playsDataCom[playCom].icon);
       setGeneralPlayPlayer(playsDataPlayer[playPlayer].icon);
       setControlRoundsPrev((prevRounds) => prevRounds + 1);
-    }, 1500);
+    }, 100);
     
     const secondTimeoutId = setTimeout(() => {
     setSelectPlay(true);
@@ -59,7 +59,7 @@ const activePlay = (playPlayer = getRandomIndex()) => {
     setResultComState(allHands);
     setResultState(allHands);
     setInteractiveTexts(`<p>Waiting for your next move...</p>`);
-    }, 4500);
+    }, 200);
 
   return () => {
     clearTimeout(firstTimeoutId);

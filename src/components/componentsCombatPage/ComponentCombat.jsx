@@ -44,6 +44,8 @@ export const ComponentCombat =
 
   const [resultComState, setResultComState ] = useState(trebol);
 
+  const [stateCombat, setStateCombat] = useState(true);
+
   
   
     useEffect(() => {
@@ -93,6 +95,8 @@ export const ComponentCombat =
                 generalPlayCom = { generalPlayCom }
                 setPlayerMark = { setPlayerMark }
                 setComMark = { setComMark }
+                playerMark = {playerMark}
+                comMark = {comMark}
                 controlRoundsPrev = { controlRoundsPrev }
                 controlRoundsState = { controlRoundsState }
                 interactiveTexts = { interactiveTexts }
@@ -101,6 +105,8 @@ export const ComponentCombat =
                 setResultState = { setResultState}
                 resultComState = { resultComState}
                 setResultComState = { setResultComState}
+                stateCombat = {stateCombat}
+                setStateCombat = {setStateCombat}
                 />
 
         <SectionButtonsPlay 
