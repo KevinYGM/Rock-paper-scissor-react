@@ -46,6 +46,14 @@ export const ComponentCombat =
 
   const [stateCombat, setStateCombat] = useState(true);
 
+  const [winnerCombat, setWinnerCombat] = useState(null);
+
+  const [messageFinal, setMessageFinal] = useState("");
+
+  const [buttonSpecial, setButtonSpecial] = useState(false);
+
+  const [buttonSpecialCom, setButtonSpecialCom] = useState(false);
+
   
   
     useEffect(() => {
@@ -107,9 +115,14 @@ export const ComponentCombat =
                 setResultComState = { setResultComState}
                 stateCombat = {stateCombat}
                 setStateCombat = {setStateCombat}
+                setWinnerCombat = { setWinnerCombat }
+                setMessageFinal = { setMessageFinal }
+                buttonSpecial = { buttonSpecial }
+                buttonSpecialCom = {buttonSpecialCom}
                 />
 
         <SectionButtonsPlay 
+                characterCom = { characterCom }
                 openModalFinal= { openModalFinal }
                 setOpenModalFinal = { setOpenModalFinal }
                 setImagesPlayPlayer = { setImagesPlayPlayer }
@@ -124,13 +137,19 @@ export const ComponentCombat =
                 setInteractiveTexts = { setInteractiveTexts }
                 setResultState = { setResultState}
                 setResultComState = { setResultComState}
+                setWinnerCombat = { setWinnerCombat }
+                setMessageFinal = { setMessageFinal }
+                stateCombat={ stateCombat }
+                setStateCombat = { setStateCombat }
+                setButtonSpecial = { setButtonSpecial }
+                buttonSpecialCom = { setButtonSpecialCom }
                 />
 
         <ModalFinalGame 
-                openModalFinal = { openModalFinal }
                 setOpenModalFinal = { setOpenModalFinal }
-                characterPlayer = { characterPlayer }
-                characterCom = { characterCom }
+                stateCombat = {stateCombat}
+                winnerCombat = { winnerCombat }
+                messageFinal = { messageFinal }
                 />
       </div>
       <FooterComponent />

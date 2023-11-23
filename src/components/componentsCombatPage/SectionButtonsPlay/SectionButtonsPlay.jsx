@@ -6,7 +6,7 @@ import { ModalSurrender } from '../../componentsModals/ModalSurrender/ModalSurre
 
 
 export const SectionButtonsPlay = 
-({  openModalFinal, 
+({  characterCom, 
     setOpenModalFinal,
     setImagesPlayPlayer,
     setImagesPlayCom, 
@@ -19,7 +19,13 @@ export const SectionButtonsPlay =
     setControlRoundsPrev,
     controlRoundsPrev,
     setResultState,
-    setResultComState
+    setResultComState,
+    setWinnerCombat,
+    setMessageFinal,
+    stateCombat,
+    setStateCombat,
+    setButtonSpecial,
+    setButtonSpecialCom
 }) => {
 
 
@@ -51,7 +57,7 @@ const activePlay = (playPlayer = getRandomIndex()) => {
       setGeneralPlayCom(playsDataCom[playCom].icon);
       setGeneralPlayPlayer(playsDataPlayer[playPlayer].icon);
       setControlRoundsPrev((prevRounds) => prevRounds + 1);
-    }, 100);
+    }, 1500);
     
     const secondTimeoutId = setTimeout(() => {
     setSelectPlay(true);
@@ -59,7 +65,7 @@ const activePlay = (playPlayer = getRandomIndex()) => {
     setResultComState(allHands);
     setResultState(allHands);
     setInteractiveTexts(`<p>Waiting for your next move...</p>`);
-    }, 200);
+    }, 4000);
 
   return () => {
     clearTimeout(firstTimeoutId);
@@ -92,7 +98,7 @@ return (
       <i></i>
       <span>
         <span onClick={()=> {
-          !openModalFinal ? setOpenModalSurrender(true) : setOpenModalSurrender(false);
+          stateCombat ? setOpenModalSurrender(true) : setOpenModalSurrender(false);
           }}>
           <img src={surrender} alt={"Surrender"}/>
         </span>
@@ -100,7 +106,11 @@ return (
       <ModalSurrender
               openModalSurrender = { openModalSurrender }
               setOpenModalSurrender = { setOpenModalSurrender }
-              setOpenModalFinal = { setOpenModalFinal } 
+              setOpenModalFinal = { setOpenModalFinal }
+              characterCom = { characterCom }
+              setWinnerCombat = { setWinnerCombat }
+              setMessageFinal = { setMessageFinal }
+              setStateCombat = {setStateCombat}
               />
       </button>
     
@@ -110,7 +120,9 @@ return (
         <i></i>
         <i></i>
         <span
-        onClick={() => activePlay(0)}
+        onClick={() => {  setButtonSpecial(false);
+                          activePlay(0);
+                        }}
         >✊🏼</span>
         
       </button>
@@ -118,15 +130,20 @@ return (
         <i></i>
         <i></i>
         <span
-       onClick={() => activePlay(1)}
-        >✋🏼</span>
+       onClick={() => { setButtonSpecial(false);   
+                        activePlay(1);
+                      }}
+>✌🏼</span>
         
       </button>
       <button className='button-play'>
         <i></i>
         <i></i>
         <span
-        onClick={() => activePlay(2)}
+        onClick={() => {  setButtonSpecial(false);
+                          activePlay(2);
+                          
+                        }}
         >✌🏼</span>
       </button>
     </div>
@@ -137,7 +154,9 @@ return (
       <i></i>
       <i></i>
       <span
-      onClick={() => activePlay()}>
+      onClick={() => {  setButtonSpecial(true);
+                        activePlay();
+                      }}>
         <img src={allHands} alt={"Aleatory"}/>
       </span>
     </button>

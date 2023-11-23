@@ -27,7 +27,11 @@ export const PlayBattle =
     resultComState,
     setResultComState,
     stateCombat,
-    setStateCombat
+    setStateCombat,
+    setWinnerCombat,
+    setMessageFinal,
+    buttonSpecial,
+    buttonSpecialCom
   }) => {
 
   
@@ -63,91 +67,192 @@ useEffect(()=> {
     /*---------------Logica para Dinamismo del Juego: Batalla-----------*/
 useEffect(()=>{
 
+  /*------------- Casos donde gana la computadora-----------------------*/
+    
     if(generalPlayPlayer === "✋🏼" && generalPlayCom === "✌🏼" ){
-      if(characterCom.iconType === generalPlayCom){
-        setComMark((prevMark) => (prevMark + 2));
-        setResultState(lose);
-        setResultComState(victory);
-        setInteractiveTexts(`<p>lost round!! Scissor cut Paper and ${characterCom.shortName} is a scissor type, ${characterCom.shortName} has won <span class="pcom">2 points!!</span></p>`);
-      }else{
-        setComMark((prevMark) => (prevMark + 1));
-        setResultState(lose);
-        setResultComState(victory);
-        setInteractiveTexts(`<p>Bad Luck!! Scissor cut Paper and ${characterCom.shortName} has won <span class="pcom">1 point!!</span></p>`);
+      if(!buttonSpecialCom){
+        if(characterCom.iconType === generalPlayCom){
+          setComMark((prevMark) => (prevMark + 2));
+          setResultState(lose);
+          setResultComState(victory);
+          setInteractiveTexts(`<p>lost round!! Scissor cut Paper and ${characterCom.shortName} is a scissor type, ${characterCom.shortName} has won <span class="pcom">2 points!!</span></p>`);
+        }else if(characterCom.iconType !== generalPlayCom){
+          setComMark((prevMark) => (prevMark + 1));
+          setResultState(lose);
+          setResultComState(victory);
+          setInteractiveTexts(`<p>Bad Luck!! Scissor cut Paper and ${characterCom.shortName} has won <span class="pcom">1 point!!</span></p>`);
+        }
+      }else if(buttonSpecialCom){
+        if(characterCom.iconType === generalPlayCom){
+          setComMark((prevMark) => (prevMark + 4));
+          setResultState(lose);
+          setResultComState(victory);
+          setInteractiveTexts(`<p><span class="pcom">Super Attack!!</span> Scissor cut Paper and ${characterCom.shortName} is a scissor type, ${characterCom.shortName} has won <span class="pcom">4 points!!</span></p>`);
+        }else if(characterCom.iconType !== generalPlayCom){
+          setComMark((prevMark) => (prevMark + 3));
+          setResultState(lose);
+          setResultComState(victory);
+          setInteractiveTexts(`<p>Special Attack!! Scissor cut Paper and ${characterCom.shortName} has won <span class="pcom">3 point!!</span></p>`);
+        }
       }
     }
+
+
 
     if(generalPlayPlayer === "✊🏼" && generalPlayCom === "✋🏼" ){
-      if(characterCom.iconType === generalPlayCom){
-        setComMark((prevMark) => (prevMark + 2));
-        setResultState(lose);
-        setResultComState(victory);
-        setInteractiveTexts(`<p>lost round!! paper covers rock and ${characterCom.shortName} is a paper type, ${characterCom.shortName} has won <span class="pcom">2 points!!</span></p>`);
-        
-      }else{
-        setComMark((prevMark) => (prevMark + 1));
-        setResultState(lose);
-        setResultComState(victory);
-        setInteractiveTexts(`<p>Bad Luck!! paper covers rock and ${characterCom.shortName} has won <span class="pcom">1 point!!</span></p>`);
+      if(!buttonSpecialCom){
+        if(characterCom.iconType === generalPlayCom){
+          setComMark((prevMark) => (prevMark + 2));
+          setResultState(lose);
+          setResultComState(victory);
+          setInteractiveTexts(`<p>lost round!! paper covers rock and ${characterCom.shortName} is a paper type, ${characterCom.shortName} has won <span class="pcom">2 points!!</span></p>`);
+        }else if(characterCom.iconType !== generalPlayCom){
+          setComMark((prevMark) => (prevMark + 1));
+          setResultState(lose);
+          setResultComState(victory);
+          setInteractiveTexts(`<p>Bad Luck!! paper covers rock and ${characterCom.shortName} has won <span class="pcom">1 point!!</span></p>`);
+        }
+      }else if(buttonSpecialCom){
+        if(characterCom.iconType === generalPlayCom){
+          setComMark((prevMark) => (prevMark + 4));
+          setResultState(lose);
+          setResultComState(victory);
+          setInteractiveTexts(`<p><span class="pcom">Super Attack!!</span> paper covers rock and ${characterCom.shortName} is a paper type, ${characterCom.shortName} has won <span class="pcom">4 points!!</span></p>`);
+        }else if(characterCom.iconType !== generalPlayCom){
+          setComMark((prevMark) => (prevMark + 3));
+          setResultState(lose);
+          setResultComState(victory);
+          setInteractiveTexts(`<p><span class="pcom">Special Attack!!</span> paper covers rock and ${characterCom.shortName} has won <span class="pcom">3 point!!</span></p>`);
+        }
       }
     }
+
+
 
     if(generalPlayPlayer === "✌🏼" && generalPlayCom === "✊🏼" ){
-      if(characterCom.iconType === generalPlayCom){
-        setComMark((prevMark) => (prevMark + 2));
-        setResultState(lose);
-        setResultComState(victory);
-        setInteractiveTexts(`<p>lost round!! rock step scissors and ${characterCom.shortName} is a rock type, ${characterCom.shortName} has won <span class="pcom">2 points!!</span></p>`);
-      }else{
-        setComMark((prevMark) => (prevMark + 1));
-        setResultState(lose);
-        setResultComState(victory);
-        setInteractiveTexts(`<p>Bad Luck!! rock step scissors and ${characterCom.shortName}
-        has won <span class="pcom">1 point!!</span></p>`);
+      if(!buttonSpecialCom){
+        if(characterCom.iconType === generalPlayCom){
+          setComMark((prevMark) => (prevMark + 2));
+          setResultState(lose);
+          setResultComState(victory);
+          setInteractiveTexts(`<p>lost round!! rock step scissors and ${characterCom.shortName} is a rock type, ${characterCom.shortName} has won <span class="pcom">2 points!!</span></p>`);
+        }else if(characterCom.iconType !== generalPlayCom){
+          setComMark((prevMark) => (prevMark + 1));
+          setResultState(lose);
+          setResultComState(victory);
+          setInteractiveTexts(`<p>Bad Luck!!rock step scissors and ${characterCom.shortName}
+          has won <span class="pcom">1 point!!</span></p>`);
+        }
+      }else if(buttonSpecialCom){
+        if(characterCom.iconType === generalPlayCom){
+          setComMark((prevMark) => (prevMark + 4));
+          setResultState(lose);
+          setResultComState(victory);
+          setInteractiveTexts(`<p><span class="pcom">Super Attack!!</span> rock step scissors and ${characterCom.shortName} is a rock type, ${characterCom.shortName} has won <span class="pcom">4 points!!</span></p>`);
+        }else if(characterCom.iconType !== generalPlayCom){
+          setComMark((prevMark) => (prevMark + 3));
+          setResultState(lose);
+          setResultComState(victory);
+          setInteractiveTexts(`<p><p><span class="pcom">Special Attack!!</span> rock step scissors and ${characterCom.shortName}
+          has won <span class="pcom">3 point!!</span></p>`);
+        }
       }
     }
+
+/*------------- Casos donde gana el Jugador------------------------ */
 
     if(generalPlayPlayer === "✊🏼" && generalPlayCom === "✌🏼" ){
-      if(characterPlayer.iconType === generalPlayPlayer){
-        setPlayerMark((prevMark) => (prevMark + 2));
-        setResultState(victory);
-        setResultComState(lose);
-        setInteractiveTexts(`<p>Excellent!! rock step scissors and ${characterPlayer.shortName} is a rock type, ${characterPlayer.shortName} has won <span class="pplayer">2 points!!</span></p>`);
-      }else{
-        setPlayerMark((prevMark) => (prevMark + 1));
-        setResultState(victory);
-        setResultComState(lose);
-        setInteractiveTexts(`<p>Very Good!! rock step scissors and ${characterPlayer.shortName} has won <span class="pplayer">1 point!!</span></p>`);
+      if(!buttonSpecial){
+        if(characterPlayer.iconType === generalPlayPlayer){
+          setPlayerMark((prevMark) => (prevMark + 2));
+          setResultState(victory);
+          setResultComState(lose);
+          setInteractiveTexts(`<p>Excellent!! rock step scissors and ${characterPlayer.shortName} is a rock type, ${characterPlayer.shortName} has won <span class="pplayer">2 points!!</span></p>`);
+        }else if(characterPlayer.iconType !== generalPlayPlayer) {
+          setPlayerMark((prevMark) => (prevMark + 1));
+          setResultState(victory);
+          setResultComState(lose);
+          setInteractiveTexts(`<p>Very Good!! rock step scissors and ${characterPlayer.shortName} has won <span class="pplayer">1 point!!</span></p>`);
+        }
+      }else if(buttonSpecial){
+        if(characterPlayer.iconType === generalPlayPlayer){
+          setPlayerMark((prevMark) => (prevMark + 4));
+          setResultState(victory);
+          setResultComState(lose);
+          setInteractiveTexts(`<p><span class="pplayer">Super Attack!!</span> rock step scissors and ${characterPlayer.shortName} is a rock type, ${characterPlayer.shortName} has won <span class="pplayer">4 points!!</span></p>`);
+        }else if(characterPlayer.iconType !== generalPlayPlayer){
+          setPlayerMark((prevMark) => (prevMark + 3));
+          setResultState(victory);
+          setResultComState(lose);
+          setInteractiveTexts(`<p><span class="pplayer">Special Attack!!</span> rock step scissors and ${characterPlayer.shortName} has won <span class="pplayer">3 point!!</span></p>`);
+        }
       }
     }
 
+
+
+
     if(generalPlayPlayer === "✋🏼" && generalPlayCom === "✊🏼" ){
-      if(characterPlayer.iconType === generalPlayPlayer){
-        setPlayerMark((prevMark) => (prevMark + 2));
-        setResultState(victory);
-        setResultComState(lose);
-        setInteractiveTexts(`<p>Excellent!! paper covers rock and ${characterPlayer.shortName} is a paper type, ${characterPlayer.shortName} has won <span class="pplayer">2 points!!</span></p>`);
-      }else{
-        setPlayerMark((prevMark) => (prevMark + 1));
-        setResultState(victory);
-        setResultComState(lose);
-        setInteractiveTexts(`<p>Very Good!! paper covers rock and ${characterPlayer.shortName} has won <span class="pplayer">1 point!!</span></p>`);
+      if(!buttonSpecial){
+        if(characterPlayer.iconType === generalPlayPlayer){
+          setPlayerMark((prevMark) => (prevMark + 2));
+          setResultState(victory);
+          setResultComState(lose);
+          setInteractiveTexts(`<p>Excellent!! paper covers rock and ${characterPlayer.shortName} is a paper type, ${characterPlayer.shortName} has won <span class="pplayer">2 points!!</span></p>`);
+        }else if(characterPlayer.iconType !== generalPlayPlayer){
+          setPlayerMark((prevMark) => (prevMark + 1));
+          setResultState(victory);
+          setResultComState(lose);
+          setInteractiveTexts(`<p>Very Good!! paper covers rock and ${characterPlayer.shortName} has won <span class="pplayer">1 point!!</span></p>`);
+        }
+      }else if(buttonSpecial){
+        if(characterPlayer.iconType === generalPlayPlayer){
+          setPlayerMark((prevMark) => (prevMark + 4));
+          setResultState(victory);
+          setResultComState(lose);
+          setInteractiveTexts(`<p><span class="pplayer">Super Attack!!</span> paper covers rock and ${characterPlayer.shortName} is a paper type, ${characterPlayer.shortName} has won <span class="pplayer">4 points!!</span></p>`);
+        }else if(characterPlayer.iconType !== generalPlayPlayer){
+          setPlayerMark((prevMark) => (prevMark + 3));
+          setResultState(victory);
+          setResultComState(lose);
+          setInteractiveTexts(`<p><span class="pplayer">Special Attack!!</span> paper covers rock and ${characterPlayer.shortName} has won <span class="pplayer">3 point!!</span></p>`);
+        }
       }
     }
+
+
+
     
     if(generalPlayPlayer === "✌🏼" && generalPlayCom === "✋🏼" ){
-      if(characterPlayer.iconType === generalPlayPlayer){
-        setPlayerMark((prevMark) => (prevMark + 2));
-        setResultState(victory);
-        setResultComState(lose);
-        setInteractiveTexts(`<p>Excellent!! Scissor cut Paper and ${characterPlayer.shortName} is a scissor type, ${characterPlayer.shortName} has won <span class="pplayer">2 points!!</span></p>`);
-      }else{
-        setPlayerMark((prevMark) => (prevMark + 1));
-        setResultState(victory);
-        setResultComState(lose);
-        setInteractiveTexts(`<p>Very Good!! Scissor cut Paper and ${characterPlayer.shortName} has won <span class="pplayer">1 point!!</span></p>`);
+      if(!buttonSpecial){
+        if(characterPlayer.iconType === generalPlayPlayer){
+          setPlayerMark((prevMark) => (prevMark + 2));
+          setResultState(victory);
+          setResultComState(lose);
+          setInteractiveTexts(`<p>Excellent!! Scissor cut Paper and ${characterPlayer.shortName} is a scissor type, ${characterPlayer.shortName} has won <span class="pplayer">2 points!!</span></p>`);
+        }else if(characterPlayer.iconType !== generalPlayPlayer){
+          setPlayerMark((prevMark) => (prevMark + 1));
+          setResultState(victory);
+          setResultComState(lose);
+          setInteractiveTexts(`<p>Very Good!! Scissor cut Paper and ${characterPlayer.shortName} has won <span class="pplayer">1 point!!</span></p>`);
+        }
+      }else if(buttonSpecial){
+        if(characterPlayer.iconType === generalPlayPlayer){
+          setPlayerMark((prevMark) => (prevMark + 4));
+          setResultState(victory);
+          setResultComState(lose);
+          setInteractiveTexts(`<p><span class="pplayer">Super Attack!!</span> Scissor cut Paper and ${characterPlayer.shortName} is a scissor type, ${characterPlayer.shortName} has won <span class="pplayer">4 points!!</span></p>`);
+        }else if(characterPlayer.iconType !== generalPlayPlayer){
+          setPlayerMark((prevMark) => (prevMark + 3));
+          setResultState(victory);
+          setResultComState(lose);
+          setInteractiveTexts(`<p><span class="pplayer">Special Attack!!</span> Scissor cut Paper and ${characterPlayer.shortName} has won <span class="pplayer">3 point!!</span></p>`);
+        }
       }
     }
+
+
+/*------------- Casos donde hay empate------------------------ */
 
     if(generalPlayPlayer === "✊🏼" && generalPlayCom === "✊🏼" ){
       setResultState(tie);
@@ -166,6 +271,7 @@ useEffect(()=>{
       setResultComState(tie);
       setInteractiveTexts(`<p>The scissors try to cut themselves without success, It's a Tie!!</p>`);
     }
+    // eslint-disable-next-line
   },[ controlRoundsPrev,
       setComMark,
       setPlayerMark, 
@@ -177,15 +283,35 @@ useEffect(()=>{
       setResultState, 
       setResultComState, 
       characterCom.shortName, 
-      characterPlayer.shortName]);
+      characterPlayer.shortName
+    ]);
+    
 
-useEffect(()=>{
-  
- (comMark >= 5 || playerMark >= 5 || controlRoundsState >= 15) 
- && (comMark !== playerMark) 
- && (setStateCombat(false));
 
-},[setStateCombat, comMark, playerMark, controlRoundsState]);
+  useEffect(() => {
+    if (
+      (comMark >= 10 || playerMark >= 10 || controlRoundsState >= 15) &&
+      comMark !== playerMark) {
+        
+      if (comMark > playerMark) {
+        setWinnerCombat(characterCom);
+        setMessageFinal("💔 YOU HAVE LOST 💔");
+        setStateCombat(false);
+      } else {
+        setWinnerCombat(characterPlayer);
+        setMessageFinal("🎉 CONGRATULATIONS 🎉");
+        setStateCombat(false);
+      }
+    }
+  }, [  characterPlayer, 
+        characterCom, 
+        setWinnerCombat,
+        setMessageFinal,
+        setStateCombat, 
+        comMark, 
+        playerMark, 
+        controlRoundsState,
+        ]);
 
 
 // useEffect(()=>{

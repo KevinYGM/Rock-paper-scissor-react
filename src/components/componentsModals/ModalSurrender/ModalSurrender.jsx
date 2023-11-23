@@ -4,9 +4,22 @@ import './ModalSurrender.css';
 
 
 export const ModalSurrender = ({ 
+  characterCom,
   openModalSurrender, 
   setOpenModalSurrender, 
-  setOpenModalFinal }) => {
+  setOpenModalFinal,
+  setWinnerCombat,
+  setMessageFinal,
+  setStateCombat
+}) => {
+
+  const surrender = () => {
+    setWinnerCombat(characterCom);
+    setMessageFinal("🏳️ YOU GAVE UP 🏳️");
+    setOpenModalFinal(true);
+    setOpenModalSurrender(false);
+    setStateCombat(false);
+  }
 
   return (
     <>
@@ -20,9 +33,7 @@ export const ModalSurrender = ({
               <p>Are you sure you want to give up?</p>
               <div className="container-buttons-surrender">
                 <Link className="surrender-yes surrender-button"
-                      onClick={()=> {
-                            setOpenModalFinal(true);
-                            setOpenModalSurrender(false)}}>
+                      onClick={surrender}>
                         Yes
                 </Link>
                 <Link className="surrender-no surrender-button"
