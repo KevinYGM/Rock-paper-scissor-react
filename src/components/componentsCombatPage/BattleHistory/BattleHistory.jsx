@@ -1,318 +1,73 @@
 import React, { useState } from 'react';
 import './BattleHistory.css';
+
+/*React Icons*/
 import { RiArrowRightDoubleFill, RiArrowLeftDoubleFill } from "react-icons/ri";
 
-import iconVictory from '../../../images/interfaz-images/icon-victory.png';
-import iconLose from '../../../images/interfaz-images/icon-lose.png';
-import iconTie from '../../../images/interfaz-images/icon-tie.png';
 
 
 
-export const BattleHistory = 
-({  characters, 
-    characterPlayer,
-    characterCom, 
-    generalPlayPlayer,
-    generalPlayCom  
-}) => {
+export const BattleHistory = ({ historyItems }) => {
+
+  /*------------------component states ---------------------------*/
 
   const [visible, setVisible] = useState(true); //state to control the effect of moving from the section
 
+
+
   const toggleDiv = () => {
-    setVisible(!visible);
+    historyItems.length !== 0 && (setVisible(!visible));
   }
+
+
 
   return (
      <div className={`battle-history ${visible ? 'visible' : ''}`}>
       
       <div className="history_content">
         <div className='history_container-items'>
-          
-{/*----------------------- Item 1 ------------------------------------------------------*/}
-          <div className="history_item">
-
-            {/*---------------- Section: Result Player --------------------*/}
-            <div className="result-player result">
-              <img src={ iconVictory } alt="" />
-            </div>
-
-            {/*---------------- Section: Character Player -----------------*/}
-            <div className="character-player character">
-              <img src={characterPlayer.facePhoto} alt="" />
-            </div>
-
-            {/*------- Section: Container-Center (Play and Rounds) ---------*/}
-            <div className="container-center">
-              <div className="play-player play">
-                <span>✌🏼</span>
+          {historyItems.map((item, index) => (
+            <div key={index} className="history_item">
+              {/*---------------- Section: Result Player --------------------*/}
+              <div className="result-player result">
+                <img src={ item.resultState } alt="" />
               </div>
 
-              <div className="play-com play">
-                <span>✋🏼</span>
+              {/*---------------- Section: Character Player -----------------*/}
+              <div className="character-player character">
+                <img src={item.characterPlayerFace} alt="" />
               </div>
 
-              <div className="rounds">
-                <span>Round 7</span>
-              </div>
-            </div>
+              {/*------- Section: Container-Center (Play and Rounds) ---------*/}
+              <div className="container-center">
+                <div className="play-player play">
+                  <span>{ item.generalPlayPlayer }</span>
+                </div>
 
-            {/*---------------- Section: Character Com -----------------*/}
-            <div className="character-com character">
-              <img src={characterCom.facePhoto} alt="" />
-            </div>
+                <div className="play-com play">
+                  <span>{ item.generalPlayCom }</span>
+                </div>
 
-            {/*---------------- Section: Result Com -----------------*/}
-            <div className="result-com result">
-              <img src={ iconLose } alt="" />
-            </div>
-          </div>
-
-
-          {/*----------------------- Item 2 ------------------------------------------------------*/}
-          <div className="history_item">
-
-            {/*---------------- Section: Result Player --------------------*/}
-            <div className="result-player result">
-              <img src={ iconVictory } alt="" />
-            </div>
-
-            {/*---------------- Section: Character Player -----------------*/}
-            <div className="character-player character">
-              <img src={characterPlayer.facePhoto} alt="" />
-            </div>
-
-            {/*------- Section: Container-Center (Play and Rounds) ---------*/}
-            <div className="container-center">
-              <div className="play-player play">
-                <span>✌🏼</span>
+                <div className="rounds">
+                  <span>Round {item.controlRoundsState} </span>
+                </div>
               </div>
 
-              <div className="play-com play">
-                <span>✋🏼</span>
+              {/*---------------- Section: Character Com -----------------*/}
+              <div className="character-com character">
+                <img src={item.characterComFace} alt="" />
               </div>
 
-              <div className="rounds">
-                <span>Round 6</span>
+              {/*---------------- Section: Result Com -----------------*/}
+              <div className="result-com result">
+                <img src={ item.resultComState } alt="" />
               </div>
             </div>
-
-            {/*---------------- Section: Character Com -----------------*/}
-            <div className="character-com character">
-              <img src={characterCom.facePhoto} alt="" />
-            </div>
-
-            {/*---------------- Section: Result Com -----------------*/}
-            <div className="result-com result">
-              <img src={ iconLose } alt="" />
-            </div>
-          </div>
-
-
-
-          {/*----------------------- Item 3 ------------------------------------------------------*/}
-          <div className="history_item">
-
-            {/*---------------- Section: Result Player --------------------*/}
-            <div className="result-player result">
-              <img src={ iconTie } alt="" />
-            </div>
-
-            {/*---------------- Section: Character Player -----------------*/}
-            <div className="character-player character">
-              <img src={characterPlayer.facePhoto} alt="" />
-            </div>
-
-            {/*------- Section: Container-Center (Play and Rounds) ---------*/}
-            <div className="container-center">
-              <div className="play-player play">
-                <span>✌🏼</span>
-              </div>
-
-              <div className="play-com play">
-                <span>✌🏼</span>
-              </div>
-
-              <div className="rounds">
-                <span>Round 5</span>
-              </div>
-            </div>
-
-            {/*---------------- Section: Character Com -----------------*/}
-            <div className="character-com character">
-              <img src={characterCom.facePhoto} alt="" />
-            </div>
-
-            {/*---------------- Section: Result Com -----------------*/}
-            <div className="result-com result">
-              <img src={ iconTie } alt="" />
-            </div>
-          </div>
-
-
-          {/*----------------------- Item 4 ------------------------------------------------------*/}
-          <div className="history_item">
-
-            {/*---------------- Section: Result Player --------------------*/}
-            <div className="result-player result">
-              <img src={ iconLose } alt="" />
-            </div>
-
-            {/*---------------- Section: Character Player -----------------*/}
-            <div className="character-player character">
-              <img src={characterPlayer.facePhoto} alt="" />
-            </div>
-
-            {/*------- Section: Container-Center (Play and Rounds) ---------*/}
-            <div className="container-center">
-              <div className="play-player play">
-                <span>✋🏼</span>
-              </div>
-
-              <div className="play-com play">
-                <span>✌🏼</span>
-              </div>
-
-              <div className="rounds">
-                <span>Round 4</span>
-              </div>
-            </div>
-
-            {/*---------------- Section: Character Com -----------------*/}
-            <div className="character-com character">
-              <img src={characterCom.facePhoto} alt="" />
-            </div>
-
-            {/*---------------- Section: Result Com -----------------*/}
-            <div className="result-com result">
-              <img src={ iconVictory } alt="" />
-            </div>
-          </div>
-
-
-          {/*----------------------- Item 5 ------------------------------------------------------*/}
-          <div className="history_item">
-
-            {/*---------------- Section: Result Player --------------------*/}
-            <div className="result-player result">
-              <img src={ iconVictory } alt="" />
-            </div>
-
-            {/*---------------- Section: Character Player -----------------*/}
-            <div className="character-player character">
-              <img src={characterPlayer.facePhoto} alt="" />
-            </div>
-
-            {/*------- Section: Container-Center (Play and Rounds) ---------*/}
-            <div className="container-center">
-              <div className="play-player play">
-                <span>✌🏼</span>
-              </div>
-
-              <div className="play-com play">
-                <span>✋🏼</span>
-              </div>
-
-              <div className="rounds">
-                <span>Round 3</span>
-              </div>
-            </div>
-
-            {/*---------------- Section: Character Com -----------------*/}
-            <div className="character-com character">
-              <img src={characterCom.facePhoto} alt="" />
-            </div>
-
-            {/*---------------- Section: Result Com -----------------*/}
-            <div className="result-com result">
-              <img src={ iconLose } alt="" />
-            </div>
-          </div>
-
-
-          {/*----------------------- Item 6 ------------------------------------------------------*/}
-          <div className="history_item">
-
-            {/*---------------- Section: Result Player --------------------*/}
-            <div className="result-player result">
-              <img src={ iconVictory } alt="" />
-            </div>
-
-            {/*---------------- Section: Character Player -----------------*/}
-            <div className="character-player character">
-              <img src={characterPlayer.facePhoto} alt="" />
-            </div>
-
-            {/*------- Section: Container-Center (Play and Rounds) ---------*/}
-            <div className="container-center">
-              <div className="play-player play">
-                <span>✌🏼</span>
-              </div>
-
-              <div className="play-com play">
-                <span>✋🏼</span>
-              </div>
-
-              <div className="rounds">
-                <span>Round 2</span>
-              </div>
-            </div>
-
-            {/*---------------- Section: Character Com -----------------*/}
-            <div className="character-com character">
-              <img src={characterCom.facePhoto} alt="" />
-            </div>
-
-            {/*---------------- Section: Result Com -----------------*/}
-            <div className="result-com result">
-              <img src={ iconLose } alt="" />
-            </div>
-          </div>
-
-
-          {/*----------------------- Item 7 ------------------------------------------------------*/}
-          <div className="history_item">
-
-            {/*---------------- Section: Result Player --------------------*/}
-            <div className="result-player result">
-              <img src={ iconVictory } alt="" />
-            </div>
-
-            {/*---------------- Section: Character Player -----------------*/}
-            <div className="character-player character">
-              <img src={characterPlayer.facePhoto} alt="" />
-            </div>
-
-            {/*------- Section: Container-Center (Play and Rounds) ---------*/}
-            <div className="container-center">
-              <div className="play-player play">
-                <span>✌🏼</span>
-              </div>
-
-              <div className="play-com play">
-                <span>✋🏼</span>
-              </div>
-
-              <div className="rounds">
-                <span>Round 1</span>
-              </div>
-            </div>
-
-            {/*---------------- Section: Character Com -----------------*/}
-            <div className="character-com character">
-              <img src={characterCom.facePhoto} alt="" />
-            </div>
-
-            {/*---------------- Section: Result Com -----------------*/}
-            <div className="result-com result">
-              <img src={ iconLose } alt="" />
-            </div>
-          </div>
-
-          </div>
+        ))}
+        </div>
       </div>
-
-      
-  {/*------------------------------------------ Section: History Tab --------------------------*/}    
+     
+  {/*---------------------------------------- Section: History Tab ----------------------*/}    
       <div className="history_tab" onClick={toggleDiv}>
         <div>
           <span>H</span>
@@ -332,5 +87,5 @@ export const BattleHistory =
         </div>
       </div>
     </div>
-  );
+ )
 }

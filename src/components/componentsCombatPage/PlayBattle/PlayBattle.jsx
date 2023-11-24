@@ -1,10 +1,11 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState, useRef} from 'react';
 import './PlayBattle.css';
+
+/*Images*/
 import frame from '../../../images/interfaz-images/frame-vector.png';
 import tie from '../../../images/interfaz-images/icon-tie.png';
 import victory from '../../../images/interfaz-images/icon-victory.png';
 import lose from '../../../images/interfaz-images/icon-lose.png';
-// import { RiDivideFill } from 'react-icons/ri';
 
 
 export const PlayBattle = 
@@ -26,48 +27,49 @@ export const PlayBattle =
     setResultState,
     resultComState,
     setResultComState,
-    stateCombat,
     setStateCombat,
     setWinnerCombat,
     setMessageFinal,
     buttonSpecial,
-    buttonSpecialCom
+    buttonSpecialCom,
+    pauseGeneralState,
+    startAction
   }) => {
 
-  
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+/*------------------component states and references---------------------------  */
+    const prevComMark = useRef(comMark);
+    const prevPlayerMark = useRef(playerMark);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-useEffect(()=> {
-    //function for mousemove animation in character images.
-    const characters = document.querySelectorAll('.character');
-    
-    characters.forEach((character) => {
-      character.addEventListener('mousemove', e => {
-        let rect = e.target.getBoundingClientRect();
-        let x = e.clientX * 3 - rect.left;
-        character.style.setProperty('--x', x + 'deg');
-      });
-    });
-    
-    }, []);
+    useEffect(()=> {
+        //function for mousemove animation in character images.
+        const characters = document.querySelectorAll('.character');
+        
+        characters.forEach((character) => {
+          character.addEventListener('mousemove', e => {
+            let rect = e.target.getBoundingClientRect();
+            let x = e.clientX * 3 - rect.left;
+            character.style.setProperty('--x', x + 'deg');
+          });
+        });
+      }, []);
 
     
     useEffect(() => {
       // function that controls the animations of the "Play" sections
-    const animationInterval = setInterval(() => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imagesPlayPlayer.length);
-      }, 200);
-  
-      return () => {
-        clearInterval(animationInterval);
-      };
-    }, [imagesPlayPlayer, imagesPlayCom]);
+      const animationInterval = setInterval(() => {
+          setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imagesPlayPlayer.length);
+        }, 200);
+    
+        return () => {
+          clearInterval(animationInterval);
+        };
+      }, [imagesPlayPlayer, imagesPlayCom]);
 
-  
-    /*---------------Logica para Dinamismo del Juego: Batalla-----------*/
+/*-----------------------Logic for Game Dynamics: Battle------------------------*/
 useEffect(()=>{
 
-  /*------------- Casos donde gana la computadora-----------------------*/
+  /*------------- Cases where the computer wins----------------------*/
     
     if(generalPlayPlayer === "✋🏼" && generalPlayCom === "✌🏼" ){
       if(!buttonSpecialCom){
@@ -97,8 +99,6 @@ useEffect(()=>{
       }
     }
 
-
-
     if(generalPlayPlayer === "✊🏼" && generalPlayCom === "✋🏼" ){
       if(!buttonSpecialCom){
         if(characterCom.iconType === generalPlayCom){
@@ -126,8 +126,6 @@ useEffect(()=>{
         }
       }
     }
-
-
 
     if(generalPlayPlayer === "✌🏼" && generalPlayCom === "✊🏼" ){
       if(!buttonSpecialCom){
@@ -159,7 +157,7 @@ useEffect(()=>{
       }
     }
 
-/*------------- Casos donde gana el Jugador------------------------ */
+/*------------- Cases where the Player wins------------------------ */
 
     if(generalPlayPlayer === "✊🏼" && generalPlayCom === "✌🏼" ){
       if(!buttonSpecial){
@@ -188,8 +186,6 @@ useEffect(()=>{
         }
       }
     }
-
-
 
 
     if(generalPlayPlayer === "✋🏼" && generalPlayCom === "✊🏼" ){
@@ -221,8 +217,6 @@ useEffect(()=>{
     }
 
 
-
-    
     if(generalPlayPlayer === "✌🏼" && generalPlayCom === "✋🏼" ){
       if(!buttonSpecial){
         if(characterPlayer.iconType === generalPlayPlayer){
@@ -252,7 +246,7 @@ useEffect(()=>{
     }
 
 
-/*------------- Casos donde hay empate------------------------ */
+/*------------- Cases where there is a tie------------------------ */
 
     if(generalPlayPlayer === "✊🏼" && generalPlayCom === "✊🏼" ){
       setResultState(tie);
@@ -277,20 +271,16 @@ useEffect(()=>{
       setPlayerMark, 
       generalPlayPlayer, 
       generalPlayCom, 
-      characterPlayer.iconType, 
-      characterCom.iconType, 
       setInteractiveTexts, 
       setResultState, 
-      setResultComState, 
-      characterCom.shortName, 
-      characterPlayer.shortName
+      setResultComState
     ]);
     
 
 
   useEffect(() => {
     if (
-      (comMark >= 10 || playerMark >= 10 || controlRoundsState >= 15) &&
+      (comMark >= 10 || playerMark >= 10 || controlRoundsState >= 16) &&
       comMark !== playerMark) {
         
       if (comMark > playerMark) {
@@ -312,6 +302,20 @@ useEffect(()=>{
         playerMark, 
         controlRoundsState,
         ]);
+
+
+  useEffect(()=>{
+    if(comMark > prevComMark.current && buttonSpecial && playerMark !== 0){
+      setPlayerMark((prevMark) => (prevMark - 1))
+    }
+    if(playerMark > prevPlayerMark.current && buttonSpecialCom && comMark !== 0){
+      setComMark((prevMark) => (prevMark - 1))
+    }
+
+    prevComMark.current = comMark;
+    prevPlayerMark.current = playerMark;
+    // eslint-disable-next-line
+  },[comMark, playerMark])
 
 
 // useEffect(()=>{
@@ -351,11 +355,11 @@ return (
         </div>
         <div className='frame-info'>
           <div className="img-result-frame">
-            <img src={resultState} alt="" />
+            <img src={startAction ? resultState : pauseGeneralState } alt="" />
           </div>
           <div className="text-interactive" dangerouslySetInnerHTML={{ __html: interactiveTexts }} />
           <div className="img-result-frame">
-            <img src={resultComState} alt="" />
+            <img src={startAction ? resultComState : pauseGeneralState} alt="" />
           </div>
         </div>
       </div>

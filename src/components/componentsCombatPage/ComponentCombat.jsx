@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+
+/*Components*/
 import { Summary } from './Summary/Summary';
 import { BattleHistory } from './BattleHistory/BattleHistory';
 import { PlayBattle } from './PlayBattle/PlayBattle';
@@ -6,10 +8,16 @@ import { SectionButtonsPlay } from './SectionButtonsPlay/SectionButtonsPlay';
 import { ModalFinalGame } from '../componentsModals/ModalFinalGame/ModalFinalGame';
 import { HeaderComponent } from '../componentsGenerals/HeaderComponent/HeaderComponent';
 import { FooterComponent } from '../componentsGenerals/FooterComponent/FooterComponent';
+
+/*Images*/
 import trebol from '../../images/interfaz-images/trebol.png';
 import backCardPlayer from '../../images/interfaz-images/card-player.png';
 import backCardCom from '../../images/interfaz-images/card-computer.png';
 import { playsDataPlayer, playsDataCom  } from '../../data/playData';
+
+
+
+
 
 export const ComponentCombat = 
 ({characterPlayer, 
@@ -40,9 +48,11 @@ export const ComponentCombat =
 
   const [controlRoundsPrev, setControlRoundsPrev] = useState(2);
 
-  const [resultState, setResultState ] = useState(trebol);
+  const [resultState, setResultState ] = useState(undefined);
 
-  const [resultComState, setResultComState ] = useState(trebol);
+  const [resultComState, setResultComState ] = useState(undefined);
+
+  const [pauseGeneralState, setPauseGeneralState ] = useState(trebol);
 
   const [stateCombat, setStateCombat] = useState(true);
 
@@ -53,6 +63,12 @@ export const ComponentCombat =
   const [buttonSpecial, setButtonSpecial] = useState(false);
 
   const [buttonSpecialCom, setButtonSpecialCom] = useState(false);
+
+  const [historyItems, setHistoryItems] = useState([]);
+
+  const [selectPlay, setSelectPlay] = useState(false);
+
+  const [startAction, setStartAction] = useState(false);
 
   
   
@@ -89,8 +105,7 @@ export const ComponentCombat =
         <BattleHistory  
                 characterPlayer = { characterPlayer }
                 characterCom = { characterCom }
-                generalPlayPlayer = { generalPlayPlayer }
-                generalPlayCom = { generalPlayCom}
+                historyItems = { historyItems }
                 />
                 
 
@@ -109,20 +124,22 @@ export const ComponentCombat =
                 controlRoundsState = { controlRoundsState }
                 interactiveTexts = { interactiveTexts }
                 setInteractiveTexts = { setInteractiveTexts}
-                resultState = { resultState}
-                setResultState = { setResultState}
-                resultComState = { resultComState}
-                setResultComState = { setResultComState}
-                stateCombat = {stateCombat}
                 setStateCombat = {setStateCombat}
                 setWinnerCombat = { setWinnerCombat }
                 setMessageFinal = { setMessageFinal }
                 buttonSpecial = { buttonSpecial }
                 buttonSpecialCom = {buttonSpecialCom}
+                resultState = { resultState}
+                setResultState = { setResultState}
+                resultComState = { resultComState}
+                setResultComState = { setResultComState}
+                pauseGeneralState = { pauseGeneralState }
+                startAction = { startAction } 
                 />
 
         <SectionButtonsPlay 
                 characterCom = { characterCom }
+                characterPlayer = { characterPlayer }
                 openModalFinal= { openModalFinal }
                 setOpenModalFinal = { setOpenModalFinal }
                 setImagesPlayPlayer = { setImagesPlayPlayer }
@@ -135,14 +152,23 @@ export const ComponentCombat =
                 setControlRoundsPrev = { setControlRoundsPrev }
                 setControlRoundsState = { setControlRoundsState }
                 setInteractiveTexts = { setInteractiveTexts }
-                setResultState = { setResultState}
-                setResultComState = { setResultComState}
                 setWinnerCombat = { setWinnerCombat }
                 setMessageFinal = { setMessageFinal }
                 stateCombat={ stateCombat }
                 setStateCombat = { setStateCombat }
                 setButtonSpecial = { setButtonSpecial }
                 buttonSpecialCom = { setButtonSpecialCom }
+                setHistoryItems = { setHistoryItems }
+                generalPlayPlayer = { generalPlayPlayer }
+                generalPlayCom = { generalPlayCom}
+                resultState = {resultState}
+                resultComState = {resultComState}
+                controlRoundsState = { controlRoundsState }
+                pauseGeneralState = { pauseGeneralState }
+                setPauseGeneralState = { setPauseGeneralState }
+                selectPlay= { selectPlay }
+                setSelectPlay= { setSelectPlay }
+                setStartAction = { setStartAction }
                 />
 
         <ModalFinalGame 
