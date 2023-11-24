@@ -181,7 +181,7 @@ return (
        onClick={() => { setButtonSpecial(false);   
                         activePlay(1);
                       }}
->✌🏼</span>
+       >✋🏼</span>
         
       </button>
       <button className='button-play'>
