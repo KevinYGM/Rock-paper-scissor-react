@@ -17,7 +17,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  background: radial-gradient(circle, rgb(165, 13, 34), rgb(207, 112, 22), yellow, rgb(207, 112, 22), rgb(165, 13, 34));
   color: var(--main-color);
   cursor: pointer;
   font-size: max(1rem, min(1.2vmax, 1.5rem));
@@ -92,10 +91,34 @@
 }
 
 .history_item .character{
+  position: relative;
   width: 17%;
   height: 92%;
+}
+
+.character .points-round{
+  position: absolute;
+  display:grid;
+  place-items: center;
+  width: 1.5vmax;
+  height: 1.5vmax;
+  font-size: 1.3vmax;
+  color: white;
+  top: 0;
   border-radius: 50%;
-  overflow: hidden;
+  box-shadow: 0 0 7px rgba(179, 176, 176, 0.5);
+}
+
+.character .points-round-player{
+  left: -15%;
+}
+
+.character .points-round-com{
+  right: -15%;
+}
+
+.character img{
+  border-radius: 50%;
 }
 
 

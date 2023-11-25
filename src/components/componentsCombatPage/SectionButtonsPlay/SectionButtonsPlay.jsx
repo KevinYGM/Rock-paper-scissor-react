@@ -41,7 +41,9 @@ export const SectionButtonsPlay =
     setPauseGeneralState,
     selectPlay,
     setSelectPlay,
-    setStartAction
+    setStartAction,
+    pointsRoundPlayer,
+    pointsRoundCom
 }) => {
 
 
@@ -109,6 +111,8 @@ useEffect(() => {
   }
 
   const newItem = {
+    pointsRoundPlayer: pointsRoundPlayer,
+    pointsRoundCom: pointsRoundCom,
     resultState: resultState,
     resultComState: resultComState,
     characterPlayerFace: characterPlayer.facePhoto,

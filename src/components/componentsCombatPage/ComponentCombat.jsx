@@ -70,6 +70,10 @@ export const ComponentCombat =
 
   const [startAction, setStartAction] = useState(false);
 
+  const [pointsRoundPlayer, setPointsRoundPlayer] = useState("0");
+
+  const [pointsRoundCom, setPointsRoundCom] = useState("0");
+
   
   
     useEffect(() => {
@@ -135,6 +139,8 @@ export const ComponentCombat =
                 setResultComState = { setResultComState}
                 pauseGeneralState = { pauseGeneralState }
                 startAction = { startAction } 
+                setPointsRoundPlayer = { setPointsRoundPlayer }
+                setPointsRoundCom = { setPointsRoundCom }
                 />
 
         <SectionButtonsPlay 
@@ -169,6 +175,8 @@ export const ComponentCombat =
                 selectPlay= { selectPlay }
                 setSelectPlay= { setSelectPlay }
                 setStartAction = { setStartAction }
+                pointsRoundPlayer = { pointsRoundPlayer }
+                pointsRoundCom = { pointsRoundCom }
                 />
 
         <ModalFinalGame 

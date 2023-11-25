@@ -19,6 +19,14 @@ export const BattleHistory = ({ historyItems }) => {
     historyItems.length !== 0 && (setVisible(!visible));
   }
 
+  const generateGradient = () => {
+    return `linear-gradient(rgba(70, 4, 4, 0.842), rgba(161, 14, 14, 0.897), rgba(221, 19, 19, 0.842), rgba(161, 14, 14, 0.897), rgba(70, 4, 4, 0.842))`;
+  }
+
+  const generateGradientActive = () => {
+    return `radial-gradient(circle, rgb(165, 13, 34), rgb(207, 112, 22), yellow, rgb(207, 112, 22), rgb(165, 13, 34))`;
+  }
+
 
 
   return (
@@ -35,6 +43,22 @@ export const BattleHistory = ({ historyItems }) => {
 
               {/*---------------- Section: Character Player -----------------*/}
               <div className="character-player character">
+                <div className="points-round-player points-round"
+                      style={{
+                        backgroundColor:
+                          item.pointsRoundPlayer === "0"
+                            ? 'blue'
+                            : (item.pointsRoundPlayer === "+1" ||
+                                item.pointsRoundPlayer === "+2" ||
+                                item.pointsRoundPlayer === "+3" ||
+                                item.pointsRoundPlayer === "+4")
+                            ? 'green'
+                            : item.pointsRoundPlayer === "-1"
+                            ? 'red'
+                            : 'inherit'
+                      }}
+                
+                >{item.pointsRoundPlayer}</div>
                 <img src={item.characterPlayerFace} alt="" />
               </div>
 
@@ -56,6 +80,21 @@ export const BattleHistory = ({ historyItems }) => {
               {/*---------------- Section: Character Com -----------------*/}
               <div className="character-com character">
                 <img src={item.characterComFace} alt="" />
+                <div className="points-round-com points-round"
+                      style={{
+                        backgroundColor:
+                          item.pointsRoundCom === "0"
+                            ? 'blue'
+                            : (item.pointsRoundCom === "+1" ||
+                                item.pointsRoundCom === "+2" ||
+                                item.pointsRoundCom === "+3" ||
+                                item.pointsRoundCom === "+4")
+                            ? 'green'
+                            : item.pointsRoundCom === "-1"
+                            ? 'red'
+                            : 'inherit' // Puedes establecer 'inherit' o cualquier otro valor por defecto aquí
+                      }}
+                      >{item.pointsRoundCom}</div>
               </div>
 
               {/*---------------- Section: Result Com -----------------*/}
@@ -68,7 +107,13 @@ export const BattleHistory = ({ historyItems }) => {
       </div>
      
   {/*---------------------------------------- Section: History Tab ----------------------*/}    
-      <div className="history_tab" onClick={toggleDiv}>
+      <div  className="history_tab" 
+            onClick={toggleDiv}
+            style={{
+              background: historyItems.length === 0 ? generateGradient() : generateGradientActive(),
+              color: historyItems.length === 0 ? 'white' : 'var(--main-color)'
+            }}
+            >
         <div>
           <span>H</span>
           <span>I</span>
