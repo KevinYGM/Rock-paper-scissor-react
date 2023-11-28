@@ -92,7 +92,7 @@ export const BattleHistory = ({ historyItems }) => {
                             ? 'green'
                             : item.pointsRoundCom === "-1"
                             ? 'red'
-                            : 'inherit' // Puedes establecer 'inherit' o cualquier otro valor por defecto aquí
+                            : 'inherit'
                       }}
                       >{item.pointsRoundCom}</div>
               </div>

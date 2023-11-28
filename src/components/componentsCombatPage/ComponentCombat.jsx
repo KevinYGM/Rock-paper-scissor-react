@@ -21,7 +21,13 @@ import { playsDataPlayer, playsDataCom  } from '../../data/playData';
 
 export const ComponentCombat = 
 ({characterPlayer, 
-  characterCom
+  characterCom,
+  counterRock,
+  counterPaper,
+  counterScissor,
+  setCounterRock,
+  setCounterPaper,
+  setCounterScissor
 }) => {
   
 
@@ -69,6 +75,8 @@ export const ComponentCombat =
   const [selectPlay, setSelectPlay] = useState(false);
 
   const [startAction, setStartAction] = useState(false);
+
+  const [ctrlActionButtons, setCtrlActionButtons] = useState(false);
 
   const [pointsRoundPlayer, setPointsRoundPlayer] = useState("0");
 
@@ -163,7 +171,8 @@ export const ComponentCombat =
                 stateCombat={ stateCombat }
                 setStateCombat = { setStateCombat }
                 setButtonSpecial = { setButtonSpecial }
-                buttonSpecialCom = { setButtonSpecialCom }
+                setButtonSpecialCom = { setButtonSpecialCom }
+                buttonSpecialCom = { buttonSpecialCom }
                 setHistoryItems = { setHistoryItems }
                 generalPlayPlayer = { generalPlayPlayer }
                 generalPlayCom = { generalPlayCom}
@@ -174,9 +183,18 @@ export const ComponentCombat =
                 setPauseGeneralState = { setPauseGeneralState }
                 selectPlay= { selectPlay }
                 setSelectPlay= { setSelectPlay }
+                startAction = { startAction } 
                 setStartAction = { setStartAction }
                 pointsRoundPlayer = { pointsRoundPlayer }
                 pointsRoundCom = { pointsRoundCom }
+                ctrlActionButtons = { ctrlActionButtons }
+                setCtrlActionButtons = { setCtrlActionButtons }
+                setCounterRock = {setCounterRock} 
+                setCounterPaper = {setCounterPaper}
+                setCounterScissor = {setCounterScissor}
+                counterRock = {counterRock}  
+                counterPaper = {counterPaper}  
+                counterScissor = {counterScissor}  
                 />
 
         <ModalFinalGame 

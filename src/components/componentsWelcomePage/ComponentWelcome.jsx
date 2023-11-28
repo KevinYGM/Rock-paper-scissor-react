@@ -10,7 +10,10 @@ import { ModalSelectCharacter } from '../componentsModals/ModalSelectCharacter/M
 export const ComponentWelcome = 
 ({characterPlayer, 
   setCharacterPlayer,
-  setCharacterCom
+  setCharacterCom,
+  setCounterRock,
+  setCounterPaper,
+  setCounterScissor
 }) => {
 
   /*------------------state components-------------------------*/
@@ -25,7 +28,10 @@ export const ComponentWelcome =
           <SelectCharacter
                 characters = { characters }
                 setCharacterPlayer = { setCharacterPlayer }
-                openModalCharacter = { openModalCharacter } 
+                openModalCharacter = { openModalCharacter }
+                setCounterRock = {setCounterRock}  
+                setCounterPaper = {setCounterPaper}  
+                setCounterScissor = {setCounterScissor}   
                 />
                 
           <StartGame 

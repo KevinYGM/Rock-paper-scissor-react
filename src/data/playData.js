@@ -47,3 +47,24 @@ export const playsDataCom = [
     icon: "✋🏼"
   }
 ];
+
+
+export const playsDataCom2 = {
+  rock: {
+    name: "Rock Com",
+    photo: rockCom,
+    icon: "✊🏼"
+  },
+  
+  paper: {
+    name: "Paper Com",
+    photo: paperCom,
+    icon: "✋🏼"
+  },
+
+  scissor: {
+    name: "Scissor Com",
+    photo: scissorCom,
+    icon: "✌🏼"
+  }
+};

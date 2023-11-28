@@ -10,7 +10,6 @@ import surrender from '../../../images/interfaz-images/surrender.png';
 import { ModalSurrender } from '../../componentsModals/ModalSurrender/ModalSurrender';
 
 
-
 export const SectionButtonsPlay = 
 ({  characterCom,
     characterPlayer,
@@ -29,6 +28,7 @@ export const SectionButtonsPlay =
     setMessageFinal,
     stateCombat,
     setStateCombat,
+    buttonSpecialCom,
     setButtonSpecial,
     setButtonSpecialCom,
     setHistoryItems,
@@ -43,7 +43,16 @@ export const SectionButtonsPlay =
     setSelectPlay,
     setStartAction,
     pointsRoundPlayer,
-    pointsRoundCom
+    pointsRoundCom,
+    ctrlActionButtons,
+    setCtrlActionButtons,
+    counterRock,
+    counterPaper,
+    counterScissor,
+    setCounterRock,
+    setCounterPaper,
+    setCounterScissor,
+    startAction
 }) => {
 
 
@@ -51,22 +60,31 @@ export const SectionButtonsPlay =
   const [ openModalSurrender, setOpenModalSurrender ] = useState (false);
   const [isFirstRender, setIsFirstRender] = useState(true);
   const prevControlRoundsState = useRef(controlRoundsState);
-
+  const [roundsWithoutButtonClick, setRoundsWithoutButtonClick] = useState(0);
+  const [roundsWithoutAttackSpecialCom, setRoundsWithoutAttackSpecialCom] = useState(0);
+  
 
   const activePlay = (playPlayer = getRandomIndex()) => {
-    const playCom = getRandomIndex();
-        if(pauseGeneralState === trebol) {
-          setPauseGeneralState(allHands);
-        }
+    const playCom = comElection();
+
+    if(buttonSpecialCom){
+      setButtonSpecialCom(false);
+    }
+      
         prevControlRoundsState.current = controlRoundsState;
+        setCtrlActionButtons(true);
         setImagesPlayPlayer([playsDataPlayer[playPlayer].photo, playsDataPlayer[playPlayer].photo, playsDataPlayer[playPlayer].photo]);
         setImagesPlayCom([playsDataCom[playCom].photo, playsDataCom[playCom].photo, playsDataCom[playCom].photo]);
+        
       
       const firstTimeoutId = setTimeout(() => {
         setGeneralPlayCom(playsDataCom[playCom].icon);
         setGeneralPlayPlayer(playsDataPlayer[playPlayer].icon);
         setControlRoundsPrev((prevRounds) => prevRounds + 1);
         setStartAction(true);
+        if(pauseGeneralState === trebol) {
+          setPauseGeneralState(allHands);
+        }
         
       }, 1500);
       
@@ -74,7 +92,10 @@ export const SectionButtonsPlay =
         setSelectPlay(true);
         setStartAction(false);
         setControlRoundsState(controlRoundsPrev);
+        setRoundsWithoutButtonClick(prevRounds => prevRounds + 1);
+        setRoundsWithoutAttackSpecialCom(prevRounds => prevRounds + 1);
         setInteractiveTexts(`<p>Waiting for your next move...</p>`);
+        setCtrlActionButtons(false);
       }, 4000);
   
     return () => {
@@ -83,12 +104,78 @@ export const SectionButtonsPlay =
     };
   };
 
+ 
+  const renderProgressBarSpecial = () => {
+    const progressBar = [];
+
+    const maxBars = Math.min(roundsWithoutButtonClick, 6);
+
+    for (let i = 0; i < maxBars; i++) {
+      progressBar.push(<div key={i} className="progress-bar-item-special"></div>);
+    }
+
+    return progressBar;
+};
+
+
+const renderProgressBar = (counterElement) => {
+  const progressBar = [];
+
+  const maxBars = Math.min(counterElement, 7);
+
+  for (let i = 0; i < maxBars; i++) {
+    progressBar.push(
+    <div  key={i} 
+          className="progress-bar-item"
+          style={{
+            background:
+                  counterElement === 1 || counterElement === 2
+                ? 'var(--gradient-red)'
+                : counterElement === 3 || counterElement === 4
+                ? 'var(--gradient-yellow)'
+                : counterElement >= 5 && counterElement <= 7
+                ? 'var(--gradient-green)'
+                : 'inherit'
+           }}>
+    </div>);
+  }
+
+  return progressBar;
+};
+
+
 
 
   const getRandomIndex = () => {
     return Math.floor(Math.random() * playsDataPlayer.length);
   };
   
+
+  const comElection = () => {
+    
+    if (roundsWithoutAttackSpecialCom >= 6) {
+      const randomValue = Math.random();
+      const randomBoolean = randomValue > 0.5;
+      setButtonSpecialCom(randomBoolean);
+    }
+
+    return Math.floor(Math.random() * playsDataCom.length);
+  }
+  
+  // useEffect(()=>{
+  //  console.log(comElection());
+  // // eslint-disable-next-line 
+  // },[comElection]);
+  
+  useEffect(()=>{
+    buttonSpecialCom && setRoundsWithoutAttackSpecialCom(0);
+  // eslint-disable-next-line 
+  },[buttonSpecialCom]);
+
+  
+
+
+
 
   useEffect(()=> {
   // Function for the MouseMove effect of the buttons
@@ -102,6 +189,15 @@ export const SectionButtonsPlay =
       });
     });
   }, []);
+
+useEffect(()=>{
+  if(controlRoundsState >= 16){
+    setCounterRock(5)
+    setCounterPaper(5)
+    setCounterScissor(5)
+  } 
+ // eslint-disable-next-line 
+},[controlRoundsState])
 
 
 useEffect(() => {
@@ -150,7 +246,7 @@ return (
       <i></i>
       <span>
         <span onClick={()=> {
-          stateCombat ? setOpenModalSurrender(true) : setOpenModalSurrender(false);
+          stateCombat && controlRoundsState >= 3 ? setOpenModalSurrender(true) : setOpenModalSurrender(false);
           }}>
           <img src={surrender} alt={"Surrender"}/>
         </span>
@@ -168,49 +264,90 @@ return (
     
 {/*------------------ Button Section buttons play-----------------*/}
     <div className='section-buttons-play'>
+
+    <div className="container-buttons">
       <button className='button-play'>
         <i></i>
         <i></i>
         <span
-        onClick={() => {  setButtonSpecial(false);
-                          activePlay(0);
-                        }}
-        >✊🏼</span>
-        
-      </button>
-      <button className='button-play'>
-        <i></i>
-        <i></i>
-        <span
-       onClick={() => { setButtonSpecial(false);   
-                        activePlay(1);
-                      }}
-       >✋🏼</span>
-        
-      </button>
-      <button className='button-play'>
-        <i></i>
-        <i></i>
-        <span
-        onClick={() => {  setButtonSpecial(false);
-                          activePlay(2);
-                        }}
-        >✌🏼</span>
-      </button>
+         onClick={() => {  
+          if (!ctrlActionButtons && counterRock !== 0) {
+            setButtonSpecial(false);
+            setCounterRock(prevCounter => prevCounter - 1);
+            activePlay(0);
+            }
+         }}
+          >✊🏼</span>
+        </button>
+        <div className='progress-bar-container-btns-play'>
+          {renderProgressBar(counterRock)}  
+        </div>
+      </div>
+
+
+      <div className="container-buttons">
+        <button className='button-play'>
+          <i></i>
+          <i></i>
+          <span
+          onClick={() => {  
+            if (!ctrlActionButtons && counterPaper !== 0) {
+              setButtonSpecial(false);
+              setCounterPaper(prevCounter => prevCounter - 1);
+              activePlay(1);
+            }
+          }}
+        >✋🏼</span>
+        </button>
+        <div className='progress-bar-container-btns-play'>
+          {renderProgressBar(counterPaper)}  
+        </div>
+      </div>
+
+
+      <div className="container-buttons">
+        <button className='button-play'>
+          <i></i>
+          <i></i>
+          <span
+          onClick={() => {  
+            if (!ctrlActionButtons && counterScissor !== 0) {
+              setButtonSpecial(false);
+              setCounterScissor(prevCounter => prevCounter - 1);
+              activePlay(2);
+            }
+          }}
+          >✌🏼</span>
+        </button>
+        <div  className='progress-bar-container-btns-play'
+              >
+          {renderProgressBar(counterScissor)} 
+        </div>
+      </div>
     </div>
 
 
 {/*------------------ Button Section Special Button-----------------*/}
-    <button className='button-play-special'>
-      <i></i>
-      <i></i>
-      <span
-      onClick={() => {  setButtonSpecial(true);
-                        activePlay();
-                      }}>
-        <img src={allHands} alt={"Aleatory"}/>
-      </span>
-    </button>
+    <div className='container-button-play-special'>
+      <button className='button-play-special' >
+        <i></i>
+        <i></i>
+        <span
+        onClick={() => {
+        if (!ctrlActionButtons && roundsWithoutButtonClick >= 6) {
+          setButtonSpecial(true);
+          setRoundsWithoutButtonClick(-1);
+          activePlay();
+        }
+      }}>
+          <img src={allHands} alt={"Aleatory"}/>
+        </span>
+      </button>
+      <div className='progress-bar-container'>
+        {renderProgressBarSpecial()}
+      </div>
+    </div>
+   
   </div>
 )
 }

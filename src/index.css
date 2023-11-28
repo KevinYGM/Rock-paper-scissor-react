@@ -28,6 +28,10 @@
   --color-element-rps: radial-gradient(circle, rgb(245, 30, 180) 20% , rgb(104, 8, 160) 70%);
   --color-summary: linear-gradient(45deg, rgb(165, 13, 34), rgb(207, 112, 22), yellow, rgb(207, 112, 22), rgb(165, 13, 34));
   --background-startGame-hover: linear-gradient(to bottom, yellow, rgb(207, 112, 22), rgb(165, 13, 34), rgb(207, 112, 22),yellow);
+
+  --gradient-yellow: linear-gradient(rgb(102, 104, 7), rgb(189, 192, 15), rgb(248, 252, 20), rgb(189, 192, 15), rgb(102, 104, 7));
+  --gradient-red: linear-gradient(rgb(100, 5, 5), rgb(201, 19, 19), rgb(247, 18, 18), rgb(201, 19, 19), rgb(100, 5, 5));
+  --gradient-green: linear-gradient(rgb(19, 119, 10),rgb(32, 187, 18), rgb(35, 235, 17), rgb(32, 187, 18), rgb(19, 119, 10));
   
   /*-------Effects----------------*/
   --x: 45deg;

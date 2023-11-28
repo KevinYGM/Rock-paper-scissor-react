@@ -6,7 +6,11 @@ import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle  } from "react-icon
 export const SelectCharacter = 
 ({  characters,
     setCharacterPlayer,
-    openModalCharacter
+    openModalCharacter,
+    setCounterRock,
+    setCounterPaper,
+    setCounterScissor
+    
 }) => {
 
   /*----------state components-----------------------------*/
@@ -24,7 +28,12 @@ export const SelectCharacter =
   }
 
   useEffect(() => {
-    setCharacterPlayer(characters[indexCharacter])
+    setCharacterPlayer(characters[indexCharacter]);
+    setCounterRock(characters[indexCharacter].powerRock);
+    setCounterPaper(characters[indexCharacter].powerPaper);
+    setCounterScissor(characters[indexCharacter].powerScissor);
+
+     // eslint-disable-next-line
   }, [indexCharacter, characters, setCharacterPlayer]);
 
 

@@ -45,7 +45,11 @@ export const characters = [
     winnerPhoto: williamsRockWinner,
     iconType: "✊🏼",
     imageType: backRock,
+    powerRock: 7,
+    powerPaper: 5,
+    powerScissor: 4,
     description: "Williams is a Rock type character, every time He wins a round using Rock, you will earn double points."
+    
   },
 
   {
@@ -57,6 +61,9 @@ export const characters = [
     winnerPhoto: melissaPaperWinner,
     iconType: "✋🏼",
     imageType: backPaper,
+    powerRock: 4,
+    powerPaper: 7,
+    powerScissor: 5,
     description: "Melissa is a Paper type character, every time She wins a round using Paper, you will earn double points."
   },
 
@@ -69,6 +76,9 @@ export const characters = [
     winnerPhoto: jamesScissorWinner,
     iconType: "✌🏼",
     imageType: backScissor,
+    powerRock: 5,
+    powerPaper: 4,
+    powerScissor: 7,
     description: "James is a Scissors type character, every time He wins a round using Scissors, you will earn double points."
   },
 
@@ -81,6 +91,9 @@ export const characters = [
     winnerPhoto: scarlettRockWinner,
     iconType: "✊🏼",
     imageType: backRock,
+    powerRock: 7,
+    powerPaper: 4,
+    powerScissor: 5,
     description: "Scarlett is a Rock type character, every time She wins a round using Rock, you will earn double points."
   },
 
@@ -93,6 +106,9 @@ export const characters = [
     winnerPhoto: matthewPaperWinner,
     iconType: "✋🏼",
     imageType: backPaper,
+    powerRock: 5,
+    powerPaper: 7,
+    powerScissor: 4,
     description: "Matthew is a Paper type character, every time He wins a round using Paper, you will earn double points."
   },
 
@@ -105,6 +121,9 @@ export const characters = [
     winnerPhoto: alissonScissorWinner,
     iconType: "✌🏼",
     imageType: backScissor,
+    powerRock: 4,
+    powerPaper: 5,
+    powerScissor: 7,
     description: "Alisson is a Scissors type character, every time She wins a round using Scissors, you will earn double points."
   }
 ];
