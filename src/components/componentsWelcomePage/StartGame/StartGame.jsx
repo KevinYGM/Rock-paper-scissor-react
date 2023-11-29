@@ -1,13 +1,17 @@
-import React, { useEffect } from 'react'
 import './StartGame.css';
+import React, { useEffect } from 'react';
 import {Link} from 'react-router-dom';
+
+/*Images*/
 import sword from '../../../images/interfaz-images/sword.png';
+
 
 export const StartGame = 
 ({setOpenModalCharacter, 
   openModalCharacter}) => {
 
 
+    /*---------- useEffects that contribute to the Design of component----------*/
   useEffect(()=> {
     //function for mousemove animation in character images.
     const records = document.querySelectorAll('.record-statement');
@@ -23,10 +27,11 @@ export const StartGame =
 
 
 
+/*---------------- component JSX structure ---------------------- */ 
   return (
     <div className="start-game">
       
-      {/* Start Game Button */}
+  {/*------------------Start Game Button----------------------*/}
       <Link   className="link-btn-start-game"
               onClick= {!openModalCharacter ? () => setOpenModalCharacter(true) : undefined}>
         <button className="btn-start-game">
@@ -38,8 +43,7 @@ export const StartGame =
         </button>
       </Link>
       
-      
-      {/*   Record Area */}
+  {/*---------------Record Area------------------------ */}
       <div className="record-vs-pc">
         <div className='record-statement'>
           <span className='recordG'>Global Record</span>

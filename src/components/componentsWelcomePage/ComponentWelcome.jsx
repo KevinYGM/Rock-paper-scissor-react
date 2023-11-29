@@ -1,11 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+
+/*Components*/
+import { HeaderComponent } from '../componentsGenerals/HeaderComponent/HeaderComponent';
 import { Title } from './Title/Title';
 import { SelectCharacter } from './SelectCharacter/SelectCharacter';
 import { StartGame } from './StartGame/StartGame';
-import { characters } from '../../data/charactersData';
-import { HeaderComponent } from '../componentsGenerals/HeaderComponent/HeaderComponent';
 import { FooterComponent } from '../componentsGenerals/FooterComponent/FooterComponent';
+
+/*Modals*/
 import { ModalSelectCharacter } from '../componentsModals/ModalSelectCharacter/ModalSelectCharacter';
+
+/*Data*/
+import { characters } from '../../data/charactersData';
+
 
 export const ComponentWelcome = 
 ({characterPlayer, 
@@ -13,12 +20,17 @@ export const ComponentWelcome =
   setCharacterCom,
   setCounterRock,
   setCounterPaper,
-  setCounterScissor
+  setCounterScissor,
+  setCounterRockCom,
+  setCounterPaperCom,
+  setCounterScissorCom
 }) => {
 
   /*------------------state components-------------------------*/
   const [openModalCharacter, setOpenModalCharacter] = useState(false);
 
+
+/*---------------- component JSX structure ---------------------- */ 
   return (
     <div className='container-welcome'>
       <HeaderComponent />
@@ -29,9 +41,9 @@ export const ComponentWelcome =
                 characters = { characters }
                 setCharacterPlayer = { setCharacterPlayer }
                 openModalCharacter = { openModalCharacter }
-                setCounterRock = {setCounterRock}  
-                setCounterPaper = {setCounterPaper}  
-                setCounterScissor = {setCounterScissor}   
+                setCounterRock = { setCounterRock }  
+                setCounterPaper = { setCounterPaper }  
+                setCounterScissor = { setCounterScissor }   
                 />
                 
           <StartGame 
@@ -45,6 +57,9 @@ export const ComponentWelcome =
                 setCharacterCom = { setCharacterCom }
                 openModalCharacter = { openModalCharacter } 
                 setOpenModalCharacter = { setOpenModalCharacter } 
+                setCounterRockCom = { setCounterRockCom } 
+                setCounterPaperCom = { setCounterPaperCom }
+                setCounterScissorCom = { setCounterScissorCom }
                 />
       </div>
       <FooterComponent />

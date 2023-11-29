@@ -10,25 +10,20 @@ import { RiArrowRightDoubleFill, RiArrowLeftDoubleFill } from "react-icons/ri";
 export const BattleHistory = ({ historyItems }) => {
 
   /*------------------component states ---------------------------*/
-
   const [visible, setVisible] = useState(true); //state to control the effect of moving from the section
 
 
 
+
+  /*------------------Functions dedicated to component Design----------------*/
   const toggleDiv = () => {
     historyItems.length !== 0 && (setVisible(!visible));
   }
 
-  const generateGradient = () => {
-    return `linear-gradient(rgba(70, 4, 4, 0.842), rgba(161, 14, 14, 0.897), rgba(221, 19, 19, 0.842), rgba(161, 14, 14, 0.897), rgba(70, 4, 4, 0.842))`;
-  }
-
-  const generateGradientActive = () => {
-    return `radial-gradient(circle, rgb(165, 13, 34), rgb(207, 112, 22), yellow, rgb(207, 112, 22), rgb(165, 13, 34))`;
-  }
 
 
-
+ 
+/*---------------- component JSX structure ---------------------- */ 
   return (
      <div className={`battle-history ${visible ? 'visible' : ''}`}>
       
@@ -36,12 +31,13 @@ export const BattleHistory = ({ historyItems }) => {
         <div className='history_container-items'>
           {historyItems.map((item, index) => (
             <div key={index} className="history_item">
-              {/*---------------- Section: Result Player --------------------*/}
+
+    {/*---------------- Section: Result Player --------------------*/}
               <div className="result-player result">
-                <img src={ item.resultState } alt="" />
+                <img src={ item.resultState } alt='Result Round Player' />
               </div>
 
-              {/*---------------- Section: Character Player -----------------*/}
+      {/*---------------- Section: Character Player -----------------*/}
               <div className="character-player character">
                 <div className="points-round-player points-round"
                       style={{
@@ -59,10 +55,10 @@ export const BattleHistory = ({ historyItems }) => {
                       }}
                 
                 >{item.pointsRoundPlayer}</div>
-                <img src={item.characterPlayerFace} alt="" />
+                <img src={item.characterPlayerFace} alt='Face Character Player' />
               </div>
 
-              {/*------- Section: Container-Center (Play and Rounds) ---------*/}
+      {/*------- Section: Container-Center (Play and Rounds) ---------*/}
               <div className="container-center">
                 <div className="play-player play">
                   <span>{ item.generalPlayPlayer }</span>
@@ -77,9 +73,9 @@ export const BattleHistory = ({ historyItems }) => {
                 </div>
               </div>
 
-              {/*---------------- Section: Character Com -----------------*/}
+      {/*---------------- Section: Character Com -----------------*/}
               <div className="character-com character">
-                <img src={item.characterComFace} alt="" />
+                <img src={item.characterComFace} alt='Face Character Com'/>
                 <div className="points-round-com points-round"
                       style={{
                         backgroundColor:
@@ -97,9 +93,9 @@ export const BattleHistory = ({ historyItems }) => {
                       >{item.pointsRoundCom}</div>
               </div>
 
-              {/*---------------- Section: Result Com -----------------*/}
+      {/*---------------- Section: Result Com -----------------*/}
               <div className="result-com result">
-                <img src={ item.resultComState } alt="" />
+                <img src={ item.resultComState } alt='Result Round Com' />
               </div>
             </div>
         ))}
@@ -110,7 +106,7 @@ export const BattleHistory = ({ historyItems }) => {
       <div  className="history_tab" 
             onClick={toggleDiv}
             style={{
-              background: historyItems.length === 0 ? generateGradient() : generateGradientActive(),
+              background: historyItems.length === 0 ? 'var(--gradient-red)' : 'var(--color-history-active)',
               color: historyItems.length === 0 ? 'white' : 'var(--main-color)'
             }}
             >
@@ -123,7 +119,9 @@ export const BattleHistory = ({ historyItems }) => {
           <span>R</span>
           <span>Y</span>
         </div>
-      <span className="visible-tab">{visible ? <RiArrowRightDoubleFill /> : <RiArrowLeftDoubleFill /> }</span>
+      <span className="visible-tab">
+        {visible ? <RiArrowRightDoubleFill /> : <RiArrowLeftDoubleFill />}
+      </span>
       <div>
           <span>G</span>
           <span>A</span>

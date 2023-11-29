@@ -1,5 +1,8 @@
 import './SelectCharacter.css';
 import React, { useState, useEffect } from 'react';
+
+
+/*React-icons*/
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle  } from "react-icons/io"
 
 
@@ -10,37 +13,40 @@ export const SelectCharacter =
     setCounterRock,
     setCounterPaper,
     setCounterScissor
-    
 }) => {
 
   /*----------state components-----------------------------*/
   const [indexCharacter, setIndexCharacter] = useState(0);
-  
-  
+
+
+  /*---------- useEffects that contribute to the logic of component----------*/
+useEffect(() => {
+  /*It is responsible for sending the information of the character chosen by the player*/
+    setCharacterPlayer(characters[indexCharacter]);
+    setCounterRock(characters[indexCharacter].powerRock);
+    setCounterPaper(characters[indexCharacter].powerPaper);
+    setCounterScissor(characters[indexCharacter].powerScissor);
+    // eslint-disable-next-line
+  },[indexCharacter, characters, setCharacterPlayer]);
+
+
+
+  /*-------Component Functions for Design------------*/
   const changeCharacter = (address) => {
     // Function that allows you to change characters by pressing the arrow buttons.
     if (address === 'back') {
       setIndexCharacter((prevCharacter) => (prevCharacter + 1) % characters.length);
     }else if (address === 'forward') {
       setIndexCharacter((prevCharacter) => (prevCharacter - 1 + characters.length) % characters.length);
-      
     }
   }
 
-  useEffect(() => {
-    setCharacterPlayer(characters[indexCharacter]);
-    setCounterRock(characters[indexCharacter].powerRock);
-    setCounterPaper(characters[indexCharacter].powerPaper);
-    setCounterScissor(characters[indexCharacter].powerScissor);
-
-     // eslint-disable-next-line
-  }, [indexCharacter, characters, setCharacterPlayer]);
-
-
+ 
+ /*---------------- component JSX structure ---------------------- */ 
   return (
     <div className='select-character'>
       <span>Select Your Character: </span>
-{/*--------------------------section Image Character---------------------------------- */}
+{/*--------------------------section Image Character------------------------- */}
       <div className='character-img-container'>
 
         <div className="front-image">
@@ -64,7 +70,7 @@ export const SelectCharacter =
         </div>
       </div>
 
-{/*--------------------------section footer Character---------------------------------- */}  
+{/*--------------------------section footer Character--------------------------- */}  
       <div className='character-footer'>
         <button onClick={!openModalCharacter ? () => changeCharacter('forward') : undefined}
           

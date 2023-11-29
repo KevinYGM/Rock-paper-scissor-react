@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './ModalSelectCharacter.css';
 import { Link } from 'react-router-dom';
 
@@ -7,20 +7,22 @@ export const ModalSelectCharacter =
     characterPlayer,
     setCharacterCom,
     openModalCharacter,
-    setOpenModalCharacter
+    setOpenModalCharacter,
+    setCounterRockCom,
+    setCounterPaperCom,
+    setCounterScissorCom
 }) => {
 
   const selectCharacterCom = () =>{
     const availablesCharacters = characters.filter((p) => p !== characterPlayer);
     const randomCharacter = availablesCharacters[Math.floor(Math.random() * availablesCharacters.length)];
     setCharacterCom(randomCharacter);
+    setCounterRockCom(randomCharacter.powerRock);
+    setCounterPaperCom(randomCharacter.powerPaper);
+    setCounterScissorCom(randomCharacter.powerScissor);
   }
 
-  // useEffect(() => {
-  //   console.log(characterPlayer);
-  // }, [characterPlayer]);
-
-  return (
+ return (
     <>
       {openModalCharacter && (
       <div className='modal-select-character'>

@@ -27,44 +27,26 @@ export const playsDataPlayer = [
 ];
 
 
-
-export const playsDataCom = [
+export const playsDataCom = 
+(counterRockCom, counterPaperCom, counterScissorCom) => ([
   {
     name: "Scissor Com",
     photo: scissorCom,
-    icon: "✌🏼"
+    icon: "✌🏼",
+    counter: counterScissorCom,
   },
   
   {
     name: "Rock Com",
     photo: rockCom,
-    icon: "✊🏼"
+    icon: "✊🏼",
+    counter: counterRockCom,
   },
 
   {
     name: "Paper Com",
     photo: paperCom,
-    icon: "✋🏼"
+    icon: "✋🏼",
+    counter: counterPaperCom,
   }
-];
-
-
-export const playsDataCom2 = {
-  rock: {
-    name: "Rock Com",
-    photo: rockCom,
-    icon: "✊🏼"
-  },
-  
-  paper: {
-    name: "Paper Com",
-    photo: paperCom,
-    icon: "✋🏼"
-  },
-
-  scissor: {
-    name: "Scissor Com",
-    photo: scissorCom,
-    icon: "✌🏼"
-  }
-};
+]);

@@ -9,6 +9,8 @@ export const ModalFinalGame =
     messageFinal
   }) => {
 
+
+   /*---------------- component JSX structure ---------------------- */ 
   return (
     <>
       {!stateCombat && (
@@ -24,8 +26,6 @@ export const ModalFinalGame =
           <Link>Play Again</Link>
         </div>
       </div>
-
       )}
     </>
-  )
-}
+  )}

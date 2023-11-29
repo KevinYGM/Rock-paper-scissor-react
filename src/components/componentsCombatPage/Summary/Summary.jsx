@@ -1,17 +1,21 @@
 import React from 'react'
 import './Summary.css';
 
+/*Images*/
 import vs from '../../../images/interfaz-images/vs.png'; 
 import markRed from '../../../images/interfaz-images/redMarker.png'; 
 import markBlue from '../../../images/interfaz-images/blueMarker.png'; 
 
+
 export const Summary = 
-({ 
-  characterPlayer,
-  characterCom,
-  playerMark,
-  comMark 
+({  characterPlayer,
+    characterCom,
+    playerMark,
+    comMark 
 }) => {
+
+
+
   return (
     <div className="summary">
 
@@ -51,7 +55,5 @@ export const Summary =
           <img src={characterCom.facePhoto} alt={characterCom.name} />
         </div>
        </div>
-
-    </div>
-  )
-}
+      </div>
+    )}

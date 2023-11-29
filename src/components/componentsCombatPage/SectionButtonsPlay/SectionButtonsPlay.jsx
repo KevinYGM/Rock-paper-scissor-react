@@ -52,7 +52,12 @@ export const SectionButtonsPlay =
     setCounterRock,
     setCounterPaper,
     setCounterScissor,
-    startAction
+    setCounterRockCom,
+    setCounterPaperCom,
+    setCounterScissorCom,
+    counterRockCom,
+    counterPaperCom,
+    counterScissorCom
 }) => {
 
 
@@ -62,31 +67,39 @@ export const SectionButtonsPlay =
   const prevControlRoundsState = useRef(controlRoundsState);
   const [roundsWithoutButtonClick, setRoundsWithoutButtonClick] = useState(0);
   const [roundsWithoutAttackSpecialCom, setRoundsWithoutAttackSpecialCom] = useState(0);
+
+
+/*----------Component Const Variables----------------------------------------*/
+  const playsDCom = playsDataCom(counterRockCom, counterPaperCom, counterScissorCom);
   
 
-  const activePlay = (playPlayer = getRandomIndex()) => {
-    const playCom = comElection();
 
-    if(buttonSpecialCom){
-      setButtonSpecialCom(false);
-    }
+  /*----------Component Logic Functions----------------------------------------*/
+  const getRandomIndex = () => {
+    return Math.floor(Math.random() * playsDataPlayer.length);
+  };
+  
+  
+
+  const activePlay = (indexPlayPlayer = getRandomIndex()) => {
+      const playPlayer = playsDataPlayer[indexPlayPlayer]
+      const playCom = comElection();
       
-        prevControlRoundsState.current = controlRoundsState;
-        setCtrlActionButtons(true);
-        setImagesPlayPlayer([playsDataPlayer[playPlayer].photo, playsDataPlayer[playPlayer].photo, playsDataPlayer[playPlayer].photo]);
-        setImagesPlayCom([playsDataCom[playCom].photo, playsDataCom[playCom].photo, playsDataCom[playCom].photo]);
-        
+      prevControlRoundsState.current = controlRoundsState;
+      setCtrlActionButtons(true);
+      setImagesPlayPlayer([playPlayer.photo, playPlayer.photo, playPlayer.photo]);
+      setImagesPlayCom([playCom.photo, playCom.photo, playCom.photo]);
+      
       
       const firstTimeoutId = setTimeout(() => {
-        setGeneralPlayCom(playsDataCom[playCom].icon);
-        setGeneralPlayPlayer(playsDataPlayer[playPlayer].icon);
+        setGeneralPlayCom(playCom.icon);
+        setGeneralPlayPlayer(playPlayer.icon);
         setControlRoundsPrev((prevRounds) => prevRounds + 1);
         setStartAction(true);
         if(pauseGeneralState === trebol) {
           setPauseGeneralState(allHands);
-        }
-        
-      }, 1500);
+          }
+        }, 1500);
       
       const secondTimeoutId = setTimeout(() => {
         setSelectPlay(true);
@@ -96,18 +109,55 @@ export const SectionButtonsPlay =
         setRoundsWithoutAttackSpecialCom(prevRounds => prevRounds + 1);
         setInteractiveTexts(`<p>Waiting for your next move...</p>`);
         setCtrlActionButtons(false);
-      }, 4000);
+
+        if(buttonSpecialCom){
+        setRoundsWithoutAttackSpecialCom(0);
+        setButtonSpecialCom(false)};
+        }, 4000); 
   
     return () => {
       clearTimeout(firstTimeoutId);
       clearTimeout(secondTimeoutId);
-    };
+    }
+  };
+
+  
+
+  const comElection = () => {
+    if (!buttonSpecialCom) {
+      const availablePlays = playsDCom.filter(play => play.counter > 0);
+      const randomFilterOptions = Math.floor(Math.random() * availablePlays.length);
+      const selectedPlay = availablePlays[randomFilterOptions];
+  
+      selectedPlay.counter--;
+
+      switch (selectedPlay.name) {
+        case 'Rock Com':
+          setCounterRockCom(selectedPlay.counter);
+          break;
+        case 'Paper Com':
+          setCounterPaperCom(selectedPlay.counter);
+          break;
+        case 'Scissor Com':
+          setCounterScissorCom(selectedPlay.counter);
+          break;
+        default:
+          break;
+      }
+      
+      return selectedPlay;
+
+    }else{
+      const randomCompleteOptions = Math.floor(Math.random() * playsDCom.length);
+      const selectedPlay = playsDCom[randomCompleteOptions];
+      return selectedPlay;
+    }
   };
 
  
+/*----------Component Functions for Design----------------------------------------*/
   const renderProgressBarSpecial = () => {
     const progressBar = [];
-
     const maxBars = Math.min(roundsWithoutButtonClick, 6);
 
     for (let i = 0; i < maxBars; i++) {
@@ -118,128 +168,123 @@ export const SectionButtonsPlay =
 };
 
 
-const renderProgressBar = (counterElement) => {
-  const progressBar = [];
+  const renderProgressBar = (counterElement) => {
+    const progressBar = [];
+    const maxBars = Math.min(counterElement, 7);
 
-  const maxBars = Math.min(counterElement, 7);
-
-  for (let i = 0; i < maxBars; i++) {
-    progressBar.push(
-    <div  key={i} 
-          className="progress-bar-item"
-          style={{
-            background:
-                  counterElement === 1 || counterElement === 2
-                ? 'var(--gradient-red)'
-                : counterElement === 3 || counterElement === 4
-                ? 'var(--gradient-yellow)'
-                : counterElement >= 5 && counterElement <= 7
-                ? 'var(--gradient-green)'
-                : 'inherit'
-           }}>
-    </div>);
-  }
-
-  return progressBar;
-};
-
-
-
-
-  const getRandomIndex = () => {
-    return Math.floor(Math.random() * playsDataPlayer.length);
-  };
-  
-
-  const comElection = () => {
-    
-    if (roundsWithoutAttackSpecialCom >= 6) {
-      const randomValue = Math.random();
-      const randomBoolean = randomValue > 0.5;
-      setButtonSpecialCom(randomBoolean);
+    for (let i = 0; i < maxBars; i++) {
+      progressBar.push(
+      <div  key={i} 
+            className="progress-bar-item"
+            style={{
+              background:
+                    counterElement === 1 || counterElement === 2
+                  ? 'var(--gradient-red)'
+                  : counterElement === 3 || counterElement === 4
+                  ? 'var(--gradient-yellow)'
+                  : counterElement >= 5 && counterElement <= 7
+                  ? 'var(--gradient-green)'
+                  : 'inherit'}}>
+      </div>);
     }
 
-    return Math.floor(Math.random() * playsDataCom.length);
-  }
-  
-  // useEffect(()=>{
-  //  console.log(comElection());
-  // // eslint-disable-next-line 
-  // },[comElection]);
-  
-  useEffect(()=>{
-    buttonSpecialCom && setRoundsWithoutAttackSpecialCom(0);
-  // eslint-disable-next-line 
-  },[buttonSpecialCom]);
-
-  
-
-
-
-
-  useEffect(()=> {
-  // Function for the MouseMove effect of the buttons
-    const buttons = document.querySelectorAll('.surrender, .button-play, .button-play-special');
-
-    buttons.forEach((button) => {
-      button.addEventListener('mousemove', e => {
-        let rect = e.target.getBoundingClientRect();
-        let x = e.clientX * 3 - rect.left;
-        button.style.setProperty('--x', x + 'deg');
-      });
-    });
-  }, []);
-
-useEffect(()=>{
-  if(controlRoundsState >= 16){
-    setCounterRock(5)
-    setCounterPaper(5)
-    setCounterScissor(5)
-  } 
- // eslint-disable-next-line 
-},[controlRoundsState])
-
-
-useEffect(() => {
-  if (isFirstRender) {
-    setIsFirstRender(false);
-    return;
-  }
-
-  const newItem = {
-    pointsRoundPlayer: pointsRoundPlayer,
-    pointsRoundCom: pointsRoundCom,
-    resultState: resultState,
-    resultComState: resultComState,
-    characterPlayerFace: characterPlayer.facePhoto,
-    characterComFace: characterCom.facePhoto,
-    generalPlayPlayer: generalPlayPlayer,
-    generalPlayCom: generalPlayCom,
-    controlRoundsState: prevControlRoundsState.current
+    return progressBar;
   };
 
-  setHistoryItems((prevItems) => [newItem, ...prevItems]);
 
+  /*---------- useEffects that contribute to the logic of component----------*/
+
+  useEffect(()=>{
+    //It is responsible for disabling ButtonSpecialCom
+    if(!buttonSpecialCom){
+      if (roundsWithoutAttackSpecialCom >= 6) {
+        const randomValue = Math.random();
+        const randomBoolean = randomValue > 0.5;
+        setButtonSpecialCom(randomBoolean);
+      }}
+    // eslint-disable-next-line 
+  },[buttonSpecialCom, controlRoundsState]);
+
+
+
+  useEffect(()=>{
+    //Created to eliminate the restriction of movements with the extension-mode 
+    if(controlRoundsState >= 16){
+      setCounterRock(5);
+      setCounterPaper(5);
+      setCounterScissor(5);
+      setCounterRockCom(5);
+      setCounterPaperCom(5);
+      setCounterScissorCom(5);
+    } 
+   // eslint-disable-next-line 
+  },[controlRoundsState]);
+
+
+
+  useEffect(() => {
+    /* Responsible for sending and controlling the information sent to the 
+    BattleHistory component*/
+    if (isFirstRender) {
+      setIsFirstRender(false);
+      return;
+    }
+  
+    const newItem = {
+      pointsRoundPlayer: pointsRoundPlayer,
+      pointsRoundCom: pointsRoundCom,
+      resultState: resultState,
+      resultComState: resultComState,
+      characterPlayerFace: characterPlayer.facePhoto,
+      characterComFace: characterCom.facePhoto,
+      generalPlayPlayer: generalPlayPlayer,
+      generalPlayCom: generalPlayCom,
+      controlRoundsState: prevControlRoundsState.current
+    };
+  
+    setHistoryItems((prevItems) => [newItem, ...prevItems]);
+    // eslint-disable-next-line
+  },[controlRoundsState]);
+
+
+
+  useEffect(() => {
+    /*Responsible for reactivating the interval effect in PlayBattle Component*/
+    if(selectPlay){
+      setSelectPlay(false);
+      setImagesPlayPlayer(playsDataPlayer.map(play => play.photo));
+      setImagesPlayCom(playsDCom.map(play => play.photo));
+    }
   // eslint-disable-next-line
-},[controlRoundsState]);
-
-
-useEffect(() => {
-  if(selectPlay){
-    setSelectPlay(false);
-    setImagesPlayPlayer(playsDataPlayer.map(play => play.photo));
-    setImagesPlayCom(playsDataCom.map(play => play.photo));
-  }
-// eslint-disable-next-line
-}, [selectPlay, playsDataPlayer, setImagesPlayPlayer, playsDataCom,setImagesPlayCom]);
+  }, [selectPlay, playsDataPlayer, setImagesPlayPlayer, playsDCom, setImagesPlayCom]);
 
 
 
 
+  /*---------- useEffects that contribute to the Design of component----------*/
+
+  useEffect(()=> {
+    // Function for the MouseMove effect of the buttons
+      const buttons = document.querySelectorAll('.surrender, .button-play, .button-play-special');
+  
+      buttons.forEach((button) => {
+        button.addEventListener('mousemove', e => {
+          let rect = e.target.getBoundingClientRect();
+          let x = e.clientX * 3 - rect.left;
+          button.style.setProperty('--x', x + 'deg');
+        });
+      });
+    }, []);
 
 
+
+
+
+
+/*---------------- component JSX structure ---------------------- */ 
 return (
   <div className='buttons-play-container'>
+
   {/*------------------ Button Surrender-----------------*/}
     <button className='surrender'>
       <i></i>
@@ -262,7 +307,7 @@ return (
               />
       </button>
     
-{/*------------------ Button Section buttons play-----------------*/}
+{/*------------------ Section Buttons Play-----------------*/}
     <div className='section-buttons-play'>
 
     <div className="container-buttons">
@@ -283,7 +328,6 @@ return (
           {renderProgressBar(counterRock)}  
         </div>
       </div>
-
 
       <div className="container-buttons">
         <button className='button-play'>
@@ -327,7 +371,7 @@ return (
     </div>
 
 
-{/*------------------ Button Section Special Button-----------------*/}
+{/*------------------ Section Special Button-----------------*/}
     <div className='container-button-play-special'>
       <button className='button-play-special' >
         <i></i>
@@ -347,10 +391,8 @@ return (
         {renderProgressBarSpecial()}
       </div>
     </div>
-   
   </div>
-)
-}
+)}
 
   
 

@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from 'react';
 
 /*Components*/
+import { HeaderComponent } from '../componentsGenerals/HeaderComponent/HeaderComponent';
 import { Summary } from './Summary/Summary';
 import { BattleHistory } from './BattleHistory/BattleHistory';
 import { PlayBattle } from './PlayBattle/PlayBattle';
 import { SectionButtonsPlay } from './SectionButtonsPlay/SectionButtonsPlay';
-import { ModalFinalGame } from '../componentsModals/ModalFinalGame/ModalFinalGame';
-import { HeaderComponent } from '../componentsGenerals/HeaderComponent/HeaderComponent';
 import { FooterComponent } from '../componentsGenerals/FooterComponent/FooterComponent';
+
+/*Modals*/
+import { ModalFinalGame } from '../componentsModals/ModalFinalGame/ModalFinalGame';
 
 /*Images*/
 import trebol from '../../images/interfaz-images/trebol.png';
 import backCardPlayer from '../../images/interfaz-images/card-player.png';
 import backCardCom from '../../images/interfaz-images/card-computer.png';
+
+/*Data*/
 import { playsDataPlayer, playsDataCom  } from '../../data/playData';
-
-
 
 
 
@@ -27,7 +29,13 @@ export const ComponentCombat =
   counterScissor,
   setCounterRock,
   setCounterPaper,
-  setCounterScissor
+  setCounterScissor,
+  setCounterRockCom,
+  setCounterPaperCom,
+  setCounterScissorCom,
+  counterRockCom,
+  counterPaperCom,
+  counterScissorCom
 }) => {
   
 
@@ -82,26 +90,41 @@ export const ComponentCombat =
 
   const [pointsRoundCom, setPointsRoundCom] = useState("0");
 
+
+/*--------UseEffects Temporary--------------*/
+
+  useEffect(() => {
+    console.log("Rock Counter: ", counterRockCom);
+    console.log("Paper Counter: ", counterPaperCom);
+    console.log("Scissor Counter: ", counterScissorCom);
+  }, [counterRockCom, counterPaperCom, counterScissorCom ]);
+
+  useEffect(() => {
+    console.log("The computer's special attack mode is: ", buttonSpecialCom);
+  }, [controlRoundsState, buttonSpecialCom]);
   
-  
-    useEffect(() => {
-      /* function to change the rotation of the component.*/
-      const handleOrientationChange = () => {
-        const { innerWidth, innerHeight } = window;
-        const isLandscape = innerWidth > innerHeight || innerHeight - innerWidth < 100;
-        setIsHorizontal(isLandscape);
-      };
-  
-      window.addEventListener('orientationchange', handleOrientationChange);
-      
-      handleOrientationChange();
-  
-      return () => {
-        window.removeEventListener('orientationchange', handleOrientationChange);
-      };
-    }, []);
+
+ /*---------------- UseEffects dedicated to design---------------------- */ 
+  useEffect(() => {
+    /* function to change the rotation of the component.*/
+    const handleOrientationChange = () => {
+      const { innerWidth, innerHeight } = window;
+      const isLandscape = innerWidth > innerHeight || innerHeight - innerWidth < 100;
+      setIsHorizontal(isLandscape);
+    };
+
+    window.addEventListener('orientationchange', handleOrientationChange);
+    
+    handleOrientationChange();
+
+    return () => {
+      window.removeEventListener('orientationchange', handleOrientationChange);
+    };
+  }, []);
 
 
+
+  /*---------------- component JSX structure ---------------------- */ 
     return (
     <div className={isHorizontal ? 'container-combat' : 'container-combat horizontal-layout'}>
       <HeaderComponent />
@@ -110,8 +133,8 @@ export const ComponentCombat =
         <Summary  
                 characterPlayer = { characterPlayer }
                 characterCom = { characterCom }
-                playerMark = {playerMark}
-                comMark = {comMark}
+                playerMark = { playerMark }
+                comMark = { comMark }
                 />
 
         <BattleHistory  
@@ -130,8 +153,8 @@ export const ComponentCombat =
                 generalPlayCom = { generalPlayCom }
                 setPlayerMark = { setPlayerMark }
                 setComMark = { setComMark }
-                playerMark = {playerMark}
-                comMark = {comMark}
+                playerMark = { playerMark }
+                comMark = { comMark }
                 controlRoundsPrev = { controlRoundsPrev }
                 controlRoundsState = { controlRoundsState }
                 interactiveTexts = { interactiveTexts }
@@ -146,7 +169,6 @@ export const ComponentCombat =
                 resultComState = { resultComState}
                 setResultComState = { setResultComState}
                 pauseGeneralState = { pauseGeneralState }
-                startAction = { startAction } 
                 setPointsRoundPlayer = { setPointsRoundPlayer }
                 setPointsRoundCom = { setPointsRoundCom }
                 />
@@ -189,12 +211,18 @@ export const ComponentCombat =
                 pointsRoundCom = { pointsRoundCom }
                 ctrlActionButtons = { ctrlActionButtons }
                 setCtrlActionButtons = { setCtrlActionButtons }
-                setCounterRock = {setCounterRock} 
-                setCounterPaper = {setCounterPaper}
-                setCounterScissor = {setCounterScissor}
-                counterRock = {counterRock}  
-                counterPaper = {counterPaper}  
-                counterScissor = {counterScissor}  
+                setCounterRock = { setCounterRock } 
+                setCounterPaper = { setCounterPaper }
+                setCounterScissor = { setCounterScissor }
+                counterRock = { counterRock }  
+                counterPaper = { counterPaper }  
+                counterScissor = { counterScissor }
+                setCounterRockCom = { setCounterRockCom } 
+                setCounterPaperCom = { setCounterPaperCom }
+                setCounterScissorCom = { setCounterScissorCom }
+                counterRockCom = { counterRockCom }  
+                counterPaperCom = { counterPaperCom }  
+                counterScissorCom = { counterScissorCom }  
                 />
 
         <ModalFinalGame 

@@ -331,10 +331,34 @@ useEffect(()=>{
       setResultState, 
       setResultComState
     ]);
+
+
+
+
+  /*---------- useEffects that contribute to the logic of component----------*/
+
+
+  useEffect(()=>{
+    /*----Complements the negative effect of using the special attack and losing---*/
+    if(comMark > prevComMark.current && buttonSpecial && playerMark !== 0){
+      setPlayerMark((prevMark) => (prevMark - 1));
+      setPointsRoundPlayer("-1");
+    }
+    if(playerMark > prevPlayerMark.current && buttonSpecialCom && comMark !== 0){
+      setComMark((prevMark) => (prevMark - 1));
+      setPointsRoundCom("-1");
+    }
+
+    prevComMark.current = comMark;
+    prevPlayerMark.current = playerMark;
+    // eslint-disable-next-line
+    },[comMark, playerMark]);
     
 
 
+
   useEffect(() => {
+/*---------Controls the conditions that define the end of the game---------- */
     if (
       (comMark >= 10 || playerMark >= 10 || controlRoundsState >= 16) &&
       comMark !== playerMark) {
@@ -359,28 +383,9 @@ useEffect(()=>{
         controlRoundsState,
         ]);
 
-
-  useEffect(()=>{
-    if(comMark > prevComMark.current && buttonSpecial && playerMark !== 0){
-      setPlayerMark((prevMark) => (prevMark - 1));
-      setPointsRoundPlayer("-1");
-    }
-    if(playerMark > prevPlayerMark.current && buttonSpecialCom && comMark !== 0){
-      setComMark((prevMark) => (prevMark - 1));
-      setPointsRoundCom("-1");
-    }
-
-    prevComMark.current = comMark;
-    prevPlayerMark.current = playerMark;
-    // eslint-disable-next-line
-  },[comMark, playerMark])
-
-
-// useEffect(()=>{
-//   stateCombat ?  console.log(stateCombat, "Ha Iniciado la partida") : console.log(stateCombat, "Ha finalizado la partida");
-// },[stateCombat])
-
-return (
+        
+/*----------------------- component JSX structure ----------------------------- */ 
+  return (
     <div  className='play-battle-container'>
        {/*--------------Character Player--------------*/}
       <div className="character-player character">
@@ -407,6 +412,9 @@ return (
       <div className="character-com character">
         <img src={characterCom.photo} alt={characterCom.name} />
       </div>
+
+
+      {/*--------------Section Interactive (Text Frame)--------------*/} 
       <div className="interactive-section">
         <div className="frame-container">
           <img src={frame} alt="frame" />
