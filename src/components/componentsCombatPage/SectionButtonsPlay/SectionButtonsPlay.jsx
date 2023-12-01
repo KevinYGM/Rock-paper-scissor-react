@@ -70,6 +70,8 @@ export const SectionButtonsPlay =
 /*------------component states and references----------------------------- */
   const [ openModalSurrender, setOpenModalSurrender ] = useState (false);
   const [isFirstRender, setIsFirstRender] = useState(true);
+  const [playPlayerInformation, setPlayPlayerInformation] = useState("");
+  const [playComInformation, setPlayComInformation] = useState("");
   const prevControlRoundsState = useRef(controlRoundsState);
   const prevbuttonSpecialCom = useRef(buttonSpecialCom);
   
@@ -100,6 +102,8 @@ export const SectionButtonsPlay =
         setStartAction(true);
         setGeneralPlayCom(playCom.icon);
         setGeneralPlayPlayer(playPlayer.icon);
+        setPlayPlayerInformation(playPlayer);
+        setPlayComInformation(playCom);
         setControlRoundsPrev((prevRounds) => prevRounds + 1);
         prevbuttonSpecialCom.current = buttonSpecialCom;
         buttonSpecialCom && setRoundsWithoutAttackSpecialCom(-1);
@@ -230,6 +234,8 @@ const renderProgressBar = (counterElement) => {
       characterComFace: characterCom.facePhoto,
       generalPlayPlayer: generalPlayPlayer,
       generalPlayCom: generalPlayCom,
+      playPlayerInformation: playPlayerInformation,
+      playComInformation: playComInformation,
       controlRoundsState: prevControlRoundsState.current,
       buttonSpecialCom: prevbuttonSpecialCom.current,
       buttonSpecial: buttonSpecial

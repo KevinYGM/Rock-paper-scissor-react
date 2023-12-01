@@ -23,14 +23,6 @@ const toggleModal = (currentModal, setCurrentModal, unUsedModal,setUnUsedModal) 
 
       <span className='brand'>KYGM APP</span>
 
-      <div className='emoji-container'>
-        <span className="emoji emoji-rock" data-emoji="🪨" data-emoji-hover="✊🏼"></span>
-        <span className="emoji emoji-paper" data-emoji="📄" data-emoji-hover="✋🏼"></span>
-        <span className="emoji emoji-scissor" data-emoji="✂️" data-emoji-hover="✌🏼"></span>
-      </div>
-      
-
-
       <div className='configuration'>
 
 {/*---------------Section Instructions-----------------------*/}

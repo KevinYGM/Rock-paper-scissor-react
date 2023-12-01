@@ -15,41 +15,6 @@
   position: relative; 
 }
 
-/*-----------------------Section Emojis RPS------------------- */
-
-.emoji {
-  cursor: pointer;
-}
-
-.emoji::before {
-  content: attr(data-emoji);
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%) scale(1);
-  opacity: 1;
-  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-}
-
-.emoji-rock::before {
-  left: 70%;
-}
-
-.emoji-paper::before {
-  left: 75%;
-}
-
-.emoji-scissor::before {
-  left: 80%;
-}
-
-.emoji:hover::before {
-  content: attr(data-emoji-hover);
-  opacity: 1; 
-  top: 50%;
-  transform: translateY(-50%) scale(1.3);
-}
-
-
 /*---------------Section Configuration and Instructions----------- */
 
 .configuration{

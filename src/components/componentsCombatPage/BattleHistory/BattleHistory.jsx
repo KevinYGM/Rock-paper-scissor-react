@@ -82,14 +82,18 @@ export const BattleHistory =
                       style={{
                         background: colorPlaysHistory(item.generalPlayPlayer)
                       }}>
-                  <span>{ item.generalPlayPlayer === "✊🏼" ? "✊🏾" : item.generalPlayPlayer }</span>
+                  <span className={`emoji emoji-${item.playPlayerInformation.nameType}`}
+                        data-emoji={item.generalPlayPlayer === "✊🏼" ? "✊🏾" : item.generalPlayPlayer } 
+                        data-emoji-hover={item.playPlayerInformation.alternativeIcon}></span>
                 </div>
 
                 <div  className="play-com play"
                       style={{
                         background: colorPlaysHistory(item.generalPlayCom)
                       }}>
-                  <span>{ item.generalPlayCom === "✊🏼" ? "✊🏾" : item.generalPlayCom }</span>
+                  <span className={`emoji emoji-${item.playComInformation.nameType}`}
+                        data-emoji={item.generalPlayCom === "✊🏼" ? "✊🏾" : item.generalPlayCom } 
+                        data-emoji-hover={item.playComInformation.alternativeIcon}></span>
                 </div>
 
                 <div className="rounds">

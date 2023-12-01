@@ -131,18 +131,21 @@
   grid-template-areas:
           "play-player play-com"
           "rounds rounds";
+  gap: 0.2vmax;
 }
 
 .history_item .play{
+  position: relative;
   font-size: 1.6vmax;
   background: white; 
   border-radius: 50%;
-  width: 90%;
-  height: 90%;
+  width: 2vmax;
+  height: 2vmax;
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0 0 7px rgba(3, 3, 3, 0.8);
+  
 }
 
 .history_item .play-player{ 
@@ -167,4 +170,28 @@
 
 .visible {
   transform: translateX(-95%);
+}
+
+
+/*-----------------------Section Emojis RPS------------------- */
+
+.emoji {
+  cursor: pointer;
+}
+
+.emoji::before {
+  content: attr(data-emoji);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%) scale(1);
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+
+.emoji:hover::before {
+  content: attr(data-emoji-hover);
+  opacity: 1; 
+  transform: rotate(90deg) translateY(-50%) translateX(-50%);
 }

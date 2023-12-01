@@ -10,19 +10,25 @@ export const playsDataPlayer = [
   {
     name: "Rock Player",
     photo: rockPlayer,
-    icon: "✊🏼"
+    icon: "✊🏼",
+    alternativeIcon: "🪨",
+    nameType: "rock"
   },
 
   {
     name: "Paper Player",
     photo: paperPlayer,
-    icon: "✋🏼"
+    icon: "✋🏼",
+    alternativeIcon: "📄",
+    nameType: "paper"
   },
 
   {
     name: "Scissor Player",
     photo: scissorPlayer,
-    icon: "✌🏼"
+    icon: "✌🏼",
+    alternativeIcon: "✂️",
+    nameType: "scissor"
   }
 ];
 
@@ -33,20 +39,26 @@ export const playsDataCom =
     name: "Scissor Com",
     photo: scissorCom,
     icon: "✌🏼",
-    counter: counterScissorCom,
+    alternativeIcon: "✂️",
+    nameType: "scissor",
+    counter: counterScissorCom
   },
   
   {
     name: "Rock Com",
     photo: rockCom,
     icon: "✊🏼",
-    counter: counterRockCom,
+    alternativeIcon: "🪨",
+    nameType: "rock",
+    counter: counterRockCom
   },
 
   {
     name: "Paper Com",
     photo: paperCom,
     icon: "✋🏼",
-    counter: counterPaperCom,
+    alternativeIcon: "📄",
+    nameType: "paper",
+    counter: counterPaperCom
   }
 ]);
