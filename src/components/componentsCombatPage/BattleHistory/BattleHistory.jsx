@@ -7,7 +7,11 @@ import { RiArrowRightDoubleFill, RiArrowLeftDoubleFill } from "react-icons/ri";
 
 
 
-export const BattleHistory = ({ historyItems }) => {
+export const BattleHistory = 
+({  historyItems,
+    buttonSpecial,
+    buttonSpecialCom 
+}) => {
 
   /*------------------component states ---------------------------*/
   const [visible, setVisible] = useState(true); //state to control the effect of moving from the section
@@ -20,9 +24,33 @@ export const BattleHistory = ({ historyItems }) => {
     historyItems.length !== 0 && (setVisible(!visible));
   }
 
+  const colorPointsHistory = (itemRound, itemButtonSpecialOwn) => {
+    return(
+    (itemRound === "0" && !itemButtonSpecialOwn)
+    ? 'var(--gradient-blue)'
+    : (itemRound === "0" && itemButtonSpecialOwn)
+    ? 'var(--gradient-orange)'
+    : (itemRound === "+1" || itemRound === "+2" || itemRound === "+3")
+    ? 'var(--gradient-green)'
+    : itemRound === "+4"
+    ? 'var(--gradient-yellow)'
+    : itemRound === "-1"
+    ? 'var(--gradient-red)'
+    : 'inherit'
+  )};
+
+  const colorPlaysHistory = (play) =>{
+    return(
+      (play === "✊🏼")
+      ? 'var(--yellow-rock)'
+      : (play === "✋🏼")
+      ? 'var(--purple-paper)'
+      : (play === "✌🏼")
+      ? 'var(--red-scissor)'
+      : 'inherit'
+    )};
 
 
- 
 /*---------------- component JSX structure ---------------------- */ 
   return (
      <div className={`battle-history ${visible ? 'visible' : ''}`}>
@@ -41,31 +69,27 @@ export const BattleHistory = ({ historyItems }) => {
               <div className="character-player character">
                 <div className="points-round-player points-round"
                       style={{
-                        backgroundColor:
-                          item.pointsRoundPlayer === "0"
-                            ? 'blue'
-                            : (item.pointsRoundPlayer === "+1" ||
-                                item.pointsRoundPlayer === "+2" ||
-                                item.pointsRoundPlayer === "+3" ||
-                                item.pointsRoundPlayer === "+4")
-                            ? 'green'
-                            : item.pointsRoundPlayer === "-1"
-                            ? 'red'
-                            : 'inherit'
+                        background: colorPointsHistory(item.pointsRoundPlayer, item.buttonSpecial),
+                        color: item.pointsRoundPlayer === "0" || item.pointsRoundPlayer === "-1" ? 'white' : 'black'
                       }}
-                
-                >{item.pointsRoundPlayer}</div>
+                    >{item.pointsRoundPlayer}</div>
                 <img src={item.characterPlayerFace} alt='Face Character Player' />
               </div>
 
       {/*------- Section: Container-Center (Play and Rounds) ---------*/}
               <div className="container-center">
-                <div className="play-player play">
-                  <span>{ item.generalPlayPlayer }</span>
+                <div  className="play-player play"
+                      style={{
+                        background: colorPlaysHistory(item.generalPlayPlayer)
+                      }}>
+                  <span>{ item.generalPlayPlayer === "✊🏼" ? "✊🏾" : item.generalPlayPlayer }</span>
                 </div>
 
-                <div className="play-com play">
-                  <span>{ item.generalPlayCom }</span>
+                <div  className="play-com play"
+                      style={{
+                        background: colorPlaysHistory(item.generalPlayCom)
+                      }}>
+                  <span>{ item.generalPlayCom === "✊🏼" ? "✊🏾" : item.generalPlayCom }</span>
                 </div>
 
                 <div className="rounds">
@@ -78,17 +102,8 @@ export const BattleHistory = ({ historyItems }) => {
                 <img src={item.characterComFace} alt='Face Character Com'/>
                 <div className="points-round-com points-round"
                       style={{
-                        backgroundColor:
-                          item.pointsRoundCom === "0"
-                            ? 'blue'
-                            : (item.pointsRoundCom === "+1" ||
-                                item.pointsRoundCom === "+2" ||
-                                item.pointsRoundCom === "+3" ||
-                                item.pointsRoundCom === "+4")
-                            ? 'green'
-                            : item.pointsRoundCom === "-1"
-                            ? 'red'
-                            : 'inherit'
+                        background: colorPointsHistory(item.pointsRoundCom, item.buttonSpecialCom),
+                        color: item.pointsRoundCom === "0" || item.pointsRoundCom === "-1" ? 'white' : 'black'
                       }}
                       >{item.pointsRoundCom}</div>
               </div>

@@ -35,13 +35,17 @@ export const PlayBattle =
     pauseGeneralState,
     startAction,
     setPointsRoundPlayer,
-    setPointsRoundCom
+    setPointsRoundCom,
+    roundsWithoutButtonClick, 
+    roundsWithoutAttackSpecialCom
   }) => {
 
 /*------------------component states and references---------------------------  */
     const prevComMark = useRef(comMark);
     const prevPlayerMark = useRef(playerMark);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+/*---------- useEffects that contribute to the Design of component----------*/
 
     useEffect(()=> {
         //function for mousemove animation in character images.
@@ -67,6 +71,16 @@ export const PlayBattle =
           clearInterval(animationInterval);
         };
       }, [imagesPlayPlayer, imagesPlayCom]);
+
+/*---------- Functions that contribute to the Design of component----------*/
+
+    const renderProgressBarSpecial = (reference) => {
+      const validReference = Math.min(Math.max(reference, 0), 6);
+
+      const calculatedHeight = validReference * 16.67 + '%';
+
+      return calculatedHeight;
+    };
 
 /*-----------------------Logic for Game Dynamics: Battle------------------------*/
 useEffect(()=>{
@@ -389,6 +403,11 @@ useEffect(()=>{
     <div  className='play-battle-container'>
        {/*--------------Character Player--------------*/}
       <div className="character-player character">
+        <div className="bar-progress">
+          <div  className="bar"
+                style={{ height: renderProgressBarSpecial(roundsWithoutButtonClick) }}>
+          </div>
+        </div>
         <img src={characterPlayer.photo} alt={characterPlayer.name} />
       </div> 
       
@@ -411,6 +430,11 @@ useEffect(()=>{
      {/*--------------Character Com--------------*/} 
       <div className="character-com character">
         <img src={characterCom.photo} alt={characterCom.name} />
+        <div className="bar-progress">
+          <div  className="bar"
+                style={{ height: renderProgressBarSpecial(roundsWithoutAttackSpecialCom) }}>
+          </div>
+        </div>
       </div>
 
 
@@ -421,11 +445,11 @@ useEffect(()=>{
         </div>
         <div className='frame-info'>
           <div className="img-result-frame">
-            <img src={startAction ? resultState : pauseGeneralState } alt="" />
+            <img src={ startAction ? resultState : pauseGeneralState } alt="" />
           </div>
           <div className="text-interactive" dangerouslySetInnerHTML={{ __html: interactiveTexts }} />
           <div className="img-result-frame">
-            <img src={startAction ? resultComState : pauseGeneralState} alt="" />
+            <img src={ startAction ? resultComState : pauseGeneralState } alt="" />
           </div>
         </div>
       </div>

@@ -133,23 +133,6 @@
   gap: 0.4vmax;
 }
 
-.container-button-play-special .progress-bar-container{
-  width: 90%;
-  height: 0.7vmax;
-  background: rgba(162, 0, 255, 0.418);
-  border-radius: 0.3vmax;
-  display: flex;
-  overflow: hidden;
-}
-
-.progress-bar-container .progress-bar-item-special{
-  background: linear-gradient( #00ccff, #0e1538, #0e1538, #d400d4);
-  background: linear-gradient(rgb(165, 13, 34), rgb(207, 112, 22), yellow, rgb(207, 112, 22), rgb(165, 13, 34));
-  height: 100%;
-  width: 16.67%;
-  border-radius: 0 0.3vmax 0.3vmax 0;
-}
-
 .buttons-play-container .button-play-special,
 .buttons-play-container .surrender{
   justify-self: center;

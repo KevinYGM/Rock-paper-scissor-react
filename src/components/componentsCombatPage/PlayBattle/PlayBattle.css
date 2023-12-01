@@ -38,14 +38,38 @@
 
 .play-battle-container .character-player{
   grid-area: characterPlayer;
+  grid-template-columns: 20% 80%;
   justify-items: flex-end;
  }
 
 .play-battle-container .character-com{
   grid-area: characterCom;
+  grid-template-columns: 80% 20%;
   justify-items: flex-start;
 }
 
+.play-battle-container .character img{
+  width: 93.76%;
+}
+
+.play-battle-container .character .bar-progress{
+  height: 95%;
+  width: 20%;
+  background: rgb(45, 45, 219);
+  background: linear-gradient( to left, #00ccff, #0e1538, #0e1538, #d400d4);
+  display: flex;
+  align-items: flex-end;
+  border-radius: 0.5vmax;
+  overflow: hidden;
+}
+
+.character .bar-progress .bar{
+  border-radius: 0.5vmax;
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  background: linear-gradient(to left, rgb(165, 13, 34), rgb(207, 112, 22), yellow, rgb(207, 112, 22), rgb(165, 13, 34));
+}
 
 
 /*-------------Area Play Configurations-------------*/

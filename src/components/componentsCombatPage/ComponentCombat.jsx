@@ -90,21 +90,13 @@ export const ComponentCombat =
 
   const [pointsRoundCom, setPointsRoundCom] = useState("0");
 
+  const [roundsWithoutButtonClick, setRoundsWithoutButtonClick] = useState(0);
 
-/*--------UseEffects Temporary--------------*/
+  const [roundsWithoutAttackSpecialCom, setRoundsWithoutAttackSpecialCom] = useState(0);
 
-  useEffect(() => {
-    console.log("Rock Counter: ", counterRockCom);
-    console.log("Paper Counter: ", counterPaperCom);
-    console.log("Scissor Counter: ", counterScissorCom);
-  }, [counterRockCom, counterPaperCom, counterScissorCom ]);
 
-  useEffect(() => {
-    console.log("The computer's special attack mode is: ", buttonSpecialCom);
-  }, [controlRoundsState, buttonSpecialCom]);
-  
 
- /*---------------- UseEffects dedicated to design---------------------- */ 
+  /*---------------- UseEffects dedicated to design---------------------- */ 
   useEffect(() => {
     /* function to change the rotation of the component.*/
     const handleOrientationChange = () => {
@@ -141,6 +133,8 @@ export const ComponentCombat =
                 characterPlayer = { characterPlayer }
                 characterCom = { characterCom }
                 historyItems = { historyItems }
+                buttonSpecial = { buttonSpecial }
+                buttonSpecialCom = { buttonSpecialCom }
                 />
                 
 
@@ -171,6 +165,9 @@ export const ComponentCombat =
                 pauseGeneralState = { pauseGeneralState }
                 setPointsRoundPlayer = { setPointsRoundPlayer }
                 setPointsRoundCom = { setPointsRoundCom }
+                roundsWithoutButtonClick = { roundsWithoutButtonClick }
+                roundsWithoutAttackSpecialCom = { roundsWithoutAttackSpecialCom }
+                startAction = { startAction }
                 />
 
         <SectionButtonsPlay 
@@ -195,6 +192,7 @@ export const ComponentCombat =
                 setButtonSpecial = { setButtonSpecial }
                 setButtonSpecialCom = { setButtonSpecialCom }
                 buttonSpecialCom = { buttonSpecialCom }
+                buttonSpecial = { buttonSpecial }
                 setHistoryItems = { setHistoryItems }
                 generalPlayPlayer = { generalPlayPlayer }
                 generalPlayCom = { generalPlayCom}
@@ -222,7 +220,11 @@ export const ComponentCombat =
                 setCounterScissorCom = { setCounterScissorCom }
                 counterRockCom = { counterRockCom }  
                 counterPaperCom = { counterPaperCom }  
-                counterScissorCom = { counterScissorCom }  
+                counterScissorCom = { counterScissorCom } 
+                roundsWithoutButtonClick = { roundsWithoutButtonClick }
+                setRoundsWithoutButtonClick = { setRoundsWithoutButtonClick }  
+                roundsWithoutAttackSpecialCom = { roundsWithoutAttackSpecialCom }
+                setRoundsWithoutAttackSpecialCom = { setRoundsWithoutAttackSpecialCom }
                 />
 
         <ModalFinalGame 

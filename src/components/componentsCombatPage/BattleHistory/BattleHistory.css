@@ -98,12 +98,13 @@
 
 .character .points-round{
   position: absolute;
-  display:grid;
-  place-items: center;
-  width: 1.5vmax;
-  height: 1.5vmax;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.7vmax;
+  height: 1.7vmax;
   font-size: 1.3vmax;
-  color: white;
+  font-weight: 500;
   top: 0;
   border-radius: 50%;
   box-shadow: 0 0 7px rgba(179, 176, 176, 0.5);
@@ -118,6 +119,7 @@
 }
 
 .character img{
+  border: 0.2vmax solid rgb(168, 168, 168);
   border-radius: 50%;
 }
 
@@ -132,13 +134,21 @@
 }
 
 .history_item .play{
-  font-size: 2.2vmax;
+  font-size: 1.6vmax;
+  background: white; 
+  border-radius: 50%;
+  width: 90%;
+  height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 7px rgba(3, 3, 3, 0.8);
 }
 
 .history_item .play-player{ 
   grid-area: play-player; 
   transform: rotate(-90deg) rotateX(180deg);
- }
+}
 
 
 .history_item .play-com{

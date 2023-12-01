@@ -28,7 +28,6 @@ export const SectionButtonsPlay =
     setMessageFinal,
     stateCombat,
     setStateCombat,
-    buttonSpecialCom,
     setButtonSpecial,
     setButtonSpecialCom,
     setHistoryItems,
@@ -57,7 +56,14 @@ export const SectionButtonsPlay =
     setCounterScissorCom,
     counterRockCom,
     counterPaperCom,
-    counterScissorCom
+    counterScissorCom,
+    roundsWithoutButtonClick, 
+    setRoundsWithoutButtonClick,
+    roundsWithoutAttackSpecialCom, 
+    setRoundsWithoutAttackSpecialCom,
+    buttonSpecial,
+    buttonSpecialCom
+    
 }) => {
 
 
@@ -65,9 +71,8 @@ export const SectionButtonsPlay =
   const [ openModalSurrender, setOpenModalSurrender ] = useState (false);
   const [isFirstRender, setIsFirstRender] = useState(true);
   const prevControlRoundsState = useRef(controlRoundsState);
-  const [roundsWithoutButtonClick, setRoundsWithoutButtonClick] = useState(0);
-  const [roundsWithoutAttackSpecialCom, setRoundsWithoutAttackSpecialCom] = useState(0);
-
+  const prevbuttonSpecialCom = useRef(buttonSpecialCom);
+  
 
 /*----------Component Const Variables----------------------------------------*/
   const playsDCom = playsDataCom(counterRockCom, counterPaperCom, counterScissorCom);
@@ -89,31 +94,28 @@ export const SectionButtonsPlay =
       setCtrlActionButtons(true);
       setImagesPlayPlayer([playPlayer.photo, playPlayer.photo, playPlayer.photo]);
       setImagesPlayCom([playCom.photo, playCom.photo, playCom.photo]);
-      
-      
+     
+     
       const firstTimeoutId = setTimeout(() => {
+        setStartAction(true);
         setGeneralPlayCom(playCom.icon);
         setGeneralPlayPlayer(playPlayer.icon);
         setControlRoundsPrev((prevRounds) => prevRounds + 1);
-        setStartAction(true);
-        if(pauseGeneralState === trebol) {
-          setPauseGeneralState(allHands);
-          }
+        prevbuttonSpecialCom.current = buttonSpecialCom;
+        buttonSpecialCom && setRoundsWithoutAttackSpecialCom(-1);
+        pauseGeneralState === trebol && setPauseGeneralState(allHands);
         }, 1500);
       
       const secondTimeoutId = setTimeout(() => {
         setSelectPlay(true);
-        setStartAction(false);
         setControlRoundsState(controlRoundsPrev);
         setRoundsWithoutButtonClick(prevRounds => prevRounds + 1);
         setRoundsWithoutAttackSpecialCom(prevRounds => prevRounds + 1);
         setInteractiveTexts(`<p>Waiting for your next move...</p>`);
         setCtrlActionButtons(false);
-
-        if(buttonSpecialCom){
-        setRoundsWithoutAttackSpecialCom(0);
-        setButtonSpecialCom(false)};
-        }, 4000); 
+        buttonSpecialCom && setButtonSpecialCom(false);
+        setStartAction(false);
+      }, 4000); 
   
     return () => {
       clearTimeout(firstTimeoutId);
@@ -156,19 +158,8 @@ export const SectionButtonsPlay =
 
  
 /*----------Component Functions for Design----------------------------------------*/
-  const renderProgressBarSpecial = () => {
-    const progressBar = [];
-    const maxBars = Math.min(roundsWithoutButtonClick, 6);
-
-    for (let i = 0; i < maxBars; i++) {
-      progressBar.push(<div key={i} className="progress-bar-item-special"></div>);
-    }
-
-    return progressBar;
-};
-
-
-  const renderProgressBar = (counterElement) => {
+  
+const renderProgressBar = (counterElement) => {
     const progressBar = [];
     const maxBars = Math.min(counterElement, 7);
 
@@ -239,7 +230,9 @@ export const SectionButtonsPlay =
       characterComFace: characterCom.facePhoto,
       generalPlayPlayer: generalPlayPlayer,
       generalPlayCom: generalPlayCom,
-      controlRoundsState: prevControlRoundsState.current
+      controlRoundsState: prevControlRoundsState.current,
+      buttonSpecialCom: prevbuttonSpecialCom.current,
+      buttonSpecial: buttonSpecial
     };
   
     setHistoryItems((prevItems) => [newItem, ...prevItems]);
@@ -316,7 +309,7 @@ return (
         <i></i>
         <span
          onClick={() => {  
-          if (!ctrlActionButtons && counterRock !== 0) {
+          if (stateCombat && !ctrlActionButtons && counterRock !== 0) {
             setButtonSpecial(false);
             setCounterRock(prevCounter => prevCounter - 1);
             activePlay(0);
@@ -335,7 +328,7 @@ return (
           <i></i>
           <span
           onClick={() => {  
-            if (!ctrlActionButtons && counterPaper !== 0) {
+            if (stateCombat && !ctrlActionButtons && counterPaper !== 0) {
               setButtonSpecial(false);
               setCounterPaper(prevCounter => prevCounter - 1);
               activePlay(1);
@@ -355,7 +348,7 @@ return (
           <i></i>
           <span
           onClick={() => {  
-            if (!ctrlActionButtons && counterScissor !== 0) {
+            if (stateCombat && !ctrlActionButtons && counterScissor !== 0) {
               setButtonSpecial(false);
               setCounterScissor(prevCounter => prevCounter - 1);
               activePlay(2);
@@ -378,7 +371,7 @@ return (
         <i></i>
         <span
         onClick={() => {
-        if (!ctrlActionButtons && roundsWithoutButtonClick >= 6) {
+        if (stateCombat && !ctrlActionButtons && roundsWithoutButtonClick >= 6) {
           setButtonSpecial(true);
           setRoundsWithoutButtonClick(-1);
           activePlay();
@@ -387,9 +380,6 @@ return (
           <img src={allHands} alt={"Aleatory"}/>
         </span>
       </button>
-      <div className='progress-bar-container'>
-        {renderProgressBarSpecial()}
-      </div>
     </div>
   </div>
 )}

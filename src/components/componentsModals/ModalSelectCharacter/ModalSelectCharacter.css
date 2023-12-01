@@ -93,11 +93,11 @@
 }
 
 .modal-select-character  .container-buttons a:nth-child(1){
-  background-image: linear-gradient(rgba(5, 3, 41, 0.842), rgba(13, 8, 104, 0.842), rgba(49, 19, 221, 0.842), rgba(13, 8, 104, 0.842), rgba(5, 3, 41, 0.842));
+  background-image: var( --gradient-blue-transp);
 }
 
 .modal-select-character  .container-buttons a:nth-child(2){
-  background-image: linear-gradient(rgba(70, 4, 4, 0.842), rgba(161, 14, 14, 0.897), rgba(221, 19, 19, 0.842), rgba(161, 14, 14, 0.897), rgba(70, 4, 4, 0.842));
+  background-image: var( --gradient-red-transp);
 }
 
 .modal-select-character  .container-buttons a:hover{
