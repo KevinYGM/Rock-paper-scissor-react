@@ -1,4 +1,7 @@
 
+
+
+
 /*---------------Generals Elements----------------------------------------*/
 h1{
   font-size: max(3rem, min(7vw, 8rem));
@@ -105,4 +108,98 @@ a{
   .brand{
     font-size: max(1.5rem, min(1.5vmax, 4rem));
   }
+}
+
+
+/*----effect-transition-with-React---*/
+
+
+/*Effect with opacity*/
+
+.fade-enter{
+  opacity: 0;
+}
+.fade-exit{
+  opacity: 1;
+}
+.fade-enter-active{
+  opacity: 1;
+  
+}
+.fade-exit-active{
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-exit-active{
+  transition: opacity 500ms;
+}
+
+
+
+/*effect with scale*/
+
+
+.scale-enter {
+  transform: scale(1);
+}
+
+.scale-enter-active {
+  transform: scale(1.3);
+  color: rgb(27, 231, 44);
+  -webkit-text-stroke: 0.05vmax rgb(252, 251, 249);
+}
+
+.scale-exit {
+  transform: scale(1);
+}
+
+.scale-exit-active {
+  transform: scale(1);
+}
+
+
+
+.aparicion-enter {
+  opacity: 0;
+}
+
+.aparicion-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in-out;
+}
+
+.aparicion-exit {
+  opacity: 1;
+}
+
+.aparicion-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+}
+
+
+
+
+/*effect with the characters*/
+
+.character-slider-enter {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.character-slider-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 200ms ease-in-out, opacity 200ms ease-in-out;
+}
+
+.character-slider-exit {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.character-slider-exit-active {
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 200ms ease-in-out, opacity 200ms ease-in-out;
 }

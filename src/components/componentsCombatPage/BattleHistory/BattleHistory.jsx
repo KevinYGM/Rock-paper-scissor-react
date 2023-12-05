@@ -8,9 +8,7 @@ import { RiArrowRightDoubleFill, RiArrowLeftDoubleFill } from "react-icons/ri";
 
 
 export const BattleHistory = 
-({  historyItems,
-    buttonSpecial,
-    buttonSpecialCom 
+({  historyItems
 }) => {
 
   /*------------------component states ---------------------------*/

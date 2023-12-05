@@ -34,9 +34,12 @@ const toggleModal = (currentModal, setCurrentModal, unUsedModal,setUnUsedModal) 
                 setOpenModalConfiguration) }
           >{!openModalInstructions ? "📙" : "📕"}</span>
 
-          <ModalInstructions 
-                openModalInstructions = {openModalInstructions}
-                />
+                    
+          <ModalInstructions openModalInstructions = {openModalInstructions} />
+
+       
+
+          
 
 {/*---------------Section Configuration-----------------------*/}
 

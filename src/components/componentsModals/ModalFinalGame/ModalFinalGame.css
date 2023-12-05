@@ -17,6 +17,12 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.modal-final.show{
+  opacity: 1;
 }
 
 .modal-final .img-winner{

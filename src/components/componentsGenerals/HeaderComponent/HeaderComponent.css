@@ -33,6 +33,12 @@
   border-radius: 0.7vw 0vw 0.7vw 0.7vw;
   box-shadow: -12px 8px 19px black;
   overflow: scroll;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.configuration .modal-IC.show{
+  opacity: 1;
 }
 
 .modal-IC .modal-IC_title{
@@ -46,7 +52,9 @@
   width: 100%;
   padding: 0.3vw 0;
   box-shadow: -2px 5px 9px #2d1a01;
+  
 }
+
 
 .modal-IC .modal-IC_content{
   color: rgba(19, 9, 44, 0.842);

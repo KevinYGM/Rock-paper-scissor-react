@@ -129,13 +129,7 @@ export const ComponentCombat =
                 comMark = { comMark }
                 />
 
-        <BattleHistory  
-                characterPlayer = { characterPlayer }
-                characterCom = { characterCom }
-                historyItems = { historyItems }
-                buttonSpecial = { buttonSpecial }
-                buttonSpecialCom = { buttonSpecialCom }
-                />
+        <BattleHistory historyItems = { historyItems }/>
                 
 
         <PlayBattle   

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ModalSurrender.css';
 
@@ -13,6 +13,11 @@ export const ModalSurrender = ({
   setStateCombat
 }) => {
 
+  /*------------------State for the Component---------------------------------- */
+  const [showModalSurrender, setShowModalSurrender] = useState(false);
+
+/*------------------Functions for the Component---------------------------------- */
+
   const surrender = () => {
     setWinnerCombat(characterCom);
     setMessageFinal("🏳️ YOU GAVE UP 🏳️");
@@ -21,10 +26,22 @@ export const ModalSurrender = ({
     setStateCombat(false);
   }
 
+  /*------------------UseEffect for the Component Design---------------------------------- */
+
+  useEffect(() => {
+    if (openModalSurrender) {
+      const timeoutId = setTimeout(() => {
+        setShowModalSurrender(true);
+      }, 100);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [openModalSurrender]);
+
   return (
     <>
-      {openModalSurrender && 
-        (<div className="modal-surrender modal-IC">
+      {showModalSurrender && 
+        (<div className={`modal-IC modal-surrender ${openModalSurrender ? 'show' : ''}`}>
             <strong className="title-surrender">
               <strong>🏳️</strong>
               Surrender
@@ -37,7 +54,9 @@ export const ModalSurrender = ({
                         Yes
                 </Link>
                 <Link className="surrender-no surrender-button"
-                        onClick={()=> {setOpenModalSurrender(false)}}>
+                        onClick={()=> {setOpenModalSurrender(false)
+                                      setShowModalSurrender(false)
+                                      }}>
                   No
                 </Link>
               </div>

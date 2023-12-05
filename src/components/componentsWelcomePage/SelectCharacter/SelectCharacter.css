@@ -33,6 +33,7 @@
 .select-character .character-img-container img{
   height: 100%;
   width: 100%;
+  transition: all 300ms ease-in-out;
 }
 
 .character-img-container .front-image, 

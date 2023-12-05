@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef} from 'react';
 import './PlayBattle.css';
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
 /*Images*/
 import frame from '../../../images/interfaz-images/frame-vector.png';
@@ -44,6 +45,8 @@ export const PlayBattle =
     const prevComMark = useRef(comMark);
     const prevPlayerMark = useRef(playerMark);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  
 
 /*---------- useEffects that contribute to the Design of component----------*/
 
@@ -405,7 +408,7 @@ useEffect(()=>{
       <div className="character-player character">
         <div className="bar-progress">
           <div  className="bar"
-                style={{ height: renderProgressBarSpecial(roundsWithoutButtonClick) }}>
+            style={{ height: renderProgressBarSpecial(roundsWithoutButtonClick) }}>
           </div>
         </div>
         <img src={characterPlayer.photo} alt={characterPlayer.name} />
@@ -419,7 +422,16 @@ useEffect(()=>{
 
       <div className="interactive-up">
         <span>Round</span>
-        <span>{ controlRoundsState }</span>
+        <SwitchTransition>
+          <CSSTransition
+            key={ controlRoundsState }
+            timeout={700}
+            classNames="scale"
+            unmountOnExit
+          >
+            <span>{ controlRoundsState }</span>
+          </CSSTransition>
+        </SwitchTransition>
       </div>
 
       <div className="play-com play">
@@ -432,7 +444,7 @@ useEffect(()=>{
         <img src={characterCom.photo} alt={characterCom.name} />
         <div className="bar-progress">
           <div  className="bar"
-                style={{ height: renderProgressBarSpecial(roundsWithoutAttackSpecialCom) }}>
+               style={{ height: renderProgressBarSpecial(roundsWithoutAttackSpecialCom) }}>
           </div>
         </div>
       </div>

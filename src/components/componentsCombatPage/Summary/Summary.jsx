@@ -1,4 +1,5 @@
 import React from 'react'
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import './Summary.css';
 
 /*Images*/
@@ -14,8 +15,6 @@ export const Summary =
     comMark 
 }) => {
 
-
-
   return (
     <div className="summary">
 
@@ -28,10 +27,19 @@ export const Summary =
       </div>
 
       {/* Section Points Player */}
-      <div className="summary_points-player points">
+      <div id='point-player' className="summary_points-player points">
         <div className="container-point">
           <img src={markBlue} alt="Mark Player" />
-          <span>{ playerMark }</span>
+          <SwitchTransition>
+            <CSSTransition 
+                    key={ playerMark }
+                    timeout={200}
+                    classNames="character-slider" >
+
+              
+              <span>{ playerMark }</span>
+            </CSSTransition>
+          </SwitchTransition>
         </div>
       </div>
 
@@ -44,7 +52,14 @@ export const Summary =
       <div className="summary_points-com points">
         <div className="container-point">
           <img src={markRed} alt="Mark Com" />
-          <span>{ comMark }</span>
+          <SwitchTransition>
+            <CSSTransition 
+                    key={ comMark }
+                    timeout={200}
+                    classNames="character-slider" >
+              <span>{ comMark }</span>
+            </CSSTransition>
+          </SwitchTransition>
         </div>
       </div>
 

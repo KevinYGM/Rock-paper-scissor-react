@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef} from 'react';
 import './SectionButtonsPlay.css';
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
 /*Images*/
 import allHands from '../../../images/interfaz-images/all-hands.png';
@@ -169,7 +170,13 @@ const renderProgressBar = (counterElement) => {
 
     for (let i = 0; i < maxBars; i++) {
       progressBar.push(
-      <div  key={i} 
+        <SwitchTransition>
+          <CSSTransition
+            key={ counterElement }
+            timeout={500}
+            classNames='fade'
+            unmountOnExit>
+              <div  key={i} 
             className="progress-bar-item"
             style={{
               background:
@@ -180,11 +187,17 @@ const renderProgressBar = (counterElement) => {
                   : counterElement >= 5 && counterElement <= 7
                   ? 'var(--gradient-green)'
                   : 'inherit'}}>
-      </div>);
-    }
+                </div>
+          </CSSTransition>
+        </SwitchTransition>
+        );
+      }
 
     return progressBar;
   };
+
+  
+
 
 
   /*---------- useEffects that contribute to the logic of component----------*/
@@ -342,10 +355,10 @@ return (
           }}
         >✋🏼</span>
         </button>
-        <div className='progress-bar-container-btns-play'>
-          {renderProgressBar(counterPaper)}  
-        </div>
-      </div>
+            <div className='progress-bar-container-btns-play'>
+              {renderProgressBar(counterPaper)}  
+            </div>
+         </div>
 
 
       <div className="container-buttons">
@@ -362,9 +375,8 @@ return (
           }}
           >✌🏼</span>
         </button>
-        <div  className='progress-bar-container-btns-play'
-              >
-          {renderProgressBar(counterScissor)} 
+        <div  className='progress-bar-container-btns-play'>
+          { renderProgressBar(counterScissor) }
         </div>
       </div>
     </div>

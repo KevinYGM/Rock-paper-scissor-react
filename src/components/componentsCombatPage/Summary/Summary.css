@@ -115,6 +115,7 @@
   font-size: max(2.7rem, min(4.5vmax, 10rem));
   -webkit-text-stroke: 0.1vmax rgb(240, 204, 2);
   font-weight: bold;
+  /* transition: all 200ms ease-in-out; */
 }
 
 /*------------Points-Player and Points-Com-----------------*/
@@ -130,6 +131,32 @@
 }
 
 
+
+
+
+/*effect with the characters*/
+
+.character-slider-enter {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.character-slider-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 200ms ease-in-out, opacity 200ms ease-in-out;
+}
+
+.character-slider-exit {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.character-slider-exit-active {
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 200ms ease-in-out, opacity 200ms ease-in-out;
+}
 
 
 
