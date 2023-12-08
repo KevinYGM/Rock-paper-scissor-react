@@ -136,6 +136,26 @@ a{
 
 
 
+.interactive-enter{
+  opacity: 0;
+}
+.interactive-exit{
+  opacity: 1;
+}
+.interactive-enter-active{
+  opacity: 1;
+  
+}
+.interactive-exit-active{
+  opacity: 0;
+}
+.interactive-enter-active,
+.interactive-exit-active{
+  transition: opacity 300ms;
+}
+
+
+
 /*effect with scale*/
 
 

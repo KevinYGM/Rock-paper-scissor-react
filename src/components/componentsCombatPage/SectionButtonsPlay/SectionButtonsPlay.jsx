@@ -63,9 +63,9 @@ export const SectionButtonsPlay =
     roundsWithoutAttackSpecialCom, 
     setRoundsWithoutAttackSpecialCom,
     buttonSpecial,
-    buttonSpecialCom
-    
-}) => {
+    buttonSpecialCom,
+    isActivateCount
+  }) => {
 
 
 /*------------component states and references----------------------------- */
@@ -268,9 +268,14 @@ const renderProgressBar = (counterElement) => {
       setImagesPlayCom(playsDCom.map(play => play.photo));
     }
   // eslint-disable-next-line
-  }, [selectPlay, playsDataPlayer, setImagesPlayPlayer, playsDCom, setImagesPlayCom]);
+  }, [selectPlay, playsDataPlayer, setImagesPlayPlayer, playsDCom, setImagesPlayCom, isActivateCount]);
 
 
+  useEffect(() => {
+    !isActivateCount && (setSelectPlay(true));
+    
+  // eslint-disable-next-line
+  }, [isActivateCount]);
 
 
   /*---------- useEffects that contribute to the Design of component----------*/
@@ -334,7 +339,7 @@ return (
             activePlay(0);
             }
          }}
-          >✊🏼</span>
+          >✊🏼  <p>Rock</p></span>
         </button>
         <div className='progress-bar-container-btns-play'>
           {renderProgressBar(counterRock)}  
@@ -353,7 +358,7 @@ return (
               activePlay(1);
             }
           }}
-        >✋🏼</span>
+        >✋🏼 <p>Paper</p></span>
         </button>
             <div className='progress-bar-container-btns-play'>
               {renderProgressBar(counterPaper)}  
@@ -373,7 +378,7 @@ return (
               activePlay(2);
             }
           }}
-          >✌🏼</span>
+          >✌🏼  <p>Scissor</p></span>
         </button>
         <div  className='progress-bar-container-btns-play'>
           { renderProgressBar(counterScissor) }

@@ -38,7 +38,7 @@ export const PlayBattle =
     setPointsRoundPlayer,
     setPointsRoundCom,
     roundsWithoutButtonClick, 
-    roundsWithoutAttackSpecialCom
+    roundsWithoutAttackSpecialCom,
   }) => {
 
 /*------------------component states and references---------------------------  */
@@ -177,7 +177,7 @@ useEffect(()=>{
           setResultComState(victory);
           setPointsRoundPlayer("0");
           setPointsRoundCom("+1");
-          setInteractiveTexts(`<p>Bad Luck!!rock step scissors and ${characterCom.shortName}
+          setInteractiveTexts(`<p>Bad Luck!! rock step scissors and ${characterCom.shortName}
           has won <span class="pcom">1 point!!</span></p>`);
         }
       }else if(buttonSpecialCom){
@@ -457,11 +457,37 @@ useEffect(()=>{
         </div>
         <div className='frame-info'>
           <div className="img-result-frame">
-            <img src={ startAction ? resultState : pauseGeneralState } alt="" />
-          </div>
-          <div className="text-interactive" dangerouslySetInnerHTML={{ __html: interactiveTexts }} />
-          <div className="img-result-frame">
-            <img src={ startAction ? resultComState : pauseGeneralState } alt="" />
+            <SwitchTransition>
+              <CSSTransition
+                  key={interactiveTexts}
+                  timeout={200}
+                  classNames="interactive"
+                  unmountOnExit>
+                       <img src={ startAction ? resultState : pauseGeneralState } alt="" />
+              </CSSTransition>
+          </SwitchTransition>
+        </div>
+
+        <SwitchTransition>
+          <CSSTransition
+              key={interactiveTexts}
+              timeout={200}
+              classNames="interactive"
+              unmountOnExit>
+                  <div className="text-interactive" dangerouslySetInnerHTML={{ __html: interactiveTexts }} />
+          </CSSTransition>
+        </SwitchTransition>
+
+           <div className="img-result-frame">
+            <SwitchTransition>
+                <CSSTransition
+                    key={interactiveTexts}
+                    timeout={200}
+                    classNames="interactive"
+                    unmountOnExit>
+                        <img src={ startAction ? resultComState : pauseGeneralState } alt="" />
+                </CSSTransition>
+            </SwitchTransition>
           </div>
         </div>
       </div>

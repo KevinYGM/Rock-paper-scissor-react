@@ -18,7 +18,7 @@ import backCardCom from '../../images/interfaz-images/card-computer.png';
 
 /*Data*/
 import { playsDataPlayer, playsDataCom  } from '../../data/playData';
-
+import { ModalCount } from '../componentsModals/ModalCount/ModalCount';
 
 
 export const ComponentCombat = 
@@ -37,7 +37,6 @@ export const ComponentCombat =
   counterPaperCom,
   counterScissorCom
 }) => {
-  
 
   /*---------------------states Components-------------------------*/
   const [openModalFinal, setOpenModalFinal] = useState(false);
@@ -94,7 +93,7 @@ export const ComponentCombat =
 
   const [roundsWithoutAttackSpecialCom, setRoundsWithoutAttackSpecialCom] = useState(0);
 
-
+  const [isActivateCount, setIsActivateCount] = useState(true);
 
   /*---------------- UseEffects dedicated to design---------------------- */ 
   useEffect(() => {
@@ -162,6 +161,7 @@ export const ComponentCombat =
                 roundsWithoutButtonClick = { roundsWithoutButtonClick }
                 roundsWithoutAttackSpecialCom = { roundsWithoutAttackSpecialCom }
                 startAction = { startAction }
+                
                 />
 
         <SectionButtonsPlay 
@@ -219,6 +219,7 @@ export const ComponentCombat =
                 setRoundsWithoutButtonClick = { setRoundsWithoutButtonClick }  
                 roundsWithoutAttackSpecialCom = { roundsWithoutAttackSpecialCom }
                 setRoundsWithoutAttackSpecialCom = { setRoundsWithoutAttackSpecialCom }
+                isActivateCount = { isActivateCount }
                 />
 
         <ModalFinalGame 
@@ -227,6 +228,10 @@ export const ComponentCombat =
                 winnerCombat = { winnerCombat }
                 messageFinal = { messageFinal }
                 />
+
+        <ModalCount
+                isActivateCount = { isActivateCount }
+                setIsActivateCount = { setIsActivateCount }/>
       </div>
       <FooterComponent />
     </div>
