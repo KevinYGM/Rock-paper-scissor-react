@@ -5,11 +5,13 @@ import { ModalConfiguration } from '../../componentsModals/ModalConfiguration/Mo
 
 export const HeaderComponent = () => {
 
+  /*-------------local States of this Component---------------------------------*/
   const [ openModalConfiguration, setOpenModalConfiguration ] = useState (false);
   const [ openModalInstructions, setOpenModalInstructions ] = useState (false);
 
   
-  
+   /*---------- Functions that contribute to the logic of this Component----------*/
+
 const toggleModal = (currentModal, setCurrentModal, unUsedModal,setUnUsedModal) => {
   /*function that opens and closes the configuration and instructions modals, and that conditions the opening of one with the closing of the other, to avoid collisions */
   
@@ -18,11 +20,11 @@ const toggleModal = (currentModal, setCurrentModal, unUsedModal,setUnUsedModal) 
   }
 
 
+
+ /*---------------- component JSX structure ---------------------- */ 
   return (
     <header className='header'>
-
       <span className='brand'>KYGM APP</span>
-
       <div className='configuration'>
 
 {/*---------------Section Instructions-----------------------*/}
@@ -34,14 +36,10 @@ const toggleModal = (currentModal, setCurrentModal, unUsedModal,setUnUsedModal) 
                 setOpenModalConfiguration) }
           >{!openModalInstructions ? "📙" : "📕"}</span>
 
-                    
           <ModalInstructions openModalInstructions = {openModalInstructions} />
 
-       
-
-          
-
-{/*---------------Section Configuration-----------------------*/}
+  
+  {/*---------------Section Configuration-----------------------*/}
 
         <span className={openModalConfiguration ? "btn-configuration  btn-configuration-active" : "btn-configuration" }
               onClick={()=> toggleModal(

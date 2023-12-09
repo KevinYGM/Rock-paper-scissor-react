@@ -5,13 +5,9 @@ import {Link} from 'react-router-dom';
 /*Images*/
 import sword from '../../../images/interfaz-images/sword.png';
 
+export const StartGame = ({ openModalCharacter, setOpenModalCharacter }) => {
 
-export const StartGame = 
-({setOpenModalCharacter, 
-  openModalCharacter}) => {
-
-
-    /*---------- useEffects that contribute to the Design of component----------*/
+  /*---------- useEffects that contribute to the Design and Effects of this Component----------*/
   useEffect(()=> {
     //function for mousemove animation in character images.
     const records = document.querySelectorAll('.record-statement');
@@ -27,7 +23,7 @@ export const StartGame =
 
 
 
-/*---------------- component JSX structure ---------------------- */ 
+    /*---------------- component JSX structure ---------------------- */ 
   return (
     <div className="start-game">
       

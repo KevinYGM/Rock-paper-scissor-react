@@ -1,6 +1,8 @@
-import React, { useEffect, useState, useRef} from 'react';
+import React, { useEffect, useState, useRef, useContext} from 'react';
 import './SectionButtonsPlay.css';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
+import { MyGeneralContext } from '../../../MyGeneralContext';
+import { ContextCombat } from '../../../ContextCombat';
 
 /*Images*/
 import allHands from '../../../images/interfaz-images/all-hands.png';
@@ -11,64 +13,61 @@ import surrender from '../../../images/interfaz-images/surrender.png';
 import { ModalSurrender } from '../../componentsModals/ModalSurrender/ModalSurrender';
 
 
-export const SectionButtonsPlay = 
-({  characterCom,
+export const SectionButtonsPlay = () => {
+
+  /*--------------Data imported from useContext-------------------------*/
+  const { 
+    /*States with their Updaters (Alphabetical Order)*/
+    counterPaper, setCounterPaper,
+    counterRock, setCounterRock,
+    counterScissor, setCounterScissor,
+    counterPaperCom, setCounterPaperCom,
+    counterRockCom, setCounterRockCom,
+    counterScissorCom, setCounterScissorCom,
+    /*Only States (Alphabetical Order)*/  
+    characterCom, 
     characterPlayer,
-    setOpenModalFinal,
-    setImagesPlayPlayer,
-    setImagesPlayCom, 
-    playsDataPlayer,
+    /*Only Data (Alphabetical Order)*/  
     playsDataCom,
-    setGeneralPlayPlayer,
-    setGeneralPlayCom,
-    setControlRoundsState,
-    setInteractiveTexts,
-    setControlRoundsPrev,
-    controlRoundsPrev,
-    setWinnerCombat,
-    setMessageFinal,
-    stateCombat,
-    setStateCombat,
-    setButtonSpecial,
-    setButtonSpecialCom,
-    setHistoryItems,
-    generalPlayPlayer,
-    generalPlayCom,
-    resultState,
-    resultComState,
-    controlRoundsState,
-    pauseGeneralState,
-    setPauseGeneralState,
-    selectPlay,
-    setSelectPlay,
-    setStartAction,
-    pointsRoundPlayer,
+    playsDataPlayer,
+    } = useContext(MyGeneralContext);
+
+  const {  
+    /*States with their Updaters (Alphabetical Order)*/
+    buttonSpecial, setButtonSpecial,
+    buttonSpecialCom, setButtonSpecialCom,
+    controlRoundsPrev, setControlRoundsPrev,
+    controlRoundsState, setControlRoundsState,
+    ctrlActionButtons, setCtrlActionButtons,
+    generalPlayCom, setGeneralPlayCom,
+    generalPlayPlayer, setGeneralPlayPlayer,
+    pauseGeneralState, setPauseGeneralState,
+    roundsWithoutAttackSpecialCom, setRoundsWithoutAttackSpecialCom,
+    roundsWithoutButtonClick, setRoundsWithoutButtonClick,
+    selectPlay, setSelectPlay,
+    stateCombat, setStateCombat,
+    
+    /*Only States (Alphabetical Order)*/  
+    isActivateCount,
+    
     pointsRoundCom,
-    ctrlActionButtons,
-    setCtrlActionButtons,
-    counterRock,
-    counterPaper,
-    counterScissor,
-    setCounterRock,
-    setCounterPaper,
-    setCounterScissor,
-    setCounterRockCom,
-    setCounterPaperCom,
-    setCounterScissorCom,
-    counterRockCom,
-    counterPaperCom,
-    counterScissorCom,
-    roundsWithoutButtonClick, 
-    setRoundsWithoutButtonClick,
-    roundsWithoutAttackSpecialCom, 
-    setRoundsWithoutAttackSpecialCom,
-    buttonSpecial,
-    buttonSpecialCom,
-    isActivateCount
-  }) => {
+    pointsRoundPlayer,
+    resultComState,
+    resultState,
+    
+    /*Only Updaters (Alphabetical Order)*/
+    setHistoryItems,
+    setImagesPlayCom,
+    setImagesPlayPlayer,
+    setInteractiveTexts,
+    setMessageFinal,
+    setOpenModalFinal,
+    setStartAction,
+    setWinnerCombat
+    } = useContext(ContextCombat);
 
 
-/*------------component states and references----------------------------- */
+/*-------------local States and Refs of this Component---------------------------------*/
   const [ openModalSurrender, setOpenModalSurrender ] = useState (false);
   const [isFirstRender, setIsFirstRender] = useState(true);
   const [playPlayerInformation, setPlayPlayerInformation] = useState("");
@@ -77,7 +76,7 @@ export const SectionButtonsPlay =
   const prevbuttonSpecialCom = useRef(buttonSpecialCom);
   
 
-/*----------Component Const Variables----------------------------------------*/
+/*-------------local Variables of this Component---------------------------------*/
   const playsDCom = playsDataCom(counterRockCom, counterPaperCom, counterScissorCom);
   
 
@@ -164,41 +163,41 @@ export const SectionButtonsPlay =
  
 /*----------Component Functions for Design----------------------------------------*/
   
-const renderProgressBar = (counterElement) => {
+  const renderProgressBar = (counterElement) => {
     const progressBar = [];
     const maxBars = Math.min(counterElement, 7);
-
+  
     for (let i = 0; i < maxBars; i++) {
       progressBar.push(
-        <SwitchTransition>
+        <SwitchTransition key={i}>
           <CSSTransition
-            key={ counterElement }
+            key={i}
             timeout={500}
             classNames='fade'
-            unmountOnExit>
-              <div  key={i} 
-            className="progress-bar-item"
-            style={{
-              background:
-                    counterElement === 1 || counterElement === 2
-                  ? 'var(--gradient-red)'
-                  : counterElement === 3 || counterElement === 4
-                  ? 'var(--gradient-yellow)'
-                  : counterElement >= 5 && counterElement <= 7
-                  ? 'var(--gradient-green)'
-                  : 'inherit'}}>
-                </div>
+            unmountOnExit
+          >
+            <div
+              className="progress-bar-item"
+              style={{
+                background:
+                  counterElement === 1 || counterElement === 2
+                    ? 'var(--gradient-red)'
+                    : counterElement === 3 || counterElement === 4
+                    ? 'var(--gradient-yellow)'
+                    : counterElement >= 5 && counterElement <= 7
+                    ? 'var(--gradient-green)'
+                    : 'inherit'
+              }}
+            ></div>
           </CSSTransition>
         </SwitchTransition>
-        );
-      }
-
+      );
+    }
+  
     return progressBar;
   };
 
   
-
-
 
   /*---------- useEffects that contribute to the logic of component----------*/
 
@@ -232,7 +231,7 @@ const renderProgressBar = (counterElement) => {
 
   useEffect(() => {
     /* Responsible for sending and controlling the information sent to the 
-    BattleHistory component*/
+    BattleHistory Component*/
     if (isFirstRender) {
       setIsFirstRender(false);
       return;
@@ -294,11 +293,7 @@ const renderProgressBar = (counterElement) => {
     }, []);
 
 
-
-
-
-
-/*---------------- component JSX structure ---------------------- */ 
+/*---------------- Component JSX structure ---------------------- */ 
 return (
   <div className='buttons-play-container'>
 

@@ -6,6 +6,8 @@ import { BsGithub } from "react-icons/bs";
 import { BiLogoReact } from "react-icons/bi";
 
 export const FooterComponent = () => {
+  
+   /*---------------- component JSX structure ---------------------- */  
   return (
     <footer className="footer">
       <div className='social-media-container'>

@@ -4,7 +4,7 @@
   left:0;
   width: 100vmax;
   height: 100vmin;
-  z-index: 7;
+  z-index: 3;
   display: flex;
   justify-content: center;
   align-items: center;

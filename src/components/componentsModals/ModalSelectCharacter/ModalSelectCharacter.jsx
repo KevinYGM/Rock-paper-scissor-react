@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './ModalSelectCharacter.css';
 import { Link } from 'react-router-dom';
+import { MyGeneralContext } from '../../../MyGeneralContext';
 
-export const ModalSelectCharacter = 
-({  characters, 
-    characterPlayer,
-    setCharacterCom,
-    openModalCharacter,
-    setOpenModalCharacter,
-    setCounterRockCom,
-    setCounterPaperCom,
-    setCounterScissorCom
-}) => {
+export const ModalSelectCharacter = ({openModalCharacter, setOpenModalCharacter}) => {
+
+  /*--------------Data imported from MyContext-------------------------*/
+  const { characters, 
+          characterPlayer,
+          setCharacterCom,
+          setCounterRockCom,
+          setCounterPaperCom,
+          setCounterScissorCom } = useContext(MyGeneralContext);
+
+
+/*----------functions that contribute to the logic of this Component---------------*/
 
   const selectCharacterCom = () =>{
     const availablesCharacters = characters.filter((p) => p !== characterPlayer);
@@ -22,6 +25,8 @@ export const ModalSelectCharacter =
     setCounterScissorCom(randomCharacter.powerScissor);
   }
 
+
+ /*---------------- component JSX structure ---------------------- */   
  return (
     <>
       {openModalCharacter && (

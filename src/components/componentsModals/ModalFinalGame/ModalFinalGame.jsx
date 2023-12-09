@@ -1,17 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './ModalFinalGame.css';
+import { ContextCombat } from '../../../ContextCombat';
 
 export const ModalFinalGame = 
-({  setOpenModalFinal, 
-    stateCombat,
-    winnerCombat,
-    messageFinal
-  }) => {
+() => {
 
-    /*------States of Component-----------*/
+  /*--------------Data imported from MyContext-------------------------*/
+  const { setOpenModalFinal, 
+          stateCombat,
+          winnerCombat,
+          messageFinal } = useContext(ContextCombat);
+
+  /*------Local States of this Component-----------*/
   const [showModalFinal, setShowModalFinal] = useState(false);
 
+  
+  /*---------- useEffects that contribute to the Design and Effects of this Component----------*/
   useEffect(() => {
     if (!stateCombat) {
       const timeoutId = setTimeout(() => {

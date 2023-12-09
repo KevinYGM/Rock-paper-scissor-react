@@ -1,5 +1,5 @@
 import './Title.css';
-import React from 'react'
+import React from 'react';
 
 /*Images*/
 import allHands from '../../../images/interfaz-images/all-hands.png';

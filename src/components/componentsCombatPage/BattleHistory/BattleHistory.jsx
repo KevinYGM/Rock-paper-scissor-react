@@ -1,23 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './BattleHistory.css';
+import { ContextCombat } from '../../../ContextCombat';
 
 /*React Icons*/
 import { RiArrowRightDoubleFill, RiArrowLeftDoubleFill } from "react-icons/ri";
 
 
+export const BattleHistory = () => {
 
+  /*--------------Data imported from useContext-------------------------*/
+  const { historyItems } = useContext(ContextCombat);
 
-export const BattleHistory = 
-({  historyItems
-}) => {
-
-  /*------------------component states ---------------------------*/
+  /*-------------local States of this Component---------------------------------*/
   const [visible, setVisible] = useState(true); //state to control the effect of moving from the section
 
 
 
-
-  /*------------------Functions dedicated to component Design----------------*/
+/*---------- Functions that contribute to the Design and Effects of this Component----------*/
   const toggleDiv = () => {
     historyItems.length !== 0 && (setVisible(!visible));
   }
@@ -49,7 +48,7 @@ export const BattleHistory =
     )};
 
 
-/*---------------- component JSX structure ---------------------- */ 
+/*---------------- Component JSX structure ---------------------- */ 
   return (
      <div className={`battle-history ${visible ? 'visible' : ''}`}>
       

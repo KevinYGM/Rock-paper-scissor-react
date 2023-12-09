@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import './Summary.css';
+import { MyGeneralContext } from '../../../MyGeneralContext';
+import { ContextCombat } from '../../../ContextCombat';
 
 /*Images*/
 import vs from '../../../images/interfaz-images/vs.png'; 
@@ -8,13 +10,16 @@ import markRed from '../../../images/interfaz-images/redMarker.png';
 import markBlue from '../../../images/interfaz-images/blueMarker.png'; 
 
 
-export const Summary = 
-({  characterPlayer,
-    characterCom,
-    playerMark,
-    comMark 
-}) => {
 
+
+export const Summary = () => {
+
+  /*--------------Data imported from useContext-------------------------*/
+  const { characterCom, characterPlayer } = useContext(MyGeneralContext);
+
+  const { comMark, playerMark } = useContext(ContextCombat);
+
+/*---------------- component JSX structure ---------------------- */ 
   return (
     <div className="summary">
 

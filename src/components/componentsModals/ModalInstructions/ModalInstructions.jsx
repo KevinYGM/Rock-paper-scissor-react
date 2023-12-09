@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './ModalInstructions.css';
 
-export const ModalInstructions = ({openModalInstructions}) => {
+export const ModalInstructions = ({ openModalInstructions }) => {
+
+  /*-------------local States of this Component---------------------------------*/
   const [showModalInstructions, setShowModalInstructions] = useState(false);
 
+  
+  /*---------- useEffects that contribute to the Design and Effects of this Component----------*/ 
   useEffect(() => {
     if (openModalInstructions) {
       const timeoutId = setTimeout(() => {
@@ -15,6 +19,7 @@ export const ModalInstructions = ({openModalInstructions}) => {
   }, [openModalInstructions]);
 
 
+/*---------------- component JSX structure ---------------------- */ 
   return (
     <>
     {showModalInstructions && (

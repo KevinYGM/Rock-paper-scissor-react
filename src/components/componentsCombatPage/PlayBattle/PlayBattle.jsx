@@ -1,6 +1,8 @@
-import React, { useEffect, useState, useRef} from 'react';
+import React, { useEffect, useState, useRef, useContext} from 'react';
 import './PlayBattle.css';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
+import { MyGeneralContext } from '../../../MyGeneralContext';
+import { ContextCombat } from '../../../ContextCombat';
 
 /*Images*/
 import frame from '../../../images/interfaz-images/frame-vector.png';
@@ -9,46 +11,49 @@ import victory from '../../../images/interfaz-images/icon-victory.png';
 import lose from '../../../images/interfaz-images/icon-lose.png';
 
 
-export const PlayBattle = 
-({  characterPlayer,
-    characterCom,
-    imagesPlayPlayer,
-    imagesPlayCom,
-    generalPlayPlayer,
-    generalPlayCom,
-    playerMark,
-    setPlayerMark,
-    comMark,
-    setComMark,
-    controlRoundsState,
-    interactiveTexts,
-    setInteractiveTexts,
-    controlRoundsPrev,
-    resultState,
-    setResultState,
-    resultComState,
-    setResultComState,
-    setStateCombat,
-    setWinnerCombat,
-    setMessageFinal,
+
+export const PlayBattle = () => {
+
+ /*--------------Data imported from useContext-------------------------*/
+  const { characterCom, characterPlayer} = useContext(MyGeneralContext);
+
+  const {
+    /*States with their Updaters (Alphabetical Order)*/
+    comMark, setComMark,
+    interactiveTexts, setInteractiveTexts,
+    playerMark, setPlayerMark,
+    resultComState, setResultComState,
+    resultState, setResultState,
+
+    /*Only States (Alphabetical Order)*/  
     buttonSpecial,
-    buttonSpecialCom,
+    buttonSpecialCom,      
+    controlRoundsPrev,
+    controlRoundsState,
+    generalPlayCom,
+    generalPlayPlayer,
+    imagesPlayCom,
+    imagesPlayPlayer,
     pauseGeneralState,
-    startAction,
-    setPointsRoundPlayer,
-    setPointsRoundCom,
     roundsWithoutButtonClick, 
     roundsWithoutAttackSpecialCom,
-  }) => {
+    startAction,
 
-/*------------------component states and references---------------------------  */
+    /*Only Updaters (Alphabetical Order)*/
+    setMessageFinal,
+    setPointsRoundPlayer,
+    setPointsRoundCom,
+    setStateCombat,
+    setWinnerCombat
+    } = useContext(ContextCombat);
+
+/*-------------local States and Refs of this Component---------------------------------*/
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const prevComMark = useRef(comMark);
     const prevPlayerMark = useRef(playerMark);
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    
 
-  
-
-/*---------- useEffects that contribute to the Design of component----------*/
+    /*---------- useEffects that contribute to the Design of component----------*/
 
     useEffect(()=> {
         //function for mousemove animation in character images.
@@ -350,9 +355,7 @@ useEffect(()=>{
     ]);
 
 
-
-
-  /*---------- useEffects that contribute to the logic of component----------*/
+/*---------- useEffects that contribute to the logic of component----------*/
 
 
   useEffect(()=>{
@@ -401,7 +404,7 @@ useEffect(()=>{
         ]);
 
         
-/*----------------------- component JSX structure ----------------------------- */ 
+/*----------------------- Component JSX structure ----------------------------- */ 
   return (
     <div  className='play-battle-container'>
        {/*--------------Character Player--------------*/}

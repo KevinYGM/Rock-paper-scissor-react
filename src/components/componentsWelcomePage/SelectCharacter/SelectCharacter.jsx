@@ -1,26 +1,25 @@
 import './SelectCharacter.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
-
+import { MyGeneralContext } from '../../../MyGeneralContext';
 
 /*React-icons*/
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle  } from "react-icons/io"
 
+export const SelectCharacter = ({openModalCharacter}) => {
 
-export const SelectCharacter = 
-({  characters,
-    setCharacterPlayer,
-    openModalCharacter,
-    setCounterRock,
-    setCounterPaper,
-    setCounterScissor
-}) => {
+  /*--------------Data imported from MyContext-------------------------*/
+  const { characters,
+          setCharacterPlayer,
+          setCounterRock,
+          setCounterPaper,
+          setCounterScissor } = useContext(MyGeneralContext);
 
-  /*----------state components-----------------------------*/
+   /*-------------local States of this Component---------------------------------*/
   const [indexCharacter, setIndexCharacter] = useState(0);
 
 
-  /*---------- useEffects that contribute to the logic of component----------*/
+  /*---------- useEffects that contribute to the logic of this Component----------*/
 useEffect(() => {
   /*It is responsible for sending the information of the character chosen by the player*/
     setCharacterPlayer(characters[indexCharacter]);
@@ -32,7 +31,7 @@ useEffect(() => {
 
 
 
-  /*-------Component Functions for Design------------*/
+  /*-------Component Functions for Design and Effects------------*/
   const changeCharacter = (address) => {
     // Function that allows you to change characters by pressing the arrow buttons.
     if (address === 'back') {

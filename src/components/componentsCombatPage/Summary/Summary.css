@@ -15,7 +15,7 @@
   color: black;
   -webkit-text-stroke: 0.05vmax rgb(240, 204, 2);
   box-shadow: 0 0 7px rgba(255, 255, 0, 0.5);
-  z-index: 8;
+  z-index: 3;
 }
           
 /*-----------------summary-character-----------------*/

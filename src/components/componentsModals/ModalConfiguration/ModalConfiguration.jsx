@@ -3,8 +3,12 @@ import './ModalConfiguration.css';
 
 
 export const ModalConfiguration = ({ openModalConfiguration }) => {
+
+
+  /*-------------local States of this Component---------------------------------*/
   const [showModalConfiguration, setShowModalConfiguration] = useState(false);
 
+ 
   useEffect(() => {
     if (openModalConfiguration) {
       const timeoutId = setTimeout(() => {
@@ -15,6 +19,8 @@ export const ModalConfiguration = ({ openModalConfiguration }) => {
     }
   }, [openModalConfiguration]);
 
+  
+  /*---------------- component JSX structure ---------------------- */ 
   return (
     <>
     {showModalConfiguration && (
