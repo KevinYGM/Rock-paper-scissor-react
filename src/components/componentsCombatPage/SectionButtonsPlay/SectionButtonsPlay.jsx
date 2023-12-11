@@ -73,6 +73,7 @@ export const SectionButtonsPlay = () => {
   const prevControlRoundsState = useRef(controlRoundsState);
   const prevbuttonSpecialCom = useRef(buttonSpecialCom);
   
+  
 
 /*-------------local Variables of this Component---------------------------------*/
   const playsDCom = playsDataCom(counterRockCom, counterPaperCom, counterScissorCom);
@@ -169,6 +170,7 @@ export const SectionButtonsPlay = () => {
       progressBar.push(
         <div
           className="progress-bar-item"
+          key={i}
           style={{
             background:
               counterElement === 1 || counterElement === 2
@@ -270,7 +272,7 @@ export const SectionButtonsPlay = () => {
 
   useEffect(()=> {
     // Function for the MouseMove effect of the buttons
-      const buttons = document.querySelectorAll('.surrender, .button-play, .button-play-special');
+      const buttons = document.querySelectorAll('.surrender-play, .surrender-disabled , .button-play, .button-disabled, .button-special-play, .button-special-disabled');
   
       buttons.forEach((button) => {
         button.addEventListener('mousemove', e => {
@@ -281,22 +283,24 @@ export const SectionButtonsPlay = () => {
       });
     }, []);
 
-
+    
 /*---------------- Component JSX structure ---------------------- */ 
 return (
   <div className='buttons-play-container'>
 
   {/*------------------ Button Surrender-----------------*/}
-    <button className='surrender'>
+    <button className={`surrender-${stateCombat && controlRoundsState >= 4 ? 'play' : 'disabled'} button-${stateCombat && controlRoundsState >= 4 ? 'play' : 'disabled'}`}>
       <i></i>
       <i></i>
       <span>
         <span onClick={()=> {
-          stateCombat && controlRoundsState >= 3 ? setOpenModalSurrender(true) : setOpenModalSurrender(false);
+          stateCombat && controlRoundsState >= 4 ? setOpenModalSurrender(true) : setOpenModalSurrender(false);
           }}>
           <img src={surrender} alt={"Surrender"}/>
         </span>
       </span>
+      <div className={`gray-layer ${stateCombat && controlRoundsState <= 3 ? 'show' : ''}`}></div>
+     
       <ModalSurrender
               openModalSurrender = { openModalSurrender }
               setOpenModalSurrender = { setOpenModalSurrender }
@@ -307,7 +311,7 @@ return (
     <div className='section-buttons-play'>
 
     <div className="container-buttons">
-      <button className='button-play'>
+      <button className={`button-${stateCombat && counterRock !== 0 ? 'play' : 'disabled'}`}>
         <i></i>
         <i></i>
         <span
@@ -322,14 +326,15 @@ return (
          }}
           ><strong className="hand">✊🏼</strong>  
           <p>Rock</p></span>
-        </button>
+            <div className={`gray-layer ${stateCombat && counterRock === 0 ? 'show' : ''}`}></div>
+          </button>
         <div className='progress-bar-container-btns-play'>
           {renderProgressBar(counterRock)}  
         </div>
       </div>
 
       <div className="container-buttons">
-        <button className='button-play'>
+        <button className={`button-${stateCombat && counterPaper !== 0 ? 'play' : 'disabled'}`}>
           <i></i>
           <i></i>
           <span
@@ -344,6 +349,7 @@ return (
           }}
         > <strong className="hand">✋🏼</strong>  
           <p>Paper</p></span>
+          <div className={`gray-layer ${stateCombat && counterPaper === 0 ? 'show' : ''}`}></div>
         </button>
             <div className='progress-bar-container-btns-play'>
               {renderProgressBar(counterPaper)}  
@@ -352,8 +358,7 @@ return (
 
 
       <div className="container-buttons">
-        <button className='button-play'>
-          <i></i>
+        <button className={`button-${stateCombat && counterScissor !== 0 ? 'play' : 'disabled'}`}>
           <i></i>
           <span
           onClick={() => {  
@@ -367,6 +372,7 @@ return (
           }}
           > <strong className="hand">✌🏼</strong>
             <p>Scissor</p></span>
+            <div className={`gray-layer ${stateCombat && counterScissor === 0 ? 'show' : ''}`}></div>
         </button>
         <div  className='progress-bar-container-btns-play'>
           { renderProgressBar(counterScissor) }
@@ -377,7 +383,7 @@ return (
 
 {/*------------------ Section Special Button-----------------*/}
     <div className='container-button-play-special'>
-      <button className='button-play-special' >
+      <button className={`button-special-${stateCombat && roundsWithoutButtonClick >= 6 ? 'play' : 'disabled'} button-${stateCombat && roundsWithoutButtonClick >= 6 ? 'play' : 'disabled'}`} >
         <i></i>
         <i></i>
         <span
@@ -390,6 +396,7 @@ return (
       }}>
           <img src={allHands} alt={"Aleatory"}/>
         </span>
+        <div className={`gray-layer ${stateCombat && roundsWithoutButtonClick < 6 ? 'show' : ''}`}></div>
       </button>
     </div>
   </div>
