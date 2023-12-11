@@ -30,6 +30,8 @@ const MyProviderCombat = ({ children }) => {
   const [playerMark, setPlayerMark] = useState(0);
   const [pointsRoundCom, setPointsRoundCom] = useState("0");
   const [pointsRoundPlayer, setPointsRoundPlayer] = useState("0");
+  const [positivePoint, setPositivePoint] = useState(true);
+  const [positivePointCom, setPositivePointCom] = useState(true);
   const [resultComState, setResultComState ] = useState(undefined);
   const [resultState, setResultState ] = useState(undefined);
   const [roundsWithoutAttackSpecialCom, setRoundsWithoutAttackSpecialCom] = useState(0);
@@ -37,7 +39,7 @@ const MyProviderCombat = ({ children }) => {
   const [selectPlay, setSelectPlay] = useState(false);
   const [startAction, setStartAction] = useState(false);
   const [stateCombat, setStateCombat] = useState(true);
-  const [winnerCombat, setWinnerCombat] = useState(null);
+  const [winnerCombat, setWinnerCombat] = useState({});
   
   
   return(
@@ -64,6 +66,8 @@ const MyProviderCombat = ({ children }) => {
         playerMark, setPlayerMark,
         pointsRoundCom, setPointsRoundCom,
         pointsRoundPlayer, setPointsRoundPlayer,
+        positivePoint, setPositivePoint,
+        positivePointCom, setPositivePointCom,
         resultComState, setResultComState,
         resultState, setResultState,
         roundsWithoutAttackSpecialCom, setRoundsWithoutAttackSpecialCom,

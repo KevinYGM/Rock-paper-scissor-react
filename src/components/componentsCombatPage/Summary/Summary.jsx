@@ -17,7 +17,7 @@ export const Summary = () => {
   /*--------------Data imported from useContext-------------------------*/
   const { characterCom, characterPlayer } = useContext(MyGeneralContext);
 
-  const { comMark, playerMark } = useContext(ContextCombat);
+  const { comMark, playerMark, positivePoint, positivePointCom } = useContext(ContextCombat);
 
 /*---------------- component JSX structure ---------------------- */ 
   return (
@@ -37,9 +37,9 @@ export const Summary = () => {
           <img src={markBlue} alt="Mark Player" />
           <SwitchTransition>
             <CSSTransition 
-                    key={ playerMark }
-                    timeout={200}
-                    classNames="character-slider" >
+                key={ playerMark }
+                timeout={200}
+                classNames={positivePoint ? "point-slider-up" : "point-slider-down"}>
 
               
               <span>{ playerMark }</span>
@@ -61,7 +61,7 @@ export const Summary = () => {
             <CSSTransition 
                     key={ comMark }
                     timeout={200}
-                    classNames="character-slider" >
+                    classNames={positivePointCom ? "point-slider-up" : "point-slider-down"}>
               <span>{ comMark }</span>
             </CSSTransition>
           </SwitchTransition>

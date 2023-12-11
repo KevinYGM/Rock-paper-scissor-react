@@ -34,11 +34,13 @@
   box-shadow: -12px 8px 19px black;
   overflow: scroll;
   opacity: 0;
+  visibility: hidden;
   transition: opacity 0.5s ease-in-out;
 }
 
 .configuration .modal-IC.show{
   opacity: 1;
+  visibility: visible;
 }
 
 .modal-IC .modal-IC_title{

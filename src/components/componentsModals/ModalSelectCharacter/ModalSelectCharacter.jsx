@@ -29,8 +29,7 @@ export const ModalSelectCharacter = ({openModalCharacter, setOpenModalCharacter}
  /*---------------- component JSX structure ---------------------- */   
  return (
     <>
-      {openModalCharacter && (
-      <div className='modal-select-character'>
+      <div className= {`modal-select-character ${openModalCharacter ? 'show' : ''}`}>
         <div className="title-modal">
           <span>⚔️</span>
           <span>Selected Character</span>
@@ -50,7 +49,6 @@ export const ModalSelectCharacter = ({openModalCharacter, setOpenModalCharacter}
               >Back</Link>
         </div>
       </div>
-      )} 
     </>
-  )
-}
+  );
+};

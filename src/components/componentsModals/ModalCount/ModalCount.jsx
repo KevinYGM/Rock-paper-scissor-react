@@ -18,7 +18,7 @@ export const ModalCount = () => {
 
    /*-------------local Variables of this Component---------------------------------*/
 
-  const initialCount = ["3", "2", "1", "FIGHT!", "FINISH"];
+  const initialCount = ["3", "2", "1", "FIGHT!", ""];
 
 
   /*---------- useEffects that contribute to the Design and Effects of this Component----------*/
@@ -27,7 +27,7 @@ export const ModalCount = () => {
     if(isActivateCount){
       const animationInterval = setInterval(() => {
         setCurrentCountIndex((prevIndex) => (prevIndex + 1) % initialCount.length);
-      }, 1000);
+      }, 1100);
 
       const audio = new Audio(countSound);
       audio.play();
@@ -41,17 +41,16 @@ export const ModalCount = () => {
 
 
   useEffect(() => {
-    initialCount[currentCountIndex] === "FINISH" && (setIsActivateCount(false));
+    initialCount[currentCountIndex] === "" && (setIsActivateCount(false));
   // eslint-disable-next-line 
   },[currentCountIndex]);
   
  /*---------------- component JSX structure ---------------------- */  
   return (
     <>
-      {isActivateCount && (
-        <div className='modal-count'>
-          <span>{initialCount[currentCountIndex]}</span>
-        </div>)}
+      <div className={`modal-count ${isActivateCount ? 'show' : ''}`}>
+        <span>{initialCount[currentCountIndex]}</span>
+      </div>
     </>
   )
 }

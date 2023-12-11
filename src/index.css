@@ -40,8 +40,11 @@
   --red-scissor: linear-gradient(to left, rgb(107, 19, 19), rgb(255, 0, 0), rgb(107, 19, 19));
   --yellow-rock: linear-gradient(to left, rgb(136, 136, 31), yellow, rgb(136, 136, 31));
   --purple-paper: linear-gradient(to left, rgb(84, 14, 163), rgb(174, 0, 255), rgb(84, 14, 163));  
-
-
+  --gradient-silver: linear-gradient(45deg, #eaeaea, #d2d2d2, #eaeaea);
+  --bar-full: linear-gradient(to left, rgb(165, 13, 34), rgb(207, 112, 22), yellow, rgb(207, 112, 22), rgb(165, 13, 34));
+  --bar-green: linear-gradient(to left, rgb(19, 119, 10),rgb(32, 187, 18), rgb(35, 235, 17), rgb(32, 187, 18), rgb(19, 119, 10));
+  --bar-blue: linear-gradient(to left, rgba(5, 3, 41), rgba(13, 8, 104), rgba(49, 19, 221), rgba(13, 8, 104), rgba(5, 3, 41));
+  --bar-red: linear-gradient(to left, rgb(100, 5, 5), rgb(201, 19, 19), rgb(247, 18, 18), rgb(201, 19, 19), rgb(100, 5, 5));
   /*-------Effects----------------*/
   --x: 45deg;
 }

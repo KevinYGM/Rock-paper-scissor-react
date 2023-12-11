@@ -61,17 +61,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 0.5vmax;
   color: #fff;
   letter-spacing: 3px;
   background: rgba(14,21,56,0.50);
   overflow: hidden;
   border-radius: 1.7vmax;
   text-transform: uppercase;
+ 
 }
 
-.button-play span p{
+.buttons-play-container .button-play span p{
   font-size: 1vmax;
   font-family: 'Chakra Petch', sans-serif;
+}
+
+.buttons-play-container .button-play span .hand{
+  font-size: 1.8vmax;
+  animation: pulse-infinity 2s linear infinite;
+  transition: all 2s ease-in-out; 
 }
 
 .buttons-play-container button span::before{
@@ -134,7 +142,7 @@
 .buttons-play-container .surrender{
   justify-self: center;
   width: 90%;
-  height: 6.5vmax;
+  height: 7vmax;
 }
 
 .buttons-play-container .button-play-special span,

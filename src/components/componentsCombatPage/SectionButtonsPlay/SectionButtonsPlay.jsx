@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef, useContext} from 'react';
 import './SectionButtonsPlay.css';
-import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import { MyGeneralContext } from '../../../MyGeneralContext';
 import { ContextCombat } from '../../../ContextCombat';
 
@@ -45,26 +44,25 @@ export const SectionButtonsPlay = () => {
     roundsWithoutAttackSpecialCom, setRoundsWithoutAttackSpecialCom,
     roundsWithoutButtonClick, setRoundsWithoutButtonClick,
     selectPlay, setSelectPlay,
-    stateCombat, setStateCombat,
     
-    /*Only States (Alphabetical Order)*/  
+     /*Only States (Alphabetical Order)*/  
     isActivateCount,
-    
     pointsRoundCom,
     pointsRoundPlayer,
     resultComState,
     resultState,
+    stateCombat,
     
     /*Only Updaters (Alphabetical Order)*/
     setHistoryItems,
     setImagesPlayCom,
     setImagesPlayPlayer,
     setInteractiveTexts,
-    setMessageFinal,
-    setOpenModalFinal,
+    setPositivePoint,
+    setPositivePointCom,
     setStartAction,
-    setWinnerCombat
-    } = useContext(ContextCombat);
+    
+  } = useContext(ContextCombat);
 
 
 /*-------------local States and Refs of this Component---------------------------------*/
@@ -169,28 +167,19 @@ export const SectionButtonsPlay = () => {
   
     for (let i = 0; i < maxBars; i++) {
       progressBar.push(
-        <SwitchTransition key={i}>
-          <CSSTransition
-            key={i}
-            timeout={500}
-            classNames='fade'
-            unmountOnExit
-          >
-            <div
-              className="progress-bar-item"
-              style={{
-                background:
-                  counterElement === 1 || counterElement === 2
-                    ? 'var(--gradient-red)'
-                    : counterElement === 3 || counterElement === 4
-                    ? 'var(--gradient-yellow)'
-                    : counterElement >= 5 && counterElement <= 7
-                    ? 'var(--gradient-green)'
-                    : 'inherit'
-              }}
-            ></div>
-          </CSSTransition>
-        </SwitchTransition>
+        <div
+          className="progress-bar-item"
+          style={{
+            background:
+              counterElement === 1 || counterElement === 2
+                ? 'var(--gradient-red)'
+                : counterElement === 3 || counterElement === 4
+                ? 'var(--gradient-yellow)'
+                : counterElement >= 5 && counterElement <= 7
+                ? 'var(--gradient-green)'
+                : 'inherit'
+          }}
+        ></div>
       );
     }
   
@@ -311,11 +300,6 @@ return (
       <ModalSurrender
               openModalSurrender = { openModalSurrender }
               setOpenModalSurrender = { setOpenModalSurrender }
-              setOpenModalFinal = { setOpenModalFinal }
-              characterCom = { characterCom }
-              setWinnerCombat = { setWinnerCombat }
-              setMessageFinal = { setMessageFinal }
-              setStateCombat = {setStateCombat}
               />
       </button>
     
@@ -331,10 +315,13 @@ return (
           if (stateCombat && !ctrlActionButtons && counterRock !== 0) {
             setButtonSpecial(false);
             setCounterRock(prevCounter => prevCounter - 1);
+            setPositivePoint(true);
+            setPositivePointCom(true);
             activePlay(0);
             }
          }}
-          >✊🏼  <p>Rock</p></span>
+          ><strong className="hand">✊🏼</strong>  
+          <p>Rock</p></span>
         </button>
         <div className='progress-bar-container-btns-play'>
           {renderProgressBar(counterRock)}  
@@ -350,10 +337,13 @@ return (
             if (stateCombat && !ctrlActionButtons && counterPaper !== 0) {
               setButtonSpecial(false);
               setCounterPaper(prevCounter => prevCounter - 1);
+              setPositivePoint(true);
+              setPositivePointCom(true);
               activePlay(1);
             }
           }}
-        >✋🏼 <p>Paper</p></span>
+        > <strong className="hand">✋🏼</strong>  
+          <p>Paper</p></span>
         </button>
             <div className='progress-bar-container-btns-play'>
               {renderProgressBar(counterPaper)}  
@@ -370,10 +360,13 @@ return (
             if (stateCombat && !ctrlActionButtons && counterScissor !== 0) {
               setButtonSpecial(false);
               setCounterScissor(prevCounter => prevCounter - 1);
+              setPositivePoint(true);
+              setPositivePointCom(true);
               activePlay(2);
             }
           }}
-          >✌🏼  <p>Scissor</p></span>
+          > <strong className="hand">✌🏼</strong>
+            <p>Scissor</p></span>
         </button>
         <div  className='progress-bar-container-btns-play'>
           { renderProgressBar(counterScissor) }

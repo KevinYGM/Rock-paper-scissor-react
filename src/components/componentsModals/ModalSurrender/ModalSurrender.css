@@ -14,11 +14,13 @@
   box-shadow: 8px -2px 19px black;
   overflow: hidden;
   opacity: 0;
-  transition: all 2s ease-in-out;
+  visibility: hidden;
+  transition: all 0.5s ease-in-out;
 }
 
 .surrender .modal-surrender.show{
   opacity: 1;
+  visibility: visible;
 }
 
 /*-------------Title Styles--------------*/

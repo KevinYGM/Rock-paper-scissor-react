@@ -122,8 +122,8 @@ export const BattleHistory = () => {
       <div  className="history_tab" 
             onClick={toggleDiv}
             style={{
-              background: historyItems.length === 0 ? 'var(--gradient-red)' : 'var(--color-history-active)',
-              color: historyItems.length === 0 ? 'white' : 'var(--main-color)'
+              color: historyItems.length === 0 ? 'white' : 'var(--main-color)',
+              background: historyItems.length === 0 ? 'var(--gradient-red)' : 'var(--color-history-active)'
             }}
             >
         <div>

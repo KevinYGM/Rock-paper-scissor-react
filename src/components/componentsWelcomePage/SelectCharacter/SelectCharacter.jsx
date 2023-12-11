@@ -1,5 +1,5 @@
 import './SelectCharacter.css';
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import { MyGeneralContext } from '../../../MyGeneralContext';
 
@@ -15,8 +15,10 @@ export const SelectCharacter = ({openModalCharacter}) => {
           setCounterPaper,
           setCounterScissor } = useContext(MyGeneralContext);
 
-   /*-------------local States of this Component---------------------------------*/
+   /*-------------local States and refs of this Component---------------------------------*/
   const [indexCharacter, setIndexCharacter] = useState(0);
+  const [isForward, setIsForward] = useState(false);
+  const isFirstRender = useRef(true);
 
 
   /*---------- useEffects that contribute to the logic of this Component----------*/
@@ -30,18 +32,37 @@ useEffect(() => {
   },[indexCharacter, characters, setCharacterPlayer]);
 
 
+  useEffect(()=>{
+    /*To avoid rendering as soon as the component loads*/
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return};
+    
+    /*Main purpose of this useEffect */
+    !isForward 
+    ? setIndexCharacter((prevCharacter) => (prevCharacter + 1) % characters.length)
+    : setIndexCharacter((prevCharacter) => (prevCharacter - 1 + characters.length) % characters.length);
+    // eslint-disable-next-line
+  },[isForward]);
 
-  /*-------Component Functions for Design and Effects------------*/
-  const changeCharacter = (address) => {
+
+/*---------- Functions that contribute to the logic of this Component----------*/
+
+    const changeCharacter = (address) => {
     // Function that allows you to change characters by pressing the arrow buttons.
-    if (address === 'back') {
-      setIndexCharacter((prevCharacter) => (prevCharacter + 1) % characters.length);
-    }else if (address === 'forward') {
+    if (address === 'back' && !isForward) {
+      setIndexCharacter((prevCharacter) => (prevCharacter + 1) % characters.length);}
+    if (address === 'back' && isForward){
+      setIsForward(false)}
+    if (address === 'forward' && isForward) {
       setIndexCharacter((prevCharacter) => (prevCharacter - 1 + characters.length) % characters.length);
     }
-  }
+    if (address === 'forward' && !isForward) {
+      setIsForward(true)}
+  };
 
  
+
  /*---------------- component JSX structure ---------------------- */ 
   return (
     <div className='select-character'>
@@ -55,7 +76,7 @@ useEffect(() => {
                       <CSSTransition
                         key={indexCharacter}
                         timeout={200}
-                        classNames="character-slider">
+                        classNames={isForward ? "character-slider-forward" : "character-slider-back"}>
                             <img src={characters[indexCharacter].photo} alt={characters[indexCharacter].name} />
                       </CSSTransition>
                     </SwitchTransition>
@@ -80,20 +101,22 @@ useEffect(() => {
 
 {/*--------------------------section footer Character--------------------------- */}  
       <div className='character-footer'>
-        <button onClick={!openModalCharacter ? () => changeCharacter('forward') : undefined}
-          
-        ><IoIosArrowDropleftCircle /></button>
+        <button onClick={!openModalCharacter ? () => {changeCharacter('forward')} : undefined}>
+          <IoIosArrowDropleftCircle />
+        </button>
 
                     <SwitchTransition>
                       <CSSTransition
                         key={indexCharacter}
                         timeout={200}
-                        classNames="character-slider">
+                        classNames={isForward ? "character-slider-forward" : "character-slider-back"}>
                             <span className='character-name'>{characters[indexCharacter].name + " " + characters[indexCharacter].iconType}</span>
                       </CSSTransition>
                     </SwitchTransition>
-        <button onClick={!openModalCharacter ? () => changeCharacter('back') : undefined}>
-        <IoIosArrowDroprightCircle /></button>
+
+        <button onClick={!openModalCharacter ? () => {changeCharacter('back')} : undefined}>
+          <IoIosArrowDroprightCircle />
+        </button>
       </div>
      </div>
   )

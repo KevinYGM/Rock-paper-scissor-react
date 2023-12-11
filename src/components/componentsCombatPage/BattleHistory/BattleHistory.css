@@ -7,7 +7,7 @@
   width: 32vmax;
   height: 72vmin;
   transition: all 500ms ease-in-out;
-   z-index: 4;
+   z-index: 6;
    display: flex;
 }
 

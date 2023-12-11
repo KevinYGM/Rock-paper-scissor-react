@@ -3,7 +3,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 3;
+  z-index: 5;
   background-image: radial-gradient(circle, rgba(30, 28, 34, 0.842), rgba(38, 11, 102, 0.897), rgba(65, 19, 173, 0.842), rgba(38, 11, 102, 0.829), rgba(19, 9, 44, 0.856));;
   border-radius: 0.7vmax;
   box-shadow: -12px 8px 19px black;
@@ -18,11 +18,13 @@
   justify-content: space-between;
   align-items: center;
   opacity: 0;
+  visibility: hidden;
   transition: opacity 0.5s ease-in-out;
 }
 
 .modal-final.show{
   opacity: 1;
+  visibility: visible;
 }
 
 .modal-final .img-winner{

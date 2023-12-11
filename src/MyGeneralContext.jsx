@@ -10,8 +10,8 @@ const MyGeneralContext = createContext();
 const MyProviderContext = ({ children }) => {
 
    /*--------------------States Generals (Alphabetical Order)--------------------------- */
-   const [characterCom, setCharacterCom] = useState(null);
-   const [characterPlayer, setCharacterPlayer] = useState(null);
+   const [characterCom, setCharacterCom] = useState({});
+   const [characterPlayer, setCharacterPlayer] = useState({});
    const [counterPaper, setCounterPaper] = useState(0);
    const [counterPaperCom, setCounterPaperCom] = useState(0);
    const [counterRock, setCounterRock] = useState(0);

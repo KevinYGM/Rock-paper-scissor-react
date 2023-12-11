@@ -69,8 +69,7 @@
   width: 100%;
   display: flex;
   flex-direction: column-reverse;
-  background: linear-gradient(to left, rgb(165, 13, 34), rgb(207, 112, 22), yellow, rgb(207, 112, 22), rgb(165, 13, 34));
-  transition: height 1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 
@@ -120,12 +119,12 @@
 
 .play-battle-container .interactive-up span:nth-child(1){
   text-align: center;
-  font-size: max(1.5rem, min(3vmax, 4rem));
+  font-size: max(1.5rem, min(3vmax, 4.5rem));
 }
 
 .play-battle-container .interactive-up span:nth-child(2){
   font-family: 'Chakra Petch', sans-serif;
-  font-size: max(3rem, min(7vmax, 8rem));
+  font-size: max(3rem, min(7vmax, 9.5rem));
   transition: all 0.5s ease-in-out;
 }
 
