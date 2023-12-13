@@ -3,6 +3,9 @@ import './HeaderComponent.css';
 import { ModalInstructions } from '../../componentsModals/ModalInstructions/ModalInstructions';
 import { ModalConfiguration } from '../../componentsModals/ModalConfiguration/ModalConfiguration';
 
+/*Sounds*/
+import clickSound from '../../../sounds/sound-1.mp3';
+
 export const HeaderComponent = () => {
 
   /*-------------local States of this Component---------------------------------*/
@@ -15,6 +18,9 @@ export const HeaderComponent = () => {
 const toggleModal = (currentModal, setCurrentModal, unUsedModal,setUnUsedModal) => {
   /*function that opens and closes the configuration and instructions modals, and that conditions the opening of one with the closing of the other, to avoid collisions */
   
+    const audio = new Audio(clickSound);
+    audio.play();
+
     setCurrentModal(!currentModal);
     unUsedModal && (setUnUsedModal(false));
   }

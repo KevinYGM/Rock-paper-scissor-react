@@ -3,6 +3,9 @@ import './ModalSelectCharacter.css';
 import { Link } from 'react-router-dom';
 import { MyGeneralContext } from '../../../MyGeneralContext';
 
+/*Sound*/
+import confirmCharacter from '../../../sounds/confirmCharacter.mp3';
+
 export const ModalSelectCharacter = ({openModalCharacter, setOpenModalCharacter}) => {
 
   /*--------------Data imported from MyContext-------------------------*/
@@ -17,6 +20,10 @@ export const ModalSelectCharacter = ({openModalCharacter, setOpenModalCharacter}
 /*----------functions that contribute to the logic of this Component---------------*/
 
   const selectCharacterCom = () =>{
+
+    const audio = new Audio(confirmCharacter);
+    audio.play();
+
     const availablesCharacters = characters.filter((p) => p !== characterPlayer);
     const randomCharacter = availablesCharacters[Math.floor(Math.random() * availablesCharacters.length)];
     setCharacterCom(randomCharacter);

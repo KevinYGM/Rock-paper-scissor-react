@@ -5,6 +5,9 @@ import { ContextCombat } from '../../../ContextCombat';
 /*React Icons*/
 import { RiArrowRightDoubleFill, RiArrowLeftDoubleFill } from "react-icons/ri";
 
+/*Sounds*/
+import transitionSound from '../../../sounds/transition-base.mp3';
+
 
 export const BattleHistory = () => {
 
@@ -18,6 +21,9 @@ export const BattleHistory = () => {
 
 /*---------- Functions that contribute to the Design and Effects of this Component----------*/
   const toggleDiv = () => {
+    const audio = new Audio(transitionSound);
+    audio.currentTime = 0.5;
+    audio.play();
     historyItems.length !== 0 && (setVisible(!visible));
   }
 

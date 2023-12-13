@@ -3,6 +3,9 @@ import React, { useState, useEffect, useContext, useRef } from 'react';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import { MyGeneralContext } from '../../../MyGeneralContext';
 
+/*Sounds*/
+import bipSound from '../../../sounds/bip.mp3';
+
 /*React-icons*/
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle  } from "react-icons/io"
 
@@ -49,6 +52,11 @@ useEffect(() => {
 /*---------- Functions that contribute to the logic of this Component----------*/
 
     const changeCharacter = (address) => {
+
+      
+      const audio = new Audio(bipSound);
+      audio.play();
+      
     // Function that allows you to change characters by pressing the arrow buttons.
     if (address === 'back' && !isForward) {
       setIndexCharacter((prevCharacter) => (prevCharacter + 1) % characters.length);}

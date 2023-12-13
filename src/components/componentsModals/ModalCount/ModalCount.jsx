@@ -1,9 +1,10 @@
 import React, {useState, useEffect, useContext} from 'react';
 import './ModalCount.css';
+import { ContextCombat } from '../../../ContextCombat';
 
 /*Sounds*/
 import countSound from '../../../sounds/three-two-one.mp3';
-import { ContextCombat } from '../../../ContextCombat';
+
 
 
 

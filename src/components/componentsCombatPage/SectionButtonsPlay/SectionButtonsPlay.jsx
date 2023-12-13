@@ -3,6 +3,13 @@ import './SectionButtonsPlay.css';
 import { MyGeneralContext } from '../../../MyGeneralContext';
 import { ContextCombat } from '../../../ContextCombat';
 
+/*Sounds*/
+import buttonsPlaySound from '../../../sounds/buttonsPlay.mp3';
+import cronomether from '../../../sounds/cronometro.mp3';
+import clickSound from '../../../sounds/sound-1.mp3';
+import clickWrongSound from '../../../sounds/swoosh-sound.mp3';
+import buttonSpecialSound from '../../../sounds/epic-hybrid.mp3';
+
 /*Images*/
 import allHands from '../../../images/interfaz-images/all-hands.png';
 import trebol from '../../../images/interfaz-images/trebol.png';
@@ -40,6 +47,7 @@ export const SectionButtonsPlay = () => {
     ctrlActionButtons, setCtrlActionButtons,
     generalPlayCom, setGeneralPlayCom,
     generalPlayPlayer, setGeneralPlayPlayer,
+    imagesPlayPlayer, setImagesPlayPlayer,
     pauseGeneralState, setPauseGeneralState,
     roundsWithoutAttackSpecialCom, setRoundsWithoutAttackSpecialCom,
     roundsWithoutButtonClick, setRoundsWithoutButtonClick,
@@ -47,6 +55,7 @@ export const SectionButtonsPlay = () => {
     
      /*Only States (Alphabetical Order)*/  
     isActivateCount,
+    messageFinal,
     pointsRoundCom,
     pointsRoundPlayer,
     resultComState,
@@ -56,7 +65,6 @@ export const SectionButtonsPlay = () => {
     /*Only Updaters (Alphabetical Order)*/
     setHistoryItems,
     setImagesPlayCom,
-    setImagesPlayPlayer,
     setInteractiveTexts,
     setPositivePoint,
     setPositivePointCom,
@@ -77,7 +85,7 @@ export const SectionButtonsPlay = () => {
 
 /*-------------local Variables of this Component---------------------------------*/
   const playsDCom = playsDataCom(counterRockCom, counterPaperCom, counterScissorCom);
-  
+  const audioWrong = new Audio(clickWrongSound);
 
 
   /*----------Component Logic Functions----------------------------------------*/
@@ -158,6 +166,44 @@ export const SectionButtonsPlay = () => {
       return selectedPlay;
     }
   };
+
+
+  const selectButtonsPlay = (counterElement, setCounterElement, indexElement) => {
+    const audio = new Audio(buttonsPlaySound);
+    
+    if (stateCombat && !ctrlActionButtons && counterElement !== 0) {
+      audio.play();
+      setButtonSpecial(false);
+      setCounterElement(prevCounter => prevCounter - 1);
+      setPositivePoint(true);
+      setPositivePointCom(true);
+      activePlay(indexElement);
+    }else{
+      audioWrong.play();
+    }
+  };
+
+  const selectButtonSurrender = () => {
+    const audio = new Audio(clickSound);
+
+    if(stateCombat && controlRoundsState >= 4){
+      audio.play();
+      setOpenModalSurrender(true);
+    }else{
+      setOpenModalSurrender(false);
+    }
+   }
+
+   const selectButtonSpecial = () => { 
+    const audio = new Audio(buttonSpecialSound);
+    
+    if (stateCombat && !ctrlActionButtons && roundsWithoutButtonClick >= 6) {
+      audio.play();
+      setButtonSpecial(true);
+      setRoundsWithoutButtonClick(-1);
+      activePlay();
+    }
+  }
 
  
 /*----------Component Functions for Design----------------------------------------*/
@@ -248,20 +294,24 @@ export const SectionButtonsPlay = () => {
     // eslint-disable-next-line
   },[controlRoundsState]);
 
-
-
+  
   useEffect(() => {
-    /*Responsible for reactivating the interval effect in PlayBattle Component*/
-    if(selectPlay){
+    /*It detects that round d of plays has ended and activates the transition 
+    effect on the cards. */
+
+    if (selectPlay) {
       setSelectPlay(false);
       setImagesPlayPlayer(playsDataPlayer.map(play => play.photo));
       setImagesPlayCom(playsDCom.map(play => play.photo));
     }
-  // eslint-disable-next-line
-  }, [selectPlay, playsDataPlayer, setImagesPlayPlayer, playsDCom, setImagesPlayCom, isActivateCount]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectPlay, playsDataPlayer, playsDCom]);
+
 
 
   useEffect(() => {
+    //It detects that round of plays has ended and activates the transition effect on the cards.
+
     !isActivateCount && (setSelectPlay(true));
     
   // eslint-disable-next-line
@@ -283,6 +333,34 @@ export const SectionButtonsPlay = () => {
       });
     }, []);
 
+
+  useEffect(() => {
+    /*Function that assigns and controls the interval effect sound in 
+    playPlayer and playCom*/
+    
+    const [a, b, c] = imagesPlayPlayer;
+
+    if ((a !== b || a !== c) && messageFinal === "") {
+      const cronometherSound = new Audio(cronomether);
+
+      cronometherSound.volume = 0.3;
+    
+      const restartCronometherSound = () => {
+        cronometherSound.currentTime = 0;
+        cronometherSound.play();
+      };
+    
+      cronometherSound.addEventListener('ended', restartCronometherSound);
+      cronometherSound.play();
+    
+      return () => {
+        cronometherSound.removeEventListener('ended', restartCronometherSound);
+        cronometherSound.pause();
+      };
+    };
+    // eslint-disable-next-line
+  }, [imagesPlayPlayer, messageFinal]);
+
     
 /*---------------- Component JSX structure ---------------------- */ 
 return (
@@ -293,13 +371,12 @@ return (
       <i></i>
       <i></i>
       <span>
-        <span onClick={()=> {
-          stateCombat && controlRoundsState >= 4 ? setOpenModalSurrender(true) : setOpenModalSurrender(false);
-          }}>
+        <span onClick={selectButtonSurrender}>
           <img src={surrender} alt={"Surrender"}/>
         </span>
       </span>
-      <div className={`gray-layer ${stateCombat && controlRoundsState <= 3 ? 'show' : ''}`}></div>
+      <div  className={`gray-layer ${stateCombat && controlRoundsState <= 3 ? 'show' : ''}`}
+            onClick={() => {audioWrong.play()}}></div>
      
       <ModalSurrender
               openModalSurrender = { openModalSurrender }
@@ -315,18 +392,12 @@ return (
         <i></i>
         <i></i>
         <span
-         onClick={() => {  
-          if (stateCombat && !ctrlActionButtons && counterRock !== 0) {
-            setButtonSpecial(false);
-            setCounterRock(prevCounter => prevCounter - 1);
-            setPositivePoint(true);
-            setPositivePointCom(true);
-            activePlay(0);
-            }
-         }}
+         onClick={() => {selectButtonsPlay(counterRock, setCounterRock, 0)}}
+
           ><strong className="hand">✊🏼</strong>  
           <p>Rock</p></span>
-            <div className={`gray-layer ${stateCombat && counterRock === 0 ? 'show' : ''}`}></div>
+            <div  className={`gray-layer ${stateCombat && counterRock === 0 ? 'show' : ''}`}
+                  onClick={() => {audioWrong.play()}}></div>
           </button>
         <div className='progress-bar-container-btns-play'>
           {renderProgressBar(counterRock)}  
@@ -338,18 +409,11 @@ return (
           <i></i>
           <i></i>
           <span
-          onClick={() => {  
-            if (stateCombat && !ctrlActionButtons && counterPaper !== 0) {
-              setButtonSpecial(false);
-              setCounterPaper(prevCounter => prevCounter - 1);
-              setPositivePoint(true);
-              setPositivePointCom(true);
-              activePlay(1);
-            }
-          }}
+          onClick={() => {selectButtonsPlay(counterPaper, setCounterPaper, 1)}}
         > <strong className="hand">✋🏼</strong>  
           <p>Paper</p></span>
-          <div className={`gray-layer ${stateCombat && counterPaper === 0 ? 'show' : ''}`}></div>
+          <div  className={`gray-layer ${stateCombat && counterPaper === 0 ? 'show' : ''}`}
+                onClick={() => {audioWrong.play()}}></div>
         </button>
             <div className='progress-bar-container-btns-play'>
               {renderProgressBar(counterPaper)}  
@@ -361,18 +425,11 @@ return (
         <button className={`button-${stateCombat && counterScissor !== 0 ? 'play' : 'disabled'}`}>
           <i></i>
           <span
-          onClick={() => {  
-            if (stateCombat && !ctrlActionButtons && counterScissor !== 0) {
-              setButtonSpecial(false);
-              setCounterScissor(prevCounter => prevCounter - 1);
-              setPositivePoint(true);
-              setPositivePointCom(true);
-              activePlay(2);
-            }
-          }}
+             onClick={() => {selectButtonsPlay(counterScissor, setCounterScissor, 2)}}
           > <strong className="hand">✌🏼</strong>
             <p>Scissor</p></span>
-            <div className={`gray-layer ${stateCombat && counterScissor === 0 ? 'show' : ''}`}></div>
+            <div  className={`gray-layer ${stateCombat && counterScissor === 0 ? 'show' : ''}`}
+                  onClick={() => {audioWrong.play()}}></div>
         </button>
         <div  className='progress-bar-container-btns-play'>
           { renderProgressBar(counterScissor) }
@@ -387,16 +444,11 @@ return (
         <i></i>
         <i></i>
         <span
-        onClick={() => {
-        if (stateCombat && !ctrlActionButtons && roundsWithoutButtonClick >= 6) {
-          setButtonSpecial(true);
-          setRoundsWithoutButtonClick(-1);
-          activePlay();
-        }
-      }}>
+        onClick={selectButtonSpecial}>
           <img src={allHands} alt={"Aleatory"}/>
         </span>
-        <div className={`gray-layer ${stateCombat && roundsWithoutButtonClick < 6 ? 'show' : ''}`}></div>
+        <div  className={`gray-layer ${stateCombat && roundsWithoutButtonClick < 6 ? 'show' : ''}`}
+              onClick={() => {audioWrong.play()}}></div>
       </button>
     </div>
   </div>

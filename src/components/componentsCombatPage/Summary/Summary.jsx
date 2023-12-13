@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import './Summary.css';
 import { MyGeneralContext } from '../../../MyGeneralContext';
@@ -9,7 +9,8 @@ import vs from '../../../images/interfaz-images/vs.png';
 import markRed from '../../../images/interfaz-images/redMarker.png'; 
 import markBlue from '../../../images/interfaz-images/blueMarker.png'; 
 
-
+/*Sounds*/
+import summaryMark from '../../../sounds/summaryMark.mp3';
 
 
 export const Summary = () => {
@@ -18,6 +19,24 @@ export const Summary = () => {
   const { characterCom, characterPlayer } = useContext(MyGeneralContext);
 
   const { comMark, playerMark, positivePoint, positivePointCom } = useContext(ContextCombat);
+
+
+  /*-------------local States and Refs of this Component---------------------------------*/
+
+ const [isFirstRender, setIsFirstRender] = useState(true);
+
+
+  /*------useEffect for the Audio of the Component---------*/
+  useEffect(()=>{
+    if(isFirstRender){
+      setIsFirstRender(false);
+      return;
+    }
+
+    const audio = new Audio(summaryMark);
+    audio.play();
+    // eslint-disable-next-line 
+  },[playerMark, comMark]);
 
 /*---------------- component JSX structure ---------------------- */ 
   return (

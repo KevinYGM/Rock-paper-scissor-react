@@ -1,11 +1,22 @@
 import './StartGame.css';
 import React, { useEffect } from 'react';
 import {Link} from 'react-router-dom';
+import swordsSound from '../../../sounds/swords.mp3';
+
 
 /*Images*/
 import sword from '../../../images/interfaz-images/sword.png';
 
 export const StartGame = ({ openModalCharacter, setOpenModalCharacter }) => {
+
+  const openConfirmCharacter = () => {
+    const audio = new Audio(swordsSound);
+    audio.play();
+    
+    if (!openModalCharacter) {
+      setOpenModalCharacter(true);
+    }
+  }
 
   /*---------- useEffects that contribute to the Design and Effects of this Component----------*/
   useEffect(()=> {
@@ -29,7 +40,7 @@ export const StartGame = ({ openModalCharacter, setOpenModalCharacter }) => {
       
   {/*------------------Start Game Button----------------------*/}
       <Link   className="link-btn-start-game"
-              onClick= {!openModalCharacter ? () => setOpenModalCharacter(true) : undefined}>
+              onClick= {openConfirmCharacter}>
         <button className="btn-start-game">
           <div className="sword-container">
             <img src={sword} alt="sword" className="sword sword1" />
