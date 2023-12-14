@@ -23,3 +23,123 @@
 .modal-configuration .title-configuration span{
   animation: rotation-infinity-inverse 5s linear infinite;
 }
+
+
+/*---------------Configuration-Content------------------------*/
+
+.modal-configuration .configuration-content{
+  display: flex;
+  width: 100%;
+  height: 80%;
+  justify-content: center;
+  align-items: center;
+}
+
+/*---------------Configuration container-control-Sound------------------------*/
+.configuration-content .control-sound-container{
+  height: 90%;
+  width: 90%;
+  display: grid;
+  grid-template-areas:  "name-music name-sounds"
+                        "range-music range-sounds"
+                        "volume-music volume-sounds";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  place-items: center;
+  border-radius: 0.7vmax;
+  background-image: linear-gradient(rgba(30, 28, 34, 0.76), rgba(38, 11, 102, 0.753), rgba(65, 19, 173, 0.767), rgba(38, 11, 102, 0.753), rgba(19, 9, 44, 0.76));
+  box-shadow: -12px 8px 19px rgba(0, 0, 0, 0.562);
+  color: white;
+  padding: 1.5vmax 0;
+}
+
+.control-sound-container .name-audio{
+  text-transform: uppercase;
+  font-size: max(1rem, min(2vmax, 3rem));
+}
+
+
+.control-sound-container .name-music{
+  grid-area: name-music;
+}
+
+.control-sound-container .name-sounds{
+  grid-area: name-sounds;
+}
+
+.control-sound-container .container-range{
+  display: flex;
+  justify-content: center;
+  align-items: space-between;
+  transform: rotate(-90deg);
+}
+
+.control-sound-container .range-music{
+  grid-area: range-music;
+}
+
+.control-sound-container .range-sounds{
+  grid-area: range-sounds;
+}
+
+.control-sound-container .number-volume{
+  text-transform: uppercase;
+  font-size: max(2rem, min(2.5vmax, 5rem));
+}
+
+.control-sound-container .volume-music{
+  grid-area: volume-music;
+}
+
+.control-sound-container .volume-sounds{
+  grid-area: volume-sounds;
+}
+
+
+/* Estilos generales para los controles deslizantes */
+input[type="range"] {
+  width: 100%;
+  height: 10px;
+  margin: 5px 0;
+  background-color: #ddd;
+  border-radius: 5px;
+  outline: none;
+}
+
+/* Estilo del riel del control deslizante Chrome */
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0.7vmax;
+  background: linear-gradient(to left, rgb(29, 4, 29), rgb(95, 18, 95), rgb(29, 4, 29));
+  border-radius: 2vmax;
+}
+
+/* Estilo del control deslizante en sí */
+input[type="range"]::-webkit-slider-thumb {
+  width: 1.5vmax;
+  height: 2.5vmax;
+  background: var(--color-summary);
+  border: none;
+  border-radius: 0.5vmax;
+  cursor: pointer;
+  margin-top: -2.5%;
+}
+
+
+/* Estilo del control deslizante en Firefox */
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 1.1vmax;
+  background: linear-gradient(to left, rgb(29, 4, 29), rgb(95, 18, 95), rgb(29, 4, 29));
+  border-radius: 2vmax;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 1.5vmax;
+  height: 2.5vmax;
+  background: var(--color-summary);
+  border: none;
+  border-radius: 0.5vmax;
+  cursor: pointer;
+}
+
