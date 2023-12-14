@@ -55,7 +55,9 @@ export const SectionButtonsPlay = () => {
     
      /*Only States (Alphabetical Order)*/  
     isActivateCount,
+    isFirstRender,
     messageFinal,
+    playAgainState,
     pointsRoundCom,
     pointsRoundPlayer,
     resultComState,
@@ -75,7 +77,6 @@ export const SectionButtonsPlay = () => {
 
 /*-------------local States and Refs of this Component---------------------------------*/
   const [ openModalSurrender, setOpenModalSurrender ] = useState (false);
-  const [isFirstRender, setIsFirstRender] = useState(true);
   const [playPlayerInformation, setPlayPlayerInformation] = useState("");
   const [playComInformation, setPlayComInformation] = useState("");
   const prevControlRoundsState = useRef(controlRoundsState);
@@ -269,8 +270,7 @@ export const SectionButtonsPlay = () => {
   useEffect(() => {
     /* Responsible for sending and controlling the information sent to the 
     BattleHistory Component*/
-    if (isFirstRender) {
-      setIsFirstRender(false);
+    if (isFirstRender || playAgainState) {
       return;
     }
   

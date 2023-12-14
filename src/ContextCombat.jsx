@@ -24,9 +24,11 @@ const MyProviderCombat = ({ children }) => {
   const [imagesPlayPlayer, setImagesPlayPlayer] = useState([backCardPlayer, backCardPlayer, backCardPlayer]);
   const [interactiveTexts, setInteractiveTexts] = useState(`<p>Let's go for victory, Good Luck!!</p>`);
   const [isActivateCount, setIsActivateCount] = useState(true);
+  const [isFirstRender, setIsFirstRender] = useState(true);
   const [messageFinal, setMessageFinal] = useState("");
   const [openModalFinal, setOpenModalFinal] = useState(false);
   const [pauseGeneralState, setPauseGeneralState ] = useState(trebol);
+  const [playAgainState, setPlayAgainState] = useState(false);
   const [playerMark, setPlayerMark] = useState(0);
   const [pointsRoundCom, setPointsRoundCom] = useState("0");
   const [pointsRoundPlayer, setPointsRoundPlayer] = useState("0");
@@ -57,6 +59,7 @@ const MyProviderCombat = ({ children }) => {
         imagesPlayPlayer, setImagesPlayPlayer,
         interactiveTexts, setInteractiveTexts,
         isActivateCount, setIsActivateCount,
+        isFirstRender, setIsFirstRender,
         generalPlayCom, setGeneralPlayCom,
         generalPlayPlayer, setGeneralPlayPlayer,
         historyItems, setHistoryItems,
@@ -64,6 +67,7 @@ const MyProviderCombat = ({ children }) => {
         openModalFinal, setOpenModalFinal,
         pauseGeneralState, setPauseGeneralState,
         playerMark, setPlayerMark,
+        playAgainState, setPlayAgainState,
         pointsRoundCom, setPointsRoundCom,
         pointsRoundPlayer, setPointsRoundPlayer,
         positivePoint, setPositivePoint,

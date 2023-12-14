@@ -16,16 +16,17 @@ export const BattleHistory = () => {
 
   /*-------------local States of this Component---------------------------------*/
   const [visible, setVisible] = useState(true); //state to control the effect of moving from the section
-
+  const audio = new Audio(transitionSound);
 
 
 /*---------- Functions that contribute to the Design and Effects of this Component----------*/
   const toggleDiv = () => {
-    const audio = new Audio(transitionSound);
-    audio.currentTime = 0.5;
-    audio.play();
-    historyItems.length !== 0 && (setVisible(!visible));
-  }
+    if (historyItems.length !== 0){
+      setVisible(!visible);
+      audio.currentTime = 0.5;
+      audio.play();
+    }
+  };
 
   const colorPointsHistory = (itemRound, itemButtonSpecialOwn) => {
     return(

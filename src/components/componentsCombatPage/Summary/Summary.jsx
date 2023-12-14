@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import './Summary.css';
 import { MyGeneralContext } from '../../../MyGeneralContext';
@@ -18,18 +18,23 @@ export const Summary = () => {
   /*--------------Data imported from useContext-------------------------*/
   const { characterCom, characterPlayer } = useContext(MyGeneralContext);
 
-  const { comMark, playerMark, positivePoint, positivePointCom } = useContext(ContextCombat);
+  const { 
+    isFirstRender, setIsFirstRender,
+    playAgainState, setPlayAgainState, 
+    comMark, 
+    playerMark, 
+    positivePoint, 
+    positivePointCom, 
+    
+    } = useContext(ContextCombat);
 
 
-  /*-------------local States and Refs of this Component---------------------------------*/
-
- const [isFirstRender, setIsFirstRender] = useState(true);
-
-
-  /*------useEffect for the Audio of the Component---------*/
+ 
+/*------useEffect for the Audio of the Component---------*/
   useEffect(()=>{
-    if(isFirstRender){
+    if(isFirstRender || playAgainState){
       setIsFirstRender(false);
+      setPlayAgainState(false);
       return;
     }
 

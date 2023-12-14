@@ -38,7 +38,7 @@ export const PlayBattle = () => {
     roundsWithoutAttackSpecialCom,
     startAction,
 
-    /*Only Updaters (Alphabetical Order)*/
+    
     setMessageFinal,
     setPointsRoundPlayer,
     setPointsRoundCom,
