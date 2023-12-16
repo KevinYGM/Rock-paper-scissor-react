@@ -12,6 +12,7 @@ import { ContextCombat } from '../../ContextCombat';
 /*Modals*/
 import { ModalFinalGame } from '../componentsModals/ModalFinalGame/ModalFinalGame';
 import { ModalCount } from '../componentsModals/ModalCount/ModalCount';
+import { MyGeneralContext } from '../../MyGeneralContext';
 
 /*Sounds*/
 import backgroundCombat from '../../sounds/backgroundCombat.mp3';
@@ -19,6 +20,8 @@ import backgroundCombat from '../../sounds/backgroundCombat.mp3';
 
 
 export const ComponentCombat = () => {
+
+  const { volumeMusic } = useContext(MyGeneralContext);
 
   const {isActivateCount, messageFinal} = useContext(ContextCombat);
 
@@ -43,29 +46,59 @@ export const ComponentCombat = () => {
     };
   }, []);
 
+/*-------------Variables of this Component---------------------------------*/
+    const backgroundCombatSound = new Audio(backgroundCombat);
+
+/*---------- useEffects and Functions that contribute to the logic of component----------*/
+
+    const playBackgroundCombat = () => {
+    backgroundCombatSound.currentTime = 0;
+    return backgroundCombatSound.play();
+  };
 
   useEffect(() => {
     /*Background music management function*/
     if(!isActivateCount && messageFinal === ""){
-      const backgroundCombatSound = new Audio(backgroundCombat);
 
-      backgroundCombatSound.volume = 0.1;
-  
-      const restartBackgroundMusic = () => {
-        backgroundCombatSound.currentTime = 0;
-        backgroundCombatSound.play();
+      const playBackgroundMusic = () => {
+        if (playBackgroundCombat() !== undefined) {
+          // Use a promise to handle the play
+          playBackgroundCombat()
+          .then(() => {
+            // Playback has started successfully
+          })
+          .catch((error) => {
+            console.error('Error when playing:', error);
+          });
+        }
       };
-  
-      backgroundCombatSound.addEventListener('ended', restartBackgroundMusic);
-  
-      backgroundCombatSound.play();
+
+      backgroundCombatSound.addEventListener('ended', playBackgroundMusic);
+      backgroundCombatSound.volume = volumeMusic / 100;
+
+      if(!backgroundCombatSound.paused){
+        // Prevents it from playing again if it is already in progress
+        return;
+      }
+
+      playBackgroundMusic();
   
       return () => {
-        backgroundCombatSound.removeEventListener('ended', restartBackgroundMusic);
-        backgroundCombatSound.pause();
+        backgroundCombatSound.removeEventListener('ended', playBackgroundMusic);
+        // Pause and handle the resulting promise
+        playBackgroundCombat()
+          .then(() => {
+            // Playback has started successfully
+            backgroundCombatSound.pause();
+          })
+          .catch((error) => {
+            console.error('Error when playing:', error);
+          });
       };
     }
-   }, [isActivateCount, messageFinal]);
+     // eslint-disable-next-line 
+   }, [isActivateCount, messageFinal, volumeMusic]);
+
 
 
 

@@ -18,8 +18,22 @@ const MyProviderContext = ({ children }) => {
    const [counterRockCom, setCounterRockCom] = useState(0);
    const [counterScissor, setCounterScissor] = useState(0);
    const [counterScissorCom, setCounterScissorCom] = useState(0);
-   
+   const [userIsActive, setUserIsActive] = useState(false);
+   const [volumeSounds, setVolumeSounds] = useState(50);
+   const [volumeMusic, setVolumeMusic] = useState(50);
+ 
+ 
+   const adjustVolume = (newVolume) => {
+     setVolumeSounds(newVolume);
+   };
+ 
+   const adjustVolumeMusic = (newVolumeMusic) => {
+     setVolumeMusic(newVolumeMusic);
+   } 
+ 
 
+  /*--------------------Sounds Generals (Alphabetical Order)--------------------------- */
+ 
   return(
     <MyGeneralContext.Provider 
       value={{ 
@@ -35,7 +49,14 @@ const MyProviderContext = ({ children }) => {
         counterRock, setCounterRock,
         counterRockCom, setCounterRockCom,
         counterScissor, setCounterScissor,
-        counterScissorCom, setCounterScissorCom
+        counterScissorCom, setCounterScissorCom,
+        userIsActive, setUserIsActive,
+        volumeSounds, setVolumeSounds,
+        volumeMusic, setVolumeMusic,
+
+        /* Functions */
+
+        adjustVolume, adjustVolumeMusic
       
     }}>{children}</MyGeneralContext.Provider>
   );

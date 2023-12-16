@@ -1,12 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './HeaderComponent.css';
 import { ModalInstructions } from '../../componentsModals/ModalInstructions/ModalInstructions';
 import { ModalConfiguration } from '../../componentsModals/ModalConfiguration/ModalConfiguration';
+import { MyGeneralContext } from '../../../MyGeneralContext';
 
 /*Sounds*/
-import clickSound from '../../../sounds/sound-1.mp3';
+import modalsSound from '../../../sounds/sound-1.mp3';
+
 
 export const HeaderComponent = () => {
+
+  /*--------------Data imported from useContext-------------------------*/
+  const { userIsActive, setUserIsActive, volumeSounds } = useContext(MyGeneralContext);
 
   /*-------------local States of this Component---------------------------------*/
   const [ openModalConfiguration, setOpenModalConfiguration ] = useState (false);
@@ -17,14 +22,19 @@ export const HeaderComponent = () => {
 
 const toggleModal = (currentModal, setCurrentModal, unUsedModal,setUnUsedModal) => {
   /*function that opens and closes the configuration and instructions modals, and that conditions the opening of one with the closing of the other, to avoid collisions */
-  
-    const audio = new Audio(clickSound);
-    audio.play();
+    
+    if(!userIsActive){
+      setUserIsActive(true);
+    }
+    
+    const audioWindows =  new Audio(modalsSound);
+    audioWindows.currentTime = 0;
+    audioWindows.volume = volumeSounds / 100;
+    audioWindows.play();
 
     setCurrentModal(!currentModal);
     unUsedModal && (setUnUsedModal(false));
   }
-
 
 
  /*---------------- component JSX structure ---------------------- */ 
@@ -55,8 +65,7 @@ const toggleModal = (currentModal, setCurrentModal, unUsedModal,setUnUsedModal) 
                 setOpenModalInstructions)}>⚙️</span>
 
         <ModalConfiguration 
-                openModalConfiguration = {openModalConfiguration}
-                /> 
+                openModalConfiguration = {openModalConfiguration}/> 
 
       </div>
     </header>

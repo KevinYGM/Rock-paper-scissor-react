@@ -33,6 +33,7 @@ export const SectionButtonsPlay = () => {
     /*Only States (Alphabetical Order)*/  
     characterCom, 
     characterPlayer,
+    volumeSounds,
     /*Only Data (Alphabetical Order)*/  
     playsDataCom,
     playsDataPlayer,
@@ -170,25 +171,31 @@ export const SectionButtonsPlay = () => {
 
 
   const selectButtonsPlay = (counterElement, setCounterElement, indexElement) => {
-    const audio = new Audio(buttonsPlaySound);
+    const audioButtonsPlay = new Audio(buttonsPlaySound);
     
     if (stateCombat && !ctrlActionButtons && counterElement !== 0) {
-      audio.play();
-      setButtonSpecial(false);
-      setCounterElement(prevCounter => prevCounter - 1);
-      setPositivePoint(true);
-      setPositivePointCom(true);
-      activePlay(indexElement);
+        audioButtonsPlay.currentTime = 0.2;
+        audioButtonsPlay.volume = volumeSounds / 100;
+        audioButtonsPlay.play();
+        setButtonSpecial(false);
+        setCounterElement(prevCounter => prevCounter - 1);
+        setPositivePoint(true);
+        setPositivePointCom(true);
+        activePlay(indexElement);
     }else{
-      audioWrong.play();
+        audioWrong.currentTime = 0;
+        audioWrong.volume = volumeSounds / 100;
+        audioWrong.play();
     }
   };
 
   const selectButtonSurrender = () => {
-    const audio = new Audio(clickSound);
+    const audioButtonSurrender = new Audio(clickSound);
 
     if(stateCombat && controlRoundsState >= 4){
-      audio.play();
+      audioButtonSurrender.currentTime = 0;
+      audioButtonSurrender.volume = volumeSounds / 100;
+      audioButtonSurrender.play();
       setOpenModalSurrender(true);
     }else{
       setOpenModalSurrender(false);
@@ -196,14 +203,22 @@ export const SectionButtonsPlay = () => {
    }
 
    const selectButtonSpecial = () => { 
-    const audio = new Audio(buttonSpecialSound);
+    const audioButtonSpecial = new Audio(buttonSpecialSound);
     
     if (stateCombat && !ctrlActionButtons && roundsWithoutButtonClick >= 6) {
-      audio.play();
+      audioButtonSpecial.currentTime = 0;
+      audioButtonSpecial.volume = volumeSounds / 100;
+      audioButtonSpecial.play();
       setButtonSpecial(true);
       setRoundsWithoutButtonClick(-1);
       activePlay();
     }
+  }
+
+  const selectButtonDisabled = () => {
+    audioWrong.currentTime = 0;
+    audioWrong.volume = volumeSounds / 100;
+    audioWrong.play();
   }
 
  
@@ -342,24 +357,49 @@ export const SectionButtonsPlay = () => {
 
     if ((a !== b || a !== c) && messageFinal === "") {
       const cronometherSound = new Audio(cronomether);
+      cronometherSound.volume = (volumeSounds / 100) / 1.6;
 
-      cronometherSound.volume = 0.3;
-    
       const restartCronometherSound = () => {
         cronometherSound.currentTime = 0;
-        cronometherSound.play();
-      };
+        if (cronometherSound.play() !== undefined) {
+          // Use a promise to handle the play
+          cronometherSound.play()
+            .then(() => {
+              // Playback has started successfully
+            })
+            .catch((error) => {
+              console.error('Error when playing:', error);
+            });
+          }
+        };
     
       cronometherSound.addEventListener('ended', restartCronometherSound);
-      cronometherSound.play();
-    
+      if (cronometherSound.play() !== undefined) {
+        // Use a promise to handle the play
+        cronometherSound.play()
+          .then(() => {
+            // Playback has started successfully
+          })
+          .catch((error) => {
+            console.error('Error when playing:', error);
+          });
+      }
+
       return () => {
         cronometherSound.removeEventListener('ended', restartCronometherSound);
-        cronometherSound.pause();
+        cronometherSound.play()
+        .then(() => {
+          // Playback has started successfully
+          cronometherSound.pause();
+        })
+        .catch((error) => {
+          console.error('Error when playing:', error);
+        });
       };
     };
     // eslint-disable-next-line
-  }, [imagesPlayPlayer, messageFinal]);
+  }, [imagesPlayPlayer, messageFinal, volumeSounds]);
+
 
     
 /*---------------- Component JSX structure ---------------------- */ 
@@ -376,7 +416,7 @@ return (
         </span>
       </span>
       <div  className={`gray-layer ${stateCombat && controlRoundsState <= 3 ? 'show' : ''}`}
-            onClick={() => {audioWrong.play()}}></div>
+            onClick={ selectButtonDisabled }></div>
      
       <ModalSurrender
               openModalSurrender = { openModalSurrender }
@@ -397,7 +437,7 @@ return (
           ><strong className="hand">✊🏼</strong>  
           <p>Rock</p></span>
             <div  className={`gray-layer ${stateCombat && counterRock === 0 ? 'show' : ''}`}
-                  onClick={() => {audioWrong.play()}}></div>
+                  onClick={ selectButtonDisabled }></div>
           </button>
         <div className='progress-bar-container-btns-play'>
           {renderProgressBar(counterRock)}  
@@ -413,7 +453,7 @@ return (
         > <strong className="hand">✋🏼</strong>  
           <p>Paper</p></span>
           <div  className={`gray-layer ${stateCombat && counterPaper === 0 ? 'show' : ''}`}
-                onClick={() => {audioWrong.play()}}></div>
+                onClick={ selectButtonDisabled }></div>
         </button>
             <div className='progress-bar-container-btns-play'>
               {renderProgressBar(counterPaper)}  
@@ -429,7 +469,7 @@ return (
           > <strong className="hand">✌🏼</strong>
             <p>Scissor</p></span>
             <div  className={`gray-layer ${stateCombat && counterScissor === 0 ? 'show' : ''}`}
-                  onClick={() => {audioWrong.play()}}></div>
+                  onClick={ selectButtonDisabled }></div>
         </button>
         <div  className='progress-bar-container-btns-play'>
           { renderProgressBar(counterScissor) }
@@ -448,7 +488,7 @@ return (
           <img src={allHands} alt={"Aleatory"}/>
         </span>
         <div  className={`gray-layer ${stateCombat && roundsWithoutButtonClick < 6 ? 'show' : ''}`}
-              onClick={() => {audioWrong.play()}}></div>
+              onClick={ selectButtonDisabled }></div>
       </button>
     </div>
   </div>

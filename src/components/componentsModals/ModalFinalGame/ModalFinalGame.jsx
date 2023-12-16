@@ -65,6 +65,7 @@ export const ModalFinalGame = () => {
     /*Only States (Alphabetical Order)*/  
     characterCom,
     characterPlayer,
+    volumeMusic,
 
     /*Only Updaters (Alphabetical Order)*/
     setCounterPaper,
@@ -114,16 +115,18 @@ export const ModalFinalGame = () => {
     }
 
     const handleEndedAudio = () => {
+      audioBackground.volume= volumeMusic / 100;
       audioBackground.play();
     }
 
     if(messageFinal === '💔 YOU HAVE LOST 💔' || messageFinal === '🏳️ YOU GAVE UP 🏳️'){
+      audioLose.volume = volumeMusic / 100;
       audioLose.play();
       audioLose.addEventListener('ended', handleEndedAudio);
 
     return () => {
       audioLose.removeEventListener('ended', handleEndedAudio);
-        audioBackground.volume = 0.1;
+        audioBackground.volume = volumeMusic / 100;
         audioBackground.play();
         audioLose.pause();
         audioLose.currentTime = 0;
@@ -131,13 +134,15 @@ export const ModalFinalGame = () => {
         audioBackground.currentTime = 0;
       }
     }else{
+      audioVictoryVoice.volume = volumeMusic / 100;
+      audioVictory.volume = volumeMusic / 100;
       audioVictoryVoice.play();
       audioVictory.play();
       audioVictory.addEventListener('ended', handleEndedAudio);
 
     return () => {
       audioVictory.removeEventListener('ended', handleEndedAudio);
-        audioBackground.volume = 0.1;
+        audioBackground.volume = volumeMusic / 100;
         audioBackground.play();
         audioLose.pause();
         audioLose.currentTime = 0;

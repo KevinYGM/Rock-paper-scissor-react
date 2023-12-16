@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import './BattleHistory.css';
+import { MyGeneralContext } from '../../../MyGeneralContext';
 import { ContextCombat } from '../../../ContextCombat';
 
 /*React Icons*/
@@ -9,22 +10,25 @@ import { RiArrowRightDoubleFill, RiArrowLeftDoubleFill } from "react-icons/ri";
 import transitionSound from '../../../sounds/transition-base.mp3';
 
 
+
 export const BattleHistory = () => {
 
   /*--------------Data imported from useContext-------------------------*/
+  const { volumeSounds } = useContext(MyGeneralContext);
   const { historyItems } = useContext(ContextCombat);
 
   /*-------------local States of this Component---------------------------------*/
   const [visible, setVisible] = useState(true); //state to control the effect of moving from the section
-  const audio = new Audio(transitionSound);
 
 
 /*---------- Functions that contribute to the Design and Effects of this Component----------*/
   const toggleDiv = () => {
     if (historyItems.length !== 0){
       setVisible(!visible);
-      audio.currentTime = 0.5;
-      audio.play();
+      const audioTransitionHistory = new Audio(transitionSound);
+      audioTransitionHistory.currentTime = 0.4;
+      audioTransitionHistory.volume = volumeSounds / 100;
+      audioTransitionHistory.play();
     }
   };
 

@@ -4,19 +4,22 @@ import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import { MyGeneralContext } from '../../../MyGeneralContext';
 
 /*Sounds*/
-import bipSound from '../../../sounds/bip.mp3';
+import selectCharacterSound from '../../../sounds/bip.mp3';
 
 /*React-icons*/
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle  } from "react-icons/io"
 
-export const SelectCharacter = ({openModalCharacter}) => {
+export const SelectCharacter = ({ openModalCharacter }) => {
 
-  /*--------------Data imported from MyContext-------------------------*/
-  const { characters,
+  /*--------------Data imported from useContext-------------------------*/
+  const { userIsActive, setUserIsActive, 
+          characters,
+          volumeSounds,
           setCharacterPlayer,
           setCounterRock,
           setCounterPaper,
-          setCounterScissor } = useContext(MyGeneralContext);
+          setCounterScissor
+          } = useContext(MyGeneralContext);
 
    /*-------------local States and refs of this Component---------------------------------*/
   const [indexCharacter, setIndexCharacter] = useState(0);
@@ -52,21 +55,26 @@ useEffect(() => {
 /*---------- Functions that contribute to the logic of this Component----------*/
 
     const changeCharacter = (address) => {
+      const audioSelectCharacter = new Audio(selectCharacterSound);
+      audioSelectCharacter.currentTime = 0;
+      audioSelectCharacter.volume = volumeSounds / 100;
+      audioSelectCharacter.play();
+
+      if(!userIsActive){
+        setUserIsActive(true);
+      }
 
       
-      const audio = new Audio(bipSound);
-      audio.play();
-      
-    // Function that allows you to change characters by pressing the arrow buttons.
-    if (address === 'back' && !isForward) {
-      setIndexCharacter((prevCharacter) => (prevCharacter + 1) % characters.length);}
-    if (address === 'back' && isForward){
-      setIsForward(false)}
-    if (address === 'forward' && isForward) {
-      setIndexCharacter((prevCharacter) => (prevCharacter - 1 + characters.length) % characters.length);
-    }
-    if (address === 'forward' && !isForward) {
-      setIsForward(true)}
+      // Function that allows you to change characters by pressing the arrow buttons.
+      if (address === 'back' && !isForward) {
+        setIndexCharacter((prevCharacter) => (prevCharacter + 1) % characters.length);}
+      if (address === 'back' && isForward){
+        setIsForward(false)}
+      if (address === 'forward' && isForward) {
+        setIndexCharacter((prevCharacter) => (prevCharacter - 1 + characters.length) % characters.length);
+      }
+      if (address === 'forward' && !isForward) {
+        setIsForward(true)}
   };
 
  

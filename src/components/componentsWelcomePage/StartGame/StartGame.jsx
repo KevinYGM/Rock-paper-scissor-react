@@ -1,17 +1,30 @@
 import './StartGame.css';
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import {Link} from 'react-router-dom';
-import swordsSound from '../../../sounds/swords.mp3';
-
+import { MyGeneralContext } from '../../../MyGeneralContext';
 
 /*Images*/
 import sword from '../../../images/interfaz-images/sword.png';
 
+/*Sounds*/
+import swordsSound from '../../../sounds/swords.mp3';
+
 export const StartGame = ({ openModalCharacter, setOpenModalCharacter }) => {
 
+  /*--------------Data imported from useContext-------------------------*/
+  const { userIsActive, setUserIsActive, volumeSounds } = useContext(MyGeneralContext);
+
+
   const openConfirmCharacter = () => {
-    const audio = new Audio(swordsSound);
-    audio.play();
+    const audioSwordsSound = new Audio(swordsSound);
+    audioSwordsSound.currentTime = 0;
+    audioSwordsSound.volume = volumeSounds / 100;
+    audioSwordsSound.play();
+    console.log("el valor actual del volumen es:" + audioSwordsSound.volume);
+
+    if(!userIsActive){
+      setUserIsActive(true);
+    }
     
     if (!openModalCharacter) {
       setOpenModalCharacter(true);

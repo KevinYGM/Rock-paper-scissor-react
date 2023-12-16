@@ -16,7 +16,7 @@ import summaryMark from '../../../sounds/summaryMark.mp3';
 export const Summary = () => {
 
   /*--------------Data imported from useContext-------------------------*/
-  const { characterCom, characterPlayer } = useContext(MyGeneralContext);
+  const { characterCom, characterPlayer, volumeSounds } = useContext(MyGeneralContext);
 
   const { 
     isFirstRender, setIsFirstRender,
@@ -38,8 +38,10 @@ export const Summary = () => {
       return;
     }
 
-    const audio = new Audio(summaryMark);
-    audio.play();
+    const audioMark = new Audio(summaryMark);
+    audioMark.currentTime = 0;
+    audioMark.volume = volumeSounds / 100;
+    audioMark.play();
     // eslint-disable-next-line 
   },[playerMark, comMark]);
 

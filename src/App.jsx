@@ -3,17 +3,14 @@ import React from 'react';
 import {Routes, Route, BrowserRouter} from 'react-router-dom';
 import { MyProviderCombat } from './ContextCombat';
 
-
-
 /*Components*/
 import { ComponentWelcome } from './components/componentsWelcomePage/ComponentWelcome';
 import { ComponentCombat } from './components/componentsCombatPage/ComponentCombat';
 
 
-
-
 function App() {
 
+  
   /*---------------- component JSX structure ---------------------- */ 
   return (
     <BrowserRouter basename="/Rock-paper-scissor-react">
