@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Rock-paper-scissor-react/static/css/main.214f0587.css",
-    "main.js": "/Rock-paper-scissor-react/static/js/main.a32eb68c.js",
+    "main.css": "/Rock-paper-scissor-react/static/css/main.f9f62d6b.css",
+    "main.js": "/Rock-paper-scissor-react/static/js/main.4f4d55b5.js",
     "static/media/backgroundCombat.mp3": "/Rock-paper-scissor-react/static/media/backgroundCombat.a2738a4d9506fdd22ec7.mp3",
     "static/media/backgroundWelcome.mp3": "/Rock-paper-scissor-react/static/media/backgroundWelcome.5d346c306dd6771a1df0.mp3",
     "static/media/Williams-Rock-Face.png": "/Rock-paper-scissor-react/static/media/Williams-Rock-Face.e7b7be23d28b22dcbb91.png",
@@ -60,11 +60,11 @@
     "static/media/swords.mp3": "/Rock-paper-scissor-react/static/media/swords.2150d39233e26f1cfc85.mp3",
     "static/media/swoosh-sound.mp3": "/Rock-paper-scissor-react/static/media/swoosh-sound.6966b855d0222ee30248.mp3",
     "index.html": "/Rock-paper-scissor-react/index.html",
-    "main.214f0587.css.map": "/Rock-paper-scissor-react/static/css/main.214f0587.css.map",
-    "main.a32eb68c.js.map": "/Rock-paper-scissor-react/static/js/main.a32eb68c.js.map"
+    "main.f9f62d6b.css.map": "/Rock-paper-scissor-react/static/css/main.f9f62d6b.css.map",
+    "main.4f4d55b5.js.map": "/Rock-paper-scissor-react/static/js/main.4f4d55b5.js.map"
   },
   "entrypoints": [
-    "static/css/main.214f0587.css",
-    "static/js/main.a32eb68c.js"
+    "static/css/main.f9f62d6b.css",
+    "static/js/main.4f4d55b5.js"
   ]
 }
