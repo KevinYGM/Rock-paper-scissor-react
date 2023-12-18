@@ -126,12 +126,8 @@ export const ModalFinalGame = () => {
 
     return () => {
       audioLose.removeEventListener('ended', handleEndedAudio);
-        audioBackground.volume = volumeMusic / 100;
-        audioBackground.play();
-        audioLose.pause();
-        audioLose.currentTime = 0;
-        audioBackground.pause();
-        audioBackground.currentTime = 0;
+      audioLose.pause();
+      audioBackground.pause();
       }
     }else{
       audioVictoryVoice.volume = volumeMusic / 100;
@@ -142,19 +138,12 @@ export const ModalFinalGame = () => {
 
     return () => {
       audioVictory.removeEventListener('ended', handleEndedAudio);
-        audioBackground.volume = volumeMusic / 100;
-        audioBackground.play();
-        audioLose.pause();
-        audioLose.currentTime = 0;
-        audioBackground.pause();
-        audioBackground.currentTime = 0;
+      audioVictory.pause();
+      audioBackground.pause();
       };
     }
     // eslint-disable-next-line 
   },[messageFinal]);
-
-
-
 
 
 

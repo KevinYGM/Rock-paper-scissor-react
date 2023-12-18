@@ -12,7 +12,7 @@ import swordsSound from '../../../sounds/swords.mp3';
 export const StartGame = ({ openModalCharacter, setOpenModalCharacter }) => {
 
   /*--------------Data imported from useContext-------------------------*/
-  const { userIsActive, setUserIsActive, volumeSounds } = useContext(MyGeneralContext);
+  const { recordVictory, recordLose, userIsActive, setUserIsActive, volumeSounds } = useContext(MyGeneralContext);
 
 
   const openConfirmCharacter = () => {
@@ -67,8 +67,8 @@ export const StartGame = ({ openModalCharacter, setOpenModalCharacter }) => {
       <div className="record-vs-pc">
         <div className='record-statement'>
           <span className='recordG'>Global Record</span>
-          <div className="victorys record"><span className='victorys-span'>🏆</span><strong className='victorys-strong'>0</strong></div>
-          <div className="loses record"><strong className='loses-strong'>0</strong><span className='loses-span'>☠️</span></div>
+          <div className="victorys record"><span className='victorys-span'>🏆</span><strong className='victorys-strong'>{ recordVictory }</strong></div>
+          <div className="loses record"><strong className='loses-strong'>{ recordLose }</strong><span className='loses-span'>☠️</span></div>
         </div>
       </div>
     </div>

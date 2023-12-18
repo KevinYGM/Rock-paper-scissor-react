@@ -8,7 +8,7 @@ import { ContextCombat } from '../../../ContextCombat';
 export const ModalSurrender = ({ openModalSurrender, setOpenModalSurrender }) => {
 
   /*--------------Data imported from useContext-------------------------*/
-  const { characterCom } = useContext(MyGeneralContext);
+  const { characterCom, setRecordLose } = useContext(MyGeneralContext);
 
   const { setOpenModalFinal,
           setWinnerCombat,
@@ -24,6 +24,7 @@ export const ModalSurrender = ({ openModalSurrender, setOpenModalSurrender }) =>
     setOpenModalFinal(true);
     setOpenModalSurrender(false);
     setStateCombat(false);
+    setRecordLose((prevRecord) => (prevRecord + 1));
   }
 
   /*---------------- component JSX structure ---------------------- */  

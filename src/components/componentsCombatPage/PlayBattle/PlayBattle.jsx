@@ -12,9 +12,10 @@ import frame from '../../../images/interfaz-images/frame-vector.png';
 export const PlayBattle = () => {
 
  /*--------------Data imported from useContext-------------------------*/
-  const { characterCom, characterPlayer} = useContext(MyGeneralContext);
+  const { characterCom, characterPlayer, setRecordLose, setRecordVictory} = useContext(MyGeneralContext);
 
   const {
+   
     /*States with their Updaters (Alphabetical Order)*/
     comMark, setComMark,
     interactiveTexts, setInteractiveTexts,
@@ -42,6 +43,7 @@ export const PlayBattle = () => {
     setMessageFinal,
     setPointsRoundPlayer,
     setPointsRoundCom,
+    
     setStateCombat,
     setWinnerCombat
     } = useContext(ContextCombat);
@@ -150,12 +152,15 @@ useEffect(() => {
         setWinnerCombat(characterCom);
         setMessageFinal("💔 YOU HAVE LOST 💔");
         setStateCombat(false);
+        setRecordLose((prevRecord) => (prevRecord + 1));
       } else {
         setWinnerCombat(characterPlayer);
         setMessageFinal("🎉 CONGRATULATIONS 🎉");
         setStateCombat(false);
+        setRecordVictory((prevRecord) => (prevRecord + 1));
       }
     }
+    // eslint-disable-next-line
   }, [  characterPlayer, 
         characterCom, 
         setWinnerCombat,

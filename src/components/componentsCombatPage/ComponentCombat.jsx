@@ -27,6 +27,7 @@ export const ComponentCombat = () => {
 
   /*-------------local States and Refs of this Component---------------------------------*/
   const [isHorizontal, setIsHorizontal] = useState(false);
+  const [currentPosition, setCurrentPosition] = useState(0);
 
   /*---------------- UseEffects dedicated to design---------------------- */ 
   useEffect(() => {
@@ -52,7 +53,6 @@ export const ComponentCombat = () => {
 /*---------- useEffects and Functions that contribute to the logic of component----------*/
 
     const playBackgroundCombat = () => {
-    backgroundCombatSound.currentTime = 0;
     return backgroundCombatSound.play();
   };
 
@@ -81,9 +81,17 @@ export const ComponentCombat = () => {
         return;
       }
 
+      backgroundCombatSound.currentTime = currentPosition;
+
       playBackgroundMusic();
   
       return () => {
+        setCurrentPosition((prevPosition) => {
+          // Save the current playback position
+          const newCurrentPosition = backgroundCombatSound.currentTime;
+          return newCurrentPosition !== prevPosition ? newCurrentPosition : prevPosition;
+        });
+
         backgroundCombatSound.removeEventListener('ended', playBackgroundMusic);
         // Pause and handle the resulting promise
         playBackgroundCombat()

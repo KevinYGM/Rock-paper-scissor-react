@@ -18,6 +18,8 @@ const MyProviderContext = ({ children }) => {
    const [counterRockCom, setCounterRockCom] = useState(0);
    const [counterScissor, setCounterScissor] = useState(0);
    const [counterScissorCom, setCounterScissorCom] = useState(0);
+   const [recordVictory, setRecordVictory] = useState(0);
+   const [recordLose, setRecordLose] = useState(0);
    const [userIsActive, setUserIsActive] = useState(false);
    const [volumeSounds, setVolumeSounds] = useState(50);
    const [volumeMusic, setVolumeMusic] = useState(50);
@@ -50,6 +52,8 @@ const MyProviderContext = ({ children }) => {
         counterRockCom, setCounterRockCom,
         counterScissor, setCounterScissor,
         counterScissorCom, setCounterScissorCom,
+        recordLose, setRecordLose,
+        recordVictory, setRecordVictory,
         userIsActive, setUserIsActive,
         volumeSounds, setVolumeSounds,
         volumeMusic, setVolumeMusic,

@@ -22,6 +22,7 @@ export const ComponentWelcome = () => {
 
   /*-------------local States of this Component---------------------------------*/
   const [openModalCharacter, setOpenModalCharacter] = useState(false);
+  const [currentPosition, setCurrentPosition] = useState(0);
 
   
 /*-------------Variables of this Component---------------------------------*/
@@ -33,16 +34,16 @@ export const ComponentWelcome = () => {
 
 
   const playBackgroundWelcome = () => {
-  backgroundWelcomeSound.currentTime = 1;
-  return backgroundWelcomeSound.play();
+    return backgroundWelcomeSound.play();
 };
 
 useEffect(() => {
-  /*Background music management function*/
+  /* Background music management function */
   if (userIsActive) {
+
     const playBackgroundMusic = () => {
       if (playBackgroundWelcome() !== undefined) {
-        // Use a promise to handle the play
+        // Use a promise to handle the playback
         playBackgroundWelcome()
           .then(() => {
             // Playback has started successfully
@@ -53,19 +54,34 @@ useEffect(() => {
       }
     };
 
+    // Add an event listener to detect the end of the welcome music and play the background music
     backgroundWelcomeSound.addEventListener('ended', playBackgroundMusic);
     backgroundWelcomeSound.volume = volumeMusic / 100;
 
+    // If the background music is already playing, avoid playing it again
     if (!backgroundWelcomeSound.paused) {
-      // Prevents it from playing again if it is already in progress
       return;
     }
 
+    // Restore the playback position
+    backgroundWelcomeSound.currentTime = currentPosition;
+
+    // Start playing the background music
     playBackgroundMusic();
 
+    // Clean up the effect (when the component unmounts or when userIsActive or volumeMusic changes)
     return () => {
+      // Use the state update function to avoid concurrency issues
+      setCurrentPosition((prevPosition) => {
+        // Save the current playback position
+        const newCurrentPosition = backgroundWelcomeSound.currentTime;
+        return newCurrentPosition !== prevPosition ? newCurrentPosition : prevPosition;
+      });
+
+      // Remove the event listener to prevent memory leaks
       backgroundWelcomeSound.removeEventListener('ended', playBackgroundMusic);
-      // Pause and handle the resulting promise
+
+      // Pause the background music and handle the resulting promise
       playBackgroundWelcome()
         .then(() => {
           // Playback has started successfully
@@ -77,11 +93,10 @@ useEffect(() => {
     };
   }
   // eslint-disable-next-line 
-}, [userIsActive, volumeMusic ]);
+}, [userIsActive, volumeMusic]);
 
 
-
-  /*---------------- component JSX structure ---------------------- */ 
+/*---------------- component JSX structure ---------------------- */ 
   return (
     <div className='container-welcome'>
       <HeaderComponent />

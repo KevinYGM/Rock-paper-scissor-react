@@ -4,6 +4,7 @@ import { ContextCombat } from '../../../ContextCombat';
 
 /*Sounds*/
 import countSound from '../../../sounds/three-two-one.mp3';
+import { MyGeneralContext } from '../../../MyGeneralContext';
 
 
 
@@ -11,7 +12,9 @@ import countSound from '../../../sounds/three-two-one.mp3';
 export const ModalCount = () => {
 
   /*--------------Data imported from MyContext-------------------------*/
-  const {isActivateCount, setIsActivateCount} = useContext(ContextCombat);
+
+  const { volumeSounds } = useContext(MyGeneralContext);
+  const { isActivateCount, setIsActivateCount } = useContext(ContextCombat);
 
 
    /*-------------local States of this Component---------------------------------*/
@@ -30,8 +33,9 @@ export const ModalCount = () => {
         setCurrentCountIndex((prevIndex) => (prevIndex + 1) % initialCount.length);
       }, 1100);
 
-      const audio = new Audio(countSound);
-      audio.play();
+      const audioCount = new Audio(countSound);
+      audioCount.volume = volumeSounds / 100;
+      audioCount.play();
     
       return () => {
         clearInterval(animationInterval);
