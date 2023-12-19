@@ -12,7 +12,7 @@ import frame from '../../../images/interfaz-images/frame-vector.png';
 export const PlayBattle = () => {
 
  /*--------------Data imported from useContext-------------------------*/
-  const { characterCom, characterPlayer, setRecordLose, setRecordVictory} = useContext(MyGeneralContext);
+  const { characterCom, characterPlayer, recordVictory, recordLose, setRecordLose, setRecordVictory} = useContext(MyGeneralContext);
 
   const {
    
@@ -52,6 +52,9 @@ export const PlayBattle = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const prevComMark = useRef(comMark);
     const prevPlayerMark = useRef(playerMark);
+
+    const newRecordVictory = recordVictory + 1;
+    const newRecordLose = recordLose + 1;
     
 
     /*---------- useEffects that contribute to the Design of component----------*/
@@ -149,27 +152,23 @@ useEffect(() => {
       comMark !== playerMark) {
         
       if (comMark > playerMark) {
+        setRecordLose(newRecordLose);
+        localStorage.setItem('recordLose', newRecordLose.toString());
         setWinnerCombat(characterCom);
         setMessageFinal("💔 YOU HAVE LOST 💔");
         setStateCombat(false);
-        setRecordLose((prevRecord) => (prevRecord + 1));
+        // setRecordLose((prevRecord) => (prevRecord + 1)); 
       } else {
+        setRecordVictory(newRecordVictory);
+        localStorage.setItem('recordVictory', newRecordVictory.toString());
         setWinnerCombat(characterPlayer);
         setMessageFinal("🎉 CONGRATULATIONS 🎉");
         setStateCombat(false);
-        setRecordVictory((prevRecord) => (prevRecord + 1));
+        // setRecordVictory((prevRecord) => (prevRecord + 1));
       }
     }
     // eslint-disable-next-line
-  }, [  characterPlayer, 
-        characterCom, 
-        setWinnerCombat,
-        setMessageFinal,
-        setStateCombat, 
-        comMark, 
-        playerMark, 
-        controlRoundsState,
-        ]);
+  }, [  setStateCombat, controlRoundsState ]);
 
         
 /*----------------------- Component JSX structure ----------------------------- */ 

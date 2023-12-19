@@ -18,7 +18,7 @@ import backgroundWelcome from '../../sounds/backgroundWelcome.mp3';
 export const ComponentWelcome = () => {
 
    /*--------------Data imported from useContext-------------------------*/
-   const { userIsActive, volumeMusic } = useContext(MyGeneralContext);
+   const { setRecordLose, setRecordVictory, userIsActive, volumeMusic } = useContext(MyGeneralContext);
 
   /*-------------local States of this Component---------------------------------*/
   const [openModalCharacter, setOpenModalCharacter] = useState(false);
@@ -94,6 +94,24 @@ useEffect(() => {
   }
   // eslint-disable-next-line 
 }, [userIsActive, volumeMusic]);
+
+
+
+
+/*Efecto para cargar a RecordVictory Y RecordLose desde el localStorage */
+
+useEffect(() => {
+  const storedRecordVictory = localStorage.getItem('recordVictory');
+  const storedRecordLose = localStorage.getItem('recordLose');
+
+// Si hay valores en localStorage, los establecemos como estados iniciales
+  storedRecordVictory && (setRecordVictory(parseInt(storedRecordVictory, 10)));
+  storedRecordLose && (setRecordLose(parseInt(storedRecordLose, 10)));
+
+  // eslint-disable-next-line 
+}, [])
+
+
 
 
 /*---------------- component JSX structure ---------------------- */ 

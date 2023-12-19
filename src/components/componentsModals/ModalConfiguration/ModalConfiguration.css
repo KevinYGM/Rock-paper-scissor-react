@@ -30,14 +30,18 @@
 .modal-configuration .configuration-content{
   display: flex;
   width: 100%;
-  height: 80%;
+  height: 90%;
   justify-content: center;
-  align-items: center;
+  gap: 1vmax;
+  font-size: max(1.5rem, min(2vmax, 5rem));
+  padding: 0.5vmax;
+  -webkit-text-stroke: 0.05vmax rgb(143, 112, 143);
+  color: white;
 }
 
 /*---------------Configuration container-control-Sound------------------------*/
 .configuration-content .control-sound-container{
-  height: 90%;
+  height: 70%;
   width: 90%;
   display: grid;
   grid-template-areas:  "name-music name-sounds"
@@ -50,12 +54,12 @@
   background-image: linear-gradient(rgba(30, 28, 34, 0.76), rgba(38, 11, 102, 0.753), rgba(65, 19, 173, 0.767), rgba(38, 11, 102, 0.753), rgba(19, 9, 44, 0.76));
   box-shadow: -12px 8px 19px rgba(0, 0, 0, 0.562);
   color: white;
-  padding: 1.5vmax 0;
+  padding: 0.2vmax 0;
 }
 
 .control-sound-container .name-audio{
   text-transform: uppercase;
-  font-size: max(1rem, min(2vmax, 3rem));
+  font-size: max(1rem, min(1.7vmax, 3rem));
 }
 
 
@@ -85,7 +89,7 @@
 .control-sound-container .number-volume{
   text-transform: uppercase;
   font-family: 'Chakra Petch', sans-serif;
-  font-size: max(2rem, min(1.9vmax, 5rem));
+  font-size: max(2rem, min(1.5vmax, 5rem));
 }
 
 .control-sound-container .volume-music{
@@ -118,7 +122,7 @@ input[type="range"]::-webkit-slider-runnable-track {
 /* Estilo del control deslizante en sí */
 input[type="range"]::-webkit-slider-thumb {
   width: 1.5vmax;
-  height: 2.5vmax;
+  height: 2vmax;
   background: var(--color-summary);
   border: none;
   border-radius: 0.5vmax;
@@ -137,10 +141,74 @@ input[type="range"]::-moz-range-track {
 
 input[type="range"]::-moz-range-thumb {
   width: 1.5vmax;
-  height: 2.5vmax;
+  height: 2vmax;
   background: var(--color-summary);
   border: none;
   border-radius: 0.5vmax;
   cursor: pointer;
+}
+
+.configuration-content .btn-restart-record{
+  width: 90%;
+  height: 10%;
+  cursor: pointer;
+  border-radius: 0.5vmax;
+  box-shadow: -12px 8px 19px rgba(0, 0, 0, 0.562);
+  border: none;
+  background: var(--background-summary);
+  font-size: 1.8vmax;
+  transition: all 0.3s ease-in-out;
+}
+
+.configuration-content .btn-restart-record:hover{
+  background: var(--background-startGame-hover);
+  color:white;
+}
+
+.configuration-content .btn-restart-record:active{
+  background: radial-gradient(circle, rgba(19, 9, 44, 0.842), rgba(38, 11, 102, 0.897), rgba(65, 19, 173, 0.842), rgba(38, 11, 102, 0.829), rgba(19, 9, 44, 0.856));
+  color:white;
+  transform: scale(1.1);
+}
+
+.configuration-content .container-btn-record{
+  width: 90%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  gap: 1vmax;
+}
+.container-btn-record .btn-confirm-yes,
+.container-btn-record .btn-confirm-no{
+  width: 50%;
+  height: 100%;
+  font-size: 1.6vmax;
+  cursor: pointer;
+  color: white;
+  border: none;
+  border-radius: 0.2vmax;
+  opacity: 0.8;
+  transition: all 0.5ms ease-in-out;
+}
+
+.container-btn-record .btn-confirm-yes:hover,
+.container-btn-record .btn-confirm-no:hover{
+  opacity: 1;
+}
+
+.container-btn-record .btn-confirm-yes:active,
+.container-btn-record .btn-confirm-no:active{
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+
+
+.container-btn-record .btn-confirm-yes{
+  background-image: var( --gradient-blue-transp);
+}
+
+.container-btn-record .btn-confirm-no{
+  background-image: var( --gradient-red-transp);
 }
 

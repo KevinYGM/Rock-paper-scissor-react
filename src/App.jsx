@@ -25,6 +25,7 @@ function App() {
                   </MyProviderCombat>} />
 
         <Route  path='/welcome' 
+                index
                 element={<ComponentWelcome />} />
       </Routes>
     </BrowserRouter>

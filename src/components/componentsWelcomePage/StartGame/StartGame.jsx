@@ -66,7 +66,7 @@ export const StartGame = ({ openModalCharacter, setOpenModalCharacter }) => {
   {/*---------------Record Area------------------------ */}
       <div className="record-vs-pc">
         <div className='record-statement'>
-          <span className='recordG'>Global Record</span>
+          <span className='recordG'>General Record</span>
           <div className="victorys record"><span className='victorys-span'>🏆</span><strong className='victorys-strong'>{ recordVictory }</strong></div>
           <div className="loses record"><strong className='loses-strong'>{ recordLose }</strong><span className='loses-span'>☠️</span></div>
         </div>
