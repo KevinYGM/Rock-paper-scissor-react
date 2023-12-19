@@ -31,9 +31,13 @@ export const ModalSelectCharacter = ({ openModalCharacter, setOpenModalCharacter
     const availablesCharacters = characters.filter((p) => p !== characterPlayer);
     const randomCharacter = availablesCharacters[Math.floor(Math.random() * availablesCharacters.length)];
     setCharacterCom(randomCharacter);
+    localStorage.setItem('characterCom', JSON.stringify(randomCharacter));
     setCounterRockCom(randomCharacter.powerRock);
+    localStorage.setItem('counterRockCom', randomCharacter.powerRock.toString());
     setCounterPaperCom(randomCharacter.powerPaper);
+    localStorage.setItem('counterPaperCom', randomCharacter.powerPaper.toString());
     setCounterScissorCom(randomCharacter.powerScissor);
+    localStorage.setItem('counterScissorCom', randomCharacter.powerScissor.toString());
   }
 
 

@@ -21,7 +21,19 @@ import backgroundCombat from '../../sounds/backgroundCombat.mp3';
 
 export const ComponentCombat = () => {
 
-  const { volumeMusic } = useContext(MyGeneralContext);
+  const { 
+    volumeMusic,
+    setCharacterCom,
+    setCharacterPlayer,
+    setCounterPaper,
+    setCounterPaperCom,
+    setCounterRock,
+    setCounterRockCom,
+    setCounterScissor,
+    setCounterScissorCom,
+    setRecordVictory,
+    setRecordLose
+    } = useContext(MyGeneralContext);
 
   const {isActivateCount, messageFinal} = useContext(ContextCombat);
 
@@ -52,7 +64,36 @@ export const ComponentCombat = () => {
 
 /*---------- useEffects and Functions that contribute to the logic of component----------*/
 
-    const playBackgroundCombat = () => {
+useEffect(() => {
+  const storedRecordVictory = localStorage.getItem('recordVictory');
+  const storedRecordLose = localStorage.getItem('recordLose');
+  const storedCharacterPlayer = localStorage.getItem('characterPlayer');
+  const storedCharacterCom = localStorage.getItem('characterCom');
+  const storedCounterPaper = localStorage.getItem('counterPaper');
+  const storedCounterRock = localStorage.getItem('counterRock');
+  const storedCounterScissor = localStorage.getItem('counterScissor');
+  const storedCounterPaperCom = localStorage.getItem('counterPaperCom');
+  const storedCounterRockCom = localStorage.getItem('counterRockCom');
+  const storedCounterScissorCom = localStorage.getItem('counterScissorCom');
+
+  storedRecordVictory && (setRecordVictory(parseInt(storedRecordVictory, 10)));
+  storedRecordLose && (setRecordLose(parseInt(storedRecordLose, 10)));
+  storedCharacterPlayer && setCharacterPlayer(JSON.parse(storedCharacterPlayer));
+  storedCharacterCom && setCharacterCom(JSON.parse(storedCharacterCom));
+  storedCounterPaper && setCounterPaper(parseInt(storedCounterPaper, 10));
+  storedCounterRock && setCounterRock(parseInt(storedCounterRock, 10));
+  storedCounterScissor && setCounterScissor(parseInt(storedCounterScissor, 10));
+  storedCounterPaperCom && setCounterPaperCom(parseInt(storedCounterPaperCom, 10));
+  storedCounterRockCom && setCounterRockCom(parseInt(storedCounterRockCom, 10));
+  storedCounterScissorCom && setCounterScissorCom(parseInt(storedCounterScissorCom, 10));
+
+  // eslint-disable-next-line 
+}, []);
+
+
+
+
+const playBackgroundCombat = () => {
     return backgroundCombatSound.play();
   };
 

@@ -31,9 +31,13 @@ export const SelectCharacter = ({ openModalCharacter }) => {
 useEffect(() => {
   /*It is responsible for sending the information of the character chosen by the player*/
     setCharacterPlayer(characters[indexCharacter]);
+    localStorage.setItem('characterPlayer', JSON.stringify(characters[indexCharacter]));
     setCounterRock(characters[indexCharacter].powerRock);
+    localStorage.setItem('counterRock', characters[indexCharacter].powerRock.toString());
     setCounterPaper(characters[indexCharacter].powerPaper);
+    localStorage.setItem('counterPaper', characters[indexCharacter].powerPaper.toString());
     setCounterScissor(characters[indexCharacter].powerScissor);
+    localStorage.setItem('counterScissor', characters[indexCharacter].powerScissor.toString());
     // eslint-disable-next-line
   },[indexCharacter, characters, setCharacterPlayer]);
 

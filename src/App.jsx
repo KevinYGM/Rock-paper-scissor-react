@@ -24,9 +24,9 @@ function App() {
                     <ComponentCombat />
                   </MyProviderCombat>} />
 
-        <Route  path='/welcome' 
+        {/* <Route  path='/welcome' 
                 index
-                element={<ComponentWelcome />} />
+                element={<ComponentWelcome />} /> */}
       </Routes>
     </BrowserRouter>
   )

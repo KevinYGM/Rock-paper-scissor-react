@@ -156,7 +156,7 @@ export const ModalFinalGame = () => {
           <img src={winnerCombat.winnerPhoto} alt={winnerCombat.name + "Winner"} />
         </div>
         <div className="container-buttons">
-          <Link to= '/welcome'
+          <Link to= '/'
                 onClick={()=> {setOpenModalFinal(false)}}
                 >Go Back To Start</Link>
           <Link
