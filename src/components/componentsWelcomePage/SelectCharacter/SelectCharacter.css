@@ -50,7 +50,10 @@
   background-image: url(../../../images/interfaz-images/purple-background.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  border: 0.4vw solid rgb(196, 193, 16);
+  border: 0.5vmax;
+  border-image: var(--color-summary);
+  border-image-slice: 1;
+  border-style: solid;
   transform: rotateY(0deg);
   opacity: 1;
 }
@@ -61,6 +64,10 @@
   background-image: url(../../../images/interfaz-images/reverse-card-purple.jpg);
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  border: 0.5vmax;
+  border-image: var(--color-summary);
+  border-image-slice: 1;
+  border-style: solid;
   transform: rotateY(180deg);
   opacity: 0;
 }
@@ -69,43 +76,129 @@
   position:relative;
   width: 100%;
   height: 100%;
+  color: var(--color-font-main);
 }
 
           /*----------------Section: Back Image: title------------------*/
 .inside-back-card .title-back-card{
   position: absolute;
-  top: 28%;
+  top: 28.5%;
   transform: translateY(-50%);
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
+  gap: 3vmax;
   width: 100%;
 }
 
 .inside-back-card .title-back-card .text-of-type{
   font-family: 'Yellowtail', cursive;
-  color: var(--color-font-main);
-  font-size: max(2rem, min(7vw, 3.5rem));
+  font-size: max(2rem, min(7vw, 4rem));
 }
 
-          /*----------------Section: Back Image: Image Element------------------*/
+.title-back-card .face-character{
+  border: 0.1vmax solid rgb(11, 9, 15);
+  border-radius: 50%;
+  width: 3.6vmax;
+  min-width: 4.5rem;
+  height: 3.6vmax;
+  min-height: 4.5rem;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+
+.title-back-card .face-character:hover{
+  transform: scale(1.8);
+}
+
+.title-back-card .face-character img{
+  width: 100%;
+  height: 100%;
+}
+
+    /*----------------Section: Back Image: Descriptive Container------------------*/
+.back-image .descriptive-container{
+  position: absolute;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  top: 65%;
+  transform: translateY(-50%);
+  left: 0;
+  height: 20%;
+
+}
+
+.descriptive-container .plays-for-game{
+  display: flex;
+  flex-direction: column;
+  gap: 0.2vmax;
+  border: none;
+  font-size: max(1.5rem, min(1.1vw, 3rem));
+  height: 100%;
+  width: 10vmax;
+}
+
+.plays-for-game .title-plays{
+  text-align: center;
+  height: 25%;
+}
+
+
+.plays-for-game .type-one,
+.plays-for-game .type-two,
+.plays-for-game .type-three{
+  padding: 1vmax;
+  border-width: 0.2vmax;
+  border-radius: 0.5vmax;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  text-transform: uppercase;
+  gap: 1vmax;
+  width: 100%;
+  height: 30%;
+  box-shadow: 4px 4px 8px rgba(105, 74, 134, 0.664);
+  transition: all 0.2s ease-in-out;
+}
+
+.plays-for-game .type-one span:last-child,
+.plays-for-game .type-two span:last-child,
+.plays-for-game .type-three span:last-child{
+  font-size: max(2rem, min(1.5vw, 3rem));
+}
+
+.plays-for-game .type-one:hover,
+.plays-for-game .type-two:hover,
+.plays-for-game .type-three:hover{
+  transform: scale(1.3);
+}
+
+
+.plays-for-game .type-one img,
+.plays-for-game .type-two img,
+.plays-for-game .type-three img{
+  width: 2vmax;
+  height: 2vmax;
+}
+
 
 .back-image .img-element{
-  position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 25%;
+  margin-top: 2vmax;
+  width: 30%;
   min-width: 8rem;
-  height: 25%;
-  border: 0.4vw groove rgb(42, 3, 121);
-  background-image: var(--color-summary);
+  border: 0.3vmax solid rgb(203, 196, 214);
   border-radius: 50%;
   overflow: hidden;
   display: grid;
   place-items: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.back-image .img-element:hover{
+  transform: scale(1.4);
 }
 
 .back-image .img-element img{
@@ -219,5 +312,12 @@
 @media (min-width: 700px){
   .select-character{
     grid-area:selectCharacter;
+  }
+}
+
+@media (min-width: 950px){
+  .select-character{
+    width:75%;
+    height: 100%;
   }
 }
