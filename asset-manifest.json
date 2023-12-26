@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Rock-paper-scissor-react/static/css/main.b86ccd04.css",
-    "main.js": "/Rock-paper-scissor-react/static/js/main.5a27d61c.js",
+    "main.css": "/Rock-paper-scissor-react/static/css/main.a6c63040.css",
+    "main.js": "/Rock-paper-scissor-react/static/js/main.bc6def82.js",
     "static/media/backgroundCombat.mp3": "/Rock-paper-scissor-react/static/media/backgroundCombat.a2738a4d9506fdd22ec7.mp3",
     "static/media/backgroundWelcome.mp3": "/Rock-paper-scissor-react/static/media/backgroundWelcome.5d346c306dd6771a1df0.mp3",
     "static/media/Williams-Rock-Face.png": "/Rock-paper-scissor-react/static/media/Williams-Rock-Face.e7b7be23d28b22dcbb91.png",
@@ -16,6 +16,7 @@
     "static/media/Melissa-Paper-Winner.png": "/Rock-paper-scissor-react/static/media/Melissa-Paper-Winner.32047009466a1e7bb93a.png",
     "static/media/ambient-piano.mp3": "/Rock-paper-scissor-react/static/media/ambient-piano.e71ff8146fe0c120a239.mp3",
     "static/media/Williams-Rock-Winner.png": "/Rock-paper-scissor-react/static/media/Williams-Rock-Winner.304c6f899616b390d7c1.png",
+    "static/media/opening-logo.mp3": "/Rock-paper-scissor-react/static/media/opening-logo.c6d8891a9d92c27896cf.mp3",
     "static/media/epic-hybrid.mp3": "/Rock-paper-scissor-react/static/media/epic-hybrid.af5162d090520af4045f.mp3",
     "static/media/blueMarker.png": "/Rock-paper-scissor-react/static/media/blueMarker.5a4c73be5cb69493a762.png",
     "static/media/Scarlett-Rock-Winner.png": "/Rock-paper-scissor-react/static/media/Scarlett-Rock-Winner.fdedc308d85e1d6c49e0.png",
@@ -61,11 +62,11 @@
     "static/media/swords.mp3": "/Rock-paper-scissor-react/static/media/swords.2150d39233e26f1cfc85.mp3",
     "static/media/swoosh-sound.mp3": "/Rock-paper-scissor-react/static/media/swoosh-sound.6966b855d0222ee30248.mp3",
     "index.html": "/Rock-paper-scissor-react/index.html",
-    "main.b86ccd04.css.map": "/Rock-paper-scissor-react/static/css/main.b86ccd04.css.map",
-    "main.5a27d61c.js.map": "/Rock-paper-scissor-react/static/js/main.5a27d61c.js.map"
+    "main.a6c63040.css.map": "/Rock-paper-scissor-react/static/css/main.a6c63040.css.map",
+    "main.bc6def82.js.map": "/Rock-paper-scissor-react/static/js/main.bc6def82.js.map"
   },
   "entrypoints": [
-    "static/css/main.b86ccd04.css",
-    "static/js/main.5a27d61c.js"
+    "static/css/main.a6c63040.css",
+    "static/js/main.bc6def82.js"
   ]
 }
