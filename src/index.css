@@ -9,7 +9,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Teko:wght@600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500;700&display=swap');
 /*----------Variables Root--------------------------------*/
 
 :root{
@@ -33,10 +35,15 @@
   --gradient-yellow: linear-gradient(rgb(102, 104, 7), rgb(189, 192, 15), rgb(248, 252, 20), rgb(189, 192, 15), rgb(102, 104, 7));
   --gradient-red: linear-gradient(rgb(100, 5, 5), rgb(201, 19, 19), rgb(247, 18, 18), rgb(201, 19, 19), rgb(100, 5, 5));
   --gradient-green: linear-gradient(rgb(19, 119, 10),rgb(32, 187, 18), rgb(35, 235, 17), rgb(32, 187, 18), rgb(19, 119, 10));
+  --gradient-green-transp: linear-gradient(rgb(19, 119, 10, 0.747),rgb(32, 187, 18, 0.747), rgb(35, 235, 17, 0.747), rgb(32, 187, 18, 0.747), rgb(19, 119, 10, 0.747));
+  --gradient-green-dark-transp: linear-gradient(rgba(8, 43, 4, 0.747),rgba(20, 122, 11, 0.747), rgba(26, 187, 11, 0.747), rgba(20, 122, 11, 0.747), rgba(8, 43, 4, 0.747));
   --gradient-blue: linear-gradient(rgba(5, 3, 41), rgba(13, 8, 104), rgba(49, 19, 221), rgba(13, 8, 104), rgba(5, 3, 41));
   --gradient-orange: linear-gradient(rgb(190, 100, 15), rgb(228, 118, 15), rgb(255, 164, 80), rgb(228, 118, 15), rgb(190, 100, 15));
   --gradient-blue-transp: linear-gradient(rgba(5, 3, 41, 0.897), rgba(13, 8, 104, 0.897), rgba(49, 19, 221, 0.884), rgba(13, 8, 104, 0.897), rgba(5, 3, 41, 0.897));
   --gradient-red-transp: linear-gradient(rgb(100, 5, 5, 0.897), rgb(201, 19, 19, 0.897), rgb(247, 18, 18, 0.897), rgb(201, 19, 19, 0.897), rgb(100, 5, 5, 0.897));
+  --gradient-red-transp-2: linear-gradient(rgb(100, 5, 5, 0.747), rgb(201, 19, 19, 0.747), rgb(247, 18, 18, 0.747), rgb(201, 19, 19, 0.897), rgb(100, 5, 5, 0.897));
+  --gradient-purple-transp: radial-gradient(circle, rgba(30, 28, 34, 0.842), rgba(38, 11, 102, 0.897), rgba(65, 19, 173, 0.842), rgba(38, 11, 102, 0.829), rgba(19, 9, 44, 0.856));
+  --gradient-black-transp: linear-gradient(rgba(0, 0, 0, 0.747), rgba(46, 44, 44, 0.747), rgba(78, 77, 77, 0.747),rgba(46, 44, 44, 0.747),rgba(0, 0, 0, 0.747));
   --red-scissor: linear-gradient(to left, rgb(107, 19, 19), rgb(255, 0, 0), rgb(107, 19, 19));
   --yellow-rock: linear-gradient(to left, rgb(136, 136, 31), yellow, rgb(136, 136, 31));
   --purple-paper: linear-gradient(to left, rgb(84, 14, 163), rgb(174, 0, 255), rgb(84, 14, 163));  

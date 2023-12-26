@@ -1,10 +1,11 @@
 import React, {useState, useEffect, useContext} from 'react';
 import './ModalCount.css';
 import { ContextCombat } from '../../../ContextCombat';
+import { MyGeneralContext } from '../../../MyGeneralContext';
 
 /*Sounds*/
 import countSound from '../../../sounds/three-two-one.mp3';
-import { MyGeneralContext } from '../../../MyGeneralContext';
+
 
 
 
@@ -52,10 +53,8 @@ export const ModalCount = () => {
   
  /*---------------- component JSX structure ---------------------- */  
   return (
-    <>
       <div className={`modal-count ${isActivateCount ? 'show' : ''}`}>
         <span>{initialCount[currentCountIndex]}</span>
       </div>
-    </>
   )
 }

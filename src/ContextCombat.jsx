@@ -17,6 +17,7 @@ const MyProviderCombat = ({ children }) => {
   const [controlRoundsPrev, setControlRoundsPrev] = useState(2);
   const [controlRoundsState, setControlRoundsState] = useState(1);
   const [ctrlActionButtons, setCtrlActionButtons] = useState(false);
+  const [extraRounds, setExtraRounds] = useState(false);
   const [generalPlayCom, setGeneralPlayCom] = useState(undefined);
   const [generalPlayPlayer, setGeneralPlayPlayer] = useState(undefined);
   const [historyItems, setHistoryItems] = useState([]);
@@ -42,9 +43,9 @@ const MyProviderCombat = ({ children }) => {
   const [startAction, setStartAction] = useState(false);
   const [stateCombat, setStateCombat] = useState(true);
   const [winnerCombat, setWinnerCombat] = useState({});
-  
-  
-  return(
+
+
+ return(
     <ContextCombat.Provider 
       value={{ 
       
@@ -55,6 +56,7 @@ const MyProviderCombat = ({ children }) => {
         controlRoundsPrev, setControlRoundsPrev,
         controlRoundsState, setControlRoundsState,
         ctrlActionButtons, setCtrlActionButtons,
+        extraRounds, setExtraRounds,
         imagesPlayCom, setImagesPlayCom,
         imagesPlayPlayer, setImagesPlayPlayer,
         interactiveTexts, setInteractiveTexts,

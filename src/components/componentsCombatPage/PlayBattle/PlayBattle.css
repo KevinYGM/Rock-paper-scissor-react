@@ -27,11 +27,25 @@
 .play-battle-container .character img{
   width: 75%;
   height: 95%;
-  border: 0.5vmax groove yellow;
   border-radius: 1vmax;
+}
+
+.play-battle-container .character .background-rock{
+  background: linear-gradient(var(--x), #f8fc0a, #0a0202, #1aa81a);
+  border: 0.5vmax groove yellow;
   box-shadow: 0 0 20px rgba(255, 255, 0, 0.5);
-  background: rgba(14,21,56,0.50);
-  background: linear-gradient(var(--x), #00ccff, #0e1538, #0e1538, #d400d4);
+}
+
+.play-battle-container .character .background-paper{
+  background: linear-gradient(var(--x), #7700ff, #0a0202, #d218f7);
+  border: 0.5vmax groove rgb(134, 15, 202);
+  box-shadow: 0 0 20px rgba(118, 5, 247, 0.5);
+}
+
+.play-battle-container .character .background-scissor{
+  background: linear-gradient(var(--x), #ff002b, #0a0202, #800808);
+  border: 0.5vmax groove rgb(255, 0, 0);
+  box-shadow: 0 0 20px rgba(247, 5, 5, 0.5);
 }
 
 
@@ -72,6 +86,81 @@
   transition: all 1s ease-in-out;
 }
 
+.character .info-character{  
+  position: absolute;
+  top: 56%;
+  width:72%;
+  height: 40%;
+  border-top: 0.2vmax solid white;
+  border-radius: 0 0 0.5vmax 0.5vmax;
+  background: var(--gradient-black-transp);
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+  display: grid;
+  grid-template-areas:  "title title title"
+                        "powers powers powers"
+                        "description description description";
+  grid-template-rows: 20% 50% 30%;
+  place-items: center;
+}
+
+.character .info-character:hover {
+  opacity: 1;
+}
+
+.character .info-character-com{
+  left: 37.5%;
+  transform: translateX(-50%);
+}
+
+.character .info-character-player{
+  right: 37.5%;
+  transform: translateX(50%);
+}
+
+.info-character .title-info{  
+  grid-area: title;
+  font-size: 1.2vmax;
+  text-transform: uppercase;
+}
+
+.info-character .container-power{  
+  grid-area: powers;
+  width: 100%;
+  height: 100%;
+  font-size: 2.3vmax;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.container-power .power{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-family: 'Chakra Petch', sans-serif;
+} 
+
+.container-power .powerRock{  
+  background: var(--yellow-rock);
+  color:rgb(23, 6, 70);
+}
+
+.container-power .powerPaper{  
+  background: var(--purple-paper);
+}
+
+.container-power .powerScissor{  
+  background: var(--red-scissor);
+}
+
+.info-character .description{  
+  grid-area: description;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  font-size: 1vmax;
+}
 
 /*-------------Area Play Configurations-------------*/
 
@@ -171,7 +260,6 @@
   background: linear-gradient(to bottom, rgb(165, 13, 34), rgb(207, 112, 22), yellow, rgb(207, 112, 22), rgb(165, 13, 34));
   background: linear-gradient(to bottom, rgb(34, 5, 80), rgb(118, 36, 250), rgb(71, 13, 165), rgb(71, 13, 165), rgb(34, 5, 80),rgb(34, 5, 80));
   border-radius: 0.5rem;
-  /* border: 0.1vmax solid rgb(19, 16, 10); */
   padding: 0.2vmax;
   box-shadow: 0 0 7px rgba(2, 2, 1, 0.5);
   animation: pulse-infinity-soft 2500ms linear infinite;
@@ -232,6 +320,39 @@
   100% {
     transform: scale(1.7);
   }
+}
+
+
+
+.text-power-special, .text-power-special-com{
+  position: absolute;
+  top: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2vmax;
+  height: 90%;
+  font-size: 0.9vmax;
+}
+
+.text-power-special{
+  left: 9%;
+}
+
+.text-power-special-com{
+  right: 9%;
+}
+
+.word-power, .word-special, .word-bar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.word-power span, .word-special span, .word-bar span{
+  font-family: 'Chakra Petch', sans-serif;
+  color: rgb(217, 188, 230);
+  box-shadow: 0 0 30px rgb(195, 27, 236)
 }
 
 

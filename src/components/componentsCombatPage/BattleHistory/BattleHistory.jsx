@@ -96,9 +96,7 @@ export const BattleHistory = () => {
                 </div>
 
                 <div  className="play-com play"
-                      style={{
-                        background: colorPlaysHistory(item.generalPlayCom)
-                      }}>
+                      style={{ background: colorPlaysHistory(item.generalPlayCom) }}>
                   <span className={`emoji emoji-${item.playComInformation.nameType}`}
                         data-emoji={item.generalPlayCom === "✊🏼" ? "✊🏾" : item.generalPlayCom } 
                         data-emoji-hover={item.playComInformation.alternativeIcon}></span>

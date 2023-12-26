@@ -44,11 +44,13 @@ export const characters = [
     facePhoto: williamsRockFace,
     winnerPhoto: williamsRockWinner,
     iconType: "✊🏼",
+    iconTypeObject: "🪨",
     imageType: backRock,
     powerRock: 7,
     powerPaper: 5,
     powerScissor: 4,
-    description: "Williams is a Rock type character, every time He wins a round using Rock, you will earn double points."
+    description: "Williams is a Rock type character, every time He wins a round using Rock, you will earn double points.",
+    descriptionRival: "Williams is a Rock type character, every time He wins a round using Rock, your rival will earn double points."
     
   },
 
@@ -60,11 +62,13 @@ export const characters = [
     facePhoto: melissaPaperFace,
     winnerPhoto: melissaPaperWinner,
     iconType: "✋🏼",
+    iconTypeObject: "📄",
     imageType: backPaper,
     powerRock: 4,
     powerPaper: 7,
     powerScissor: 5,
-    description: "Melissa is a Paper type character, every time She wins a round using Paper, you will earn double points."
+    description: "Melissa is a Paper type character, every time She wins a round using Paper, you will earn double points.",
+    descriptionRival: "Melissa is a Paper type character, every time She wins a round using Paper, your rival will earn double points."
   },
 
   {
@@ -75,11 +79,13 @@ export const characters = [
     facePhoto: jamesScissorFace,
     winnerPhoto: jamesScissorWinner,
     iconType: "✌🏼",
+    iconTypeObject: "✂️",
     imageType: backScissor,
     powerRock: 5,
     powerPaper: 4,
     powerScissor: 7,
-    description: "James is a Scissors type character, every time He wins a round using Scissors, you will earn double points."
+    description: "James is a Scissors type character, every time He wins a round using Scissors, you will earn double points.",
+    descriptionRival: "James is a Scissors type character, every time He wins a round using Scissors, your rival will earn double points."
   },
 
   {
@@ -90,11 +96,13 @@ export const characters = [
     facePhoto: scarlettRockFace,
     winnerPhoto: scarlettRockWinner,
     iconType: "✊🏼",
+    iconTypeObject: "🪨",
     imageType: backRock,
     powerRock: 7,
     powerPaper: 4,
     powerScissor: 5,
-    description: "Scarlett is a Rock type character, every time She wins a round using Rock, you will earn double points."
+    description: "Scarlett is a Rock type character, every time She wins a round using Rock, you will earn double points.",
+    descriptionRival: "Scarlett is a Rock type character, every time She wins a round using Rock, your rival will earn double points."
   },
 
   {
@@ -105,11 +113,13 @@ export const characters = [
     facePhoto: matthewPaperFace,
     winnerPhoto: matthewPaperWinner,
     iconType: "✋🏼",
+    iconTypeObject: "📄",
     imageType: backPaper,
     powerRock: 5,
     powerPaper: 7,
     powerScissor: 4,
-    description: "Matthew is a Paper type character, every time He wins a round using Paper, you will earn double points."
+    description: "Matthew is a Paper type character, every time He wins a round using Paper, you will earn double points.",
+    descriptionRival: "Matthew is a Paper type character, every time He wins a round using Paper, your rival will earn double points."
   },
 
   {
@@ -120,10 +130,12 @@ export const characters = [
     facePhoto: alissonScissorFace,
     winnerPhoto: alissonScissorWinner,
     iconType: "✌🏼",
+    iconTypeObject: "✂️",
     imageType: backScissor,
     powerRock: 4,
     powerPaper: 5,
     powerScissor: 7,
-    description: "Alisson is a Scissors type character, every time She wins a round using Scissors, you will earn double points."
+    description: "Alisson is a Scissors type character, every time She wins a round using Scissors, you will earn double points.",
+    descriptionRival: "Alisson is a Scissors type character, every time She wins a round using Scissors, your rival will earn double points."
   }
 ];

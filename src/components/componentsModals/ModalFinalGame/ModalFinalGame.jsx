@@ -15,6 +15,13 @@ import trebol from '../../../images/interfaz-images/trebol.png';
 import backCardPlayer from '../../../images/interfaz-images/card-player.png'; 
 import backCardCom from '../../../images/interfaz-images/card-computer.png';
 
+import blueMarkerPlayer from '../../../images/interfaz-images/blueMarker.png';
+import redMarkerCom from '../../../images/interfaz-images/redMarker.png';
+
+
+/*React-icons*/
+import { FaRepeat } from "react-icons/fa6";
+import { RiArrowGoBackFill } from "react-icons/ri";
 
 
 export const ModalFinalGame = () => {
@@ -32,15 +39,21 @@ export const ModalFinalGame = () => {
 
   /*--------------Data imported from useContext-------------------------*/
   const { 
+  
+    /*states Complete*/
+    controlRoundsState, setControlRoundsState, 
+
     /*Only States (Alphabetical Order)*/  
+    comMark,
     messageFinal,
+    playerMark,
     stateCombat,
     winnerCombat,
 
     /*Only Updaters (Alphabetical Order)*/
     setComMark,  
     setControlRoundsPrev,
-    setControlRoundsState, 
+    setExtraRounds,
     setGeneralPlayCom,
     setGeneralPlayPlayer,  
     setHistoryItems,  
@@ -105,6 +118,7 @@ export const ModalFinalGame = () => {
     setCounterRockCom(characterCom.powerRock);
     setCounterScissor(characterPlayer.powerScissor);
     setCounterScissorCom(characterCom.powerScissor);
+    setExtraRounds(false);
   }
           
   useEffect(() => {
@@ -151,17 +165,37 @@ export const ModalFinalGame = () => {
   return (
     <>
       <div className={`modal-final ${!stateCombat ? 'show' : ''}`}>
-        <h2 className="title">{ messageFinal }</h2>
+        <h2 className="title-final"
+            style={{background: 
+              messageFinal === "🎉 CONGRATULATIONS 🎉" ? 'var(--gradient-green-transp)'
+              : messageFinal === "💔 YOU HAVE LOST 💔" ? 'var(--gradient-red-transp-2)'
+              : 'var(--gradient-black-transp)'}}>{ messageFinal }</h2>
+
+        <div className="result-game-container">
+          <div className="round-final">Round {controlRoundsState - 1}</div>
+            <div className="result-game">
+            <div className="player-mark-container container">
+              <img src={blueMarkerPlayer} alt="" />
+              <span>{playerMark}</span>
+            </div>
+            <strong>-</strong>
+            <div className="com-mark-container container">
+              <img src={redMarkerCom} alt="" />
+              <span>{comMark}</span>
+            </div>
+
+          </div>
+        </div>
         <div className="img-winner">
           <img src={winnerCombat.winnerPhoto} alt={winnerCombat.name + "Winner"} />
         </div>
         <div className="container-buttons">
           <Link to= '/'
                 onClick={()=> {setOpenModalFinal(false)}}
-                >Go Back To Start</Link>
+                ><span>Go Back To Start</span><RiArrowGoBackFill /></Link>
           <Link
               onClick={playAgain}
-              >Play Again</Link>
+              ><span>Play Again</span><FaRepeat /></Link>
         </div>
       </div>
     </>

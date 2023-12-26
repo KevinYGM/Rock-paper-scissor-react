@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useContext} from 'react';
+import React, { useEffect, useState, useRef, useContext, useLayoutEffect} from 'react';
 import './PlayBattle.css';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import { MyGeneralContext } from '../../../MyGeneralContext';
@@ -15,7 +15,7 @@ export const PlayBattle = () => {
   const { characterCom, characterPlayer, recordVictory, recordLose, setRecordLose, setRecordVictory} = useContext(MyGeneralContext);
 
   const {
-   
+
     /*States with their Updaters (Alphabetical Order)*/
     comMark, setComMark,
     interactiveTexts, setInteractiveTexts,
@@ -24,6 +24,7 @@ export const PlayBattle = () => {
     positivePointCom, setPositivePointCom,
     resultComState, setResultComState,
     resultState, setResultState,
+    stateCombat, setStateCombat,
 
     /*Only States (Alphabetical Order)*/  
     buttonSpecial,
@@ -38,13 +39,11 @@ export const PlayBattle = () => {
     roundsWithoutButtonClick, 
     roundsWithoutAttackSpecialCom,
     startAction,
-
-    
+    setExtraRounds,
     setMessageFinal,
     setPointsRoundPlayer,
     setPointsRoundCom,
     
-    setStateCombat,
     setWinnerCombat
     } = useContext(ContextCombat);
 
@@ -145,7 +144,7 @@ useEffect(() => {
   },[positivePoint, positivePointCom]);
     
 
-  useEffect(() => {
+  useLayoutEffect(() => {
 /*---------Controls the conditions that define the end of the game---------- */
     if (
       (comMark >= 10 || playerMark >= 10 || controlRoundsState >= 16) &&
@@ -157,18 +156,20 @@ useEffect(() => {
         setWinnerCombat(characterCom);
         setMessageFinal("💔 YOU HAVE LOST 💔");
         setStateCombat(false);
-        // setRecordLose((prevRecord) => (prevRecord + 1)); 
+
       } else {
         setRecordVictory(newRecordVictory);
         localStorage.setItem('recordVictory', newRecordVictory.toString());
         setWinnerCombat(characterPlayer);
         setMessageFinal("🎉 CONGRATULATIONS 🎉");
         setStateCombat(false);
-        // setRecordVictory((prevRecord) => (prevRecord + 1));
       }
+    } else if(controlRoundsState === 16 && stateCombat){
+        setExtraRounds(true);
     }
+
     // eslint-disable-next-line
-  }, [  setStateCombat, controlRoundsState ]);
+  }, [ controlRoundsState ]);
 
         
 /*----------------------- Component JSX structure ----------------------------- */ 
@@ -176,6 +177,48 @@ useEffect(() => {
     <div  className='play-battle-container'>
        {/*--------------Character Player--------------*/}
       <div className="character-player character">
+        <div className="info-character info-character-player">
+        <p className="title-info">{characterPlayer.shortName} Information: </p>
+          <div className="container-power">
+            <div className="power powerRock">
+              {"🪨" + characterPlayer.powerRock}
+            </div>
+            <div className="power powerPaper">
+              {"✂️" + characterPlayer.powerPaper}
+            </div>
+            <div className="power powerScissor">
+              {"📄" + characterPlayer.powerScissor}
+            </div>
+          </div>
+          <p className="description">{characterPlayer.description} </p>
+        </div>
+
+        <div className="text-power-special">
+          <div className="word-power">
+            <span>P</span>
+            <span>O</span>
+            <span>W</span>
+            <span>E</span>
+            <span>R</span>
+          </div>
+
+          <div className="word-special">
+            <span>S</span>
+            <span>P</span>
+            <span>E</span>
+            <span>C</span>
+            <span>I</span>
+            <span>A</span>
+            <span>L</span>
+          </div>
+
+          <div className="word-bar">
+            <span>B</span>
+            <span>A</span>
+            <span>R</span>
+          </div>
+        </div>
+
         <div className="bar-progress">
           <div  className="bar"
             style={{  height: renderProgressBarSpecial(roundsWithoutButtonClick),
@@ -183,13 +226,37 @@ useEffect(() => {
                      }}>
           </div>
         </div>
-        <img src={characterPlayer.photo} alt={characterPlayer.name} />
+
+
+        <img
+            src={characterPlayer.photo} 
+            alt={characterPlayer.name}
+            className={
+              characterPlayer.iconType === "✊🏼" 
+            ? 'background-rock'
+            : characterPlayer.iconType === "✋🏼"
+            ? 'background-paper' 
+            : characterPlayer.iconType === "✌🏼"
+            ? 'background-scissor' 
+            : undefined
+          }/>
       </div> 
       
 
       {/*--------------Play Zone--------------*/} 
       <div className="play-player play">
-        <img src={imagesPlayPlayer[currentImageIndex]} alt="" />
+      
+        <img 
+            src={imagesPlayPlayer[currentImageIndex]} 
+            alt="" 
+            style={{borderColor:
+              characterPlayer.iconType === "✊🏼" 
+              ? 'yellow'
+              : characterPlayer.iconType === "✋🏼"
+              ? 'rgb(134, 15, 202)' 
+              : characterPlayer.iconType === "✌🏼"
+              ? '#800808' 
+              : undefined }}/>
       </div>
 
       <div className="interactive-up">
@@ -207,18 +274,81 @@ useEffect(() => {
       </div>
 
       <div className="play-com play">
-        <img src={imagesPlayCom[currentImageIndex]} alt="" />
+        <img 
+          src={imagesPlayCom[currentImageIndex]} 
+          alt=""
+          style={{borderColor:
+            characterCom.iconType === "✊🏼" 
+            ? 'yellow'
+            : characterCom.iconType === "✋🏼"
+            ? 'rgb(134, 15, 202)' 
+            : characterCom.iconType === "✌🏼"
+            ? 'rgb(255, 0, 0)' 
+            : undefined }} />
       </div>
       
 
      {/*--------------Character Com--------------*/} 
       <div className="character-com character">
-        <img src={characterCom.photo} alt={characterCom.name} />
+      <img
+            src={characterCom.photo} 
+            alt={characterCom.name}
+            className={
+              characterCom.iconType === "✊🏼" 
+            ? 'background-rock'
+            : characterCom.iconType === "✋🏼"
+            ? 'background-paper' 
+            : characterCom.iconType === "✌🏼"
+            ? 'background-scissor' 
+            : undefined
+          }/>
         <div className="bar-progress">
           <div  className="bar"
                style={{ height: renderProgressBarSpecial(roundsWithoutAttackSpecialCom),
                         background: roundsWithoutAttackSpecialCom >= 6 ? 'var(--bar-full)' : 'var(--bar-red)'   }}>
           </div>
+        </div>
+
+        <div className="text-power-special-com">
+          <div className="word-power">
+            <span>P</span>
+            <span>O</span>
+            <span>W</span>
+            <span>E</span>
+            <span>R</span>
+          </div>
+
+          <div className="word-special">
+            <span>S</span>
+            <span>P</span>
+            <span>E</span>
+            <span>C</span>
+            <span>I</span>
+            <span>A</span>
+            <span>L</span>
+          </div>
+
+          <div className="word-bar">
+            <span>B</span>
+            <span>A</span>
+            <span>R</span>
+          </div>
+        </div>
+
+        <div className="info-character info-character-com">
+          <p className="title-info">{characterCom.shortName} Information: </p>
+          <div className="container-power">
+            <div className="power powerRock">
+              {"🪨" + characterCom.powerRock}
+            </div>
+            <div className="power powerPaper">
+              {"📄" + characterCom.powerPaper}
+            </div>
+            <div className="power powerScissor">
+              {"✂️" + characterCom.powerScissor}
+            </div>
+          </div>
+          <p className="description">{characterCom.descriptionRival} </p>
         </div>
       </div>
 

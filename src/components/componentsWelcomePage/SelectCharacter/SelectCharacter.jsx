@@ -10,7 +10,6 @@ import selectCharacterSound from '../../../sounds/bip.mp3';
 import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle  } from "react-icons/io"
 
 /*Image*/
-
 import rock from '../../../images/interfaz-images/rock.png';
 import paper from '../../../images/interfaz-images/paper.png';
 import scissor from '../../../images/interfaz-images/scissor.png';
@@ -163,10 +162,7 @@ export const SelectCharacter = ({ openModalCharacter }) => {
 
 
 
-
- 
-
- /*---------------- component JSX structure ---------------------- */ 
+  /*---------------- component JSX structure ---------------------- */ 
   return (
     <div className='select-character'>
       <span>Select Your Character: </span>
@@ -264,5 +260,5 @@ export const SelectCharacter = ({ openModalCharacter }) => {
         </button>
       </div>
      </div>
-  )
+    )
   }

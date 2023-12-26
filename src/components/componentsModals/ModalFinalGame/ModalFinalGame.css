@@ -4,13 +4,17 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 5;
-  background-image: radial-gradient(circle, rgba(30, 28, 34, 0.842), rgba(38, 11, 102, 0.897), rgba(65, 19, 173, 0.842), rgba(38, 11, 102, 0.829), rgba(19, 9, 44, 0.856));;
-  border-radius: 0.7vmax;
+  background-image: var(--gradient-black-transp);
+  border: 0.5vmax;
+  border-radius: 0.4vmax;
+  border-image: var(--color-summary);
+  border-image: linear-gradient(to bottom, rgba(165, 13, 33, 0.671), rgba(207, 111, 22, 0.671), rgba(255, 255, 0, 0.678), rgb(207, 112, 22, 0.671), rgba(165, 13, 33, 0.671));
+  border-image-slice: 1;
+  border-style: solid;
   box-shadow: -12px 8px 19px black;
   color: white;
   width: 45vmax;
-  height: 45vmax;
-  padding: 0.7vmax;
+  height: 50vmax;
   padding-bottom: 2vmax;
   font-size: max(1.5rem, min(1.7vmax, 5rem));
   display: flex;
@@ -20,6 +24,7 @@
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.5s ease-in-out;
+  
 }
 
 .modal-final.show{
@@ -27,30 +32,45 @@
   visibility: visible;
 }
 
+.modal-final .title-final{
+  padding: 0.2vmax;
+  background: var(--gradient-red-transp-2);
+  width: 100%;
+  text-align: center;
+}
+
 .modal-final .img-winner{
   width: 80%;
   height: 80%;
+  display: flex;
+  justify-content: center;
 }
 
 .modal-final .img-winner img{
-  width: 100%;
+  width: 90%;
   height: 100%;
 }
 
 .modal-final .container-buttons{
   width: 100%;
+  height: 9%;
   display: flex;
   justify-content: center;
-  gap: 3vw;
+  gap: 2vw;
 }
 
 .modal-final .container-buttons a{
   display: flex;
   justify-content: center;
-  width: 25%;
+  align-items: center;
+  gap: 0.5vmax;
+  width: 40%;
   padding: 0.5vmax 0.5vmax;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2vmax;
   background-image: var(--background-startGame-hover);
-  border-radius: 0.5vmax;
+  border-radius: 0.3vmax;
   color: white;
   transition: all 0.3s ease-in-out;
 }
@@ -65,4 +85,67 @@
   background-image: linear-gradient(rgba(70, 4, 4, 0.842), rgba(161, 14, 14, 0.897), rgba(221, 19, 19, 0.842), rgba(161, 14, 14, 0.897), rgba(70, 4, 4, 0.842));
   color: white;
   transform: scale(1.5);
+}
+
+.modal-final .result-game-container{
+  width: 100%;
+  height: 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.5vmax;
+  padding-right: 0.5vmax;
+  padding-left: 0.5vmax;
+}
+
+.result-game-container .round-final{
+  font-family: 'Chakra Petch', sans-serif;
+  text-transform: uppercase; 
+  text-shadow: 2px 2px 4px rgba(236, 236, 236, 0.46);
+  background: var(--gradient-silver);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  font-size: max(1.5rem, min(2vmax, 10rem));
+}
+
+
+.result-game-container .result-game{
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1vmax;
+}
+
+.result-game .container{
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.result-game-container .result-game img{
+  width: 87%;
+}
+
+.result-game-container .result-game span{
+  position: absolute;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: max(1.5rem, min(2.4vmax, 10rem));
+  text-shadow: 2px 2px 4px rgba(236, 236, 236, 0.46);
+  background: var(--gradient-silver);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  top: 50%;
+  left: 50%;
+  transform:translateX(-50%) translateY(-50%);
+}
+
+.result-game-container .result-game strong{
+  display:flex;
+  justify-content: center;
 }

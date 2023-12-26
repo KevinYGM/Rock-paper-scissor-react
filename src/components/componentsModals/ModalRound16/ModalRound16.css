@@ -1,0 +1,39 @@
+
+.modal-round16 {
+  position: absolute;
+  top: 0;
+  right:100%;
+  width: 100vmax;
+  height: 100vmin;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12vmax;
+  transition: all 1s ease-in-out;
+}
+
+.modal-round16.center{
+  right: 0;
+  visibility: visible;
+}
+
+.modal-round16.left{
+  right:100%;
+}
+
+.modal-round16 span {
+  font-family: 'Teko', sans-serif;
+  text-shadow: 2px 2px 4px rgba(13, 4, 4, 0.46);
+  background: var(--gradient-green);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 10vmax;
+  text-transform: uppercase;
+}
+
+
+
+
+

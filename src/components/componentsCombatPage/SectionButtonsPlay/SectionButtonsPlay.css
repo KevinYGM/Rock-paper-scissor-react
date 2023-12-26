@@ -288,8 +288,130 @@
   visibility: visible;
 } 
 
+.gray-layer .info-power-special,
+.gray-layer .info-surrender{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: space-between;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.555);
+  border: 0.2vmax solid white;
+  width: 150%;
+  
+  color: rgb(238, 235, 235);
+  padding: 0.5vmax;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
 
+.gray-layer .info-power-special{
+  top: -280%;
+  left: -60%;
+  height: 260%;
+  border-radius: 1vmax 1vmax 0 1vmax;
+}
 
+.gray-layer .info-surrender{
+  top: -170%;
+  left: 15%;
+  height: 150%;
+  border-radius: 1vmax 1vmax 1vmax 0;
+}
+
+.info-power-special .title-info,
+.info-surrender .title-info{
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.info-power-special .title-info > strong,
+.info-surrender .title-info > strong{
+  font-size: 2.4vmax;
+}
+
+.info-power-special p,
+.info-surrender p{
+  font-size: 1.2vmax;
+}
+
+.info-power-special p > strong{
+  color: rgb(212, 144, 230);
+}
+
+.info-power-special li,
+.info-surrender li{
+  font-size: 1.2vmax;
+  -webkit-text-stroke: 0.03vmax rgb(196, 165, 13);
+  border-radius: 0.5vmax;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5vmax;
+  padding: 0.2vmax;
+}
+
+.info-surrender li{
+  background: var(--gradient-purple-transp);
+  padding: 0.5vmax;
+}
+
+.info-power-special li:nth-child(1),
+.info-power-special li:nth-child(2){
+  background: var(--gradient-green-dark-transp);
+}
+
+.info-power-special li:nth-child(3){
+  background: var(--gradient-red-transp);
+}
+
+.info-power-special li strong,
+.info-surrender li strong{
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 1.7vmax;
+  font-weight: bold;
+  color: white;
+  -webkit-text-stroke: 0.05vmax rgb(209, 176, 13);
+}
+
+.gray-layer .support-base{
+  position: absolute;
+  top: -20%;
+  width: 0;
+  height: 0;
+  border-right: 3vmax solid transparent;
+  border-bottom: 3vmax solid rgba(19, 5, 5, 0.753);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.gray-layer .support-surrender{
+  right: 65%;
+  transform: rotateX(180deg);
+}
+
+.gray-layer .support-special{
+  right: 10%;
+  transform: rotateX(180deg) rotateY(180deg);
+}
+
+.gray-layer:hover .info-power-special,
+.gray-layer:hover .info-surrender,
+.gray-layer:hover .support-base{
+  visibility: visible;
+  opacity: 1;
+}
+
+.gray-layer:not(:hover) .info-power-special:hover,
+.gray-layer:not(:hover) .info-surrender:hover,
+.gray-layer:not(:hover) .support-base:hover {
+  visibility: hidden;
+  opacity: 0;
+}
 
 
 

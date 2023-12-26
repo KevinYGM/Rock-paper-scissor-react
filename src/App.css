@@ -11,6 +11,21 @@ a{
   text-decoration: none;
 }
 
+hr{
+  width: 100%;
+  color: white;
+}
+
+ul{
+  margin-top: 0.3vmax;
+
+}
+
+li{
+  list-style: none;
+  margin-bottom: 0.7vmax;
+}
+
 
 /*---------------Main Pages----------------------------------------*/
 .container-welcome{

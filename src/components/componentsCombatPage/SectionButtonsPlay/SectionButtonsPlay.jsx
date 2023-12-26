@@ -416,8 +416,16 @@ return (
         </span>
       </span>
       <div  className={`gray-layer ${stateCombat && controlRoundsState <= 3 ? 'show' : ''}`}
-            onClick={ selectButtonDisabled }></div>
-     
+            onClick={ selectButtonDisabled }>
+         <div className="info-surrender">
+            <div className='title-info'><strong>🚫</strong><p>It is only available when at least 3 rounds have passed.</p></div>
+            <ul>
+              <li><strong>🏳️</strong>It allows you to surrender, and withdraw from the game, giving the victory to your rival.</li>
+            </ul>
+          </div>
+          <div className="support-base support-surrender"></div>
+      </div>
+
       <ModalSurrender
               openModalSurrender = { openModalSurrender }
               setOpenModalSurrender = { setOpenModalSurrender }
@@ -488,7 +496,20 @@ return (
           <img src={allHands} alt={"Aleatory"}/>
         </span>
         <div  className={`gray-layer ${stateCombat && roundsWithoutButtonClick < 6 ? 'show' : ''}`}
-              onClick={ selectButtonDisabled }></div>
+              onClick={ selectButtonDisabled }>
+          <div className="info-power-special">
+            <div className='title-info'><strong>🚫</strong><p>Only available when your <strong>POWER SPECIAL BAR</strong> is charged. When you use it:</p></div>
+            <p>The play will be random, and it will be free. (it will not depend on the available plays).</p>
+            <ul>
+              
+              <li><strong>✅ </strong> If you win with {characterPlayer.type} <strong>+4</strong></li>
+              <li><strong>✅ </strong> If you win without {characterPlayer.type} <strong>+3</strong></li>
+              <li><strong>❌</strong> If you lose and you already had points previously <strong>-1</strong></li>
+              
+            </ul>
+          </div>
+          <div className="support-base support-special"></div>
+        </div>
       </button>
     </div>
   </div>

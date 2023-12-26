@@ -16,6 +16,7 @@ import { MyGeneralContext } from '../../MyGeneralContext';
 
 /*Sounds*/
 import backgroundCombat from '../../sounds/backgroundCombat.mp3';
+import { ModalRound16 } from '../componentsModals/ModalRound16/ModalRound16';
 
 
 
@@ -159,9 +160,10 @@ const playBackgroundCombat = () => {
         <Summary />
         <BattleHistory />
         <PlayBattle />
-        <SectionButtonsPlay/>
-        <ModalFinalGame/>
-        <ModalCount/>
+        <SectionButtonsPlay />
+        <ModalFinalGame />
+        <ModalCount />
+        <ModalRound16 />
       </div>
       <FooterComponent />
     </div>
