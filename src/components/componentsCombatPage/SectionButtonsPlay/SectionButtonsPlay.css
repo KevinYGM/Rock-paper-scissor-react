@@ -296,7 +296,7 @@
   justify-content: space-around;
   align-items: space-between;
   text-align: center;
-  background: rgba(0, 0, 0, 0.555);
+  background: rgba(0, 0, 0, 0.699);
   border: 0.2vmax solid white;
   width: 150%;
   
@@ -335,17 +335,21 @@
 
 .info-power-special p,
 .info-surrender p{
+  -webkit-text-stroke: 0.05vmax rgb(209, 176, 13);
+  -webkit-text-stroke: 0.05vmax rgb(190, 185, 185);
   font-size: 1.2vmax;
 }
 
 .info-power-special p > strong{
   color: rgb(212, 144, 230);
+  -webkit-text-stroke: 0.05vmax rgb(190, 185, 185);
 }
 
 .info-power-special li,
 .info-surrender li{
   font-size: 1.2vmax;
   -webkit-text-stroke: 0.03vmax rgb(196, 165, 13);
+  -webkit-text-stroke: 0.05vmax rgb(190, 185, 185);
   border-radius: 0.5vmax;
   display: flex;
   justify-content: space-between;

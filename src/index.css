@@ -42,7 +42,7 @@
   --gradient-blue-transp: linear-gradient(rgba(5, 3, 41, 0.897), rgba(13, 8, 104, 0.897), rgba(49, 19, 221, 0.884), rgba(13, 8, 104, 0.897), rgba(5, 3, 41, 0.897));
   --gradient-red-transp: linear-gradient(rgb(100, 5, 5, 0.897), rgb(201, 19, 19, 0.897), rgb(247, 18, 18, 0.897), rgb(201, 19, 19, 0.897), rgb(100, 5, 5, 0.897));
   --gradient-red-transp-2: linear-gradient(rgb(100, 5, 5, 0.747), rgb(201, 19, 19, 0.747), rgb(247, 18, 18, 0.747), rgb(201, 19, 19, 0.897), rgb(100, 5, 5, 0.897));
-  --gradient-purple-transp: radial-gradient(circle, rgba(30, 28, 34, 0.842), rgba(38, 11, 102, 0.897), rgba(65, 19, 173, 0.842), rgba(38, 11, 102, 0.829), rgba(19, 9, 44, 0.856));
+  --gradient-purple-transp: linear-gradient(rgba(30, 28, 34, 0.842), rgba(38, 11, 102, 0.897), rgba(65, 19, 173, 0.842), rgba(38, 11, 102, 0.829), rgba(19, 9, 44, 0.856));
   --gradient-black-transp: linear-gradient(rgba(0, 0, 0, 0.747), rgba(46, 44, 44, 0.747), rgba(78, 77, 77, 0.747),rgba(46, 44, 44, 0.747),rgba(0, 0, 0, 0.747));
   --red-scissor: linear-gradient(to left, rgb(107, 19, 19), rgb(255, 0, 0), rgb(107, 19, 19));
   --yellow-rock: linear-gradient(to left, rgb(136, 136, 31), yellow, rgb(136, 136, 31));

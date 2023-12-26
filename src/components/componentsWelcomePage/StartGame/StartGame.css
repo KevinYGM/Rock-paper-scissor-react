@@ -144,7 +144,7 @@
 }
 
 .record-statement .record strong{
-  font-size: 5vw;
+  font-size: 3.5vmax;
 }
 
 .record-statement .victorys:hover{
@@ -167,6 +167,7 @@
 
 .victorys .victorys-strong,
 .loses .loses-strong{
+  font-family: 'Chakra Petch', sans-serif;
   transition: all 800ms ease-in-out;
 }
 

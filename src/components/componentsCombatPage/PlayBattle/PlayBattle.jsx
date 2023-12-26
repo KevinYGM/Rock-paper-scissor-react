@@ -184,10 +184,10 @@ useEffect(() => {
               {"🪨" + characterPlayer.powerRock}
             </div>
             <div className="power powerPaper">
-              {"✂️" + characterPlayer.powerPaper}
+              {"📄" + characterPlayer.powerPaper}
             </div>
             <div className="power powerScissor">
-              {"📄" + characterPlayer.powerScissor}
+              {"✂️" + characterPlayer.powerScissor}
             </div>
           </div>
           <p className="description">{characterPlayer.description} </p>
