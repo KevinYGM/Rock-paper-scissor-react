@@ -219,11 +219,11 @@ useEffect(() => {
           </div>
         </div>
 
-        <div className="bar-progress">
+        <div className="bar-progress"
+             style={{ animation: roundsWithoutButtonClick >= 6 ? 'pulse-infinity-bar 1400ms linear infinite' : undefined}}>
           <div  className="bar"
             style={{  height: renderProgressBarSpecial(roundsWithoutButtonClick),
-                      background: roundsWithoutButtonClick >= 6 ? 'var(--bar-full)' : 'var(--bar-green)'
-                     }}>
+                      background: roundsWithoutButtonClick >= 6 ? 'var(--bar-full)' : 'var(--bar-blue)'}}>
           </div>
         </div>
 
@@ -302,10 +302,11 @@ useEffect(() => {
             ? 'background-scissor' 
             : undefined
           }/>
-        <div className="bar-progress">
+        <div className="bar-progress"
+             style={{ animation: roundsWithoutAttackSpecialCom >= 6 ? 'pulse-infinity-bar 1400ms linear infinite' : undefined}}>
           <div  className="bar"
                style={{ height: renderProgressBarSpecial(roundsWithoutAttackSpecialCom),
-                        background: roundsWithoutAttackSpecialCom >= 6 ? 'var(--bar-full)' : 'var(--bar-red)'   }}>
+                        background: roundsWithoutAttackSpecialCom >= 6 ? 'var(--bar-full)' : 'var(--bar-red)'}}>
           </div>
         </div>
 

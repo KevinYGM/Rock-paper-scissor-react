@@ -430,7 +430,9 @@ return (
               openModalSurrender = { openModalSurrender }
               setOpenModalSurrender = { setOpenModalSurrender }
               />
-      </button>
+      <div className={`available ${stateCombat && controlRoundsState > 3 ? 'show' : ''}`}>✅ Available</div>
+    </button>
+      
     
 {/*------------------ Section Buttons Play-----------------*/}
     <div className='section-buttons-play'>
@@ -510,7 +512,9 @@ return (
           </div>
           <div className="support-base support-special"></div>
         </div>
+        <div className={`available ${stateCombat && roundsWithoutButtonClick >= 6 ? 'show' : ''}`}>✅ Available</div>
       </button>
+      
     </div>
   </div>
 )}

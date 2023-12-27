@@ -24,30 +24,72 @@
   position: absolute;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   gap: 1vmax;
   width: 30%;
 }
 
 
 .summary .img-character{
+  position: relative;
   display: grid;
   place-items: center;
   width: 23%;
   border-radius: 50%;
-  overflow: hidden;
   box-shadow: 2px 2px 5px black;
+  transition: all 300ms ease-in-out;
+  box-shadow: 0 0 7px rgba(255, 255, 0, 0.5);
+}
+
+.summary .img-character:hover{
+  transform: scale(1.2);
 }
 
 .summary .img-character img{
   height: 100%;
   width: 100%;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.summary .summary-record{
+  position: absolute;
+  font-family: 'Chakra Petch', sans-serif;
+  color: white;
+  top: 15%;
+  height: 65%;
+  width: 100%;
+  padding: 0.4vmax;
+  display: flex;
+  align-items: center;
+  font-size: 1.75vmax;
+  border-radius: 0.4vmax;
+  box-shadow: 0 0 7px rgba(255, 255, 0, 0.5);
+}
+
+.summary .summary-record-player{
+  background: var(--gradient-blue);
+  left: 40%;
+  justify-content: flex-end;
+}
+
+.summary .summary-record-com{
+  background: var(--gradient-red);
+  right: 40%;
+  justify-content: flex-start;
 }
 
 .summary .name-character{
   width: 70%;
   font-size: max(1rem, min(2.5vmax, 10rem));
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 1000ms ease-in-out;
+}
+
+.summary .name-character:hover{
+  transform: rotate3d(0, 1, 0, 360deg) scale(1.1);
 }
 
 /*------------Character-Player and Character-om-----------------*/
@@ -69,16 +111,21 @@
 .summary .summary_separation{
   position: absolute;
   top: 50%;
-  transform: translate(0, -50%); 
+  transform: translate(0, -50%) scale(1); 
   left: 0;
   right: 0;
   width: 13vmax;
   margin: auto;
+  transition: all 300ms ease-in-out;
 }
 
 .summary .summary_separation img{
   height: 100%;
   width: 100%;
+}
+
+.summary .summary_separation:hover{
+  transform: translate(0, -50%) scale(1.3);
 }
 
 
@@ -99,6 +146,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 300ms ease-in-out;
+}
+
+.points .container-point:hover{
+  transform: scale(1.2);
 }
 
 .summary .points img{

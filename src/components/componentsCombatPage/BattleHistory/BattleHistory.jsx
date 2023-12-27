@@ -103,7 +103,7 @@ export const BattleHistory = () => {
                 </div>
 
                 <div className="rounds">
-                  <span>Round {item.controlRoundsState} </span>
+                  <span>Round <strong>{item.controlRoundsState}</strong></span>
                 </div>
               </div>
 
@@ -132,7 +132,7 @@ export const BattleHistory = () => {
             onClick={toggleDiv}
             style={{
               color: historyItems.length === 0 ? 'white' : 'var(--main-color)',
-              background: historyItems.length === 0 ? 'var(--gradient-red)' : 'var(--color-history-active)'
+              background: historyItems.length === 0 ? 'var(--gradient-red)' : 'var(--color-history-active)',
             }}
             >
         <div>
@@ -144,9 +144,12 @@ export const BattleHistory = () => {
           <span>R</span>
           <span>Y</span>
         </div>
-      <span className="visible-tab">
+
+      <span className="visible-tab"
+            style={{animation: historyItems.length !==0 ? 'translate-infinity 1s linear infinite': undefined}}>
         {visible ? <RiArrowRightDoubleFill /> : <RiArrowLeftDoubleFill />}
       </span>
+
       <div>
           <span>G</span>
           <span>A</span>

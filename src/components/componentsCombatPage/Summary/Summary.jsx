@@ -16,7 +16,7 @@ import summaryMark from '../../../sounds/summaryMark.mp3';
 export const Summary = () => {
 
   /*--------------Data imported from useContext-------------------------*/
-  const { characterCom, characterPlayer, volumeSounds } = useContext(MyGeneralContext);
+  const { characterCom, characterPlayer, recordVictory, recordLose, volumeSounds } = useContext(MyGeneralContext);
 
   const { 
     isFirstRender, setIsFirstRender,
@@ -53,7 +53,11 @@ export const Summary = () => {
       <div className="summary_character-player summary-character">
         <div className="img-character-player img-character">
           <img src={characterPlayer.facePhoto} alt={characterPlayer.name} />
+          <div className="summary-record summary-record-player">
+            {recordVictory}
+          </div>
         </div>
+        
         <span className="name-character-player name-character">{characterPlayer.name}</span>
       </div>
 
@@ -98,6 +102,9 @@ export const Summary = () => {
       <div className="summary_character-com summary-character">
         <span className="name-character-com name-character">{characterCom.name}</span>
         <div className="img-character-com img-character">
+          <div className="summary-record summary-record-com">
+            {recordLose}
+          </div>
           <img src={characterCom.facePhoto} alt={characterCom.name} />
         </div>
        </div>

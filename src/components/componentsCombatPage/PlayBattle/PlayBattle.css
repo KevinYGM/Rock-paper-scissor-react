@@ -55,7 +55,7 @@
   grid-area: characterPlayer;
   grid-template-columns: 20% 80%;
   justify-items: flex-end;
- }
+}
 
 .play-battle-container .character-com{
   grid-area: characterCom;
@@ -306,24 +306,6 @@
 }
 
 
-/*--------------Animations---------------------*/
-
-@keyframes pulse-infinity-soft {
-  0% {
-    transform: scale(1.7);
-  }
-
-  50%{
-    transform: scale(1.5);
-  }
-
-  100% {
-    transform: scale(1.7);
-  }
-}
-
-
-
 .text-power-special, .text-power-special-com{
   position: absolute;
   top: 5%;
@@ -353,6 +335,37 @@
   font-family: 'Chakra Petch', sans-serif;
   color: rgb(217, 188, 230);
   box-shadow: 0 0 30px rgb(195, 27, 236)
+}
+
+
+/*--------------Animations---------------------*/
+
+@keyframes pulse-infinity-soft {
+  0% {
+    transform: scale(1.7);
+  }
+
+  50%{
+    transform: scale(1.5);
+  }
+
+  100% {
+    transform: scale(1.7);
+  }
+}
+
+@keyframes pulse-infinity-bar {
+  0% {
+    transform: scale(1);
+  }
+
+  50%{
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 

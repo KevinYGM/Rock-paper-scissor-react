@@ -418,6 +418,30 @@
 }
 
 
+.buttons-play-container .available{
+  position: absolute;
+  font-family: 'Chakra Petch', sans-serif;
+  top: -27%;
+  left: 50%;
+  border-radius: 0.2vmax;
+  font-size: 1vmax;
+  transform: translateX(-50%);
+  background: #00d4475d;
+  color: white;
+  width: 60%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 800ms ease-in-out;
+}
+
+.buttons-play-container .available.show{
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
+
 
 /*-------------Animation: Buttons---------------*/
 
@@ -433,3 +457,5 @@
     transform: skew(0deg) scale(1);
   }
 }
+
+

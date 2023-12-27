@@ -46,10 +46,17 @@
   transform: scale(1.2);
 }
 
+
 .footer .social-media-container .social-media:active{
   background-image: var(--button-color-active);
   transform: scale(1.2);
   color: black;
+}
+
+.social-media a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*The Brand section is located in the "app.css" file because it is a shared section between the header and the footer.*/
