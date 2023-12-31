@@ -41,7 +41,7 @@ const newRecordLose = recordLose + 1;
           Surrender
         </strong>
         <div className="content-surrender">
-          <p>Are you sure you want to give up?</p>
+          <p>Are you sure you want to give up, would your opponent win?</p>
           <div className="container-buttons-surrender">
             <Link className="surrender-yes surrender-button"
                   onClick={surrender}>

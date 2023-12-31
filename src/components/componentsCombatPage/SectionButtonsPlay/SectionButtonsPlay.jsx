@@ -57,6 +57,7 @@ export const SectionButtonsPlay = () => {
      /*Only States (Alphabetical Order)*/  
     isActivateCount,
     isFirstRender,
+    loading,
     messageFinal,
     playAgainState,
     pointsRoundCom,
@@ -327,7 +328,7 @@ export const SectionButtonsPlay = () => {
   useEffect(() => {
     //It detects that round of plays has ended and activates the transition effect on the cards.
 
-    !isActivateCount && (setSelectPlay(true));
+    !isActivateCount && !loading && (setSelectPlay(true));
     
   // eslint-disable-next-line
   }, [isActivateCount]);

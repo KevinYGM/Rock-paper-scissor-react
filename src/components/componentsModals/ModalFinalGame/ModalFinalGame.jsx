@@ -53,6 +53,7 @@ export const ModalFinalGame = () => {
     /*Only Updaters (Alphabetical Order)*/
     setComMark,  
     setControlRoundsPrev,
+    setCurrentPosition,
     setExtraRounds,
     setGeneralPlayCom,
     setGeneralPlayPlayer,  
@@ -60,12 +61,13 @@ export const ModalFinalGame = () => {
     setImagesPlayCom,
     setImagesPlayPlayer,
     setInteractiveTexts,
-    setIsActivateCount,
+    setLoading,
     setMessageFinal,  
     setOpenModalFinal, 
     setPauseGeneralState,
     setPlayAgainState,
     setPlayerMark,  
+    setProgressLoad,
     setRoundsWithoutAttackSpecialCom,
     setRoundsWithoutButtonClick,  
     setStateCombat, 
@@ -92,6 +94,7 @@ export const ModalFinalGame = () => {
 
 /*---------- Function that contribute to the logic of component----------*/
   const playAgain = () => {
+    setCurrentPosition(0);
     setImagesPlayCom([backCardCom, backCardCom, backCardCom]);
     setImagesPlayPlayer([backCardPlayer, backCardPlayer, backCardPlayer]);
     setGeneralPlayCom(undefined);
@@ -101,8 +104,9 @@ export const ModalFinalGame = () => {
     setOpenModalFinal(false);
     setWinnerCombat({});
     setStateCombat(true);
+    setProgressLoad(0);
     setMessageFinal("");
-    setIsActivateCount(true);
+    setLoading(true);
     setComMark(0);
     setPlayerMark(0);
     setHistoryItems([]);

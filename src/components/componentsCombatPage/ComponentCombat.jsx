@@ -8,15 +8,18 @@ import { PlayBattle } from './PlayBattle/PlayBattle';
 import { SectionButtonsPlay } from './SectionButtonsPlay/SectionButtonsPlay';
 import { FooterComponent } from '../componentsGenerals/FooterComponent/FooterComponent';
 import { ContextCombat } from '../../ContextCombat';
+import { MyGeneralContext } from '../../MyGeneralContext';
 
 /*Modals*/
 import { ModalFinalGame } from '../componentsModals/ModalFinalGame/ModalFinalGame';
+import { ModalPreview } from '../componentsModals/ModalPreview/ModalPreview';
 import { ModalCount } from '../componentsModals/ModalCount/ModalCount';
-import { MyGeneralContext } from '../../MyGeneralContext';
+import { ModalRound16 } from '../componentsModals/ModalRound16/ModalRound16';
+
 
 /*Sounds*/
 import backgroundCombat from '../../sounds/backgroundCombat.mp3';
-import { ModalRound16 } from '../componentsModals/ModalRound16/ModalRound16';
+
 
 
 
@@ -36,11 +39,11 @@ export const ComponentCombat = () => {
     setRecordLose
     } = useContext(MyGeneralContext);
 
-  const {isActivateCount, messageFinal} = useContext(ContextCombat);
+  const {isActivateCount, loading, messageFinal, currentPosition, setCurrentPosition} = useContext(ContextCombat);
 
   /*-------------local States and Refs of this Component---------------------------------*/
   const [isHorizontal, setIsHorizontal] = useState(false);
-  const [currentPosition, setCurrentPosition] = useState(0);
+  
 
   /*---------------- UseEffects dedicated to design---------------------- */ 
   useEffect(() => {
@@ -100,7 +103,7 @@ const playBackgroundCombat = () => {
 
   useEffect(() => {
     /*Background music management function*/
-    if(!isActivateCount && messageFinal === ""){
+    if(!isActivateCount && !loading && messageFinal === ""){
 
       const playBackgroundMusic = () => {
         if (playBackgroundCombat() !== undefined) {
@@ -162,6 +165,7 @@ const playBackgroundCombat = () => {
         <PlayBattle />
         <SectionButtonsPlay />
         <ModalFinalGame />
+        <ModalPreview />
         <ModalCount />
         <ModalRound16 />
       </div>

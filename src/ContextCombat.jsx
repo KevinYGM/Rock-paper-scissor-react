@@ -17,6 +17,7 @@ const MyProviderCombat = ({ children }) => {
   const [controlRoundsPrev, setControlRoundsPrev] = useState(2);
   const [controlRoundsState, setControlRoundsState] = useState(1);
   const [ctrlActionButtons, setCtrlActionButtons] = useState(false);
+  const [currentPosition, setCurrentPosition] = useState(0);
   const [extraRounds, setExtraRounds] = useState(false);
   const [generalPlayCom, setGeneralPlayCom] = useState(undefined);
   const [generalPlayPlayer, setGeneralPlayPlayer] = useState(undefined);
@@ -24,8 +25,9 @@ const MyProviderCombat = ({ children }) => {
   const [imagesPlayCom, setImagesPlayCom] = useState([backCardCom, backCardCom, backCardCom]);
   const [imagesPlayPlayer, setImagesPlayPlayer] = useState([backCardPlayer, backCardPlayer, backCardPlayer]);
   const [interactiveTexts, setInteractiveTexts] = useState(`<p>Let's go for victory, Good Luck!!</p>`);
-  const [isActivateCount, setIsActivateCount] = useState(true);
+  const [isActivateCount, setIsActivateCount] = useState(false);
   const [isFirstRender, setIsFirstRender] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [messageFinal, setMessageFinal] = useState("");
   const [openModalFinal, setOpenModalFinal] = useState(false);
   const [pauseGeneralState, setPauseGeneralState ] = useState(trebol);
@@ -35,6 +37,7 @@ const MyProviderCombat = ({ children }) => {
   const [pointsRoundPlayer, setPointsRoundPlayer] = useState("0");
   const [positivePoint, setPositivePoint] = useState(true);
   const [positivePointCom, setPositivePointCom] = useState(true);
+  const [progressLoad, setProgressLoad] = useState(0);
   const [resultComState, setResultComState ] = useState(undefined);
   const [resultState, setResultState ] = useState(undefined);
   const [roundsWithoutAttackSpecialCom, setRoundsWithoutAttackSpecialCom] = useState(0);
@@ -43,8 +46,9 @@ const MyProviderCombat = ({ children }) => {
   const [startAction, setStartAction] = useState(false);
   const [stateCombat, setStateCombat] = useState(true);
   const [winnerCombat, setWinnerCombat] = useState({});
+  
 
-
+  
  return(
     <ContextCombat.Provider 
       value={{ 
@@ -55,6 +59,7 @@ const MyProviderCombat = ({ children }) => {
         comMark, setComMark,
         controlRoundsPrev, setControlRoundsPrev,
         controlRoundsState, setControlRoundsState,
+        currentPosition, setCurrentPosition,
         ctrlActionButtons, setCtrlActionButtons,
         extraRounds, setExtraRounds,
         imagesPlayCom, setImagesPlayCom,
@@ -65,6 +70,7 @@ const MyProviderCombat = ({ children }) => {
         generalPlayCom, setGeneralPlayCom,
         generalPlayPlayer, setGeneralPlayPlayer,
         historyItems, setHistoryItems,
+        loading, setLoading,
         messageFinal, setMessageFinal,
         openModalFinal, setOpenModalFinal,
         pauseGeneralState, setPauseGeneralState,
@@ -74,6 +80,7 @@ const MyProviderCombat = ({ children }) => {
         pointsRoundPlayer, setPointsRoundPlayer,
         positivePoint, setPositivePoint,
         positivePointCom, setPositivePointCom,
+        progressLoad, setProgressLoad,
         resultComState, setResultComState,
         resultState, setResultState,
         roundsWithoutAttackSpecialCom, setRoundsWithoutAttackSpecialCom,
