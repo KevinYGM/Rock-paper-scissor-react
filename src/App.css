@@ -88,13 +88,20 @@ li{
   position: relative;
   font-family: 'Orbitron', sans-serif;
   font-size: max(1.2rem, min(1vmax, 5rem));
-  transition: all 1000ms ease-in-out;
   cursor: pointer;
   user-select: none;
+  transition: all 1000ms ease-in-out;
+  animation: rotate-brand 8s linear infinite
 }
 
-.brand:hover{
-  transform: rotate3d(0, 1, 0, 360deg) scale(1.1);
+@keyframes rotate-brand {
+  0% {
+    transform: rotate3d(0, 0, 0, 360deg) scale(1.1);
+  }
+
+  100%{
+    transform: rotate3d(0, 1, 0, 360deg) scale(1.1);
+  }
 }
 
 /*---------------special class---------------------*/

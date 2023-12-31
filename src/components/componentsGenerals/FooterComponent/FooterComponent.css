@@ -14,7 +14,7 @@
 }
 
 /*------------Credits----------------------------*/
-.footer .credits{
+.footer .title-game{
   display: none;
 }
 
@@ -63,16 +63,28 @@
 
 /*------------Media Queries----------------------------*/
 @media (min-width: 700px) {
-  .footer .credits{
+  .footer .title-game{
     display: flex;
-    color: rgb(117, 103, 139);
-    font-size: max(1rem, min(1.4vw, 2rem));
+    justify-content: center;
+    align-items: center;
+    gap: 1vmax;
+    -webkit-text-stroke: 0.1vw rgb(127, 33, 190);
+    color: white;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.3vmax;
+    max-width: 30%;
+    transition: all 300ms ease-in-out;
   }
 
-  .footer .credits:hover{
-    cursor: pointer;
-    color: yellow;
+  .footer .title-game:hover{
+    transform:scale(1.2);
   }
+
+  .footer .title-game img{
+    width: 7%;
+    animation: rotation-infinity 5s linear infinite;
+  }
+
 
   .footer .social-media-container .social-media{
     width: 2vw;

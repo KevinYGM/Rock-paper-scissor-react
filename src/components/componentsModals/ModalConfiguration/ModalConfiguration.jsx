@@ -35,7 +35,7 @@ const restartRecordFunction = () => {
   localStorage.setItem('recordVictory', '0');
   localStorage.setItem('recordLose', '0');
 };
- 
+
 
 /*---------------- component JSX structure ---------------------- */ 
   return (

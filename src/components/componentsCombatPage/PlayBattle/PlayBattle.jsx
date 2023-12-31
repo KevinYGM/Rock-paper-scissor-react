@@ -178,7 +178,7 @@ useEffect(() => {
        {/*--------------Character Player--------------*/}
       <div className="character-player character">
         <div className="info-character info-character-player">
-        <p className="title-info">{characterPlayer.shortName} Information: </p>
+        <p className="title-info">{characterPlayer.shortName}'s Information: </p>
           <div className="container-power">
             <div className="power powerRock">
               {"🪨" + characterPlayer.powerRock}
@@ -256,6 +256,15 @@ useEffect(() => {
               ? 'rgb(134, 15, 202)' 
               : characterPlayer.iconType === "✌🏼"
               ? '#800808' 
+              : undefined,
+              
+              boxShadow:
+              characterPlayer.iconType === "✊🏼" 
+              ? '0 0 20px rgba(255, 255, 0, 0.5)'
+              : characterPlayer.iconType === "✋🏼"
+              ? '0 0 20px rgba(118, 5, 247, 0.5)' 
+              : characterPlayer.iconType === "✌🏼"
+              ? '0 0 20px rgba(247, 5, 5, 0.5)' 
               : undefined }}/>
       </div>
 
@@ -284,7 +293,16 @@ useEffect(() => {
             ? 'rgb(134, 15, 202)' 
             : characterCom.iconType === "✌🏼"
             ? 'rgb(255, 0, 0)' 
-            : undefined }} />
+            : undefined,
+            
+            boxShadow:
+            characterCom.iconType === "✊🏼" 
+            ? '0 0 20px rgba(255, 255, 0, 0.5)'
+            : characterCom.iconType === "✋🏼"
+            ? '0 0 20px rgba(118, 5, 247, 0.5)' 
+            : characterCom.iconType === "✌🏼"
+            ? '0 0 20px rgba(247, 5, 5, 0.5)' 
+            : undefined   }} />
       </div>
       
 
@@ -337,7 +355,7 @@ useEffect(() => {
         </div>
 
         <div className="info-character info-character-com">
-          <p className="title-info">{characterCom.shortName} Information: </p>
+          <p className="title-info">{characterCom.shortName}'s Information: </p>
           <div className="container-power">
             <div className="power powerRock">
               {"🪨" + characterCom.powerRock}
