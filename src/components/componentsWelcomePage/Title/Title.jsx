@@ -1,9 +1,12 @@
+/*Generals Imports*/
 import './Title.css';
 import React from 'react';
 
 /*Images*/
 import allHands from '../../../images/interfaz-images/all-hands.png';
 
+
+ /*---------------- component JSX structure ---------------------- */
 export const Title = () => {
   return (
     <div className="title">

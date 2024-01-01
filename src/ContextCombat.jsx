@@ -1,3 +1,4 @@
+/*Generals Imports*/
 import { createContext, useState } from 'react';
 
 /*Images*/

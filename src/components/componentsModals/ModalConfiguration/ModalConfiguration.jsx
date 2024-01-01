@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useRef, useEffect } from 'react';
 import './ModalConfiguration.css';
 import { MyGeneralContext } from '../../../MyGeneralContext';
 
@@ -6,7 +6,7 @@ import { MyGeneralContext } from '../../../MyGeneralContext';
 import paperRecord from '../../../sounds/handle-paper.mp3';
 
 
-export const ModalConfiguration = ({ openModalConfiguration }) => {
+export const ModalConfiguration = ({ openModalConfiguration, setOpenModalConfiguration }) => {
 
 /*--------------Data imported from useContext-------------------------*/
 const { adjustVolume,
@@ -14,12 +14,14 @@ const { adjustVolume,
         setRecordLose,
         setRecordVictory,
         volumeMusic,
-        volumeSounds
+        volumeSounds,
+        
       } = useContext(MyGeneralContext);
 
  /*-------------local States and Refs of this Component----------------------*/
 
  const [restartRecord, setRestartRecord] = useState(false);
+ const timerRef = useRef(null);
 
 
 /*---------- Function that contribute to the logic of component----------*/
@@ -37,10 +39,33 @@ const restartRecordFunction = () => {
 };
 
 
+/*---------- UseEffects that contribute to the logic of component-----*/
+
+useEffect(() => {
+  const handleOutsideClick = (event) => {
+    const modal = document.getElementById('configuration');
+
+    if (modal && openModalConfiguration && !modal.contains(event.target)) {
+      setOpenModalConfiguration(false);
+    }
+  };
+
+  timerRef.current = setTimeout(() => {
+    document.addEventListener('click', handleOutsideClick);
+  }, 100);
+
+  return () => {
+    clearTimeout(timerRef.current);
+    document.removeEventListener('click', handleOutsideClick);
+  };
+}, [openModalConfiguration, setOpenModalConfiguration]);
+
+
+
 /*---------------- component JSX structure ---------------------- */ 
   return (
     <>
-      <div className={`modal-configuration modal-IC ${openModalConfiguration ? 'show' : ''}`}>
+      <div id='configuration' className={`modal-configuration modal-IC ${openModalConfiguration ? 'show' : ''}`}>
         <span className="title-configuration modal-IC_title">
           <span>⚙️</span>
           configuration

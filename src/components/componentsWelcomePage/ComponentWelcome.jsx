@@ -1,3 +1,4 @@
+/*Generals Imports*/
 import React, { useState, useEffect, useContext } from 'react';
 import { MyGeneralContext } from '../../MyGeneralContext';
 
@@ -98,13 +99,13 @@ useEffect(() => {
 
 
 
-/*Efecto para cargar a RecordVictory Y RecordLose desde el localStorage */
+/*Effect to load RecordVictory AND RecordLose from localStorage */
 
 useEffect(() => {
   const storedRecordVictory = localStorage.getItem('recordVictory');
   const storedRecordLose = localStorage.getItem('recordLose');
 
-// Si hay valores en localStorage, los establecemos como estados iniciales
+// If there are values ​​in localStorage, we set them as initial states
   storedRecordVictory && (setRecordVictory(parseInt(storedRecordVictory, 10)));
   storedRecordLose && (setRecordLose(parseInt(storedRecordLose, 10)));
 

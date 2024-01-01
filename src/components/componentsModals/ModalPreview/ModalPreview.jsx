@@ -1,15 +1,21 @@
+/*Generals Imports*/
 import React, { useContext, useEffect } from 'react';
 import './ModalPreview.css';
 import { MyGeneralContext } from '../../../MyGeneralContext';
-import vs from '../../../images/interfaz-images/vs.png'
 import { ContextCombat } from '../../../ContextCombat';
 
-export const ModalPreview = () => {
+/*Images*/
+import vs from '../../../images/interfaz-images/vs.png'
 
+
+
+export const ModalPreview = () => {
+/*--------------Data imported from useContext------------------*/
   const { characterPlayer, characterCom } = useContext(MyGeneralContext);
   const { setIsActivateCount, loading, setLoading, progressLoad, setProgressLoad } = useContext(ContextCombat);
   
 
+/*UseEffect and functions that Contribuye with the logic of this component*/
 
   useEffect(() => {
     if(progressLoad < 10){
@@ -38,33 +44,31 @@ const renderProgressBarSpecial = (reference) => {
   };
 
   
-
+/*---------------- component JSX structure ---------------------- */   
   return (
     <>
-      {loading && (
-        <div className='modal-preview'>
-          <div className="frame-preview">
-            <div className="player">
-              <span className="name">{characterPlayer.name}</span>
-              <img src={characterPlayer.photo} alt="" />
-            </div>
-            <div className="vs">
-              <img src={vs} alt="" />
-              <div className="text-progress">Loading...</div>
-            </div>
-            <div className="com">
-              <span className="name">{characterCom.name}</span>
-              <img src={characterCom.photo} alt="" />
-            </div>
-            <div className="bar-charger-container">
-              <div className="bar-charger">
-                <div  className="bar"
-                      style={{width: renderProgressBarSpecial(progressLoad)}}></div>
-              </div>
+      <div className= {`modal-preview ${loading ? 'show' : ''}`}>
+        <div className="frame-preview">
+          <div className="player">
+            <span className="name">{characterPlayer.name}</span>
+            <img src={characterPlayer.photo} alt="" />
+          </div>
+          <div className="vs">
+            <img src={vs} alt="" />
+            <div className="text-progress">Loading...</div>
+          </div>
+          <div className="com">
+            <span className="name">{characterCom.name}</span>
+            <img src={characterCom.photo} alt="" />
+          </div>
+          <div className="bar-charger-container">
+            <div className="bar-charger">
+              <div  className="bar"
+                    style={{width: renderProgressBarSpecial(progressLoad)}}></div>
             </div>
           </div>
         </div>
-      )};
+      </div>
     </>
     
     

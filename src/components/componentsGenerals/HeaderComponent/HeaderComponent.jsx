@@ -1,9 +1,12 @@
+/*Generals Imports*/
 import React, { useContext, useState } from 'react'
 import './HeaderComponent.css';
+import { MyGeneralContext } from '../../../MyGeneralContext';
+
+/*Modals*/
 import { ModalInstructions } from '../../componentsModals/ModalInstructions/ModalInstructions';
 import { ModalConfiguration } from '../../componentsModals/ModalConfiguration/ModalConfiguration';
 import { ModalCredits } from '../../componentsModals/ModalCredits/ModalCredits';
-import { MyGeneralContext } from '../../../MyGeneralContext';
 
 /*Sounds*/
 import modalsSound from '../../../sounds/sound-1.mp3';

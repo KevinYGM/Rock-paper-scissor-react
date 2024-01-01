@@ -1,3 +1,4 @@
+/*Generals Imports*/
 import { createContext, useState } from 'react';
 
 /*Data*/
@@ -7,9 +8,10 @@ import { characters } from './data/charactersData';
 
 const MyGeneralContext = createContext();
 
+
 const MyProviderContext = ({ children }) => {
 
-   /*--------------------States Generals (Alphabetical Order)--------------------------- */
+   /*------------------States Generals (Alphabetical Order)------------------------ */
    const [characterCom, setCharacterCom] = useState({});
    const [characterPlayer, setCharacterPlayer] = useState({});
    const [counterPaper, setCounterPaper] = useState(0);
@@ -23,6 +25,8 @@ const MyProviderContext = ({ children }) => {
    const [userIsActive, setUserIsActive] = useState(false);
    const [volumeSounds, setVolumeSounds] = useState(50);
    const [volumeMusic, setVolumeMusic] = useState(50);
+
+  /*------------------Functions Generals------------------------------------------ */
  
  
    const adjustVolume = (newVolume) => {

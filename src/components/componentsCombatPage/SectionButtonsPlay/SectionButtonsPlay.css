@@ -256,20 +256,15 @@
 }
 
 .buttons-play-container .button-special-disabled img
-{
-  width: 35%;
-}
+{ width: 35%;}
 
-.buttons-play-container .surrender-disabled img{
-  width: 50%;
-}
+.buttons-play-container .surrender-disabled img
+{width: 50%;}
 
 .buttons-play-container .surrender-disabled{
   position: relative;
   z-index: 2;
 }
-
-
 
 .buttons-play-container .gray-layer{
   position: absolute;
@@ -299,7 +294,6 @@
   background: rgba(0, 0, 0, 0.699);
   border: 0.2vmax solid white;
   width: 150%;
-  
   color: rgb(238, 235, 235);
   padding: 0.5vmax;
   visibility: hidden;
@@ -381,6 +375,7 @@
   -webkit-text-stroke: 0.05vmax rgb(209, 176, 13);
 }
 
+/*Gray Layer (Disabled*/
 .gray-layer .support-base{
   position: absolute;
   top: -20%;
@@ -418,6 +413,7 @@
 }
 
 
+/*Available*/
 .buttons-play-container .available{
   position: absolute;
   font-family: 'Chakra Petch', sans-serif;
@@ -438,9 +434,6 @@
   opacity: 1;
   visibility: visible;
 }
-
-
-
 
 
 /*-------------Animation: Buttons---------------*/

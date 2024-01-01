@@ -95,6 +95,7 @@ export const ModalFinalGame = () => {
 /*---------- Function that contribute to the logic of component----------*/
   const playAgain = () => {
     setCurrentPosition(0);
+    setLoading(true);
     setImagesPlayCom([backCardCom, backCardCom, backCardCom]);
     setImagesPlayPlayer([backCardPlayer, backCardPlayer, backCardPlayer]);
     setGeneralPlayCom(undefined);
@@ -106,7 +107,6 @@ export const ModalFinalGame = () => {
     setStateCombat(true);
     setProgressLoad(0);
     setMessageFinal("");
-    setLoading(true);
     setComMark(0);
     setPlayerMark(0);
     setHistoryItems([]);
@@ -203,5 +203,5 @@ export const ModalFinalGame = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}

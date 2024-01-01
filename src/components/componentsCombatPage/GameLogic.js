@@ -1,3 +1,5 @@
+
+/*Images*/
 import tie from '../../images/interfaz-images/icon-tie.png';
 import victory from '../../images/interfaz-images/icon-victory.png';
 import lose from '../../images/interfaz-images/icon-lose.png';

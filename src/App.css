@@ -1,8 +1,5 @@
 
-
-
-
-/*---------------Generals Elements----------------------------------------*/
+/*---------------Generals Elements----------------------------------*/
 h1{
   font-size: max(3rem, min(7vw, 8rem));
 }
@@ -94,6 +91,8 @@ li{
   animation: rotate-brand 8s linear infinite
 }
 
+/*----------------Animations-------------------------------------*/
+
 @keyframes rotate-brand {
   0% {
     transform: rotate3d(0, 0, 0, 360deg) scale(1.1);
@@ -104,7 +103,7 @@ li{
   }
 }
 
-/*---------------special class---------------------*/
+/*------------------------Special Class-------------------------*/
 
 .horizontal-layout{
   transform: rotate(90deg);
@@ -134,7 +133,7 @@ li{
 }
 
 
-/*----effect-transition-with-React---*/
+/*----------Effect Transition With React-------------------*/
 
 
 /*Effect with opacity*/

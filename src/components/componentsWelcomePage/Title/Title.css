@@ -36,6 +36,8 @@
   animation: rotation-infinity 5s linear infinite;
 }
 
+/*Animations*/
+
 @keyframes rotation-infinity {
   0% {
     transform: rotate(0deg);

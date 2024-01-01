@@ -1,3 +1,4 @@
+/*Generals Imports*/
 import React, { useContext, useEffect } from 'react';
 import './ModalRound16.css';
 import { ContextCombat } from '../../../ContextCombat';
@@ -9,9 +10,11 @@ import { MyGeneralContext } from '../../../MyGeneralContext';
 
 
 export const ModalRound16 = () => {
-
+ /*--------------Data imported from useContext------------------*/
   const { controlRoundsState, extraRounds } = useContext(ContextCombat);
   const { volumeSounds } = useContext(MyGeneralContext);
+
+  /*UseEffect that Contribuye with the logic of this component*/
 
   useEffect(() => {
     if (extraRounds && controlRoundsState === 16) {
@@ -44,6 +47,7 @@ export const ModalRound16 = () => {
    },[ extraRounds ])
 
 
+  /*---------------- component JSX structure ---------------------- */   
 return (
     <div className="modal-round16">
       <span>Extra Rounds</span>

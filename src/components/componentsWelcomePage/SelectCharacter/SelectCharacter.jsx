@@ -1,7 +1,10 @@
+/*Generals Imports*/
 import './SelectCharacter.css';
 import React, { useState, useEffect, useContext, useRef } from 'react';
-import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import { MyGeneralContext } from '../../../MyGeneralContext';
+
+/*Effects Transition*/
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
 /*Sounds*/
 import selectCharacterSound from '../../../sounds/bip.mp3';
@@ -13,6 +16,9 @@ import { IoIosArrowDropleftCircle, IoIosArrowDroprightCircle  } from "react-icon
 import rock from '../../../images/interfaz-images/rock.png';
 import paper from '../../../images/interfaz-images/paper.png';
 import scissor from '../../../images/interfaz-images/scissor.png';
+
+
+
 
 export const SelectCharacter = ({ openModalCharacter }) => {
 

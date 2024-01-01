@@ -12,7 +12,13 @@ import frame from '../../../images/interfaz-images/frame-vector.png';
 export const PlayBattle = () => {
 
  /*--------------Data imported from useContext-------------------------*/
-  const { characterCom, characterPlayer, recordVictory, recordLose, setRecordLose, setRecordVictory} = useContext(MyGeneralContext);
+  const { 
+    characterCom, 
+    characterPlayer, 
+    recordVictory, 
+    recordLose, 
+    setRecordLose, 
+    setRecordVictory} = useContext(MyGeneralContext);
 
   const {
 

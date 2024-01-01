@@ -1,4 +1,7 @@
+/*Generals Imports*/
 import React, { useContext, useEffect, useState } from 'react';
+import { ContextCombat } from '../../ContextCombat';
+import { MyGeneralContext } from '../../MyGeneralContext';
 
 /*Components*/
 import { HeaderComponent } from '../componentsGenerals/HeaderComponent/HeaderComponent';
@@ -7,15 +10,12 @@ import { BattleHistory } from './BattleHistory/BattleHistory';
 import { PlayBattle } from './PlayBattle/PlayBattle';
 import { SectionButtonsPlay } from './SectionButtonsPlay/SectionButtonsPlay';
 import { FooterComponent } from '../componentsGenerals/FooterComponent/FooterComponent';
-import { ContextCombat } from '../../ContextCombat';
-import { MyGeneralContext } from '../../MyGeneralContext';
 
 /*Modals*/
 import { ModalFinalGame } from '../componentsModals/ModalFinalGame/ModalFinalGame';
 import { ModalPreview } from '../componentsModals/ModalPreview/ModalPreview';
 import { ModalCount } from '../componentsModals/ModalCount/ModalCount';
 import { ModalRound16 } from '../componentsModals/ModalRound16/ModalRound16';
-
 
 /*Sounds*/
 import backgroundCombat from '../../sounds/backgroundCombat.mp3';
@@ -25,6 +25,7 @@ import backgroundCombat from '../../sounds/backgroundCombat.mp3';
 
 export const ComponentCombat = () => {
 
+  /*----------Imports from useContext-----------------*/
   const { 
     volumeMusic,
     setCharacterCom,
@@ -39,7 +40,12 @@ export const ComponentCombat = () => {
     setRecordLose
     } = useContext(MyGeneralContext);
 
-  const {isActivateCount, loading, messageFinal, currentPosition, setCurrentPosition} = useContext(ContextCombat);
+  const {
+    isActivateCount, 
+    loading, 
+    messageFinal, 
+    currentPosition, 
+    setCurrentPosition} = useContext(ContextCombat);
 
   /*-------------local States and Refs of this Component---------------------------------*/
   const [isHorizontal, setIsHorizontal] = useState(false);

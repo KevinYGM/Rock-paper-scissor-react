@@ -1,8 +1,11 @@
-import React, { useContext, useEffect } from 'react'
-import { CSSTransition, SwitchTransition } from 'react-transition-group';
+/*Generals Imports*/
+import React, { useContext, useEffect } from 'react';
 import './Summary.css';
 import { MyGeneralContext } from '../../../MyGeneralContext';
 import { ContextCombat } from '../../../ContextCombat';
+
+/*Efects Transition*/
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
 /*Images*/
 import vs from '../../../images/interfaz-images/vs.png'; 
@@ -25,7 +28,6 @@ export const Summary = () => {
     playerMark, 
     positivePoint, 
     positivePointCom, 
-    
     } = useContext(ContextCombat);
 
 

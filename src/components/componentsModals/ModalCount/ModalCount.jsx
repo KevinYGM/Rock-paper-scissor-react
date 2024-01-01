@@ -31,7 +31,7 @@ export const ModalCount = () => {
     useEffect(() => {
     if(isActivateCount){
       const animationInterval = setInterval(() => {
-        setCurrentCountIndex((prevIndex) => (prevIndex + 1) % initialCount.length);
+        setCurrentCountIndex((prevIndex) => (prevIndex + 1));
       }, 1100);
 
       const audioCount = new Audio(countSound);
@@ -47,9 +47,21 @@ export const ModalCount = () => {
 
 
   useEffect(() => {
-    initialCount[currentCountIndex] === "" && (setIsActivateCount(false));
+    if (initialCount[currentCountIndex] === "") {
+      setIsActivateCount(false);
+      // setCurrentCountIndex(0);
+    }
+
   // eslint-disable-next-line 
   },[currentCountIndex]);
+
+  useEffect(() => {
+    if(!isActivateCount){
+      setTimeout(() => {
+        setCurrentCountIndex(0);
+      },5000)
+    }
+  },[isActivateCount])
   
  /*---------------- component JSX structure ---------------------- */  
   return (

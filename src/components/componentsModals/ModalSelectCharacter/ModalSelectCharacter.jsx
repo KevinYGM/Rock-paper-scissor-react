@@ -1,3 +1,4 @@
+/*Generals Imports*/
 import React, { useContext } from 'react';
 import './ModalSelectCharacter.css';
 import { Link } from 'react-router-dom';
@@ -10,7 +11,7 @@ import confirmCharacterSound from '../../../sounds/confirmCharacter.mp3';
 
 export const ModalSelectCharacter = ({ openModalCharacter, setOpenModalCharacter }) => {
 
-  /*--------------Data imported from MyContext-------------------------*/
+  /*--------------Data imported from useContext-------------------------*/
   const { characters, 
           characterPlayer,
           volumeSounds,

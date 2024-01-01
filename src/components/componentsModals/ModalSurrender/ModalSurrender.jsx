@@ -1,3 +1,4 @@
+/*Generals Imports*/
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './ModalSurrender.css';
@@ -16,11 +17,11 @@ export const ModalSurrender = ({ openModalSurrender, setOpenModalSurrender }) =>
           setStateCombat} = useContext(ContextCombat);
 
 
-
+/*Variables of this Component*/
 const newRecordLose = recordLose + 1;
 
 
-          /*-----------Functions that contribute to the logic of this Component-------------------- */
+/*-----------Functions that contribute to the logic of this Component-------------------- */
 
   const surrender = () => {
     setRecordLose(newRecordLose);

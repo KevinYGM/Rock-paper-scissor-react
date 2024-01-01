@@ -1,9 +1,14 @@
+/*Generals Imports*/
 import React from 'react'
 import './FooterComponent.css';
+
+/*React Icons*/
 import { FaLinkedinIn } from "react-icons/fa6";
 import { FaXTwitter } from "react-icons/fa6";
 import { BsGithub } from "react-icons/bs";
 import { FaBriefcase } from "react-icons/fa";
+
+/*Images*/
 import allHands from '../../../images/interfaz-images/all-hands.png'
 
 export const FooterComponent = () => {

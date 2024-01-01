@@ -1,3 +1,4 @@
+/*Generals Imports*/
 import React, { useEffect, useState, useRef, useContext} from 'react';
 import './SectionButtonsPlay.css';
 import { MyGeneralContext } from '../../../MyGeneralContext';
@@ -72,9 +73,8 @@ export const SectionButtonsPlay = () => {
     setInteractiveTexts,
     setPositivePoint,
     setPositivePointCom,
-    setStartAction,
-    
-  } = useContext(ContextCombat);
+    setStartAction
+    } = useContext(ContextCombat);
 
 
 /*-------------local States and Refs of this Component---------------------------------*/

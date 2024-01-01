@@ -1,3 +1,4 @@
+/*Generals Imports*/
 import './App.css';
 import React from 'react';
 import {Routes, Route, BrowserRouter} from 'react-router-dom';
@@ -19,15 +20,13 @@ function App() {
                 element={<ComponentWelcome />} />
 
         <Route  path='/combat' 
-                element={
-                  <MyProviderCombat>
-                    <ComponentCombat />
-                  </MyProviderCombat>
-                } />
+                element={ <MyProviderCombat>
+                          <ComponentCombat />
+                          </MyProviderCombat>
+                        } />
 
       </Routes>
     </BrowserRouter>
-  )
-}
+  )}
 
 export default App;

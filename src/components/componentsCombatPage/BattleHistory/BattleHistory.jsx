@@ -1,3 +1,4 @@
+/*Generals Imports*/
 import React, { useContext, useState } from 'react';
 import './BattleHistory.css';
 import { MyGeneralContext } from '../../../MyGeneralContext';

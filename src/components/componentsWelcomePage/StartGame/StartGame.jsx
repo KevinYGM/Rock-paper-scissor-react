@@ -1,3 +1,4 @@
+/*Generals Imports*/
 import './StartGame.css';
 import React, { useContext, useEffect } from 'react';
 import {Link} from 'react-router-dom';
@@ -9,10 +10,14 @@ import sword from '../../../images/interfaz-images/sword.png';
 /*Sounds*/
 import swordsSound from '../../../sounds/swords.mp3';
 
+
+
 export const StartGame = ({ openModalCharacter, setOpenModalCharacter }) => {
 
   /*--------------Data imported from useContext-------------------------*/
   const { recordVictory, recordLose, userIsActive, setUserIsActive, volumeSounds } = useContext(MyGeneralContext);
+
+/*Functions that contribuye to the logic of this Component */
 
 
   const openConfirmCharacter = () => {

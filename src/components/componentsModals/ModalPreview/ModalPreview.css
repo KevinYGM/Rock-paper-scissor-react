@@ -1,7 +1,7 @@
 .modal-preview{
   position: absolute;
   z-index:10;
-  top: 50%;
+  top: 45%;
   left: 50%;
   width: 120%;
   height: 120%;
@@ -13,6 +13,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease-in-out;
+}
+
+.modal-preview.show {
+  opacity: 1;
+  visibility: visible;
 }
 
 .modal-preview .frame-preview{
@@ -25,6 +33,7 @@
   border-image: var(--color-summary);
   border-image-slice: 1;
   border-style: solid;
+  align-items: flex-end;
 }
 
 .modal-preview img{
@@ -36,32 +45,37 @@
   grid-column: 2 / 3;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+  display: grid;
+  grid-template-rows: 80% 20%;
 }
 
 .modal-preview .vs img{
-  animation: pulse-infinity 2s infinite;
+  align-self: flex-end;
+  animation: pulse-infinity 6s infinite;
 }
 
 .modal-preview .text-progress{
+  align-self: flex-end;
+  justify-self: center;
   font-size: 4vmax;
+  text-shadow: 2px 2px 4px rgba(236, 236, 236, 0.46);
+  background: var(--gradient-silver);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .modal-preview .player,
 .modal-preview .com{
   grid-row: 1 / 2;
   width: 100%;
-  height: 100%;
+  height: 90%;
   padding: 0.7vmax;
   padding-bottom: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  gap: 2vmax;
 }
 
 .modal-preview .com{
@@ -74,6 +88,11 @@
 
 .frame-preview .name{
   font-size: 4.2vmax;
+  text-shadow: 2px 2px 4px rgba(236, 236, 236, 0.46);
+  background: var(--gradient-silver);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .frame-preview .bar-charger-container{
@@ -90,7 +109,7 @@
 .bar-charger-container .bar-charger{
   background: linear-gradient(#00ccff, #0e1538, #0e1538, #d400d4);
   width: 98%;
-  height: 77%;
+  height: 65%;
   border-radius: 5vmax;
   overflow: hidden;
 }
@@ -98,15 +117,14 @@
 .bar-charger .bar{
   background: var(--background-summary);
   height: 100%;
-  width: 80%;
   border-radius: 5vmax;
   transition: all 300ms ease-in-out;
 }
 
-
+/*Animations*/
 @keyframes pulse-infinity {
   0% {
-    transform: scale(1.2);
+    transform: scale(1.07);
   }
 
   50%{
@@ -114,7 +132,14 @@
   }
 
   100% {
-    transform: scale(1.2);
+    transform: scale(1.07);
+  }
+}
+
+/*Media Queries*/
+@media (min-width: 700px){
+  .modal-preview{
+    top: 50%;
   }
 }
 

@@ -67,7 +67,7 @@
 }
 
 
-/*---------------------Animation Icons------------------------*/
+/*---------------------Animations------------------------*/
 @keyframes rotation-infinity-inverse {
   0% {
     transform: rotate(360deg) scale(1.5);

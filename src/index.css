@@ -1,6 +1,5 @@
 
 /*-----------Fonts Imports----------------------------*/
-
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Collegiate+One:ital@1&family=Mukta:wght@300;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@500&display=swap');
@@ -12,8 +11,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500;700&display=swap');
-/*----------Variables Root--------------------------------*/
 
+/*----------Variables Root--------------------------------*/
 :root{
   /*-------Colors----------------*/
   --main-color: rgb(2 2 26);
@@ -30,7 +29,6 @@
   --color-element-rps: radial-gradient(circle, rgb(245, 30, 180) 20% , rgb(104, 8, 160) 70%);
   --color-summary: linear-gradient(45deg, rgb(165, 13, 34), rgb(207, 112, 22), yellow, rgb(207, 112, 22), rgb(165, 13, 34));
   --background-startGame-hover: linear-gradient(to bottom, yellow, rgb(207, 112, 22), rgb(165, 13, 34), rgb(207, 112, 22),yellow);
-
   --color-history-active: radial-gradient(circle, rgb(165, 13, 34), rgb(207, 112, 22), yellow, rgb(207, 112, 22), rgb(165, 13, 34));
   --gradient-yellow: linear-gradient(rgb(102, 104, 7), rgb(189, 192, 15), rgb(248, 252, 20), rgb(189, 192, 15), rgb(102, 104, 7));
   --gradient-red: linear-gradient(rgb(100, 5, 5), rgb(201, 19, 19), rgb(247, 18, 18), rgb(201, 19, 19), rgb(100, 5, 5));
@@ -52,6 +50,7 @@
   --bar-green: linear-gradient(to left, rgb(19, 119, 10),rgb(32, 187, 18), rgb(35, 235, 17), rgb(32, 187, 18), rgb(19, 119, 10));
   --bar-blue: linear-gradient(to left, rgba(5, 3, 41), rgba(13, 8, 104), rgba(49, 19, 221), rgba(13, 8, 104), rgba(5, 3, 41));
   --bar-red: linear-gradient(to left, rgb(100, 5, 5), rgb(201, 19, 19), rgb(247, 18, 18), rgb(201, 19, 19), rgb(100, 5, 5));
+  
   /*-------Effects----------------*/
   --x: 45deg;
 }

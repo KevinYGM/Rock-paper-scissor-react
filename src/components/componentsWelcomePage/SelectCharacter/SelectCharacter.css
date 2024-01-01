@@ -118,7 +118,7 @@
   height: 100%;
 }
 
-    /*----------------Section: Back Image: Descriptive Container------------------*/
+/*-------------Section: Back Image: Descriptive Container-----------*/
 .back-image .descriptive-container{
   position: absolute;
   display: flex;
@@ -206,7 +206,7 @@
   height: 80%;
 }
 
-          /*----------------Section: Back Image: Text Description------------------*/
+  /*----------------Section: Back Image: Text Description------------------*/
 
 .back-image .text-description{
   position: absolute;
