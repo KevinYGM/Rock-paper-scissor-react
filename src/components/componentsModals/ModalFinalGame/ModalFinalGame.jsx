@@ -81,6 +81,7 @@ export const ModalFinalGame = () => {
     characterCom,
     characterPlayer,
     volumeMusic,
+    volumeSounds,
 
     /*Only Updaters (Alphabetical Order)*/
     setCounterPaper,
@@ -148,8 +149,8 @@ export const ModalFinalGame = () => {
       audioBackground.pause();
       }
     }else{
-      audioVictoryVoice.volume = volumeMusic / 100;
-      audioVictory.volume = volumeMusic / 100;
+      audioVictoryVoice.volume = volumeSounds / 100;
+      audioVictory.volume = volumeMusic / 100 / 1.3;
       audioVictoryVoice.play();
       audioVictory.play();
       audioVictory.addEventListener('ended', handleEndedAudio);
@@ -191,7 +192,9 @@ export const ModalFinalGame = () => {
           </div>
         </div>
         <div className="img-winner">
-          <img src={winnerCombat.winnerPhoto} alt={winnerCombat.name + "Winner"} />
+          <img style={{animation: winnerCombat === characterPlayer ? 'pulse-infinity 2s infinite' : undefined }} 
+              src={winnerCombat.winnerPhoto} 
+              alt={winnerCombat.name + "Winner"} />
         </div>
         <div className="container-buttons">
           <Link to= '/'

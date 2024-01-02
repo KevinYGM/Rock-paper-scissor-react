@@ -99,18 +99,17 @@ useEffect(() => {
             </div>
             <div className="number-volume volume-sounds">{volumeSounds + "%"}</div>
           </div>
-          {!restartRecord ?
-          (<>
-              <span className="restart-record"> Record Configuration</span>
-              <button 
-                  className="btn-restart-record"
-                  onClick={() => {setRestartRecord(true); 
-                                  console.log(restartRecord)}}>Restart Record</button>
-                              </>)
-          :
-          (<>
-            <span className="restart-record"> Are You Sure?</span>
-            <div className="container-btn-record">
+          
+          <>
+            <span className={`restart-record ${!restartRecord ? 'show' : ''}`}> Record Configuration</span>
+            <button 
+                className={`btn-restart-record ${!restartRecord ? 'show' : ''}`}
+                onClick={() => {setRestartRecord(true); 
+                                console.log(restartRecord)}}>Restart Record</button>
+
+
+            <span className={`restart-record ${restartRecord ? 'show' : ''}`}> Are You Sure?</span>
+            <div className={`container-btn-record ${restartRecord ? 'show' : ''}`}>
               <button 
                   className="btn-confirm-yes"
                   onClick={ restartRecordFunction }>Yes, Restart</button>
@@ -118,7 +117,14 @@ useEffect(() => {
                   className="btn-confirm-no"
                   onClick={() => {setRestartRecord(false)}}>No, Go Back</button>
             </div>
-                            </>)}
+          </>
+          
+            
+          
+
+
+
+
         </div>    
       </div>
     </>

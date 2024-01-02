@@ -148,6 +148,24 @@ input[type="range"]::-moz-range-thumb {
   cursor: pointer;
 }
 
+
+
+/*--------------Restart Record------------------------*/
+.configuration-content .restart-record{
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.configuration-content .restart-record.show{
+  opacity: 1;
+  visibility: visible;
+  display: block;
+}
+
+
+
 .configuration-content .btn-restart-record{
   width: 90%;
   height: 10%;
@@ -157,7 +175,16 @@ input[type="range"]::-moz-range-thumb {
   border: none;
   background: var(--background-summary);
   font-size: 1.8vmax;
-  transition: all 0.3s ease-in-out;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease-in-out;
+}
+
+.configuration-content .btn-restart-record.show{
+  opacity: 1;
+  visibility: visible;
+  display: block;
 }
 
 .configuration-content .btn-restart-record:hover{
@@ -177,7 +204,19 @@ input[type="range"]::-moz-range-thumb {
   display: flex;
   justify-content: center;
   gap: 1vmax;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease-in-out;
 }
+
+.configuration-content .container-btn-record.show{
+  opacity: 1;
+  visibility: visible;
+  display: block;
+}
+
+
 .container-btn-record .btn-confirm-yes,
 .container-btn-record .btn-confirm-no{
   width: 50%;
