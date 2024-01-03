@@ -51,7 +51,7 @@
 
 .modal-preview .vs img{
   align-self: flex-end;
-  animation: pulse-infinity 6s infinite;
+  animation: pulse-infinity-preview 5s infinite;
 }
 
 .modal-preview .text-progress{
@@ -122,9 +122,9 @@
 }
 
 /*Animations*/
-@keyframes pulse-infinity {
+@keyframes pulse-infinity-preview {
   0% {
-    transform: scale(1.07);
+    transform: scale(1.10);
   }
 
   50%{
@@ -132,7 +132,7 @@
   }
 
   100% {
-    transform: scale(1.07);
+    transform: scale(1.10);
   }
 }
 

@@ -192,7 +192,7 @@ export const ModalFinalGame = () => {
           </div>
         </div>
         <div className="img-winner">
-          <img style={{animation: winnerCombat === characterPlayer ? 'pulse-infinity 2s infinite' : undefined }} 
+          <img style={{animation: winnerCombat === characterPlayer ? 'pulse-infinity-final 2s infinite' : undefined }} 
               src={winnerCombat.winnerPhoto} 
               alt={winnerCombat.name + "Winner"} />
         </div>

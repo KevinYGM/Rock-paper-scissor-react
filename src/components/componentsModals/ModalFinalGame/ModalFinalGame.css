@@ -151,9 +151,9 @@
 }
 
 
-@keyframes pulse-infinity {
+@keyframes pulse-infinity-final {
   0% {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 
   50%{
@@ -161,7 +161,7 @@
   }
 
   100% {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 }
 

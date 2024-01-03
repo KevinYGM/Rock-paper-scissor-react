@@ -47,7 +47,7 @@ const renderProgressBarSpecial = (reference) => {
 /*---------------- component JSX structure ---------------------- */   
   return (
     <>
-      <div className= {`modal-preview ${loading ? 'show' : ''}`}>
+      <div className= {`modal-preview ${loading ? 'show' : 'show'}`}>
         <div className="frame-preview">
           <div className="player">
             <span className="name">{characterPlayer.name}</span>
