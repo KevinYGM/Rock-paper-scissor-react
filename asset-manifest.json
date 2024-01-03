@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Rock-paper-scissor-react/static/css/main.855fbd8a.css",
-    "main.js": "/Rock-paper-scissor-react/static/js/main.40a451af.js",
+    "main.css": "/Rock-paper-scissor-react/static/css/main.13d164cc.css",
+    "main.js": "/Rock-paper-scissor-react/static/js/main.c32bb36a.js",
     "static/media/backgroundCombat.mp3": "/Rock-paper-scissor-react/static/media/backgroundCombat.a2738a4d9506fdd22ec7.mp3",
     "static/media/backgroundWelcome.mp3": "/Rock-paper-scissor-react/static/media/backgroundWelcome.5d346c306dd6771a1df0.mp3",
     "static/media/electronic-drum.mp3": "/Rock-paper-scissor-react/static/media/electronic-drum.90c9d44646c7dba072c6.mp3",
@@ -67,11 +67,11 @@
     "static/media/icon-lose.png": "/Rock-paper-scissor-react/static/media/icon-lose.5839ae9a4c2d36412e1f.png",
     "static/media/icon-victory.png": "/Rock-paper-scissor-react/static/media/icon-victory.4f20db43a9bfd5ace40e.png",
     "index.html": "/Rock-paper-scissor-react/index.html",
-    "main.855fbd8a.css.map": "/Rock-paper-scissor-react/static/css/main.855fbd8a.css.map",
-    "main.40a451af.js.map": "/Rock-paper-scissor-react/static/js/main.40a451af.js.map"
+    "main.13d164cc.css.map": "/Rock-paper-scissor-react/static/css/main.13d164cc.css.map",
+    "main.c32bb36a.js.map": "/Rock-paper-scissor-react/static/js/main.c32bb36a.js.map"
   },
   "entrypoints": [
-    "static/css/main.855fbd8a.css",
-    "static/js/main.40a451af.js"
+    "static/css/main.13d164cc.css",
+    "static/js/main.c32bb36a.js"
   ]
 }
