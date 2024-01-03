@@ -52,6 +52,8 @@ export const ComponentCombat = () => {
   
   
   useEffect(() => {
+    /*Modify the orientation when the device is a cell phone so that it is always horizontal*/
+
   const handleOrientationChange = () => {
     const isLandscape = window.matchMedia('(orientation: landscape)').matches;
     setIsHorizontal(isLandscape);
