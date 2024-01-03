@@ -118,13 +118,6 @@ useEffect(() => {
                   onClick={() => {setRestartRecord(false)}}>No, Go Back</button>
             </div>
           </>
-          
-            
-          
-
-
-
-
         </div>    
       </div>
     </>

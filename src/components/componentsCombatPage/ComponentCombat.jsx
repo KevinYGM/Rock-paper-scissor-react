@@ -50,24 +50,29 @@ export const ComponentCombat = () => {
   /*-------------local States and Refs of this Component---------------------------------*/
   const [isHorizontal, setIsHorizontal] = useState(false);
   
-
-  /*---------------- UseEffects dedicated to design---------------------- */ 
+  
   useEffect(() => {
-    /* function to change the rotation of the component.*/
-    const handleOrientationChange = () => {
-      const { innerWidth, innerHeight } = window;
-      const isLandscape = innerWidth > innerHeight || innerHeight - innerWidth < 100;
-      setIsHorizontal(isLandscape);
-    };
+  const handleOrientationChange = () => {
+    const isLandscape = window.matchMedia('(orientation: landscape)').matches;
+    setIsHorizontal(isLandscape);
+  };
 
-    window.addEventListener('orientationchange', handleOrientationChange);
-    
+  const handleResize = () => {
     handleOrientationChange();
+  };
 
-    return () => {
-      window.removeEventListener('orientationchange', handleOrientationChange);
-    };
-  }, []);
+  window.addEventListener('orientationchange', handleOrientationChange);
+  window.addEventListener('resize', handleResize);
+
+  handleOrientationChange();
+
+  return () => {
+    window.removeEventListener('orientationchange', handleOrientationChange);
+    window.removeEventListener('resize', handleResize);
+  };
+}, []);
+
+
 
 /*-------------Variables of this Component---------------------------------*/
     const backgroundCombatSound = new Audio(backgroundCombat);
