@@ -24,6 +24,7 @@ export const FooterComponent = () => {
       </div>
 
       <span className='title-game'>ROCK, PAPER OR SCISSOR <img src={allHands} alt="" /></span>
+      <span className='rights'> 2023 © All Rights Reserved.</span>
       
       <span className='brand'>KYGM APP</span>
      </footer>

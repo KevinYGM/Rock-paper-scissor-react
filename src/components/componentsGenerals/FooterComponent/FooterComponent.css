@@ -85,6 +85,12 @@
     animation: rotation-infinity 5s linear infinite;
   }
 
+  .footer .rights{
+    color: white;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.3vmax;
+  }
+
 
   .footer .social-media-container .social-media{
     width: 2vw;
