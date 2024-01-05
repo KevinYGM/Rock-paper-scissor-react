@@ -1,3 +1,33 @@
+# Rock, Paper or Scissor
+
+Game based on the logic of the classic "Rock, Paper or Scissors", with many Surprises that make it a Different Game!!
+
+![RPS_INICIO-COMBATE](https://github.com/KevinYGM/Rock-paper-scissor-react/assets/120622650/83f2564c-80e3-49e7-b6dd-81bd83644543)
+
+# Select your character
+
+You can choose between several characters with different characteristics, choose the one you like the most.
+
+
+![RPS_CONFIRMACION-PERSONAJE](https://github.com/KevinYGM/Rock-paper-scissor-react/assets/120622650/8794912c-8414-457a-9961-44a6042b224a)
+
+# Loading Screen
+
+Once your characters are selected, you will be able to see a nice loading screen while the combat loads.
+
+![RPS_LOADING](https://github.com/KevinYGM/Rock-paper-scissor-react/assets/120622650/07a3092c-102a-4165-a262-c45fb58b8545)
+
+# Combat Section
+
+You will be able to enjoy an interesting strategy combat based on the rules of Rock, Paper, Scissors, with perhaps a few more rules...
+
+![RPS-VENTANA-VICTORIA](https://github.com/KevinYGM/Rock-paper-scissor-react/assets/120622650/a8a56376-fc85-452c-9ea6-3d6535db9fe0)
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
